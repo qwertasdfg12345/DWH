@@ -1,0 +1,8 @@
+{
+    "kz.DI.ERP.Synonyms::Tables": {
+        "target": {
+            "object": "TABLES",
+            "schema": "SYS"
+        }
+    }
+}
