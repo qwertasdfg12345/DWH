@@ -1,7 +1,7 @@
 {
     "kz.DI.ERP::V_P_Business_flow_form": {
         "target": {
-            "remote": "ERP_MSSQL",
+            "remote": "ERP_MSSSQL_Test",
             "database": "<NULL>",
             "schema": "dbo",
             "object": "P_Business_flow_form"
@@ -9,7 +9,7 @@
     },
     "kz.DI.ERP::V_C_Organization": {
         "target": {
-            "remote": "ERP_MSSQL",
+            "remote": "ERP_MSSSQL_Test",
             "database": "<NULL>",
             "schema": "dbo",
             "object": "C_Organization"

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_0001_CASE_INCOME" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CAL_0001_CASE_INCOME"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_B_Case">
+    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CaseFormPlan">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="HeSuanBa"/>
+      <viewAttribute id="GuanHeFaYuan"/>
+      <viewAttribute id="KaiTaYuJiShouYiAnJianZhunBeiJieDuanShouYi"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="BusinessFlowForm" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+    <filter>&quot;P_Business_flow_form_status&quot; IN (201, 262)</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Case" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_nature"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_regionCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_B_Case"/>
+    <filter>&quot;B_Case_nature&quot; IN (147, 1123)</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="getBusinessFlowForm" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="HeSuanBa"/>
+      <viewAttribute id="GuanHeFaYuan"/>
+      <viewAttribute id="KaiTaYuJiShouYiAnJianZhunBeiJieDuanShouYi" aggregationType="sum"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute hidden="true" id="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CaseFormPlan">
+      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="HeSuanBa"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GuanHeFaYuan" source="GuanHeFaYuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KaiTaYuJiShouYiAnJianZhunBeiJieDuanShouYi" source="KaiTaYuJiShouYiAnJianZhunBeiJieDuanShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code" source="P_Business_Flow_Form_code"/>
+    </input>
+    <input node="BusinessFlowForm">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+    </input>
+    <joinAttribute name="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="getCase" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="HeSuanBa"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="GuanHeFaYuan"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="KaiTaYuJiShouYiAnJianZhunBeiJieDuanShouYi" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$P_Business_flow_form_projectCode$B_Case_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_Area" datatype="NVARCHAR" length="20" expressionLanguage="SQL">
+        <formula>'建材'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="getBusinessFlowForm">
+      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="HeSuanBa"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GuanHeFaYuan" source="GuanHeFaYuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KaiTaYuJiShouYiAnJianZhunBeiJieDuanShouYi" source="KaiTaYuJiShouYiAnJianZhunBeiJieDuanShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$B_Case_code" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <input node="Case">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$B_Case_code" source="B_Case_code"/>
+    </input>
+    <joinAttribute name="JOIN$P_Business_flow_form_projectCode$B_Case_code"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="getCase">
+  <attributes>
+    <attribute id="Org" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="组织"/>
+      <keyMapping columnObjectName="getCase" columnName="HeSuanBa"/>
+    </attribute>
+    <attribute id="Appr_Date" order="2">
+      <descriptions defaultDescription="日期"/>
+      <keyMapping columnObjectName="getCase" columnName="P_Business_flow_form_factEndTime"/>
+    </attribute>
+    <attribute id="CC_Area" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="区域"/>
+      <keyMapping columnObjectName="getCase" columnName="CC_Area"/>
+    </attribute>
+    <attribute id="Cust" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户"/>
+      <keyMapping columnObjectName="getCase" columnName="B_Case_customerCode"/>
+    </attribute>
+    <attribute id="Court" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="法院"/>
+      <keyMapping columnObjectName="getCase" columnName="GuanHeFaYuan"/>
+    </attribute>
+    <attribute id="Case_NM" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件"/>
+      <keyMapping columnObjectName="getCase" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="Case_Type" order="7">
+      <descriptions defaultDescription="案件类型"/>
+      <keyMapping columnObjectName="getCase" columnName="B_Case_type"/>
+    </attribute>
+    <attribute id="RegionCode" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所"/>
+      <keyMapping columnObjectName="getCase" columnName="B_Case_regionCode"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="Amount" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="案件准备阶段收益"/>
+      <measureMapping columnObjectName="getCase" columnName="KaiTaYuJiShouYiAnJianZhunBeiJieDuanShouYi"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="326.6278792398752" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="CaseFormPlan" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="501.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="BusinessFlowForm" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302.00000000000006" y="501.9999976158142"/>
+      <rectangleSize height="30" width="156"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Case" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="394.5149427219628" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="getBusinessFlowForm" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="118.66666666666669" y="360.3333321412405"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="CaseFormPlan" modelObjectNameSpace="getBusinessFlowForm" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="319.3955078125"/>
+    </shape>
+    <shape modelObjectName="BusinessFlowForm" modelObjectNameSpace="getBusinessFlowForm" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="500" y="41"/>
+      <rectangleSize width="265.3408203125"/>
+    </shape>
+    <shape expanded="true" modelObjectName="getCase" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="326.6278792398752" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="getBusinessFlowForm" modelObjectNameSpace="getCase" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="319.3955078125"/>
+    </shape>
+    <shape modelObjectName="Case" modelObjectNameSpace="getCase" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="612" y="60"/>
+      <rectangleSize width="100"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
