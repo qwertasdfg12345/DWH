@@ -1,3 +1,6 @@
 [
-    "src/DI/ERP/V_B_Case.hdbvirtualtable"
+    "src/DI/ERP/V_B_Case.hdbvirtualtable",
+    "src/DI/ERP/Tables/SDI_Log.hdbtable",
+    "src/DI/ERP/Procedures/DataExtractDelta_0001.hdbprocedure",
+    "src/DI/ERP/Procedures/DataExtractDelta.hdbprocedure"
 ]
