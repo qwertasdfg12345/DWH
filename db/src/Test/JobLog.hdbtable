@@ -1,0 +1,4 @@
+COLUMN TABLE "kz.Test::JobLog" (
+    "START_TIME" TIMESTAMP COMMENT '运行开始时间'
+)
+COMMENT 'Job测试日志表'

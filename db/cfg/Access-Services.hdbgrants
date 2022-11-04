@@ -31,6 +31,18 @@
                     ]
                 },
                 {
+                    "name": "ERP_MSSQL_ReportCenter",
+                    "type": "REMOTE SOURCE",
+                    "privileges": [
+                        "CREATE VIRTUAL TABLE",
+                        "CREATE VIRTUAL FUNCTION",
+                        "CREATE REMOTE SUBSCRIPTION",
+                        "PROCESS REMOTE SUBSCRIPTION EXCEPTION",
+                        "ALTER",
+                        "DROP"
+                    ]
+                },
+                {
                     "name": "ERP_MSSSQL_Test",
                     "type": "REMOTE SOURCE",
                     "privileges": [
@@ -60,6 +72,18 @@
             "global_object_privileges": [
                 {
                     "name": "ERP_MSSQL",
+                    "type": "REMOTE SOURCE",
+                    "privileges": [
+                        "CREATE VIRTUAL TABLE",
+                        "CREATE VIRTUAL FUNCTION",
+                        "CREATE REMOTE SUBSCRIPTION",
+                        "PROCESS REMOTE SUBSCRIPTION EXCEPTION",
+                        "ALTER",
+                        "DROP"
+                    ]
+                },
+                {
+                    "name": "ERP_MSSQL_ReportCenter",
                     "type": "REMOTE SOURCE",
                     "privileges": [
                         "CREATE VIRTUAL TABLE",

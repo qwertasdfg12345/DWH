@@ -1,0 +1,4 @@
+VIRTUAL TABLE "kz.DI.ERP::V_DashboardDataSource" AT "ERP_MSSQL"
+      ."<NULL>"
+      ."dbo"
+      ."DashboardDataSource"
