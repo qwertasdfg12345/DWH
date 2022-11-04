@@ -1,4 +1,4 @@
-VIRTUAL TABLE "kz.DI.ERP::V_F_Form" AT "ERP_MSSSQL_Test"
+VIRTUAL TABLE "kz.DI.ERP::V_F_Form" AT "ERP_MSSQL"
       ."<NULL>"
       ."dbo"
       ."F_Form" 

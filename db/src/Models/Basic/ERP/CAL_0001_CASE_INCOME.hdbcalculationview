@@ -114,7 +114,7 @@
       <descriptions defaultDescription="组织"/>
       <keyMapping columnObjectName="getCase" columnName="HeSuanBa"/>
     </attribute>
-    <attribute id="Appr_Date" order="2">
+    <attribute id="Appr_Date" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="日期"/>
       <keyMapping columnObjectName="getCase" columnName="P_Business_flow_form_factEndTime"/>
     </attribute>
@@ -134,7 +134,7 @@
       <descriptions defaultDescription="案件"/>
       <keyMapping columnObjectName="getCase" columnName="B_Case_number"/>
     </attribute>
-    <attribute id="Case_Type" order="7">
+    <attribute id="Case_Type" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件类型"/>
       <keyMapping columnObjectName="getCase" columnName="B_Case_type"/>
     </attribute>
@@ -157,43 +157,43 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="326.6278792398752" y="112"/>
+      <upperLeftCorner x="326" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
     
   
     <shape expanded="true" modelObjectName="CaseFormPlan" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="501.9999976158142"/>
+      <upperLeftCorner x="92" y="501"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="BusinessFlowForm" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302.00000000000006" y="501.9999976158142"/>
+      <upperLeftCorner x="302" y="501"/>
       <rectangleSize height="30" width="156"/>
     </shape>
     <shape expanded="true" modelObjectName="Case" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="394.5149427219628" y="356.9999988079071"/>
+      <upperLeftCorner x="394" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="getBusinessFlowForm" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="118.66666666666669" y="360.3333321412405"/>
+      <upperLeftCorner x="118" y="360"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="CaseFormPlan" modelObjectNameSpace="getBusinessFlowForm" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="319.3955078125"/>
+      <rectangleSize width="319"/>
     </shape>
     <shape modelObjectName="BusinessFlowForm" modelObjectNameSpace="getBusinessFlowForm" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="500" y="41"/>
-      <rectangleSize width="265.3408203125"/>
+      <rectangleSize width="265"/>
     </shape>
     <shape expanded="true" modelObjectName="getCase" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="326.6278792398752" y="217"/>
+      <upperLeftCorner x="326" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="getBusinessFlowForm" modelObjectNameSpace="getCase" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="319.3955078125"/>
+      <rectangleSize width="319"/>
     </shape>
     <shape modelObjectName="Case" modelObjectNameSpace="getCase" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="612" y="60"/>

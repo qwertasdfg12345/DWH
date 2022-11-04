@@ -9,7 +9,7 @@
     },
     "kz.DI.ERP::V_C_Organization": {
         "target": {
-            "remote": "ERP_MSSSQL_Test",
+            "remote": "ERP_MSSQL",
             "database": "<NULL>",
             "schema": "dbo",
             "object": "C_Organization"
