@@ -39,7 +39,7 @@ BEGIN SEQUENTIAL EXECUTION
                                                           :V_RECORDS
                                                         );
   COMMIT;
-  */
+  
   V_START_TIME := CURRENT_TIMESTAMP;
   CALL "kz.DI.ERP.FlowGraph::FG_C_Organization_SP"();
   V_END_TIME := CURRENT_TIMESTAMP;
@@ -53,7 +53,7 @@ BEGIN SEQUENTIAL EXECUTION
                                                           :V_RECORDS
                                                         );
   COMMIT;
-  /*
+  */
   V_START_TIME := CURRENT_TIMESTAMP;
   CALL "kz.DI.ERP.FlowGraph::FG_P_Business_flow_SP"();
   V_END_TIME := CURRENT_TIMESTAMP;
@@ -81,7 +81,7 @@ BEGIN SEQUENTIAL EXECUTION
                                                           :V_RECORDS
                                                         );
   COMMIT;
-  */
+  /*
   V_START_TIME := CURRENT_TIMESTAMP;
   CALL "kz.DI.ERP.FlowGraph::FG_Meike_Number_DetailChild_SP"();
   V_END_TIME := CURRENT_TIMESTAMP;
@@ -431,7 +431,7 @@ BEGIN SEQUENTIAL EXECUTION
                                                           :V_RECORDS
                                                         );
   COMMIT;
-  /*
+  */
   V_START_TIME := CURRENT_TIMESTAMP;
   CALL "kz.DI.ERP.FlowGraph::FG_DashboardRatesComputeDetail_SP"();
   V_END_TIME := CURRENT_TIMESTAMP;
@@ -445,7 +445,7 @@ BEGIN SEQUENTIAL EXECUTION
                                                           :V_RECORDS
                                                         );
   COMMIT;
-  */
+  /*
   V_START_TIME := CURRENT_TIMESTAMP;
   CALL "kz.DI.ERP.FlowGraph::FG_DashboardHuaiZhang_SP"();
   V_END_TIME := CURRENT_TIMESTAMP;
@@ -543,5 +543,5 @@ BEGIN SEQUENTIAL EXECUTION
                                                           :V_RECORDS
                                                         );
   COMMIT;
-  
+  */
 END
