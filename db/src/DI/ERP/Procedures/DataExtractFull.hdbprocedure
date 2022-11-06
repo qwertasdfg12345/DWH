@@ -25,7 +25,6 @@ BEGIN SEQUENTIAL EXECUTION
                                                           :V_RECORDS
                                                         );
   COMMIT;
-  */
   
   V_START_TIME := CURRENT_TIMESTAMP;
   CALL "kz.DI.ERP.FlowGraph::FG_A_CaseForm_BanAnJiHuaShu_SP"();
@@ -40,7 +39,7 @@ BEGIN SEQUENTIAL EXECUTION
                                                           :V_RECORDS
                                                         );
   COMMIT;
-  
+  */
   V_START_TIME := CURRENT_TIMESTAMP;
   CALL "kz.DI.ERP.FlowGraph::FG_C_Organization_SP"();
   V_END_TIME := CURRENT_TIMESTAMP;
@@ -510,6 +509,34 @@ BEGIN SEQUENTIAL EXECUTION
   SELECT COUNT(1) INTO V_RECORDS FROM "kz.DI.ERP::T_A_CaseForm_XiaoShouShouRuQueRen";
   INSERT INTO "kz.DI.ERP.Tables::DI_ERP_Full_Log" VALUES( 'ERP',
                                                           'A_CaseForm_XiaoShouShouRuQueRen',
+                                                          :V_START_TIME,
+                                                          :V_END_TIME,
+                                                          :V_RUN_TIMES,
+                                                          :V_RECORDS
+                                                        );
+  COMMIT;
+  
+  V_START_TIME := CURRENT_TIMESTAMP;
+  CALL "kz.DI.SF.FlowGraph::FG_FODepartment_SP"();
+  V_END_TIME := CURRENT_TIMESTAMP;
+  V_RUN_TIMES := SECONDS_BETWEEN(:V_START_TIME, :V_END_TIME);
+  SELECT COUNT(1) INTO V_RECORDS FROM "kz.DI.SF::T_FODepartment";
+  INSERT INTO "kz.DI.ERP.Tables::DI_ERP_Full_Log" VALUES( 'SF',
+                                                          'FODepartment',
+                                                          :V_START_TIME,
+                                                          :V_END_TIME,
+                                                          :V_RUN_TIMES,
+                                                          :V_RECORDS
+                                                        );
+  COMMIT;
+  
+  V_START_TIME := CURRENT_TIMESTAMP;
+  CALL "kz.DI.SF.FlowGraph::FG_Position_SP"();
+  V_END_TIME := CURRENT_TIMESTAMP;
+  V_RUN_TIMES := SECONDS_BETWEEN(:V_START_TIME, :V_END_TIME);
+  SELECT COUNT(1) INTO V_RECORDS FROM "kz.DI.SF::T_Position";
+  INSERT INTO "kz.DI.ERP.Tables::DI_ERP_Full_Log" VALUES( 'SF',
+                                                          'Position',
                                                           :V_START_TIME,
                                                           :V_END_TIME,
                                                           :V_RUN_TIMES,
