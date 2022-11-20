@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models::DIM_REGION" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="DIM_REGION.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_C_Region">
+    <resourceUri>kz.DI.ERP::T_C_Region</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="kz.DI.ERP::T_C_Region" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="C_Region_Id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="T_C_Region" columnName="C_Region_Id"/>
+    </attribute>
+    <attribute id="C_Region_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="区域编码"/>
+      <keyMapping columnObjectName="T_C_Region" columnName="C_Region_code"/>
+    </attribute>
+    <attribute id="C_Region_name" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="区域名称"/>
+      <keyMapping columnObjectName="T_C_Region" columnName="C_Region_name"/>
+    </attribute>
+    <attribute id="C_Region_isDelete" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Region_isDelete"/>
+      <keyMapping columnObjectName="T_C_Region" columnName="C_Region_isDelete"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;C_Region_isDelete&quot;=0</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

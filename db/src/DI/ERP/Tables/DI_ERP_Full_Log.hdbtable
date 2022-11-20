@@ -1,9 +1,0 @@
-COLUMN TABLE "kz.DI.ERP.Tables::DI_ERP_Full_Log" (
-    "SYSTEM" NVARCHAR(20) COMMENT '来源系统',
-    "OBJECT" NVARCHAR(150) COMMENT '对象',
-    "START_TIME" TIMESTAMP COMMENT '运行开始时间',
-    "END_TIME" TIMESTAMP COMMENT '运行结束时间',
-    "RUN_TIMES" INTEGER COMMENT '运行消耗时间',
-    "RECORDS" INTEGER COMMENT '记录数'
-)
-COMMENT '数据全量集成日志表'

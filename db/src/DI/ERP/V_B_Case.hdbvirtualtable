@@ -1,4 +1,0 @@
-VIRTUAL TABLE "kz.DI.ERP::V_B_Case" AT "ERP_MSSQL"
-      ."<NULL>"
-      ."dbo"
-      ."B_Case" 

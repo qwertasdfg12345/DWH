@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.TEST::CAL_BASE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_BASE.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_B_Case">
+    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
+  </DataSource>
+  <DataSource id="kz.Models::DIM_TIME">
+    <resourceUri>kz.Models::DIM_TIME</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_P_Business_flow">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B_CASE">
+    <viewAttributes>
+      <viewAttribute id="B_Case_id"/>
+      <viewAttribute id="B_Case_name"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_nature"/>
+      <viewAttribute id="B_Case_state"/>
+      <viewAttribute id="B_Case_factEndTime"/>
+      <viewAttribute id="B_Case_isDelete"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="KeHuTeam"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="XiangMuZu"/>
+      <viewAttribute id="ZhiChanTeam"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_B_Case"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="DIM_TIME" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="QUARTER"/>
+      <viewAttribute id="MONTH"/>
+      <viewAttribute id="WEEK"/>
+      <viewAttribute id="DAY"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models::DIM_TIME"/>
+    <filter>&quot;YEAR&quot; &lt;= 2022</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1">
+    <viewAttributes>
+      <viewAttribute id="B_Case_id"/>
+      <viewAttribute id="B_Case_name"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_nature"/>
+      <viewAttribute id="B_Case_state"/>
+      <viewAttribute id="B_Case_factEndTime"/>
+      <viewAttribute id="B_Case_isDelete"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="KeHuTeam"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="XiangMuZu"/>
+      <viewAttribute id="ZhiChanTeam"/>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="QUARTER"/>
+      <viewAttribute id="MONTH"/>
+      <viewAttribute id="WEEK"/>
+      <viewAttribute id="DAY"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="B_CASE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_id" source="B_Case_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_name" source="B_Case_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_isDelete" source="B_Case_isDelete"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="KeHuTeam"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuZu" source="XiangMuZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanTeam" source="ZhiChanTeam"/>
+    </input>
+    <input node="DIM_TIME">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUARTER" source="QUARTER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEEK" source="WEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DAY" source="DAY"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Business_flow_form">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Business_flow">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_code"/>
+      <viewAttribute id="P_Fk_code"/>
+      <viewAttribute id="P_Flow_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="P_Business_flow"/>
+    <input node="P_Business_flow_form"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="B_Case_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_id"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_id"/>
+    </attribute>
+    <attribute id="B_Case_name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_name"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_name"/>
+    </attribute>
+    <attribute id="B_Case_number" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_number"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="B_Case_code" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_code"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_code"/>
+    </attribute>
+    <attribute id="B_Case_type" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_type"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_type"/>
+    </attribute>
+    <attribute id="B_Case_nature" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_nature"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_nature"/>
+    </attribute>
+    <attribute id="B_Case_state" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_state"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_state"/>
+    </attribute>
+    <attribute id="B_Case_factEndTime" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_factEndTime"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_factEndTime"/>
+    </attribute>
+    <attribute id="B_Case_isDelete" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_isDelete"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_isDelete"/>
+    </attribute>
+    <attribute id="B_Case_customerCode" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_customerCode"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_customerCode"/>
+    </attribute>
+    <attribute id="B_Case_regionCode" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_regionCode"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_regionCode"/>
+    </attribute>
+    <attribute id="KeHuTeam" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KeHuTeam"/>
+      <keyMapping columnObjectName="Join_1" columnName="KeHuTeam"/>
+    </attribute>
+    <attribute id="B_Case_HangYe" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_HangYe"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_HangYe"/>
+    </attribute>
+    <attribute id="XiangMuZu" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="XiangMuZu"/>
+      <keyMapping columnObjectName="Join_1" columnName="XiangMuZu"/>
+    </attribute>
+    <attribute id="ZhiChanTeam" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZhiChanTeam"/>
+      <keyMapping columnObjectName="Join_1" columnName="ZhiChanTeam"/>
+    </attribute>
+    <attribute id="YEAR" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="年度"/>
+      <keyMapping columnObjectName="Join_1" columnName="YEAR"/>
+    </attribute>
+    <attribute id="QUARTER" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="季度"/>
+      <keyMapping columnObjectName="Join_1" columnName="QUARTER"/>
+    </attribute>
+    <attribute id="MONTH" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="月度"/>
+      <keyMapping columnObjectName="Join_1" columnName="MONTH"/>
+    </attribute>
+    <attribute id="WEEK" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="周"/>
+      <keyMapping columnObjectName="Join_1" columnName="WEEK"/>
+    </attribute>
+    <attribute id="DAY" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY"/>
+      <keyMapping columnObjectName="Join_1" columnName="DAY"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="100" y="105"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="B_CASE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-191" y="317"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="DIM_TIME" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="5" y="317"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-96" y="202"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="B_CASE" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="112.6796875"/>
+    </shape>
+    <shape modelObjectName="DIM_TIME" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="121.333984375"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_Business_flow_form" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="448" y="317"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_Business_flow" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="250" y="317"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="348" y="202"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_Business_flow" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="162.701171875"/>
+    </shape>
+    <shape modelObjectName="P_Business_flow_form" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="196.041015625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

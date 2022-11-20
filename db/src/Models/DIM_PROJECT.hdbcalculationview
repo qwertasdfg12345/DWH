@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models::DIM_PROJECT" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="项目维表">
+  <comment text="当前包含(知产)"/>
+</descriptions>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_B_CustomerProject">
+    <resourceUri>kz.DI.ERP::T_B_CustomerProject</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="kz.DI.ERP::T_B_CustomerProject" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="B_CustomerProject_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="T_B_CustomerProject" columnName="B_CustomerProject_id"/>
+    </attribute>
+    <attribute id="B_CustomerProject_Code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户项目编码"/>
+      <keyMapping columnObjectName="T_B_CustomerProject" columnName="B_CustomerProject_Code"/>
+    </attribute>
+    <attribute id="B_CustomerProject_Name" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="项目名称"/>
+      <keyMapping columnObjectName="T_B_CustomerProject" columnName="B_CustomerProject_Name"/>
+    </attribute>
+    <attribute id="B_CustomerProject_Number" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="项目编码"/>
+      <keyMapping columnObjectName="T_B_CustomerProject" columnName="B_CustomerProject_Number"/>
+    </attribute>
+    <attribute id="B_CustomerProject_CustomerCode" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="对应客户"/>
+      <keyMapping columnObjectName="T_B_CustomerProject" columnName="B_CustomerProject_CustomerCode"/>
+    </attribute>
+    <attribute id="B_CustomerProject_isDelete" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="删除标识"/>
+      <keyMapping columnObjectName="T_B_CustomerProject" columnName="B_CustomerProject_isDelete"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;B_CustomerProject_isDelete&quot;=0</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

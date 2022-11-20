@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models::DIM_COURT" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="DIM_COURT.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_C_Court">
+    <resourceUri>kz.DI.ERP::T_C_Court</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="kz.DI.ERP::T_C_Court" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="C_Court_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="法院内码"/>
+      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_id"/>
+    </attribute>
+    <attribute id="C_Court_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="法院Code"/>
+      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_code"/>
+    </attribute>
+    <attribute id="C_Court_number" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="法院代码"/>
+      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_number"/>
+    </attribute>
+    <attribute id="C_Court_name" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="法院名称"/>
+      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_name"/>
+    </attribute>
+    <attribute id="C_Court_isdelete" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="是否删除0-否，1-是"/>
+      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_isdelete"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;C_Court_isdelete&quot; in ('0',null)</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
