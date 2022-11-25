@@ -232,11 +232,11 @@
     </shape>
     <shape modelObjectName="B_CASE" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="112.6796875"/>
+      <rectangleSize width="112"/>
     </shape>
     <shape modelObjectName="DIM_TIME" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="121.333984375"/>
+      <rectangleSize width="121"/>
     </shape>
     <shape expanded="true" modelObjectName="P_Business_flow_form" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="448" y="317"/>
@@ -252,11 +252,11 @@
     </shape>
     <shape modelObjectName="P_Business_flow" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="162.701171875"/>
+      <rectangleSize width="162"/>
     </shape>
     <shape modelObjectName="P_Business_flow_form" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="196.041015625"/>
+      <rectangleSize width="196"/>
     </shape>
   </shapes>
 </layout>
