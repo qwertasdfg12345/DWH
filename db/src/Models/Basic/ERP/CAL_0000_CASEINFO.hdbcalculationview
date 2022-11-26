@@ -194,20 +194,22 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="40" y="85"/>
+      <upperLeftCorner x="241" y="112"/>
+    
+      <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_B_Case" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-85" y="461"/>
+      <upperLeftCorner x="131" y="521"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="461"/>
+      <upperLeftCorner x="319" y="521"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_B_Case" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="313"/>
+      <upperLeftCorner x="222" y="361"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_B_Case" modelObjectNameSpace="J_B_Case" modelObjectType="JoinNodeInput">
@@ -219,7 +221,7 @@
       <rectangleSize width="263"/>
     </shape>
     <shape expanded="true" modelObjectName="U_DIM_EXT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="194"/>
+      <upperLeftCorner x="222" y="236"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
