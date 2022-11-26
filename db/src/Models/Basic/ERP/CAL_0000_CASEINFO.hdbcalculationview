@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_0000_CASEINFO" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_000_Baseinfo.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_B_Case">
+    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_B_Case" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="案件粒度的维度扩展"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+    
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_isDelete"/>
+    
+      <viewAttribute id="B_CustomerProject_Code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_B_Case"/>
+    <filter>&quot;B_Case_isDelete&quot;=0</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="关联案件到表单粒度"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+    
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+    <filter>&quot;P_Business_flow_form_state&quot;=201 and &quot;P_Business_flow_form_status&quot;=262 and &quot;P_Business_flow_form_isdelete&quot;=0</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_B_Case" cardinality="CN_N" joinType="leftOuter">
+    <descriptions>
+      <comment text="案件处理到表单粒度"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+    
+      <viewAttribute id="B_CustomerProject_Code"/>
+    
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_B_Case">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
+    </input>
+    <input node="P_PBFF">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factStartTime" source="P_Business_flow_form_factStartTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <joinAttribute name="B_Case_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="U_DIM_EXT">
+    <descriptions>
+      <comment text="维度扩展"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+    
+      <viewAttribute id="B_CustomerProject_Code"/>
+    
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_B_Case" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factStartTime" source="P_Business_flow_form_factStartTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="U_DIM_EXT">
+  <attributes>
+    <attribute id="B_Case_code" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件GUID"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="B_Case_code"/>
+    </attribute>
+    <attribute id="B_Case_number" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件编码"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="B_Case_nature" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件性质"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="B_Case_nature"/>
+    </attribute>
+    <attribute id="B_Case_customerCode" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="B_Case_customerCode"/>
+    </attribute>
+    <attribute id="B_Case_HangYe" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="行业"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="B_Case_HangYe"/>
+    </attribute>
+    <attribute id="B_Case_type" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件类型"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="B_Case_type"/>
+    </attribute>
+    <attribute id="B_Case_regionCode" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="B_Case_regionCode"/>
+    </attribute>
+    <attribute id="B_CustomerProject_Code" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="对应项目的CODE"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="B_CustomerProject_Code"/>
+    </attribute>
+    <attribute id="P_Business_flow_form_code" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="业务流程表单编码"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="P_Business_flow_form_code"/>
+    </attribute>
+  
+    <attribute id="P_Business_flow_form_projectCode" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="项目CODE"/>
+  
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="P_Business_flow_form_projectCode"/>
+  
+    </attribute>
+    <attribute id="P_Business_flow_form_factStartTime" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="实际开始时间"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="P_Business_flow_form_factStartTime"/>
+    </attribute>
+    <attribute id="P_Business_flow_form_factEndTime" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="实际结束时间"/>
+      <keyMapping columnObjectName="U_DIM_EXT" columnName="P_Business_flow_form_factEndTime"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_B_Case" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-85" y="461"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="461"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_B_Case" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="313"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_B_Case" modelObjectNameSpace="J_B_Case" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="202"/>
+    </shape>
+    <shape modelObjectName="P_PBFF" modelObjectNameSpace="J_B_Case" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="263"/>
+    </shape>
+    <shape expanded="true" modelObjectName="U_DIM_EXT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="194"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.TEST::CAL_0002_KZ08" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_0002_KZ08.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_B_Case">
+    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="测试数据"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="B_Case_name"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_isDelete"/>
+      <viewAttribute id="B_Case_transferTargetMoney"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="B_Case_state"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_B_Case"/>
+    <filter>&quot;B_Case_isDelete&quot;=0 and &quot;B_Case_HangYe&quot;=153 and &quot;B_Case_state&quot;=201</filter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="B_Case_type" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_type"/>
+      <keyMapping columnObjectName="Projection_1" columnName="B_Case_type"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="B_Case_transferTargetMoney" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="B_Case_transferTargetMoney"/>
+      <measureMapping columnObjectName="Projection_1" columnName="B_Case_transferTargetMoney"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="100" y="105"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-355" y="256"/>
+      <rectangleSize height="30" width="237"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models::DIM_CASE_NATURE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="案件性质维表"/>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_CASE_TYPE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="案件类型维表"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
@@ -13,14 +13,14 @@
 <logicalModel id="kz.DI.ERP::T_C_Parameters" filterExpressionLanguage="SQL">
   <attributes>
     <attribute id="C_Parameters_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="参数编码"/>
+      <descriptions defaultDescription="ID"/>
       <keyMapping columnObjectName="T_C_Parameters" columnName="C_Parameters_id"/>
     </attribute>
     <attribute id="C_Parameters_name" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="参数名称"/>
+      <descriptions defaultDescription="维度名称"/>
       <keyMapping columnObjectName="T_C_Parameters" columnName="C_Parameters_name"/>
     </attribute>
-    <attribute id="C_Parameters_parent" hidden="true" order="3" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="C_Parameters_parent" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="父级编码"/>
       <keyMapping columnObjectName="T_C_Parameters" columnName="C_Parameters_parent"/>
     </attribute>
@@ -30,12 +30,13 @@
   <calculatedMeasures/>
   <restrictedMeasures/>
 
-  <filter>&quot;C_Parameters_parent&quot;=146</filter>
+  <filter>&quot;C_Parameters_parent&quot; = 141 or &quot;C_Parameters_parent&quot; = 3650 or &quot;C_Parameters_parent&quot; = 4681</filter>
 </logicalModel>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
       <upperLeftCorner x="40" y="85"/>
-    </shape></shapes>
+    </shape>
+  </shapes>
 </layout>
 </Calculation:scenario>

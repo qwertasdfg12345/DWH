@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_CASE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_000_DIM_CASE.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_B_Case">
+    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="kz.DI.ERP::T_B_Case" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="B_Case_code" keepFlag="true" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件编码"/>
+      <keyMapping columnObjectName="T_B_Case" columnName="B_Case_code"/>
+    </attribute>
+    <attribute id="B_Case_name" keepFlag="true" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件名称"/>
+      <keyMapping columnObjectName="T_B_Case" columnName="B_Case_name"/>
+    </attribute>
+    <attribute id="B_Case_isDelete" hidden="true" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="删除标识"/>
+      <keyMapping columnObjectName="T_B_Case" columnName="B_Case_isDelete"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;B_Case_isDelete&quot;=0</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

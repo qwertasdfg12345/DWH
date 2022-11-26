@@ -9,12 +9,7 @@
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
-<calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
-    <viewAttributes/>
-    <calculatedViewAttributes/>
-  </calculationView>
-</calculationViews>
+<calculationViews/>
 <logicalModel id="kz.DI.ERP::T_C_Parameters">
   <attributes/>
   <calculatedAttributes/>
@@ -26,12 +21,6 @@
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
       <upperLeftCorner x="40" y="85"/>
-    </shape>
-  
-    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-384" y="-51"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>

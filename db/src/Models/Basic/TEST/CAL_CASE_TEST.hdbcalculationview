@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.TEST::CAL_CASE_TEST" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_CASE_TEST.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.Models.Basic.ERP::CAL_0000_CASEINFO">
+    <resourceUri>kz.Models.Basic.ERP::CAL_0000_CASEINFO</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_CASE">
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_CustomerProject_Code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_0000_CASEINFO"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_BAJHS">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_CustomerProject_Code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_CASE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+    </input>
+    <input node="P_BAJHS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_Flow_Form_code"/>
+    </input>
+    <joinAttribute name="P_Business_flow_form_code"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="B_Case_code" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件GUID"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_code"/>
+    </attribute>
+    <attribute id="B_CustomerProject_Code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="对应项目的CODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_CustomerProject_Code"/>
+    </attribute>
+    <attribute id="P_Business_flow_form_code" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="业务流程表单编码"/>
+      <keyMapping columnObjectName="Join_1" columnName="P_Business_flow_form_code"/>
+    </attribute>
+    <attribute id="P_Business_Flow_Form_code" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="P_Business_Flow_Form_code"/>
+      <keyMapping columnObjectName="Join_1" columnName="P_Business_Flow_Form_code"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_CASE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-302" y="362"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_BAJHS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-118" y="286"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="214"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_CASE" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="112.017578125"/>
+    </shape>
+    <shape modelObjectName="P_BAJHS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="119.353515625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
