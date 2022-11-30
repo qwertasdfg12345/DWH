@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_0000_COURTINFO" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_0000_COURTINFO.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZSCQ_lianxinxi">
+    <resourceUri>kz.DI.ERP::T_ZSCQ_lianxinxi</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZSCQ_bananjihuashu">
+    <resourceUri>kz.DI.ERP::T_ZSCQ_bananjihuashu</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_ErShenLiAn">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_ErShenLiAn</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZSCQ_ershenlian">
+    <resourceUri>kz.DI.ERP::T_ZSCQ_ershenlian</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZSCQ_zhixinglianxinxi">
+    <resourceUri>kz.DI.ERP::T_ZSCQ_zhixinglianxinxi</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_ZhiHangLiAnXinXi">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_ZhiHangLiAnXinXi</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  </DataSource>
+  <DataSource id="P_PBFF2$$$$kz.DI.ERP::T_P_Business_flow_form$$">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:RankView" id="Rank_COURT">
+    <descriptions>
+      <comment text="找到离表单当时最近结束的法院"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="ShouLiFaYuan"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="COURT_FactEndTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_AFC"/>
+  
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <partitionViewAttributeName id="P_Business_flow_form_code"/>
+      <order byViewAttributeName="COURT_FactEndTime" direction="DESC"/>
+    </rankingFilter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_AFC" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="所有表单结束时间之前的法院"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="ShouLiFaYuan"/>
+      <viewAttribute id="COURT_FactEndTime"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute hidden="true" id="JOIN$P_Business_flow_form_projectCode$P_Business_flow_form_projectCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_COURT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COURT_FactEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <input node="P_PBFF2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <filter>&quot;COURT_FactEndTime&quot;&lt;=&quot;P_Business_flow_form_factEndTime&quot;</filter>
+    <joinAttribute name="JOIN$P_Business_flow_form_projectCode$P_Business_flow_form_projectCode"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LADJZXLA">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="FaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LADJ_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="FaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LAXX_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_lianxinxi"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_BAJHS_ZC">
+    <descriptions>
+      <comment text="办案计划书"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="GuanHeFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_bananjihuashu"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESLA">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_ErShenLiAn"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESLA_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_ershenlian"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZXLAXX_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_zhixinglianxinxi"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="U_COURT">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_LAXX_ZC" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
+    </input>
+    <input node="P_BAJHS_ZC" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="GuanHeFaYuan"/>
+    </input>
+    <input node="P_LADJ_ZC" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="FaYuan"/>
+    </input>
+    <input node="P_ZXLAXX_ZC" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
+    </input>
+    <input node="P_ESLA_ZC" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
+    </input>
+    <input node="P_ESLA" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
+    </input>
+    <input node="P_LADJZXLA" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="FaYuan"/>
+    </input>
+  
+    <input node="P_ZXLAXX" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZXLAXX">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_ZhiHangLiAnXinXi"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+    <filter>&quot;P_Business_flow_form_state&quot;=201 and 
+&quot;P_Business_flow_form_status&quot;=262 and 
+&quot;P_Business_flow_form_isdelete&quot;=0
+</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_COURT" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ShouLiFaYuan"/>
+    
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute hidden="true" id="JOIN$P_Business_flow_form_code$P_Business_Flow_Form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFF">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_code$P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
+    </input>
+    <input node="U_COURT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_code$P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+    </input>
+    <joinAttribute name="JOIN$P_Business_flow_form_code$P_Business_Flow_Form_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF2" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFF2$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
+    <filter>&quot;P_Business_flow_form_state&quot;=201 and 
+&quot;P_Business_flow_form_status&quot;=262 and 
+&quot;P_Business_flow_form_isdelete&quot;=0 and 
+&quot;P_Business_flow_form_projectCode&quot; is not null</filter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Rank_COURT">
+  <attributes>
+    <attribute id="ShouLiFaYuan" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ShouLiFaYuan"/>
+      <keyMapping columnObjectName="Rank_COURT" columnName="ShouLiFaYuan"/>
+    </attribute>
+    <attribute id="P_Business_flow_form_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="P_Business_flow_form_code"/>
+      <keyMapping columnObjectName="Rank_COURT" columnName="P_Business_flow_form_code"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="1247.448792057179" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Rank_COURT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1193.6329887672487" y="236.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="J_AFC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1193.6329887672487" y="361.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_COURT" modelObjectNameSpace="J_AFC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="265"/>
+    </shape>
+    <shape modelObjectName="P_PBFF2" modelObjectNameSpace="J_AFC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="116"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_LADJZXLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="721.9999999999998" y="971.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_LADJ_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1141.9999999999998" y="971.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_LAXX_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="931.9999999999998" y="971.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_BAJHS_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1351.9999999999998" y="971.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ESLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302.00000000000006" y="971.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ESLA_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1562" y="971.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ZXLAXX_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91.99999999999994" y="971.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="U_COURT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="923.1111111111111" y="681.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_ZXLAXX" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="511.9999999999998" y="971.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1246.966322100582" y="681.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_COURT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1220.2996554339152" y="521.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_PBFF" modelObjectNameSpace="J_COURT" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="265"/>
+    </shape>
+    <shape modelObjectName="U_COURT" modelObjectNameSpace="J_COURT" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="122"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_PBFF2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1010.2996554339152" y="521.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>
