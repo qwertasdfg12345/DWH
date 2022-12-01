@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_0002_KZ11" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_0002_KZ11.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_JianCaiNeiBuJiaoYiChan">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_JianCaiNeiBuJiaoYiChan</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYi">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYi</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanXiuGaiKaiTaShouYi">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanXiuGaiKaiTaShouYi</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYiDiaoZheng">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYiDiaoZheng</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_XiuGaiNeiBuJiaoYiChan">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_XiuGaiNeiBuJiaoYiChan</resourceUri>
+  </DataSource>
+  <DataSource id="P_TZKTNJD_XKTZ$$$$kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYiDiaoZheng$$">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYiDiaoZheng</resourceUri>
+  </DataSource>
+  <DataSource id="P_XGNJD_XKHZ$$$$kz.DI.ERP::T_A_CaseForm_XiuGaiNeiBuJiaoYiChan$$">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_XiuGaiNeiBuJiaoYiChan</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanLiAnPaiTing">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanLiAnPaiTing</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_neibujiaoyidansusong">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_neibujiaoyidansusong</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_nbjydbq">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_nbjydbq</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_neibujiaoyidankuaizhi">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_neibujiaoyidankuaizhi</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_neibujiaoyidanzhixin">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_neibujiaoyidanzhixin</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_C_Parameters">
+    <resourceUri>kz.DI.ERP::T_C_Parameters</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_NBJYD">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="JiaoYiChanLeiXing"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="ZhiChuBa"/>
+      <viewAttribute id="ShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_JianCaiNeiBuJiaoYiChan"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_KTNJD">
+    <descriptions>
+      <comment text="内交单_开拓"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="ZhiChuBa"/>
+      <viewAttribute id="ShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'开拓（营销）'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYi"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_XGKTNJD">
+    <descriptions>
+      <comment text="修改开拓内交单"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="ZhiChuBa"/>
+      <viewAttribute id="ShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'开拓（营销）'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanXiuGaiKaiTaShouYi"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_TZKTNJD_YKTZ">
+    <descriptions>
+      <comment text="调整开拓内交单_原开拓组"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="YuanKaiTaNeiJiaoChanJinE"/>
+      <viewAttribute id="YuanShouRuBa"/>
+      <viewAttribute id="YuanZhiChuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'开拓（营销）'</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="CC_JiaoYiJinE" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
+        <formula>TO_DECIMAL(&quot;YuanKaiTaNeiJiaoChanJinE&quot;,18,2)*-1</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYiDiaoZheng">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuanShouRuBa" source="YuanKaiTaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuanZhiChuBa" source="YuanKeHuZu"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_XGNJD_YKHZ">
+    <descriptions>
+      <comment text="修改内交单_原客户组"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="NeiBuJiaoYiChan"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="YuanZhiChuBa"/>
+      <viewAttribute id="YuanShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiJinE" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
+        <formula>TO_DECIMAL(&quot;JiaoYiJinE&quot;,18,2)*-1</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_XiuGaiNeiBuJiaoYiChan"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_TZKTNJD_XKTZ">
+    <descriptions>
+      <comment text="调整开拓内交单_现开拓组"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="XiuGaiHouKaiTaNeiJiaoChanJinE"/>
+      <viewAttribute id="XianShouRuBa"/>
+      <viewAttribute id="XianZhiChuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'开拓（营销）'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="P_TZKTNJD_XKTZ$$$$kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYiDiaoZheng$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XianShouRuBa" source="XianKaiTaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XianZhiChuBa" source="XianKeHuZu"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_XGNJD_XKHZ">
+    <descriptions>
+      <comment text="修改内交单_现客户组"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="NeiBuJiaoYiChan"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="XianZhiChuBa"/>
+      <viewAttribute id="XianShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_XGNJD_XKHZ$$$$kz.DI.ERP::T_A_CaseForm_XiuGaiNeiBuJiaoYiChan$$"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LAPTNJD">
+    <descriptions>
+      <comment text="内交单_立案排庭"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="ZhiChuBa"/>
+      <viewAttribute id="ShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'立案排庭'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanLiAnPaiTing"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_SSNJD">
+    <descriptions>
+      <comment text="内交单_诉讼"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="ZhiChuBa"/>
+      <viewAttribute id="ShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'诉讼（庭审）'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_neibujiaoyidansusong"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_BQNJD">
+    <descriptions>
+      <comment text="内交单_保全"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="ZhiChuBa"/>
+      <viewAttribute id="ShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'保全'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_nbjydbq"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_KZNJD">
+    <descriptions>
+      <comment text="内交单_快执"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="ZhiChuBa"/>
+      <viewAttribute id="ShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'快执'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_neibujiaoyidankuaizhi"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZXNJD">
+    <descriptions>
+      <comment text="内交单_执行"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="JiaoYiJinE"/>
+      <viewAttribute id="ZhiChuBa"/>
+      <viewAttribute id="ShouRuBa"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JiaoYiDanLeiXing" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>'执行'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_A_CaseForm_neibujiaoyidanzhixin"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_XNJD">
+    <descriptions>
+      <comment text="取交易单类型"/>
+    </descriptions>
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="P_Parameters"/>
+    <input node="P_NBJYD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Parameters">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_C_Parameters"/>
+  </calculationView>
+</calculationViews>
+<logicalModel>
+  <attributes/>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_NBJYD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-161" y="343"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_KTNJD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="62" y="384"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_XGKTNJD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="305" y="374"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_TZKTNJD_YKTZ" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="535" y="394"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_XGNJD_YKHZ" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-139" y="479"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_TZKTNJD_XKTZ" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="730" y="396"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_XGNJD_XKHZ" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="80" y="489"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_LAPTNJD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="295" y="503"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_SSNJD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="75" y="628"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_BQNJD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="519" y="503"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_KZNJD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="305" y="634"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ZXNJD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-129" y="628"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="J_XNJD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-269" y="222"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_Parameters" modelObjectNameSpace="J_XNJD" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="144.056640625"/>
+    </shape>
+    <shape modelObjectName="P_NBJYD" modelObjectNameSpace="J_XNJD" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="235.18212890625"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_Parameters" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-419" y="333"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
