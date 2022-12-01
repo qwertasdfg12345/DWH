@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.TEST::TEST-BCH" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="TEST-BCH.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.Models.Basic.ERP::CAL_0002_CASE_KZ01">
+    <resourceUri>kz.Models.Basic.ERP::CAL_0002_CASE_KZ01</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP.Tables::Organization_Flat">
+    <resourceUri>kz.DI.ERP.Tables::Organization_Flat</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="KeHuZu"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="CC_Date"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_name"/>
+      <viewAttribute id="C_Organization_code_upward1"/>
+      <viewAttribute id="C_Organization_code_upward2"/>
+      <viewAttribute id="C_Organization_code_upward3"/>
+      <viewAttribute id="C_Organization_code_upward4"/>
+      <viewAttribute id="C_Organization_code_upward5"/>
+      <viewAttribute id="C_Organization_code_upward6"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="KeHuZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+    </input>
+    <input node="Projection_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code_upward1" source="C_Organization_code_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code_upward2" source="C_Organization_code_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code_upward3" source="C_Organization_code_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code_upward4" source="C_Organization_code_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code_upward5" source="C_Organization_code_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code_upward6" source="C_Organization_code_upward6"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="C_Organization_code"/>
+    </input>
+    <joinAttribute name="KeHuZu"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="KeHuZu"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="CC_Date"/>
+      <viewAttribute id="JieDanJinE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_0002_CASE_KZ01"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+    <viewAttributes>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="C_Organization_name"/>
+      <viewAttribute id="C_Organization_code_upward1"/>
+      <viewAttribute id="C_Organization_code_upward2"/>
+      <viewAttribute id="C_Organization_code_upward3"/>
+      <viewAttribute id="C_Organization_code_upward4"/>
+      <viewAttribute id="C_Organization_code_upward5"/>
+      <viewAttribute id="C_Organization_code_upward6"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP.Tables::Organization_Flat"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="B_Case_customerCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_customerCode"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_customerCode"/>
+    </attribute>
+    <attribute id="CC_BusinessUnit" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_BusinessUnit"/>
+      <keyMapping columnObjectName="Join_1" columnName="CC_BusinessUnit"/>
+    </attribute>
+    <attribute id="KeHuZu" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KeHuZu"/>
+      <keyMapping columnObjectName="Join_1" columnName="KeHuZu"/>
+    </attribute>
+    <attribute id="B_Case_number" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_number"/>
+      <keyMapping columnObjectName="Join_1" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="CC_Date" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_Date"/>
+      <keyMapping columnObjectName="Join_1" columnName="CC_Date"/>
+    </attribute>
+    <attribute id="C_Organization_name" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_name"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward1" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward1"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_code_upward1"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward2" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward2"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_code_upward2"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward3" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward3"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_code_upward3"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward4" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward4"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_code_upward4"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward5" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward5"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_code_upward5"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward6" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward6"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_code_upward6"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward1" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward1"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_name_upward1"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward2" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward2"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_name_upward2"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward3" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward3"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_name_upward3"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward4" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward4"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_name_upward4"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward5" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward5"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_name_upward5"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward6" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward6"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Organization_name_upward6"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="JieDanJinE" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="JieDanJinE"/>
+      <measureMapping columnObjectName="Join_1" columnName="JieDanJinE"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="221" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="221" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="244"/>
+    </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="303" y="33"/>
+      <rectangleSize width="244"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="376"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="376"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
