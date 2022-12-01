@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_0000_COURTINFO" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_B_DIM_COURTINFO" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CAL_0000_COURTINFO.hdbcalculationview"/>
 <localVariables/>
 <variableMappings/>
@@ -7,11 +7,8 @@
   <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
     <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn">
-    <resourceUri>kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn</resourceUri>
-  </DataSource>
-  <DataSource id="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan">
-    <resourceUri>kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan</resourceUri>
+  <DataSource id="P_PBFF$$$$kz.DI.ERP::T_P_Business_flow_form$$">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP::T_ZSCQ_lianxinxi">
     <resourceUri>kz.DI.ERP::T_ZSCQ_lianxinxi</resourceUri>
@@ -19,20 +16,23 @@
   <DataSource id="kz.DI.ERP::T_ZSCQ_bananjihuashu">
     <resourceUri>kz.DI.ERP::T_ZSCQ_bananjihuashu</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_A_CaseForm_ErShenLiAn">
-    <resourceUri>kz.DI.ERP::T_A_CaseForm_ErShenLiAn</resourceUri>
-  </DataSource>
-  <DataSource id="kz.DI.ERP::T_ZSCQ_ershenlian">
-    <resourceUri>kz.DI.ERP::T_ZSCQ_ershenlian</resourceUri>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP::T_ZSCQ_zhixinglianxinxi">
     <resourceUri>kz.DI.ERP::T_ZSCQ_zhixinglianxinxi</resourceUri>
   </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZSCQ_ershenlian">
+    <resourceUri>kz.DI.ERP::T_ZSCQ_ershenlian</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_ErShenLiAn">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_ErShenLiAn</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn</resourceUri>
+  </DataSource>
   <DataSource id="kz.DI.ERP::T_A_CaseForm_ZhiHangLiAnXinXi">
     <resourceUri>kz.DI.ERP::T_A_CaseForm_ZhiHangLiAnXinXi</resourceUri>
-  </DataSource>
-  <DataSource id="P_PBFF$$$$kz.DI.ERP::T_P_Business_flow_form$$">
-    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
@@ -51,7 +51,6 @@
     <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
       <partitionViewAttributeName id="P_Business_flow_form_code"/>
       <order byViewAttributeName="COURT_FactEndTime" direction="DESC"/>
-    
       <rankThreshold/>
     </rankingFilter>
   </calculationView>
@@ -116,70 +115,27 @@
 &quot;P_Business_flow_form_isdelete&quot;=0 and 
 &quot;P_Business_flow_form_projectCode&quot; is not null</filter>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_LADJZXLA">
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
     <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="FaYuan"/>
-    </viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+    
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/></viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_LADJ_ZC">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="FaYuan"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_LAXX_ZC">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="ShouLiFaYuan"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_ZSCQ_lianxinxi"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_BAJHS_ZC">
-    <descriptions>
-      <comment text="办案计划书"/>
-    </descriptions>
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="GuanHeFaYuan"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_ZSCQ_bananjihuashu"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESLA">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="ShouLiFaYuan"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_A_CaseForm_ErShenLiAn"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESLA_ZC">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="ShouLiFaYuan"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_ZSCQ_ershenlian"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZXLAXX_ZC">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="ShouLiFaYuan"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_ZSCQ_zhixinglianxinxi"/>
+    <input node="P_PBFF$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
+    <filter>&quot;P_Business_flow_form_state&quot;=201 and 
+&quot;P_Business_flow_form_status&quot;=262 and 
+&quot;P_Business_flow_form_isdelete&quot;=0
+</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="U_COURT">
     <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="ShouLiFaYuan"/>
-    </viewAttributes>
+    
+      <viewAttribute id="P_Business_Flow_Form_code"/></viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_LAXX_ZC" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
@@ -215,6 +171,65 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
     </input>
   </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LAXX_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_lianxinxi"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_BAJHS_ZC">
+    <descriptions>
+      <comment text="办案计划书"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="GuanHeFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_bananjihuashu"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LADJ_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="FaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiChan"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZXLAXX_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_zhixinglianxinxi"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESLA_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_ershenlian"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESLA">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_ErShenLiAn"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LADJZXLA">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="FaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_LiAnDengJiZhiHangLiAn"/>
+  </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_ZXLAXX">
     <viewAttributes>
       <viewAttribute id="P_Business_Flow_Form_code"/>
@@ -222,22 +237,6 @@
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_A_CaseForm_ZhiHangLiAnXinXi"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_code"/>
-      <viewAttribute id="P_Business_flow_form_state"/>
-      <viewAttribute id="P_Business_flow_form_status"/>
-      <viewAttribute id="P_Business_flow_form_isdelete"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="P_PBFF$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
-    <filter>&quot;P_Business_flow_form_state&quot;=201 and 
-&quot;P_Business_flow_form_status&quot;=262 and 
-&quot;P_Business_flow_form_isdelete&quot;=0
-</filter>
   </calculationView>
 </calculationViews>
 <logicalModel id="Rank_COURT">
@@ -297,13 +296,12 @@
       <upperLeftCorner x="1010" y="521"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-  
-    <shape expanded="true" modelObjectName="P_LADJZXLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="721" y="971"/>
+    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1246" y="681"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_LADJ_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1141" y="971"/>
+    <shape expanded="true" modelObjectName="U_COURT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="923" y="681"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_LAXX_ZC" modelObjectNameSpace="CalculationView">
@@ -314,29 +312,30 @@
       <upperLeftCorner x="1351" y="971"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_ESLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="971"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_ESLA_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1562" y="971"/>
+    <shape expanded="true" modelObjectName="P_LADJ_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1141" y="971"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_ZXLAXX_ZC" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="91" y="971"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="U_COURT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="923" y="681"/>
+    <shape expanded="true" modelObjectName="P_ESLA_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1562" y="971"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ESLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="971"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_LADJZXLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="721" y="971"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_ZXLAXX" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="511" y="971"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1246" y="681"/>
       <rectangleSize height="30" width="160"/>
     </shape></shapes>
 </layout>
