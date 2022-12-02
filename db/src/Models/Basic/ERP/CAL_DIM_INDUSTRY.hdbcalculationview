@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_INDUSTRY" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="案件类型维表"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_C_Parameters">
+    <resourceUri>kz.DI.ERP::T_C_Parameters</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="kz.DI.ERP::T_C_Parameters" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="C_Parameters_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="T_C_Parameters" columnName="C_Parameters_id"/>
+    </attribute>
+    <attribute id="C_Parameters_name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="维度名称"/>
+      <keyMapping columnObjectName="T_C_Parameters" columnName="C_Parameters_name"/>
+    </attribute>
+    <attribute id="C_Parameters_parent" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="父级编码"/>
+      <keyMapping columnObjectName="T_C_Parameters" columnName="C_Parameters_parent"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;C_Parameters_id&quot; = 1978 
+or &quot;C_Parameters_id&quot; = 3649 
+or &quot;C_Parameters_id&quot; = 153
+or &quot;C_Parameters_id&quot; = 3930</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

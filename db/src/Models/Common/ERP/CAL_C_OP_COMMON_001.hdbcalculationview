@@ -4,8 +4,8 @@
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="kz.Models.Basic.ERP::CAL_0002_CASE_KZ01">
-    <resourceUri>kz.Models.Basic.ERP::CAL_0002_CASE_KZ01</resourceUri>
+  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN">
+    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_JIEDAN</resourceUri>
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
@@ -27,7 +27,7 @@
         <formula>upper(&quot;KeHuZu&quot;)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="kz.Models.Basic.ERP::CAL_0002_CASE_KZ01"/>
+    <input node="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN"/>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="JieDanJinEHeXiaoShouE">
     <viewAttributes>

@@ -4,26 +4,26 @@
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="kz.Models.Basic.ERP::CAL_0002_CASE_KZ01">
-    <resourceUri>kz.Models.Basic.ERP::CAL_0002_CASE_KZ01</resourceUri>
+  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN">
+    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_JIEDAN</resourceUri>
   </DataSource>
-  <DataSource id="kz.Models::DIM_CUSTOMER">
-    <resourceUri>kz.Models::DIM_CUSTOMER</resourceUri>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_CUSTOMER">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_CUSTOMER</resourceUri>
   </DataSource>
-  <DataSource id="kz.Models::DIM_REGION">
-    <resourceUri>kz.Models::DIM_REGION</resourceUri>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_REGION">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_REGION</resourceUri>
   </DataSource>
-  <DataSource id="kz.Models.Basic::DIM_CASE_TYPE">
-    <resourceUri>kz.Models.Basic::DIM_CASE_TYPE</resourceUri>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_CASE_TYPE">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_CASE_TYPE</resourceUri>
   </DataSource>
-  <DataSource id="kz.Models::DIM_TIME">
-    <resourceUri>kz.Models::DIM_TIME</resourceUri>
+  <DataSource id="kz.DI.ERP.Tables::M_TIME_DIMENSION">
+    <resourceUri>kz.DI.ERP.Tables::M_TIME_DIMENSION</resourceUri>
   </DataSource>
   <DataSource id="kz.Models.Basic.ERP::CAL_DIM_INDUSTRY">
     <resourceUri>kz.Models.Basic.ERP::CAL_DIM_INDUSTRY</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_C_Organization">
-    <resourceUri>kz.DI.ERP::T_C_Organization</resourceUri>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_ORGANIZATION">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_ORGANIZATION</resourceUri>
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
@@ -45,7 +45,7 @@
         <formula>upper(&quot;KeHuZu&quot;)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="kz.Models.Basic.ERP::CAL_0002_CASE_KZ01"/>
+    <input node="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Dim_Customer">
     <viewAttributes>
@@ -57,7 +57,7 @@
       <viewAttribute id="C_Customer_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.Models::DIM_CUSTOMER"/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_CUSTOMER"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Dim_Region">
     <viewAttributes>
@@ -65,7 +65,7 @@
       <viewAttribute id="C_Region_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.Models::DIM_REGION"/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_REGION"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Dim_Case_Type">
     <viewAttributes>
@@ -73,7 +73,7 @@
       <viewAttribute id="C_Parameters_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.Models.Basic::DIM_CASE_TYPE"/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_CASE_TYPE"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Dim_Time">
     <viewAttributes>
@@ -85,7 +85,7 @@
       <viewAttribute id="DATE_SQL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.Models::DIM_TIME"/>
+    <input node="kz.DI.ERP.Tables::M_TIME_DIMENSION"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Dim_Industry">
     <viewAttributes>
@@ -99,9 +99,16 @@
     <viewAttributes>
       <viewAttribute id="C_Organization_code"/>
       <viewAttribute id="C_Organization_name"/>
+    
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_C_Organization"/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_ORGANIZATION"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="JieDanJinE" multiJoinOrder="Outside In">
     <viewAttributes>
@@ -115,6 +122,12 @@
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="CC_KeHuZu"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="JieDanJinE">
@@ -130,6 +143,12 @@
     </input>
     <input node="Dim_Organization">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="C_Organization_code"/>
     </input>
     <joinAttribute name="CC_KeHuZu"/>
@@ -147,6 +166,12 @@
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="CC_KeHuZu"/>
       <viewAttribute id="C_Customer_name"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
       <viewAttribute hidden="true" id="JOIN$C_Customer_code$B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -165,6 +190,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$C_Customer_code$B_Case_customerCode" source="B_Case_customerCode"/>
     </input>
     <joinAttribute name="JOIN$C_Customer_code$B_Case_customerCode"/>
@@ -183,6 +214,12 @@
       <viewAttribute id="CC_KeHuZu"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Industry_name"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDimToJieDanJinE_2">
@@ -197,6 +234,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
     </input>
     <input node="Dim_Industry">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Industry_name" source="C_Parameters_name"/>
@@ -222,6 +265,12 @@
       <viewAttribute id="MONTH"/>
       <viewAttribute id="YEAR_1"/>
       <viewAttribute id="MONTH_1"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDimToJieDanJinE_3">
@@ -237,6 +286,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Industry_name" source="C_Industry_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
     </input>
     <input node="Dim_Time">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
@@ -266,6 +321,12 @@
       <viewAttribute id="YEAR_1"/>
       <viewAttribute id="MONTH_1"/>
       <viewAttribute id="C_Case_Type_name"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDimToJieDanJinE_4">
@@ -285,6 +346,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR_1" source="YEAR_1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH_1" source="MONTH_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
     </input>
     <input node="Dim_Case_Type">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Case_Type_name" source="C_Parameters_name"/>
@@ -312,6 +379,12 @@
       <viewAttribute id="MONTH_1"/>
       <viewAttribute id="C_Case_Type_name"/>
       <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDimToJieDanJinE_5">
@@ -332,6 +405,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR_1" source="YEAR_1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH_1" source="MONTH_1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Case_Type_name" source="C_Case_Type_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
     </input>
     <input node="Dim_Region">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
@@ -407,6 +486,31 @@
     <attribute id="MONTH" order="16" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="MONTH"/>
       <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="MONTH"/>
+    </attribute>
+  
+    <attribute id="C_Organization_name_upward1" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward1"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward1"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward2" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward2"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward2"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward3" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward3"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward3"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward4" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward4"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward4"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward5" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward5"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward5"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward6" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward6"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward6"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
