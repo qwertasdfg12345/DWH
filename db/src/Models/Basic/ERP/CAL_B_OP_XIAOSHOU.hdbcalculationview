@@ -505,15 +505,19 @@
       <viewAttribute id="案件号"/>
       <viewAttribute id="案件性质编码" aggregationType="sum"/>
       <viewAttribute id="销售额" aggregationType="sum"/>
-      <viewAttribute id="日期"/>
+      <viewAttribute id="归档日期"/>
       <viewAttribute id="案件类型编码" aggregationType="sum"/>
       <viewAttribute id="金额类型"/>
     
       <viewAttribute id="表单编码"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="日期" aggregationType="min"/>
       <viewAttribute id="事业线编码"/>
     
       <viewAttribute id="行业编码" aggregationType="sum"/>
+    
+      <viewAttribute id="客户编码"/>
+    
+      <viewAttribute id="B_Case_regionCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_XSE_JC" emptyUnionBehavior="NO_ROW">
@@ -523,14 +527,18 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="案件性质编码" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="巴组编码" source="HeSuanBa"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="金额类型" source="JINE_TYP"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="日期" source="CC_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="日期" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="归档日期" source="CC_GDDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="销售额" source="JianCaiShouRuJinE"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="表单编码" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="事业线编码" source="CC_BusinessUnit"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="行业编码" source="B_Case_HangYe"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="客户编码" source="B_Case_customerCode"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
     </input>
   
     <input node="J_XSE_MS" emptyUnionBehavior="NO_ROW">
@@ -540,14 +548,22 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="案件性质编码" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="巴组编码" source="MinShengZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="金额类型" source="JinE_TYP"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="日期" source="CC_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="日期" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="归档日期" source="CC_GDDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="销售额" source="ShouRuJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="表单编码" source="P_Business_flow_form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="事业线编码" source="CC_BusinessUnit"/>
     
   
       <mapping xsi:type="Calculation:AttributeMapping" target="行业编码" source="B_Case_HangYe"/>
+  
+    
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="客户编码" source="B_Case_customerCode"/>
+  
+    
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
   
     </input>
   
@@ -558,12 +574,20 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="案件性质编码" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="巴组编码" source="HeSuanBa"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="金额类型" source="JINE_TYP"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="日期" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="日期" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="归档日期" source="CC_GDDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="销售额" source="JinE_TZ"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="表单编码" source="P_Business_flow_form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="事业线编码" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="行业编码" source="B_Case_HangYe"/>
+    
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="客户编码" source="B_Case_customerCode"/>
+  
+    
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+  
     </input>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_XSE_JC" cardinality="CN_N" joinType="inner">
@@ -576,10 +600,14 @@
       <viewAttribute id="JINE_TYP"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
     
-      <viewAttribute id="CC_DATE"/>
+      <viewAttribute id="CC_GDDATE"/>
       <viewAttribute id="JianCaiShouRuJinE" aggregationType="sum"/>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
+    
+      <viewAttribute id="B_Case_regionCode"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
@@ -591,9 +619,13 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_DATE" source="CC_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_GDDATE" source="CC_GDDATE"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
     </input>
     <input node="J_XSJE">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
@@ -619,10 +651,14 @@
       <viewAttribute id="JinE_TYP"/>
     
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="CC_DATE"/>
+      <viewAttribute id="CC_GDDATE"/>
       <viewAttribute id="ShouRuJinE" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_code"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
+    
+      <viewAttribute id="B_Case_regionCode"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
@@ -634,9 +670,13 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_DATE" source="CC_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_GDDATE" source="CC_GDDATE"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
     </input>
     <input node="J_XSSRQR_MS">
       <mapping xsi:type="Calculation:AttributeMapping" target="ShouRuJinE" source="ShouRuJinE"/>
@@ -660,18 +700,34 @@
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="JinE_TZ" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_code"/>
-      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/></viewAttributes>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
+    
+      <viewAttribute id="B_Case_regionCode"/>
+    </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>'B03'</formula>
+    
+      <calculatedViewAttribute id="CC_GDDATE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
+    
+        <formula>TO_NVARCHAR(&quot;P_Business_flow_form_factEndTime&quot;,'yyyymmdd')</formula>
+    
       </calculatedViewAttribute>
-    </calculatedViewAttributes>
+    
+      <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+    
+        <formula>'B03'</formula>
+    
+      </calculatedViewAttribute></calculatedViewAttributes>
     <input node="P_B_CASE_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
     </input>
     <input node="J_AJSRHSBTZ_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
@@ -692,11 +748,15 @@
     
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
     
+      <viewAttribute id="B_Case_customerCode"/>
+    
+    
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="B_Case_registerTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_regionCode"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_DATE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
+      <calculatedViewAttribute id="CC_GDDATE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
         <formula>TO_NVARCHAR(IFNULL(&quot;P_Business_flow_form_factEndTime&quot;,&quot;B_Case_registerTime&quot; ),'yyyymmdd')
 </formula>
       </calculatedViewAttribute>
@@ -710,6 +770,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_registerTime" source="B_Case_registerTime"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
     </input>
     <input node="R_BAJHS">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
@@ -725,10 +789,14 @@
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
     
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
     
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/></viewAttributes>
+    
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_regionCode"/>
+    </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_DATE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
+      <calculatedViewAttribute id="CC_GDDATE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
         <formula>TO_NVARCHAR(&quot;P_Business_flow_form_factEndTime&quot;,'yyyymmdd')</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
@@ -739,6 +807,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
     </input>
     <input node="Rank_DKFP">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
@@ -753,8 +825,12 @@
       <viewAttribute id="B_Case_type"/>
       <viewAttribute id="B_Case_nature"/>
       <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="B_Case_customerCode"/>
     
-      <viewAttribute id="B_Case_isDelete"/></viewAttributes>
+    
+      <viewAttribute id="B_Case_isDelete"/>
+      <viewAttribute id="B_Case_regionCode"/>
+    </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_B_Case"/>
     <filter>&quot;B_Case_isDelete&quot;=0 and &quot;B_Case_HangYe&quot;=1978</filter>
@@ -791,9 +867,13 @@
       <viewAttribute id="B_Case_nature"/>
       <viewAttribute id="B_Case_HangYe"/>
       <viewAttribute id="B_Case_registerTime"/>
+      <viewAttribute id="B_Case_customerCode"/>
     
     
-      <viewAttribute id="B_Case_isDelete"/></viewAttributes>
+    
+      <viewAttribute id="B_Case_isDelete"/>
+      <viewAttribute id="B_Case_regionCode"/>
+    </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_B_CASE_JC$$$$kz.DI.ERP::T_B_Case$$"/>
     <filter>&quot;B_Case_isDelete&quot;=0 and &quot;B_Case_HangYe&quot;=153</filter>
@@ -805,8 +885,12 @@
       <viewAttribute id="B_Case_type"/>
       <viewAttribute id="B_Case_nature"/>
       <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="B_Case_customerCode"/>
     
-      <viewAttribute id="B_Case_isDelete"/></viewAttributes>
+    
+      <viewAttribute id="B_Case_isDelete"/>
+      <viewAttribute id="B_Case_regionCode"/>
+    </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_B_CASE_MS$$$$kz.DI.ERP::T_B_Case$$"/>
     <filter>&quot;B_Case_isDelete&quot;=0 and &quot;B_Case_HangYe&quot;=3649</filter>
@@ -925,20 +1009,20 @@
     </calculatedViewAttributes>
     <input node="P_DKFP_ZC$$$$kz.DI.ERP::T_A_FinanceForm_DaoKuanFenPei$$"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_6">
-    <viewAttributes/>
-    <calculatedViewAttributes/>
-  </calculationView>
 </calculationViews>
 <logicalModel id="U_XSJE">
   <attributes>
-    <attribute id="CC_BusinessUnit" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="事业线"/>
-      <keyMapping columnObjectName="U_XSJE" columnName="事业线编码"/>
+    <attribute id="P_Business_flow_form_factEndTime" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="日期"/>
+      <keyMapping columnObjectName="U_XSJE" columnName="日期"/>
     </attribute>
-    <attribute id="HeSuanBa" order="3" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="HeSuanBa" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="巴组"/>
       <keyMapping columnObjectName="U_XSJE" columnName="巴组编码"/>
+    </attribute>
+    <attribute id="CC_BusinessUnit" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="事业线"/>
+      <keyMapping columnObjectName="U_XSJE" columnName="事业线编码"/>
     </attribute>
     <attribute id="B_Case_code" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件编码"/>
@@ -948,43 +1032,54 @@
       <descriptions defaultDescription="案件号"/>
       <keyMapping columnObjectName="U_XSJE" columnName="案件号"/>
     </attribute>
-    <attribute id="P_Business_Flow_Form_code" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="表单编码"/>
-      <keyMapping columnObjectName="U_XSJE" columnName="表单编码"/>
+    <attribute id="B_Case_customerCode" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户编码"/>
+      <keyMapping columnObjectName="U_XSJE" columnName="客户编码"/>
     </attribute>
-    <attribute id="B_Case_type" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="案件类型"/>
-      <keyMapping columnObjectName="U_XSJE" columnName="案件类型编码"/>
-    </attribute>
-    <attribute id="B_Case_nature" order="8" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_nature" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件性质"/>
       <keyMapping columnObjectName="U_XSJE" columnName="案件性质编码"/>
     </attribute>
-    <attribute id="P_Business_flow_form_factEndTime" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="归档日期"/>
-      <keyMapping columnObjectName="U_XSJE" columnName="P_Business_flow_form_factEndTime"/>
+    <attribute id="B_Case_type" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件类型"/>
+      <keyMapping columnObjectName="U_XSJE" columnName="案件类型编码"/>
     </attribute>
-    <attribute id="CC_DATE" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="计算日期"/>
-      <keyMapping columnObjectName="U_XSJE" columnName="日期"/>
+    <attribute id="B_Case_regionCode" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所编码"/>
+      <keyMapping columnObjectName="U_XSJE" columnName="B_Case_regionCode"/>
+    </attribute>
+    <attribute id="P_Business_Flow_Form_code" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="表单编码"/>
+      <keyMapping columnObjectName="U_XSJE" columnName="表单编码"/>
+    </attribute>
+    <attribute id="B_Case_HangYe" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="行业编码"/>
+      <keyMapping columnObjectName="U_XSJE" columnName="行业编码"/>
     </attribute>
   
-    <attribute id="JINE_TYP" order="11" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_DATE" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="归档日期"/>
+  
+      <keyMapping columnObjectName="U_XSJE" columnName="归档日期"/>
+  
+    </attribute>
+  
+    <attribute id="JINE_TYP" order="13" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="金额类型"/>
   
       <keyMapping columnObjectName="U_XSJE" columnName="金额类型"/>
   
     </attribute></attributes>
   <calculatedAttributes>
-    <calculatedAttribute id="DATE_ERP" order="1" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="日期"/>
+    <calculatedAttribute id="DATE_ERP" order="14" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="归档日期(测试用)"/>
       <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="19">
         <formula>TO_NVARCHAR(&quot;P_Business_flow_form_factEndTime&quot;)</formula>
       </keyCalculation>
-    </calculatedAttribute>
+      </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures>
-    <measure id="XiaoShouJinE" order="12" aggregationType="sum" measureType="simple">
+    <measure id="XiaoShouJinE" order="15" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="销售额"/>
       <measureMapping columnObjectName="U_XSJE" columnName="销售额"/>
     </measure>
@@ -1244,11 +1339,6 @@
     <shape expanded="true" modelObjectName="P_DKFP_ZC" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-497" y="894"/>
       <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="Projection_6" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-709" y="143"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
