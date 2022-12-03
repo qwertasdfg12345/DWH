@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_B_DIM_CUSTOMER" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="DIM_CUSTOMER.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_C_Customer">
+    <resourceUri>kz.DI.ERP::T_C_Customer</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="kz.DI.ERP::T_C_Customer" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="C_Customer_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户ID"/>
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_id"/>
+    </attribute>
+    <attribute id="C_Customer_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户编码"/>
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_code"/>
+    </attribute>
+    <attribute id="C_Customer_number" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户代码"/>
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_number"/>
+    </attribute>
+    <attribute id="C_Customer_type" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户类型"/>
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_type"/>
+    </attribute>
+    <attribute id="C_Customer_level" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户级别"/>
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_level"/>
+    </attribute>
+    <attribute id="C_Customer_name" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户名称"/>
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_name"/>
+    </attribute>
+    <attribute id="C_Customer_shortName" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户简称"/>
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_shortName"/>
+    </attribute>
+    <attribute id="C_Customer_isDelete" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="删除标识"/>
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_isDelete"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;C_Customer_isDelete&quot; in (0,2,null)</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
