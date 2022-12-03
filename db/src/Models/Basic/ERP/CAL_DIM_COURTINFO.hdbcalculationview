@@ -313,7 +313,7 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="793" y="681"/>
+      <upperLeftCorner x="739" y="681"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="U_COURT" modelObjectNameSpace="CalculationView">
