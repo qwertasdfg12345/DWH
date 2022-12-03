@@ -4,8 +4,8 @@
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="kz.time_tables::M_TIME_DIMENSION">
-    <resourceUri>kz.time_tables::M_TIME_DIMENSION</resourceUri>
+  <DataSource id="kz.DI.ERP.Tables::M_TIME_DIMENSION">
+    <resourceUri>kz.DI.ERP.Tables::M_TIME_DIMENSION</resourceUri>
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
@@ -40,7 +40,7 @@
       <viewAttribute id="TZNTSTMPL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.time_tables::M_TIME_DIMENSION"/>
+    <input node="kz.DI.ERP.Tables::M_TIME_DIMENSION"/>
     <filter>(&quot;HOUR&quot;='00') AND (&quot;SECOND&quot;='00') AND (&quot;MINUTE&quot;='00')</filter>
   </calculationView>
 </calculationViews>
@@ -60,7 +60,7 @@
       <descriptions defaultDescription="DATETIMESTAMP"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="DATETIMESTAMP"/>
     </attribute>
-    <attribute id="DATE_SQL" order="2" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="DATE_SQL" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="DATE_SQL"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="DATE_SQL"/>
     </attribute>

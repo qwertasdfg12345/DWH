@@ -107,7 +107,9 @@
       </calculatedViewAttribute>
     
       <calculatedViewAttribute id="CC_JiaoYiJinE" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
+    
         <formula>TO_DECIMAL(&quot;YuanKaiTaNeiJiaoChanJinE&quot;,18,2)*-1</formula>
+    
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_A_CaseForm_NeiBuJiaoYiChanKaiTaShouYiDiaoZheng">
@@ -337,11 +339,11 @@
     </shape>
     <shape modelObjectName="P_Parameters" modelObjectNameSpace="J_XNJD" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="144.056640625"/>
+      <rectangleSize width="144"/>
     </shape>
     <shape modelObjectName="P_NBJYD" modelObjectNameSpace="J_XNJD" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="235.18212890625"/>
+      <rectangleSize width="235"/>
     </shape>
     <shape expanded="true" modelObjectName="P_Parameters" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-419" y="333"/>
