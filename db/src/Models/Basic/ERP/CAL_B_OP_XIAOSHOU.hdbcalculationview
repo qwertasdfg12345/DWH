@@ -599,7 +599,7 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="案件号" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="案件性质编码" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="销售额" source="BillsMoney"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="归档日期" source="ArchivedDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="归档日期" source="CC_GDDATE"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="案件类型编码" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="金额类型" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="表单编码" null="true" value=""/>
@@ -772,7 +772,11 @@
       <viewAttribute id="ArchivedDate"/>
     
       <viewAttribute id="BillsName"/></viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_GDDATE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
+        <formula>TO_NVARCHAR(&quot;ArchivedDate&quot;,'yyyymmdd')</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_Bills"/>
     <filter>&quot;BillsName&quot;='其他收入'</filter>
   </calculationView>
@@ -1049,11 +1053,7 @@
 </calculationViews>
 <logicalModel id="U_XSJE">
   <attributes>
-    <attribute id="P_Business_flow_form_factEndTime" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="日期"/>
-      <keyMapping columnObjectName="U_XSJE" columnName="日期"/>
-    </attribute>
-    <attribute id="HeSuanBa" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="HeSuanBa" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="巴组"/>
       <keyMapping columnObjectName="U_XSJE" columnName="巴组编码"/>
     </attribute>
@@ -1094,24 +1094,28 @@
       <keyMapping columnObjectName="U_XSJE" columnName="行业编码"/>
     </attribute>
   
-    <attribute id="CC_DATE" order="12" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_GDDATE" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="归档日期"/>
   
       <keyMapping columnObjectName="U_XSJE" columnName="归档日期"/>
   
     </attribute>
+    <attribute id="P_Business_flow_form_factEndTime" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="日期"/>
+      <keyMapping columnObjectName="U_XSJE" columnName="日期"/>
+    </attribute>
   
-    <attribute id="JINE_TYP" order="13" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="JINE_TYP" order="14" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="金额类型"/>
   
       <keyMapping columnObjectName="U_XSJE" columnName="金额类型"/>
   
     </attribute></attributes>
   <calculatedAttributes>
-    <calculatedAttribute id="DATE_ERP" order="14" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="归档日期(测试用)"/>
-      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="19">
-        <formula>TO_NVARCHAR(&quot;P_Business_flow_form_factEndTime&quot;)</formula>
+    <calculatedAttribute id="CC_DATE" order="2" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="统计日期"/>
+      <keyCalculation datatype="DATE" expressionLanguage="SQL">
+        <formula>TO_DATE(&quot;P_Business_flow_form_factEndTime&quot;)</formula>
       </keyCalculation>
     </calculatedAttribute>
   </calculatedAttributes>
