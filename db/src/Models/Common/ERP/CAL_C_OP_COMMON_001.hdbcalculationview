@@ -100,7 +100,9 @@
   
     <attribute id="B_Case_code" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="P_Business_flow_form_projectCode"/>
+  
       <keyMapping columnObjectName="JieDanJinEHeXiaoShouE" columnName="B_Case_code"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>
