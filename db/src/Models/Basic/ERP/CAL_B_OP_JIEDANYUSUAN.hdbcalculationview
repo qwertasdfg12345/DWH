@@ -13,6 +13,9 @@
   <DataSource id="kz.DI.ERP::T_ZhiChanZuJieDanJiHua">
     <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
   </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -50,6 +53,11 @@
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_ZhiChanZuJieDanJiHua"/>
   </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua"/>
+  </calculationView>
 </calculationViews>
 <logicalModel>
   <attributes/>
@@ -66,16 +74,21 @@
     </shape>
   
     <shape expanded="true" modelObjectName="B01_JieDanJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-317" y="30"/>
+      <upperLeftCorner x="-408" y="30"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B01_XiaShouJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-317" y="105"/>
+      <upperLeftCorner x="-408" y="105"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-123" y="115"/>
+      <upperLeftCorner x="-191" y="105"/>
       <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-196" y="30"/>
+      <rectangleSize height="30" width="200"/>
     </shape>
   </shapes>
 </layout>
