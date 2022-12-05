@@ -21,13 +21,17 @@
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="JieDanJinE"/>
       <viewAttribute id="KeHuZu"/>
+    
+      <viewAttribute id="B_Case_code"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_KeHuZu" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
         <formula>upper(&quot;KeHuZu&quot;)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN"/>
+    <input node="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="P_Business_flow_form_projectCode"/>
+    </input>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="JieDanJinEHeXiaoShouE">
     <viewAttributes>
@@ -40,6 +44,8 @@
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="CC_KeHuZu"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+    
+      <viewAttribute id="B_Case_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="JieDanJinE" emptyUnionBehavior="NO_ROW">
@@ -52,6 +58,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
     </input>
   </calculationView>
 </calculationViews>
@@ -88,6 +96,11 @@
     <attribute id="CC_KeHuZu" order="8" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CC_KeHuZu"/>
       <keyMapping columnObjectName="JieDanJinEHeXiaoShouE" columnName="CC_KeHuZu"/>
+    </attribute>
+  
+    <attribute id="B_Case_code" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="P_Business_flow_form_projectCode"/>
+      <keyMapping columnObjectName="JieDanJinEHeXiaoShouE" columnName="B_Case_code"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
