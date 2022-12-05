@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_0002_KZ11" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_B_OP_NEIJIAODAN" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CAL_0002_KZ11.hdbcalculationview"/>
 <localVariables/>
 <variableMappings/>
@@ -714,68 +714,70 @@
 </calculationViews>
 <logicalModel id="J_AllNBJYD">
   <attributes>
-  
-    <attribute id="P_Business_flow_form_projectCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="P_Business_flow_form_projectCode"/>
-  
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="P_Business_flow_form_projectCode"/>
-  
-    </attribute>
-    <attribute id="P_Business_flow_form_factEndTime" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="P_Business_flow_form_factEndTime"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="P_Business_flow_form_factEndTime"/>
-    </attribute>
-    <attribute id="CC_BaZuLeiBie" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_BaZuLeiBie"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="CC_BaZuLeiBie"/>
-    </attribute>
-    <attribute id="B_Case_number" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_number"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_number"/>
-    </attribute>
-    <attribute id="B_Case_HangYe" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_HangYe"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_HangYe"/>
-    </attribute>
-    <attribute id="B_Case_type" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_type"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_type"/>
-    </attribute>
-    <attribute id="B_Case_customerCode" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_customerCode"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_customerCode"/>
-    </attribute>
-    <attribute id="B_Case_regionCode" order="8" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_regionCode"/>
+    <attribute id="B_Case_regionCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所编码"/>
       <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_regionCode"/>
     </attribute>
   
-    <attribute id="HeSuanBa" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ZhiChuBa"/>
+    <attribute id="HeSuanBa" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="核算巴编码"/>
   
       <keyMapping columnObjectName="J_AllNBJYD" columnName="HeSuanBa"/>
   
     </attribute>
-    <attribute id="CC_JiaoYiDanLeiXing" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_JiaoYiDanLeiXing"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="CC_JiaoYiDanLeiXing"/>
+    <attribute id="B_Case_customerCode" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户编码"/>
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_customerCode"/>
+    </attribute>
+    <attribute id="B_CustomerProject_Code" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="项目编码"/>
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_CustomerProject_Code"/>
     </attribute>
   
-    <attribute id="P_Business_Flow_Form_code" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="P_Business_Flow_Form_code"/>
+  
+    <attribute id="P_Business_flow_form_projectCode" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件Code"/>
+  
+  
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="P_Business_flow_form_projectCode"/>
+  
+  
+    </attribute>
+    <attribute id="P_Business_flow_form_factEndTime" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="表单结束时间"/>
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="P_Business_flow_form_factEndTime"/>
+    </attribute>
+    <attribute id="B_Case_number" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件号"/>
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="B_Case_HangYe" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="行业编码"/>
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_HangYe"/>
+    </attribute>
+  
+    <attribute id="P_Business_Flow_Form_code" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="表单Code"/>
   
       <keyMapping columnObjectName="J_AllNBJYD" columnName="P_Business_Flow_Form_code"/>
   
     </attribute>
-    <attribute id="CC_JiaoYiJinE" order="12" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_JiaoYiJinE"/>
+    <attribute id="CC_BaZuLeiBie" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="巴组类别"/>
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="CC_BaZuLeiBie"/>
+    </attribute>
+    <attribute id="B_Case_type" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="类型编码"/>
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_type"/>
+    </attribute>
+    <attribute id="CC_JiaoYiDanLeiXing" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="交易单类型"/>
+      <keyMapping columnObjectName="J_AllNBJYD" columnName="CC_JiaoYiDanLeiXing"/>
+    </attribute>
+    <attribute id="CC_JiaoYiJinE" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="交易金额"/>
       <keyMapping columnObjectName="J_AllNBJYD" columnName="CC_JiaoYiJinE"/>
-    </attribute>
-    <attribute id="B_CustomerProject_Code" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_CustomerProject_Code"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_CustomerProject_Code"/>
-    </attribute>
-  </attributes>
+    </attribute></attributes>
   <calculatedAttributes/>
   <baseMeasures/>
   <calculatedMeasures/>
