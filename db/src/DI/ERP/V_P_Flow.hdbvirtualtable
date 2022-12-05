@@ -1,0 +1,4 @@
+VIRTUAL TABLE "kz.DI.ERP::V_P_Flow" AT "ERP_MSSQL"
+      ."<NULL>"
+      ."dbo"
+      ."P_Flow"

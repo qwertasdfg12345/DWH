@@ -1,0 +1,4 @@
+VIRTUAL TABLE "kz.DI.ERP::V_Dashboard_C_Organization" AT "ERP_MSSQL_ReportCenter"
+      ."<NULL>"
+      ."dbo"
+      ."Dashboard_C_Organization"

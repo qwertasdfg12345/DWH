@@ -1,0 +1,20 @@
+COLUMN TABLE "kz.DI.ERP.Tables::Organization_Flat" (
+    "C_Organization_id" INTEGER,
+    "C_Organization_code" NVARCHAR(36),
+    "C_Organization_name" NVARCHAR(500),
+    "C_Organization_level" INTEGER,
+    "C_Organization_code_upward1" NVARCHAR(36),
+    "C_Organization_code_upward2" NVARCHAR(36),
+    "C_Organization_code_upward3" NVARCHAR(36),
+    "C_Organization_code_upward4" NVARCHAR(36),
+    "C_Organization_code_upward5" NVARCHAR(36),
+    "C_Organization_code_upward6" NVARCHAR(36),
+    "C_Organization_name_upward1" NVARCHAR(500),
+    "C_Organization_name_upward2" NVARCHAR(500),
+    "C_Organization_name_upward3" NVARCHAR(500),
+    "C_Organization_name_upward4" NVARCHAR(500),
+    "C_Organization_name_upward5" NVARCHAR(500),
+    "C_Organization_name_upward6" NVARCHAR(500),
+    PRIMARY KEY ("C_Organization_id")
+)
+COMMENT '组织表'

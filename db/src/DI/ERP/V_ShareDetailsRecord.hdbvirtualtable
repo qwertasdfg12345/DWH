@@ -1,0 +1,4 @@
+VIRTUAL TABLE "kz.DI.ERP::V_ShareDetailsRecord" AT "ERP_MSSQL_ReportCenter"
+      ."<NULL>"
+      ."dbo"
+      ."ShareDetailsRecord"

@@ -1,0 +1,4 @@
+VIRTUAL TABLE "kz.DI.ERP::V_ZSCQ_paiting" AT "ERP_MSSQL"
+      ."<NULL>"
+      ."dbo"
+      ."ZSCQ_paiting"
