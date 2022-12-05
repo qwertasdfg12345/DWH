@@ -77,7 +77,7 @@
       <upperLeftCorner x="-408" y="30"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="B01_XiaShouJiHua" modelObjectNameSpace="CalculationView">
+    <shape expanded="false" modelObjectName="B01_XiaShouJiHua" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-408" y="105"/>
       <rectangleSize height="30" width="160"/>
     </shape>
