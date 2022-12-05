@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_B_OP_JIEDANYUSUAN" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_B_OP_JIEDANYUSUAN.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_I_YuShouJiHua">
+    <resourceUri>kz.DI.ERP::T_I_YuShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_I_ShouRu_1_6">
+    <resourceUri>kz.DI.ERP::T_I_ShouRu_1_6</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZhiChanZuJieDanJiHua">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B01_JieDanJiHua">
+    <viewAttributes>
+      <viewAttribute id="RegionName"/>
+      <viewAttribute id="YuShouJiHua"/>
+      <viewAttribute id="YuShouYear"/>
+      <viewAttribute id="YuShouMonth"/>
+      <viewAttribute id="YuShouTypes"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_YuShouJiHua" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
+        <formula>&quot;YuShouJiHua&quot; * 10000</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_I_YuShouJiHua"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B01_XiaShouJiHua" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="DanHao"/>
+      <viewAttribute id="B_Type"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="B_Case_backMoneyForm_mxShouruReMoney"/>
+      <viewAttribute id="B_Year"/>
+      <viewAttribute id="B_Month"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_I_ShouRu_1_6"/>
+    <filter>&quot;B_Type&quot; = '计划实收'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZhiChanZuJieDanJiHua"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua"/>
+  </calculationView>
+</calculationViews>
+<logicalModel>
+  <attributes/>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="B01_JieDanJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-408" y="30"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B01_XiaShouJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-408" y="105"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-191" y="105"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-196" y="30"/>
+      <rectangleSize height="30" width="200"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

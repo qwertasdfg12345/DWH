@@ -4,8 +4,8 @@
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN">
-    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_JIEDAN</resourceUri>
+  <DataSource id="kz.Models.Common.ERP::CAL_C_OP_COMMON_001">
+    <resourceUri>kz.Models.Common.ERP::CAL_C_OP_COMMON_001</resourceUri>
   </DataSource>
   <DataSource id="kz.Models.Basic.ERP::CAL_DIM_CUSTOMER">
     <resourceUri>kz.Models.Basic.ERP::CAL_DIM_CUSTOMER</resourceUri>
@@ -13,8 +13,8 @@
   <DataSource id="kz.Models.Basic.ERP::CAL_DIM_REGION">
     <resourceUri>kz.Models.Basic.ERP::CAL_DIM_REGION</resourceUri>
   </DataSource>
-  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_CASE_TYPE">
-    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_CASE_TYPE</resourceUri>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_CASETYPE">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_CASETYPE</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP.Tables::M_TIME_DIMENSION">
     <resourceUri>kz.DI.ERP.Tables::M_TIME_DIMENSION</resourceUri>
@@ -28,7 +28,10 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="JieDanJinE">
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_COMMON_01">
+    <descriptions>
+      <comment text="目前包含接单、销售"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="B_Case_number"/>
@@ -39,13 +42,17 @@
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="JieDanJinE"/>
       <viewAttribute id="KeHuZu"/>
+    
+      <viewAttribute id="XiaoShouJinE"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_KeHuZu" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
         <formula>upper(&quot;KeHuZu&quot;)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN"/>
+    <input node="kz.Models.Common.ERP::CAL_C_OP_COMMON_001">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="CC_KeHuZu"/>
+    </input>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Dim_Customer">
     <viewAttributes>
@@ -73,7 +80,7 @@
       <viewAttribute id="C_Parameters_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.Models.Basic.ERP::CAL_DIM_CASE_TYPE"/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_CASETYPE"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Dim_Time">
     <viewAttributes>
@@ -110,7 +117,7 @@
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_DIM_ORGANIZATION"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="JieDanJinE" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="P_COMMON_01" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -128,9 +135,10 @@
       <viewAttribute id="C_Organization_name_upward4"/>
       <viewAttribute id="C_Organization_name_upward5"/>
       <viewAttribute id="C_Organization_name_upward6"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="JieDanJinE">
+    <input node="P_COMMON_01">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
@@ -140,6 +148,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
     </input>
     <input node="Dim_Organization">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
@@ -153,7 +162,7 @@
     </input>
     <joinAttribute name="CC_KeHuZu"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_2" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="JieDanJinE" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_2" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="P_COMMON_01" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -165,13 +174,14 @@
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="CC_KeHuZu"/>
-      <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Organization_name_upward1"/>
       <viewAttribute id="C_Organization_name_upward2"/>
       <viewAttribute id="C_Organization_name_upward3"/>
       <viewAttribute id="C_Organization_name_upward4"/>
       <viewAttribute id="C_Organization_name_upward5"/>
       <viewAttribute id="C_Organization_name_upward6"/>
+      <viewAttribute id="C_Customer_name"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$C_Customer_code$B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -196,11 +206,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$C_Customer_code$B_Case_customerCode" source="B_Case_customerCode"/>
     </input>
     <joinAttribute name="JOIN$C_Customer_code$B_Case_customerCode"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_3" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="JieDanJinE" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_3" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="P_COMMON_01" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -212,14 +223,15 @@
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="CC_KeHuZu"/>
-      <viewAttribute id="C_Customer_name"/>
-      <viewAttribute id="C_Industry_name"/>
       <viewAttribute id="C_Organization_name_upward1"/>
       <viewAttribute id="C_Organization_name_upward2"/>
       <viewAttribute id="C_Organization_name_upward3"/>
       <viewAttribute id="C_Organization_name_upward4"/>
       <viewAttribute id="C_Organization_name_upward5"/>
       <viewAttribute id="C_Organization_name_upward6"/>
+      <viewAttribute id="C_Customer_name"/>
+      <viewAttribute id="C_Industry_name"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDimToJieDanJinE_2">
@@ -233,13 +245,14 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
     </input>
     <input node="Dim_Industry">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Industry_name" source="C_Parameters_name"/>
@@ -247,7 +260,7 @@
     </input>
     <joinAttribute name="B_Case_HangYe"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_4" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="JieDanJinE" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_4" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="P_COMMON_01" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -259,18 +272,19 @@
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="CC_KeHuZu"/>
-      <viewAttribute id="C_Customer_name"/>
-      <viewAttribute id="C_Industry_name"/>
-      <viewAttribute id="YEAR"/>
-      <viewAttribute id="MONTH"/>
-      <viewAttribute id="YEAR_1"/>
-      <viewAttribute id="MONTH_1"/>
       <viewAttribute id="C_Organization_name_upward1"/>
       <viewAttribute id="C_Organization_name_upward2"/>
       <viewAttribute id="C_Organization_name_upward3"/>
       <viewAttribute id="C_Organization_name_upward4"/>
       <viewAttribute id="C_Organization_name_upward5"/>
       <viewAttribute id="C_Organization_name_upward6"/>
+      <viewAttribute id="C_Customer_name"/>
+      <viewAttribute id="C_Industry_name"/>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="MONTH"/>
+      <viewAttribute id="YEAR_1"/>
+      <viewAttribute id="MONTH_1"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDimToJieDanJinE_3">
@@ -284,14 +298,15 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Industry_name" source="C_Industry_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Industry_name" source="C_Industry_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
     </input>
     <input node="Dim_Time">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
@@ -302,7 +317,7 @@
     </input>
     <joinAttribute name="CC_Date"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_5" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="JieDanJinE" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_5" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="P_COMMON_01" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -314,6 +329,12 @@
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="CC_KeHuZu"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Industry_name"/>
       <viewAttribute id="YEAR"/>
@@ -321,12 +342,7 @@
       <viewAttribute id="YEAR_1"/>
       <viewAttribute id="MONTH_1"/>
       <viewAttribute id="C_Case_Type_name"/>
-      <viewAttribute id="C_Organization_name_upward1"/>
-      <viewAttribute id="C_Organization_name_upward2"/>
-      <viewAttribute id="C_Organization_name_upward3"/>
-      <viewAttribute id="C_Organization_name_upward4"/>
-      <viewAttribute id="C_Organization_name_upward5"/>
-      <viewAttribute id="C_Organization_name_upward6"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDimToJieDanJinE_4">
@@ -340,18 +356,19 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Industry_name" source="C_Industry_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR_1" source="YEAR_1"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH_1" source="MONTH_1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Industry_name" source="C_Industry_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR_1" source="YEAR_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH_1" source="MONTH_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
     </input>
     <input node="Dim_Case_Type">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Case_Type_name" source="C_Parameters_name"/>
@@ -359,7 +376,7 @@
     </input>
     <joinAttribute name="B_Case_type"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_6" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="JieDanJinE" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_6" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="P_COMMON_01" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -371,6 +388,12 @@
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="CC_KeHuZu"/>
+      <viewAttribute id="C_Organization_name_upward1"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="C_Organization_name_upward4"/>
+      <viewAttribute id="C_Organization_name_upward5"/>
+      <viewAttribute id="C_Organization_name_upward6"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Industry_name"/>
       <viewAttribute id="YEAR"/>
@@ -379,12 +402,7 @@
       <viewAttribute id="MONTH_1"/>
       <viewAttribute id="C_Case_Type_name"/>
       <viewAttribute id="C_Region_name"/>
-      <viewAttribute id="C_Organization_name_upward1"/>
-      <viewAttribute id="C_Organization_name_upward2"/>
-      <viewAttribute id="C_Organization_name_upward3"/>
-      <viewAttribute id="C_Organization_name_upward4"/>
-      <viewAttribute id="C_Organization_name_upward5"/>
-      <viewAttribute id="C_Organization_name_upward6"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDimToJieDanJinE_5">
@@ -398,6 +416,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Industry_name" source="C_Industry_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
@@ -405,12 +429,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR_1" source="YEAR_1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH_1" source="MONTH_1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Case_Type_name" source="C_Case_Type_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward1" source="C_Organization_name_upward1"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward4" source="C_Organization_name_upward4"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward5" source="C_Organization_name_upward5"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward6" source="C_Organization_name_upward6"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
     </input>
     <input node="Dim_Region">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
@@ -421,103 +440,112 @@
 </calculationViews>
 <logicalModel id="addDimToJieDanJinE_6" filterExpressionLanguage="SQL">
   <attributes>
-    <attribute id="B_Case_number" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_number"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_number"/>
-    </attribute>
-    <attribute id="B_Case_customerCode" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_customerCode"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_customerCode"/>
-    </attribute>
-    <attribute id="CC_BusinessUnit" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_BusinessUnit"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="CC_BusinessUnit"/>
-    </attribute>
-    <attribute id="B_Case_type" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_type"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_type"/>
-    </attribute>
-    <attribute id="B_Case_regionCode" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_regionCode"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_regionCode"/>
-    </attribute>
   
-    <attribute id="B_Case_HangYe" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_HangYe"/>
+    <attribute id="C_Organization_name_upward1" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="一级组织"/>
   
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_HangYe"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward1"/>
   
     </attribute>
-    <attribute id="CC_Date" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_Date"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="CC_Date"/>
+    <attribute id="C_Organization_name_upward2" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="二级组织"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward2"/>
     </attribute>
-    <attribute id="C_Customer_name" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Customer_name"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Customer_name"/>
+    <attribute id="C_Organization_name_upward3" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="三级组织"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward3"/>
     </attribute>
-    <attribute id="C_Region_name" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="区域名称"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Region_name"/>
+    <attribute id="C_Organization_name_upward4" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="四级组织"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward4"/>
     </attribute>
-    <attribute id="C_Case_Type_name" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="维度名称"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Case_Type_name"/>
+    <attribute id="C_Organization_name_upward5" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="五级组织"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward5"/>
     </attribute>
-    <attribute id="YEAR" order="12" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="C_Organization_name_upward6" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="六级组织"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward6"/>
+    </attribute>
+    <attribute id="CC_KeHuBaZu" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="巴组编码"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="CC_KeHuZu"/>
+    </attribute>
+    <attribute id="C_Organization_name" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="巴组名称"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name"/>
+    </attribute>
+    <attribute id="YEAR" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="年度"/>
       <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="YEAR"/>
     </attribute>
   
-    <attribute id="C_Industry_name" order="13" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="MONTH" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="月份"/>
+  
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="MONTH"/>
+  
+    </attribute>
+    <attribute id="CC_Date" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="日期"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="CC_Date"/>
+    </attribute>
+    <attribute id="B_Case_number" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件编号"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="CC_BusinessUnit" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="事业线编码"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="CC_BusinessUnit"/>
+    </attribute>
+    <attribute id="B_Case_customerCode" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户编码"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_customerCode"/>
+    </attribute>
+    <attribute id="C_Customer_name" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户名称"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Customer_name"/>
+    </attribute>
+    <attribute id="B_Case_type" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件类型编码"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_type"/>
+    </attribute>
+    <attribute id="C_Case_Type_name" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件类型描述"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Case_Type_name"/>
+    </attribute>
+    <attribute id="B_Case_regionCode" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所编码"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_regionCode"/>
+    </attribute>
+    <attribute id="C_Region_name" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所名称"/>
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Region_name"/>
+    </attribute>
+  
+    <attribute id="B_Case_HangYe" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="行业编码"/>
+  
+      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="B_Case_HangYe"/>
+  
+    </attribute>
+  
+    <attribute id="C_Industry_name" order="21" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="行业名称"/>
   
       <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Industry_name"/>
   
-    </attribute>
-    <attribute id="C_Organization_name" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Organization_name"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name"/>
-    </attribute>
-    <attribute id="CC_KeHuBaZu" order="15" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_Customer_code"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="CC_KeHuZu"/>
-    </attribute>
-    <attribute id="MONTH" order="16" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MONTH"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="MONTH"/>
-    </attribute>
-  
-    <attribute id="C_Organization_name_upward1" order="17" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Organization_name_upward1"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward1"/>
-    </attribute>
-    <attribute id="C_Organization_name_upward2" order="18" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Organization_name_upward2"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward2"/>
-    </attribute>
-    <attribute id="C_Organization_name_upward3" order="19" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Organization_name_upward3"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward3"/>
-    </attribute>
-    <attribute id="C_Organization_name_upward4" order="20" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Organization_name_upward4"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward4"/>
-    </attribute>
-    <attribute id="C_Organization_name_upward5" order="21" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Organization_name_upward5"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward5"/>
-    </attribute>
-    <attribute id="C_Organization_name_upward6" order="22" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Organization_name_upward6"/>
-      <keyMapping columnObjectName="addDimToJieDanJinE_6" columnName="C_Organization_name_upward6"/>
-    </attribute>
-  </attributes>
+    </attribute></attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="JieDanJinE" order="8" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="JieDanJinE"/>
+    <measure id="JieDanJinE" order="22" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="接单金额"/>
       <measureMapping columnObjectName="addDimToJieDanJinE_6" columnName="JieDanJinE"/>
+    </measure>
+  
+    <measure id="XiaoShouJinE" order="23" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="销售金额"/>
+      <measureMapping columnObjectName="addDimToJieDanJinE_6" columnName="XiaoShouJinE"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -534,7 +562,7 @@
       <rectangleSize width="160"/>
     </shape>
   
-    <shape expanded="true" modelObjectName="JieDanJinE" modelObjectNameSpace="CalculationView">
+    <shape expanded="true" modelObjectName="P_COMMON_01" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="511" y="456"/>
       <rectangleSize height="30" width="160"/>
     </shape>
@@ -570,32 +598,32 @@
     </shape>
   
     <shape modelObjectName="Dim_Region" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="926" y="282"/>
+      <upperLeftCorner x="595" y="-1"/>
       <rectangleSize width="168"/>
     </shape>
     <shape modelObjectName="Dim_Case_Type" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="937" y="21"/>
+      <upperLeftCorner x="375" y="-37"/>
       <rectangleSize width="190"/>
     </shape>
     <shape modelObjectName="Dim_Time" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="294" y="99"/>
+      <upperLeftCorner x="1031" y="50"/>
       <rectangleSize width="142"/>
     </shape>
     <shape modelObjectName="Dim_Industry" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="379" y="-37"/>
+      <upperLeftCorner x="797" y="52"/>
       <rectangleSize width="190"/>
     </shape>
     <shape modelObjectName="Dim_Customer" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="1032" y="137"/>
+      <upperLeftCorner x="140" y="-127"/>
       <rectangleSize width="207"/>
     </shape>
-    <shape modelObjectName="JieDanJinE" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="-10" y="-42"/>
+    <shape modelObjectName="P_COMMON_01" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
+      <upperLeftCorner x="-148" y="-37"/>
       <rectangleSize width="202"/>
     </shape>
     <shape modelObjectName="Dim_Organization" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="553" y="282"/>
-      <rectangleSize width="196"/>
+      <upperLeftCorner x="140" y="162"/>
+      <rectangleSize width="244"/>
     </shape></shapes>
 </layout>
 </Calculation:scenario>
