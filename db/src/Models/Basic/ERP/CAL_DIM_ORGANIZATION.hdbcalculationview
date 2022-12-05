@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_ORGANIZATION" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_DIM_ORGANIZATION.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP.Tables::Organization_Flat">
+    <resourceUri>kz.DI.ERP.Tables::Organization_Flat</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="kz.DI.ERP.Tables::Organization_Flat">
+  <attributes>
+    <attribute id="C_Organization_code" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_code"/>
+    </attribute>
+    <attribute id="C_Organization_name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_name"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward1" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward1"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_code_upward1"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward2" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward2"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_code_upward2"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward3" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward3"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_code_upward3"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward4" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward4"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_code_upward4"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward5" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward5"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_code_upward5"/>
+    </attribute>
+    <attribute id="C_Organization_code_upward6" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_code_upward6"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_code_upward6"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward1" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward1"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_name_upward1"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward2" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward2"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_name_upward2"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward3" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward3"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_name_upward3"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward4" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward4"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_name_upward4"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward5" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward5"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_name_upward5"/>
+    </attribute>
+    <attribute id="C_Organization_name_upward6" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name_upward6"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_name_upward6"/>
+    </attribute>
+    <attribute id="C_Organization_level" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_level"/>
+      <keyMapping columnObjectName="Organization_Flat" columnName="C_Organization_level"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

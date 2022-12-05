@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_CASE_TYPE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_INDUSTRY" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="案件类型维表"/>
 <localVariables/>
 <variableMappings/>
@@ -30,7 +30,10 @@
   <calculatedMeasures/>
   <restrictedMeasures/>
 
-  <filter>&quot;C_Parameters_parent&quot; = 141 or &quot;C_Parameters_parent&quot; = 3650 or &quot;C_Parameters_parent&quot; = 4681</filter>
+  <filter>&quot;C_Parameters_id&quot; = 1978 
+or &quot;C_Parameters_id&quot; = 3649 
+or &quot;C_Parameters_id&quot; = 153
+or &quot;C_Parameters_id&quot; = 3930</filter>
 </logicalModel>
 <layout>
   <shapes>
