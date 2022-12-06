@@ -16,6 +16,45 @@
   <DataSource id="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua">
     <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
   </DataSource>
+  <DataSource id="kz.DI.ERP::T_I_MSJieDanJiHua_Temp">
+    <resourceUri>kz.DI.ERP::T_I_MSJieDanJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua02$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua03$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua04$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua05$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua06$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua07$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua08$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua12$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua11$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua10$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua09$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -58,6 +97,232 @@
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua"/>
   </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_JieDanJiHua">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_I_MSJieDanJiHua_Temp"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua01">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'01'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M1"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua02">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'02'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua02$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M2"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua03">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua03$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M3"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="B02_XiaoShouJiHua">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="B02_XiaoShouJiHua01" emptyUnionBehavior="NO_ROW"/>
+    <input node="B02_XiaoShouJiHua02" emptyUnionBehavior="NO_ROW"/>
+    <input node="B02_XiaoShouJiHua03" emptyUnionBehavior="NO_ROW"/>
+    <input node="B02_XiaoShouJiHua04" emptyUnionBehavior="NO_ROW"/>
+    <input node="B02_XiaoShouJiHua05" emptyUnionBehavior="NO_ROW"/>
+    <input node="B02_XiaoShouJiHua06" emptyUnionBehavior="NO_ROW"/>
+    <input node="B02_XiaoShouJiHua07" emptyUnionBehavior="NO_ROW"/>
+    <input node="B02_XiaoShouJiHua08" emptyUnionBehavior="NO_ROW"/>
+  
+    <input node="B02_XiaoShouJiHua09"/>
+    <input node="B02_XiaoShouJiHua11"/>
+    <input node="B02_XiaoShouJiHua10"/>
+    <input node="B02_XiaoShouJiHua12"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua04">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'04'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua04$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M4"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua05">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'05'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua05$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M5"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua06">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'06'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua06$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M6"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua07">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'07'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua07$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M7"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua08">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'08'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua08$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M8"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua12">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'12'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua12$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M12"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua11">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'11'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua11$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M11"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua10">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'10'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua10$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M10"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua09">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'09'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua09$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M9"/>
+    </input>
+  </calculationView>
 </calculationViews>
 <logicalModel>
   <attributes/>
@@ -74,22 +339,77 @@
     </shape>
   
     <shape expanded="true" modelObjectName="B01_JieDanJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-408" y="30"/>
+      <upperLeftCorner x="-659" y="-4"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="false" modelObjectName="B01_XiaShouJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-408" y="105"/>
+      <upperLeftCorner x="-869" y="1"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-191" y="105"/>
-      <rectangleSize height="30" width="160"/>
+      <rectangleSize height="30" width="195"/>
     </shape>
   
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-196" y="30"/>
       <rectangleSize height="30" width="200"/>
     </shape>
-  </shapes>
+  
+    <shape expanded="true" modelObjectName="B02_JieDanJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-271" y="191"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua01" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-557" y="301"/>
+      <rectangleSize height="30" width="229"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua02" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-777" y="291"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua03" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1019" y="308"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1151" y="-6"/>
+      <rectangleSize height="30" width="185"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua04" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1179" y="291"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua05" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1399" y="291"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua06" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1693" y="258"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua07" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1894" y="342"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua08" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-2114" y="332"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua12" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1996" y="478"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua11" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1239" y="433"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua10" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-1631" y="478"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua09" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-809" y="450"/>
+      <rectangleSize width="160"/>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
