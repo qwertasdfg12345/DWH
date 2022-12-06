@@ -138,7 +138,9 @@
       </calculatedViewAttribute>
     
       <calculatedViewAttribute id="Year" datatype="NVARCHAR" length="4" expressionLanguage="SQL">
+    
         <formula>to_char(&quot;YuShouYear&quot;)</formula>
+    
       </calculatedViewAttribute>
       <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
         <formula>case
@@ -1414,6 +1416,11 @@ END</formula>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="B03_JieDanJinE">
     <viewAttributes>
+      <viewAttribute id="Year"/>
+      <viewAttribute id="Month"/>
+      <viewAttribute id="CC_JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    
       <viewAttribute id="KeHuSuoShuFenGongSi"/>
       <viewAttribute id="Customer_name"/>
       <viewAttribute id="MuBiaoKeHuMingCheng"/>
@@ -1434,12 +1441,7 @@ END</formula>
       <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
       <viewAttribute id="ZhiChanZu"/>
       <viewAttribute id="JieDanJiHua"/>
-      <viewAttribute id="Month"/>
-      <viewAttribute id="CC_JieDanYuSuan" aggregationType="sum"/>
-      <viewAttribute id="Year"/>
-      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
-      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
-    </viewAttributes>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/></viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
         <formula>'B03'</formula>
@@ -2212,7 +2214,7 @@ END</formula>
       <viewAttribute id="CC_YuShouJiHua" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="B01_XiaoShouJiHua">
+    <input node="B01_XiaoShouJiHua" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuSuan" source="B_Case_backMoneyForm_mxShouruReMoney"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="Year"/>
@@ -2220,7 +2222,7 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="BusinessUnit" source="BusinessUnit"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_YuShouJiHua" null="true" value=""/>
     </input>
-    <input node="B01_JieDanJiHua">
+    <input node="B01_JieDanJiHua" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="RegionName"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouYuSuan" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="Year"/>
@@ -2244,7 +2246,7 @@ END</formula>
       <descriptions defaultDescription="C_Region_Code"/>
       <keyMapping columnObjectName="YuSuanJinE" columnName="C_Region_Code"/>
     </attribute>
-    <attribute id="Year" order="4">
+    <attribute id="Year" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Year"/>
       <keyMapping columnObjectName="YuSuanJinE" columnName="Year"/>
     </attribute>
@@ -2275,189 +2277,189 @@ END</formula>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="5864.952266899198" y="112"/>
+      <upperLeftCorner x="5864" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="B01_JieDanJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5936.49282439368" y="476.9999976158142"/>
+      <upperLeftCorner x="5936" y="476"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="false" modelObjectName="B01_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5726.49282439368" y="476.9999976158142"/>
+      <upperLeftCorner x="5726" y="476"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua01" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="946.9999964237213"/>
+      <upperLeftCorner x="92" y="946"/>
       <rectangleSize height="30" width="195"/>
     </shape>
   
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua01" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="3907" y="946.9999964237213"/>
+      <upperLeftCorner x="3907" y="946"/>
       <rectangleSize height="30" width="200"/>
     </shape>
   
     <shape expanded="false" modelObjectName="B02_JieDanJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5213.840478823435" y="476.9999976158142"/>
+      <upperLeftCorner x="5213" y="476"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua01" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5627" y="946.9999964237213"/>
+      <upperLeftCorner x="5627" y="946"/>
       <rectangleSize height="30" width="229"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua02" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="6116" y="946.9999964237213"/>
+      <upperLeftCorner x="6116" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua03" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="7166" y="946.9999964237213"/>
+      <upperLeftCorner x="7166" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5468.538461538461" y="476.9999976158142"/>
+      <upperLeftCorner x="5468" y="476"/>
       <rectangleSize height="30" width="185"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua04" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="7376" y="946.9999964237213"/>
+      <upperLeftCorner x="7376" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua05" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5207" y="946.9999964237213"/>
+      <upperLeftCorner x="5207" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua06" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="6326" y="946.9999964237213"/>
+      <upperLeftCorner x="6326" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua07" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="6746" y="946.9999964237213"/>
+      <upperLeftCorner x="6746" y="946"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua08" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="6536" y="946.9999964237213"/>
+      <upperLeftCorner x="6536" y="946"/>
     
   
       <rectangleSize width="160"/>
   
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua09" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5906" y="946.9999964237213"/>
+      <upperLeftCorner x="5906" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua11" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="6956" y="946.9999964237213"/>
+      <upperLeftCorner x="6956" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua10" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="7586" y="946.9999964237213"/>
+      <upperLeftCorner x="7586" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B02_XiaoShouJiHua12" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5417" y="946.9999964237213"/>
+      <upperLeftCorner x="5417" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua02" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="3277" y="946.9999964237213"/>
+      <upperLeftCorner x="3277" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua03" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="4787" y="946.9999964237213"/>
+      <upperLeftCorner x="4787" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua04" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="4367" y="946.9999964237213"/>
+      <upperLeftCorner x="4367" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua05" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="4577" y="946.9999964237213"/>
+      <upperLeftCorner x="4577" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua06" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="3487" y="946.9999964237213"/>
+      <upperLeftCorner x="3487" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="3892.3076923076924" y="476.9999976158142"/>
+      <upperLeftCorner x="3892" y="476"/>
       <rectangleSize height="30" width="213"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua07" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="4157" y="946.9999964237213"/>
+      <upperLeftCorner x="4157" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua08" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2857" y="946.9999964237213"/>
+      <upperLeftCorner x="2857" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua09" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="3697" y="946.9999964237213"/>
+      <upperLeftCorner x="3697" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua10" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="4997" y="946.9999964237213"/>
+      <upperLeftCorner x="4997" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua11" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="3067" y="946.9999964237213"/>
+      <upperLeftCorner x="3067" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_XiaoShouJiHua12" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2647" y="946.9999964237213"/>
+      <upperLeftCorner x="2647" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="YuSuanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5185.411907394864" y="236.9999988079071"/>
+      <upperLeftCorner x="5185" y="236"/>
       <rectangleSize height="30" width="253"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1776.2307692307695" y="476.9999976158142"/>
+      <upperLeftCorner x="1776" y="476"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua02" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1807" y="946.9999964237213"/>
+      <upperLeftCorner x="1807" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua03" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2437" y="946.9999964237213"/>
+      <upperLeftCorner x="2437" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua04" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2017" y="946.9999964237213"/>
+      <upperLeftCorner x="2017" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua06" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="547" y="946.9999964237213"/>
+      <upperLeftCorner x="547" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua05" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1597" y="946.9999964237213"/>
+      <upperLeftCorner x="1597" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua07" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="337" y="946.9999964237213"/>
+      <upperLeftCorner x="337" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua08" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2227" y="946.9999964237213"/>
+      <upperLeftCorner x="2227" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua09" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="967" y="946.9999964237213"/>
+      <upperLeftCorner x="967" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="false" modelObjectName="B03_JieDanJiHua10" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1387" y="946.9999964237213"/>
+      <upperLeftCorner x="1387" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B03_JieDanJiHua11" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1177" y="946.9999964237213"/>
+      <upperLeftCorner x="1177" y="946"/>
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="B03_JieDanJiHua12" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="757" y="946.9999964237213"/>
+      <upperLeftCorner x="757" y="946"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">

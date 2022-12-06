@@ -553,7 +553,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     <input node="kz.DI.ERP::T_A_CaseForm_DianZiDangGaiZhangQianShenHe">
       <mapping xsi:type="Calculation:AttributeMapping" target="YuJiShouYi" source="MinShiYuJiShouYi"/>
     </input>
-    <filter>&quot;YuJiShouYi&quot; &lt;&gt; ''</filter>
+    <filter>&quot;YuJiShouYi&quot; &lt;&gt; '' and &quot;P_Business_Flow_Form_code&quot; &lt;&gt; '323AD51A-8CE9-4BAC-A233-DE464D5EE9B0' and &quot;P_Business_Flow_Form_code&quot; &lt;&gt; '495E297C-C586-4F76-AC94-4AD2F3B64702'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="ZSCQ_wenshuzhizuo" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -985,7 +985,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="JieDanJinE" order="11" aggregationType="sum" measureType="simple">
+    <measure id="JieDanJinE" order="11" aggregationType="sum" measureType="simple" unconverted="false">
       <descriptions defaultDescription="JieDanJinE"/>
       <measureMapping columnObjectName="JieDanJinE" columnName="JieDanJinE"/>
     </measure>
