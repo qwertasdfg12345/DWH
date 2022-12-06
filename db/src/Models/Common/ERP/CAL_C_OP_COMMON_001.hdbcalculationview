@@ -60,6 +60,8 @@
     
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+    
+      <viewAttribute id="P_Business_Flow_Form_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_JieDanJinE" emptyUnionBehavior="NO_ROW">
@@ -77,6 +79,8 @@
     
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_nature" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="P_Business_Flow_Form_code" null="true" value=""/>
     </input>
   
     <input node="P_XiaoShouJinE" emptyUnionBehavior="NO_ROW">
@@ -92,6 +96,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+    
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+  
     </input>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_XiaoShouJinE">
@@ -166,15 +174,20 @@
     <attribute id="B_Case_HangYe" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="行业编码"/>
       <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_HangYe"/>
-    </attribute></attributes>
+    </attribute>
+    <attribute id="P_Business_Flow_Form_code" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="表单编码"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="P_Business_Flow_Form_code"/>
+    </attribute>
+  </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="JieDanJinE" order="11" aggregationType="sum" measureType="simple">
+    <measure id="JieDanJinE" order="12" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="接单金额"/>
       <measureMapping columnObjectName="U_COMM_01" columnName="JieDanJinE"/>
     </measure>
   
-    <measure id="XiaoShouJinE" order="12" aggregationType="sum" measureType="simple">
+    <measure id="XiaoShouJinE" order="13" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="销售金额"/>
       <measureMapping columnObjectName="U_COMM_01" columnName="XiaoShouJinE"/>
     </measure>
