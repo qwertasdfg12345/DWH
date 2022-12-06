@@ -116,7 +116,7 @@
       <keyMapping columnObjectName="J_COURT_COM" columnName="C_Court_code"/>
     </attribute>
     <attribute id="C_Court_name" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="法院名称"/>
+      <descriptions defaultDescription="法院名称(当时当前)"/>
       <keyMapping columnObjectName="J_COURT_COM" columnName="C_Court_name"/>
     </attribute>
     <attribute id="C_Court_area" order="4" displayAttribute="false" attributeHierarchyActive="false">
