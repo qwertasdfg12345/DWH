@@ -53,7 +53,7 @@
       <viewAttribute id="B_Case_regionCode"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="CC_Date"/>
-      <viewAttribute id="CC_KeHuZu"/>
+      <viewAttribute id="CC_BaZU"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
     
       <viewAttribute id="B_Case_code"/>
@@ -72,7 +72,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZU" source="CC_KeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
@@ -80,7 +80,7 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_nature" null="true" value=""/>
     
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="P_Business_Flow_Form_code" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
     </input>
   
     <input node="P_XiaoShouJinE" emptyUnionBehavior="NO_ROW">
@@ -91,7 +91,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_DATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="HeSuanBa"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZU" source="HeSuanBa"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
@@ -123,7 +123,11 @@
       <viewAttribute id="CC_GDDATE"/>
       <viewAttribute id="P_Business_flow_form_factEndTime"/>
       <viewAttribute id="JINE_TYP"/></viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_1" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>upper(&quot;HeSuanBa&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="kz.Models.Basic.ERP::CAL_B_OP_XIAOSHOU"/>
   </calculationView>
 </calculationViews>
@@ -135,7 +139,7 @@
     </attribute>
     <attribute id="CC_KeHuZu" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="巴组编码"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="CC_KeHuZu"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="CC_BaZU"/>
     </attribute>
     <attribute id="CC_BusinessUnit" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="事业线编码"/>
