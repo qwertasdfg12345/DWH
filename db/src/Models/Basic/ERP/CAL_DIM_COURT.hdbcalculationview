@@ -50,6 +50,7 @@
       <viewAttribute id="C_Court_code"/>
       <viewAttribute id="C_Court_name"/>
       <viewAttribute id="C_Court_area"/>
+      <viewAttribute id="C_Region_name"/>
       <viewAttribute id="CompanyNo"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -61,11 +62,12 @@
     </input>
     <input node="P_C_REGION">
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_area" source="C_Region_code"/>
     </input>
     <joinAttribute name="C_Court_area"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_C_COMPANYORG" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_C_COMPANYORG">
     <descriptions>
       <comment text="C_CompanyOrg（分所的分公司表）  "/>
     </descriptions>
@@ -82,6 +84,7 @@
       <viewAttribute id="C_Court_code"/>
       <viewAttribute id="C_Court_name"/>
       <viewAttribute id="C_Court_area"/>
+      <viewAttribute id="C_Region_name"/>
       <viewAttribute id="CompanyNo"/>
       <viewAttribute id="CompanyName"/>
     </viewAttributes>
@@ -92,6 +95,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_area" source="C_Court_area"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
     </input>
     <input node="P_C_COMPANYORG">
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
@@ -100,7 +105,7 @@
     <joinAttribute name="CompanyNo"/>
   </calculationView>
 </calculationViews>
-<logicalModel id="J_COURT_COM" filterExpressionLanguage="SQL">
+<logicalModel id="J_COURT_COM">
   <attributes>
     <attribute id="C_Court_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="法院ID"/>
@@ -118,12 +123,12 @@
       <descriptions defaultDescription="法院区域"/>
       <keyMapping columnObjectName="J_COURT_COM" columnName="C_Court_area"/>
     </attribute>
-    <attribute id="CompanyNo" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="对应分公司编码"/>
-      <keyMapping columnObjectName="J_COURT_COM" columnName="CompanyNo"/>
+    <attribute id="C_Region_name" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所(法院所属)"/>
+      <keyMapping columnObjectName="J_COURT_COM" columnName="C_Region_name"/>
     </attribute>
     <attribute id="CompanyName" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="对应分公司名称"/>
+      <descriptions defaultDescription="分公司(法院所属)"/>
       <keyMapping columnObjectName="J_COURT_COM" columnName="CompanyName"/>
     </attribute>
   </attributes>
@@ -134,37 +139,37 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="328.6900820831794" y="112"/>
+      <upperLeftCorner x="328" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_C_COURT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="30" y="521.9999976158142"/>
+      <upperLeftCorner x="30" y="521"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_C_REGION" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="210" y="521.9999976158142"/>
+      <upperLeftCorner x="210" y="521"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_COURT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="118.66666666666666" y="380.3333321412405"/>
+      <upperLeftCorner x="118" y="380"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_C_COURT" modelObjectNameSpace="J_COURT" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="170.9921875"/>
+      <rectangleSize width="170"/>
     </shape>
     <shape modelObjectName="P_C_REGION" modelObjectNameSpace="J_COURT" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="180.7783203125"/>
+      <rectangleSize width="180"/>
     </shape>
     <shape expanded="true" modelObjectName="P_C_COMPANYORG" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="328.83468516943316" y="379.9999988079071"/>
+      <upperLeftCorner x="328" y="379"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_COURT_COM" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="328.6900820831794" y="237"/>
+      <upperLeftCorner x="328" y="237"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_COURT" modelObjectNameSpace="J_COURT_COM" modelObjectType="JoinNodeInput">
