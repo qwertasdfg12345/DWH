@@ -403,12 +403,12 @@
       <comment text="立案时长"/>
     </descriptions>
     <viewAttributes>
-      <viewAttribute id="CC_QRCBFG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_code"/>
       <viewAttribute id="P_Fk_code"/>
       <viewAttribute id="P_Business_flow_factStartTime" aggregationType="min"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
       <viewAttribute id="CC_WLADJNUM" aggregationType="sum"/>
+      <viewAttribute id="CC_QRCBFG" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_LASC_1">
@@ -429,22 +429,22 @@
       <comment text="立案时长"/>
     </descriptions>
     <viewAttributes>
-      <viewAttribute id="CC_QRCBFG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_code"/>
       <viewAttribute id="P_Fk_code"/>
       <viewAttribute id="P_Business_flow_factStartTime" aggregationType="min"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
-      <viewAttribute id="CC_LAXX" aggregationType="sum"/>
       <viewAttribute id="CC_WLADJNUM" aggregationType="sum"/>
+      <viewAttribute id="CC_QRCBFG" aggregationType="sum"/>
+      <viewAttribute id="CC_LAXX" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_LASC_2">
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QRCBFG" source="CC_QRCBFG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factStartTime" source="P_Business_flow_factStartTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_WLADJNUM" source="CC_WLADJNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QRCBFG" source="CC_QRCBFG"/>
     </input>
     <input node="P_LAXX_JCX">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LAXX" source="CC_LAXX"/>
@@ -457,24 +457,24 @@
       <comment text="立案时长"/>
     </descriptions>
     <viewAttributes>
-      <viewAttribute id="CC_QRCBFG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_code"/>
       <viewAttribute id="P_Fk_code"/>
       <viewAttribute id="P_Business_flow_factStartTime" aggregationType="min"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
+      <viewAttribute id="CC_WLADJNUM" aggregationType="sum"/>
+      <viewAttribute id="CC_QRCBFG" aggregationType="sum"/>
       <viewAttribute id="CC_LAXX" aggregationType="sum"/>
       <viewAttribute id="CC_LADJ" aggregationType="sum"/>
-      <viewAttribute id="CC_WLADJNUM" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_LASC_3">
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QRCBFG" source="CC_QRCBFG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factStartTime" source="P_Business_flow_factStartTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LAXX" source="CC_LAXX"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_WLADJNUM" source="CC_WLADJNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QRCBFG" source="CC_QRCBFG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LAXX" source="CC_LAXX"/>
     </input>
     <input node="P_LADJ_JCX">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LADJ" source="CC_LADJ"/>
@@ -487,15 +487,15 @@
       <comment text="立案时长"/>
     </descriptions>
     <viewAttributes>
-      <viewAttribute id="CC_QRCBFG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_code"/>
       <viewAttribute id="P_Fk_code"/>
       <viewAttribute id="P_Business_flow_factStartTime" aggregationType="min"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
+      <viewAttribute id="CC_WLADJNUM" aggregationType="sum"/>
+      <viewAttribute id="CC_QRCBFG" aggregationType="sum"/>
       <viewAttribute id="CC_LAXX" aggregationType="sum"/>
       <viewAttribute id="CC_LADJ" aggregationType="sum"/>
       <viewAttribute id="ZongShiChangTian"/>
-      <viewAttribute id="CC_WLADJNUM" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_LEIXING" datatype="INTEGER" expressionLanguage="SQL">
@@ -521,14 +521,14 @@
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="J_LASC_4">
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QRCBFG" source="CC_QRCBFG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factStartTime" source="P_Business_flow_factStartTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_WLADJNUM" source="CC_WLADJNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QRCBFG" source="CC_QRCBFG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LAXX" source="CC_LAXX"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LADJ" source="CC_LADJ"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_WLADJNUM" source="CC_WLADJNUM"/>
     </input>
     <input node="J_ZHQS_JC">
       <mapping xsi:type="Calculation:AttributeMapping" target="ZongShiChangTian" source="ZongShiChangTian"/>
@@ -562,13 +562,13 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="92" y="629.4999964237213"/>
+      <upperLeftCorner x="92" y="629"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="J_LADJ" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="759.754945813506" y="611.9999964237213"/>
+      <upperLeftCorner x="759" y="611"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_PBFF_LATJ" modelObjectNameSpace="J_LADJ" modelObjectType="JoinNodeInput">
@@ -580,24 +580,24 @@
       <rectangleSize width="235"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFF_LATJ" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1018.8713410930469" y="791.9999952316284"/>
+      <upperLeftCorner x="1018" y="791"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_LADJ_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="759.754945813506" y="791.9999952316284"/>
+      <upperLeftCorner x="759" y="791"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_LAXX_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1438.8713410930468" y="791.9999952316284"/>
+      <upperLeftCorner x="1438" y="791"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_QDCBFG_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1228.8713410930468" y="791.9999952316284"/>
+      <upperLeftCorner x="1228" y="791"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_LADJ_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="969.7549458135059" y="611.9999964237213"/>
+      <upperLeftCorner x="969" y="611"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_LADJ_JC" modelObjectNameSpace="J_LADJ_JC" modelObjectType="JoinNodeInput">
@@ -609,7 +609,7 @@
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="J_QDCBFG_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1179.7549458135059" y="611.9999964237213"/>
+      <upperLeftCorner x="1179" y="611"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_QDCBFG_JC" modelObjectNameSpace="J_QDCBFG_JC" modelObjectType="JoinNodeInput">
@@ -621,7 +621,7 @@
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="J_LAXX_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1389.7549458135059" y="611.9999964237213"/>
+      <upperLeftCorner x="1389" y="611"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_LAXX_JC" modelObjectNameSpace="J_LAXX_JC" modelObjectType="JoinNodeInput">
@@ -633,11 +633,11 @@
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="P_ZHQS_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="305.0951331712906" y="451.9999976158142"/>
+      <upperLeftCorner x="305" y="451"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZHQS_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="331.76179983795726" y="291.9999988079071"/>
+      <upperLeftCorner x="331" y="291"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_ZHQS_JC" modelObjectNameSpace="J_ZHQS_JC" modelObjectType="JoinNodeInput">
@@ -649,48 +649,48 @@
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFF_ZHQS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="515.0951331712909" y="451.9999976158142"/>
+      <upperLeftCorner x="515" y="451"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBF_LA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="643.2061024272493" y="291.9999988079071"/>
+      <upperLeftCorner x="643" y="291"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="791.9999952316284"/>
+      <upperLeftCorner x="92" y="791"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="A_LAXX_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1365.5043233747667" y="469.4999976158142"/>
+      <upperLeftCorner x="1365" y="469"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="A_LADJ_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="945.5043233747668" y="469.4999976158142"/>
+      <upperLeftCorner x="945" y="469"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="A_QDCBFG_JC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1155.5043233747667" y="469.4999976158142"/>
+      <upperLeftCorner x="1155" y="469"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_LADJ_JCX" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="933.0076033909374" y="299.4999988079071"/>
+      <upperLeftCorner x="933" y="299"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_LAXX_JCX" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1353.0076033909374" y="299.4999988079071"/>
+      <upperLeftCorner x="1353" y="299"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_QDCBFG_JCX" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1143.0076033909374" y="299.4999988079071"/>
+      <upperLeftCorner x="1143" y="299"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="549.754945813506" y="611.9999964237213"/>
+      <upperLeftCorner x="549" y="611"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_WLADJ" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="733.0882791468393" y="451.9999976158142"/>
+      <upperLeftCorner x="733" y="451"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_PBFLA" modelObjectNameSpace="J_WLADJ" modelObjectType="JoinNodeInput">
@@ -706,7 +706,7 @@
   
   
     <shape expanded="true" modelObjectName="J_LASC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="921.5790319623659" y="32"/>
+      <upperLeftCorner x="921" y="32"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_ZHQS_JC" modelObjectNameSpace="J_LASC" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_LASC">
@@ -721,13 +721,13 @@
       <upperLeftCorner x="1194" y="30"/>
       <rectangleSize width="250"/>
     </shape>
-    <shape modelObjectName="P_PBF_LA" modelObjectNameSpace="J_LASC" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_LASC">
-      <upperLeftCorner x="878" y="-263"/>
-      <rectangleSize width="240"/>
-    </shape>
     <shape modelObjectName="P_QDCBFG_JCX" modelObjectNameSpace="J_LASC" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_LASC">
       <upperLeftCorner x="1494" y="30"/>
       <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="P_PBF_LA" modelObjectNameSpace="J_LASC" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_LASC">
+      <upperLeftCorner x="878" y="-263"/>
+      <rectangleSize width="240"/>
     </shape>
     <shape modelObjectName="J_WLADJ" modelObjectNameSpace="J_LASC" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_LASC">
       <upperLeftCorner x="1794" y="30"/>

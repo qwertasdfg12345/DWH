@@ -29,6 +29,8 @@
       <viewAttribute id="KeHuZu"/>
     
       <viewAttribute id="B_Case_code"/>
+    
+      <viewAttribute id="P_Business_Flow_Form_code"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_KeHuZu" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
