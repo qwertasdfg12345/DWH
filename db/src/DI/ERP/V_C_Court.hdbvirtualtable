@@ -1,0 +1,4 @@
+VIRTUAL TABLE "kz.DI.ERP::V_C_Court" AT "ERP_MSSQL"
+      ."<NULL>"
+      ."dbo"
+      ."C_Court"

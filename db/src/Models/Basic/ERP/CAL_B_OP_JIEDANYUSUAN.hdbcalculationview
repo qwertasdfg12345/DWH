@@ -16,6 +16,111 @@
   <DataSource id="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua">
     <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
   </DataSource>
+  <DataSource id="kz.DI.ERP::T_I_MSJieDanJiHua_Temp_CTR">
+    <resourceUri>kz.DI.ERP::T_I_MSJieDanJiHua_Temp_CTR</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua02$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua03$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua04$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua05$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua06$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua07$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua08$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua09$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua11$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua10$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B02_XiaoShouJiHua12$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+    <resourceUri>kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua02$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua03$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua04$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua05$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua06$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua07$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua08$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua09$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua10$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua11$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_XiaoShouJiHua12$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua02$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua03$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua04$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua06$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua05$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua07$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua08$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua09$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua10$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua11$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
+  <DataSource id="B03_JieDanJiHua12$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+    <resourceUri>kz.DI.ERP::T_ZhiChanZuJieDanJiHua</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -34,29 +139,1996 @@
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_I_YuShouJiHua"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="B01_XiaShouJiHua" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:ProjectionView" id="B01_XiaoShouJiHua" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="DanHao"/>
       <viewAttribute id="B_Type"/>
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="B_Case_backMoneyForm_mxShouruReMoney"/>
-      <viewAttribute id="B_Year"/>
-      <viewAttribute id="B_Month"/>
+      <viewAttribute id="Year"/>
+      <viewAttribute id="Month"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_I_ShouRu_1_6"/>
+    <input node="kz.DI.ERP::T_I_ShouRu_1_6">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="B_Year"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="B_Month"/>
+    </input>
     <filter>&quot;B_Type&quot; = '计划实收'</filter>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua">
-    <viewAttributes/>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_ZhiChanZuJieDanJiHua"/>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua01">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'01'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_ZhiChanZuJieDanJiHua">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M1"/>
+    </input>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua">
-    <viewAttributes/>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua01">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'01'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M1"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_JieDanJiHua">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="BYear"/>
+      <viewAttribute id="Month"/>
+      <viewAttribute id="YuSuanJinE"/>
+    </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua"/>
+    <input node="kz.DI.ERP::T_I_MSJieDanJiHua_Temp_CTR">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="Budget"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua01">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'01'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M1"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua02">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'02'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua02$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M2"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua03">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua03$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M3"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="B02_XiaoShouJiHua">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE" aggregationType="sum"/>
+      <viewAttribute id="BYear"/>
+      <viewAttribute id="Month"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="B02_XiaoShouJiHua01" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua02" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua03" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua04" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua05" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua06" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua07" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua08" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+  
+    <input node="B02_XiaoShouJiHua09" emptyUnionBehavior="NO_ROW">
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+  
+    </input>
+    <input node="B02_XiaoShouJiHua11" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua10" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B02_XiaoShouJiHua12" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua04">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'04'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua04$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M4"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua05">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'05'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua05$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M5"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua06">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'06'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua06$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M6"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua07">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'07'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua07$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M7"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua08">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'08'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua08$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M8"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua09">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'09'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua09$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M9"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua11">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'11'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua11$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M11"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua10">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'10'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua10$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M10"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B02_XiaoShouJiHua12">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="YuSuanJinE"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'12'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B02_XiaoShouJiHua12$$$$kz.DI.ERP::T_I_MSXiaoShouJiHua_Temp$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="M12"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua02">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'02'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua02$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M2"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua03">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua03$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M3"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua04">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'04'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua04$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M4"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua05">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'05'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua05$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M5"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua06">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'06'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua06$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M6"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="B03_XiaoShouJiHua">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="Year"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+      <viewAttribute id="Month"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="B03_XiaoShouJiHua01" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua02" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua03" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua04" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua05" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua06" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua07" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua08" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua09" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua10" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua11" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+    <input node="B03_XiaoShouJiHua12" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="XiaoShouJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua07">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'07'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua07$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M7"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua08">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'08'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua08$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M8"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua09">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'09'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua09$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M9"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua10">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'10'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua10$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M10"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua11">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'11'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua11$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M11"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua12">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="XiaoShouJiHua"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'12'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_XiaoShouJiHua12$$$$kz.DI.ERP::T_ZhiChanZuXiaoShouJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M12"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="BYear" aggregationType="sum"/>
+      <viewAttribute id="Month"/>
+      <viewAttribute id="YuSuanJinE" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="B02_JieDanJiHua" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+    </input>
+    <input node="B02_XiaoShouJiHua" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuSuanJinE" source="YuSuanJinE"/>
+    </input>
+    <input node="B01_XiaoShouJiHua" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CompanyName" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Code" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="Year"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="YuSuanJinE" null="true" value=""/>
+    </input>
+    <input node="B03_XiaoShouJiHua" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CompanyName" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Name" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Code" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BYear" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="YuSuanJinE" null="true" value=""/>
+    </input>
+    <input node="B01_JieDanJiHua" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CompanyName" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Name" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Code" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BYear" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="Month" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="YuSuanJinE" null="true" value=""/>
+    </input>
+    <input node="B03_JieDanJinE" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CompanyName" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Name" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Code" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BYear" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="Month" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="YuSuanJinE" null="true" value=""/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="B03_JieDanJinE">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+      <viewAttribute id="Month"/>
+      <viewAttribute id="CC_JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="B03_JieDanJiHua01" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua02" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua03" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua04" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua06" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua05" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua07" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua08" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua09" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua10" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua11" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input>
+    <input node="B03_JieDanJiHua12" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuSuoShuFenGongSi" source="KeHuSuoShuFenGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Customer_name" source="Customer_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MuBiaoKeHuMingCheng" source="MuBiaoKeHuMingCheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuXingZhi" source="KeHuXingZhi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JueCeRenSuoZaiDi" source="JueCeRenSuoZaiDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShiFouXuYaoKaiTuoZhiChi" source="ShiFouXuYaoKaiTuoZhiChi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoZaiHangYe" source="SuoZaiHangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYeBu" source="HangYeBu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuJingLi" source="XiangMuJingLi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YuJiQianYueShiJian" source="YuJiQianYueShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJianLeiBei" source="AnJianLeiBei"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiangMuBianHao" source="XiangMuBianHao"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnjianLiang" source="AnjianLiang"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AnJunShouYi" source="AnJunShouYi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ChanPingLeiXing" source="ChanPingLeiXing"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QinQuanFaShengDi" source="QinQuanFaShengDi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SuoShuDiaoChaZu" source="SuoShuDiaoChaZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZiXiangMuSuoShuGongSi" source="ZiXiangMuSuoShuGongSi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu" source="ZhiChanZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="JieDanJiHua"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JieDanYuSuan" source="CC_JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YearNumber" source="YearNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
+    </input></calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua02">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'02'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua02$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M2"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua03">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'03'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua03$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M3"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua04">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'04'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua04$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M4"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua06">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'06'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua06$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M6"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua05">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'05'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua05$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M5"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua07">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'07'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua07$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M7"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua08">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'08'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua08$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M8"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua09">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'09'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua09$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M9"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua10">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'10'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua10$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M10"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua11">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'11'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua11$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M11"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="B03_JieDanJiHua12">
+    <viewAttributes>
+      <viewAttribute id="KeHuSuoShuFenGongSi"/>
+      <viewAttribute id="Customer_name"/>
+      <viewAttribute id="MuBiaoKeHuMingCheng"/>
+      <viewAttribute id="KeHuXingZhi"/>
+      <viewAttribute id="JueCeRenSuoZaiDi"/>
+      <viewAttribute id="ShiFouXuYaoKaiTuoZhiChi"/>
+      <viewAttribute id="SuoZaiHangYe"/>
+      <viewAttribute id="HangYeBu"/>
+      <viewAttribute id="XiangMuJingLi"/>
+      <viewAttribute id="YuJiQianYueShiJian"/>
+      <viewAttribute id="AnJianLeiBei"/>
+      <viewAttribute id="XiangMuBianHao"/>
+      <viewAttribute id="AnjianLiang"/>
+      <viewAttribute id="AnJunShouYi"/>
+      <viewAttribute id="ChanPingLeiXing"/>
+      <viewAttribute id="QinQuanFaShengDi"/>
+      <viewAttribute id="SuoShuDiaoChaZu"/>
+      <viewAttribute id="ZiXiangMuSuoShuGongSi"/>
+      <viewAttribute id="ZhiChanZu"/>
+      <viewAttribute id="JieDanJiHua"/>
+    
+      <viewAttribute id="YearNumber"/>
+      <viewAttribute id="ZhiChanZu(KeHuSuoZai)"/>
+      <viewAttribute id="ZhiChanZu(AnJianSuoShu)"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>'12'</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="B03_JieDanJiHua12$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJiHua" source="M12"/>
+    </input>
   </calculationView>
 </calculationViews>
 <logicalModel>
@@ -70,26 +2142,190 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="40" y="85"/>
+      <upperLeftCorner x="2651" y="896"/>
+    
+      <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="B01_JieDanJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-408" y="30"/>
+      <upperLeftCorner x="1905" y="271"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="B01_XiaShouJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-408" y="105"/>
+    <shape expanded="false" modelObjectName="B01_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2325" y="271"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="B03_JieDanJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-191" y="105"/>
-      <rectangleSize height="30" width="160"/>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua01" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2861" y="896"/>
+      <rectangleSize height="30" width="195"/>
     </shape>
   
-    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-196" y="30"/>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua01" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1561" y="896"/>
       <rectangleSize height="30" width="200"/>
     </shape>
-  </shapes>
+  
+    <shape expanded="true" modelObjectName="B02_JieDanJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2115" y="271"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua01" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="5416" y="896"/>
+      <rectangleSize height="30" width="229"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua02" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="6116" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua03" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="7375" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="6139" y="285"/>
+      <rectangleSize height="30" width="185"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua04" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="5695" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua05" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="7795" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua06" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="7165" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua07" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="6745" y="896"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua08" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="6536" y="896"/>
+    
+  
+      <rectangleSize width="160"/>
+  
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua09" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="5905" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua11" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="6955" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua10" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="7585" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B02_XiaoShouJiHua12" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="6326" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua02" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1142" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua03" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="721" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua04" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2021" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua05" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2231" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua06" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="931" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2535" y="285"/>
+      <rectangleSize height="30" width="213"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua07" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1811" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua08" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="511" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua09" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1352" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua10" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2441" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua11" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_XiaoShouJiHua12" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2496" y="32"/>
+      <rectangleSize height="30" width="253"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJinE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="3755" y="271"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua02" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="4576" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua03" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="5206" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua04" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="4996" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua06" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="3316" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua05" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="4366" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua07" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="3106" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua08" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="4786" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua09" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="3736" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="false" modelObjectName="B03_JieDanJiHua10" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="4156" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua11" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="3946" y="896"/>
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="B03_JieDanJiHua12" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="3526" y="896"/>
+      <rectangleSize width="160"/>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
