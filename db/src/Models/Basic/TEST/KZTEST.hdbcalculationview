@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.TEST::KZTEST" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="KZTEST.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_ZSCQ_paiting">
+    <resourceUri>kz.DI.ERP::T_ZSCQ_paiting</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_KTSJ">
+    <viewAttributes>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="Code"/>
+      <viewAttribute id="KaiTingShiJian"/>
+      <viewAttribute id="KaiTingShiJian1"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_date" datatype="NVARCHAR" length="19" expressionLanguage="SQL">
+        <formula>TO_NVARCHAR(&quot;KaiTingShiJian&quot;,'yyyy-mm-dd')||' '|| &quot;KaiTingShiJian1&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_ZSCQ_paiting"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="P_KTSJ">
+  <attributes>
+    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="P_KTSJ" columnName="ID"/>
+    </attribute>
+    <attribute id="Code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Code"/>
+      <keyMapping columnObjectName="P_KTSJ" columnName="Code"/>
+    </attribute>
+    <attribute id="KaiTingShiJian" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KaiTingShiJian"/>
+      <keyMapping columnObjectName="P_KTSJ" columnName="KaiTingShiJian"/>
+    </attribute>
+    <attribute id="KaiTingShiJian1" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KaiTingShiJian1"/>
+      <keyMapping columnObjectName="P_KTSJ" columnName="KaiTingShiJian1"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_KTSJ" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="200"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
