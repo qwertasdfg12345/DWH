@@ -91,7 +91,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_DATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZU" source="HeSuanBa"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZU" source="CC_HeSuanBa"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
@@ -124,7 +124,7 @@
       <viewAttribute id="P_Business_flow_form_factEndTime"/>
       <viewAttribute id="JINE_TYP"/></viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_1" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+      <calculatedViewAttribute id="CC_HeSuanBa" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
         <formula>upper(&quot;HeSuanBa&quot;)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
