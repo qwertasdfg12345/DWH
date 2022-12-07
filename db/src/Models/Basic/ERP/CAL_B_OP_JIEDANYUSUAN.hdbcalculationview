@@ -2463,11 +2463,11 @@ END</formula>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5812" y="319"/>
+      <upperLeftCorner x="5826" y="188"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B01_Yusuan" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="5644" y="359"/>
+      <upperLeftCorner x="5826" y="275"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
