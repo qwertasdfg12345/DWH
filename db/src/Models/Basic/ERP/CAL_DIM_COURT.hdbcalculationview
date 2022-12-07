@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_COURT" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_COURT" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="DIM_COURT.hdbcalculationview"/>
 <localVariables/>
 <variableMappings/>
@@ -7,45 +7,241 @@
   <DataSource id="kz.DI.ERP::T_C_Court">
     <resourceUri>kz.DI.ERP::T_C_Court</resourceUri>
   </DataSource>
+  <DataSource id="kz.DI.ERP::T_C_Region">
+    <resourceUri>kz.DI.ERP::T_C_Region</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_C_CompanyOrg">
+    <resourceUri>kz.DI.ERP::T_C_CompanyOrg</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_20221017BaoLiuFaYuan">
+    <resourceUri>kz.DI.ERP::T_20221017BaoLiuFaYuan</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
-<calculationViews/>
-<logicalModel id="kz.DI.ERP::T_C_Court" filterExpressionLanguage="SQL">
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_C_COURT" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="C_Court_id"/>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="C_Court_name"/>
+      <viewAttribute id="C_Court_number"/>
+      <viewAttribute id="C_Court_area"/>
+      <viewAttribute id="C_Court_isdelete"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_C_Court"/>
+    <filter>&quot;C_Court_isdelete&quot; in ('0',null)</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_C_REGION" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="取法院对应的分公司"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="C_Region_Id"/>
+      <viewAttribute id="C_Region_code"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="C_Region_isDelete"/>
+      <viewAttribute id="CompanyNo"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_C_Region"/>
+    <filter>&quot;C_Region_isDelete&quot;=0</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_COURT" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="C_Court_id"/>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="C_Court_name"/>
+      <viewAttribute id="C_Court_area"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyNo"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_C_COURT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_id" source="C_Court_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_area" source="C_Court_area"/>
+    </input>
+    <input node="P_C_REGION">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_area" source="C_Region_code"/>
+    </input>
+    <joinAttribute name="C_Court_area"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_C_COMPANYORG">
+    <descriptions>
+      <comment text="C_CompanyOrg（分所的分公司表）  "/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="CompanyNo"/>
+      <viewAttribute id="CompanyName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_C_CompanyOrg"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_COURT_COM" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="C_Court_id"/>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="C_Court_name"/>
+      <viewAttribute id="C_Court_area"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyNo"/>
+      <viewAttribute id="CompanyName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_COURT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_id" source="C_Court_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_area" source="C_Court_area"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+    </input>
+    <input node="P_C_COMPANYORG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
+    </input>
+    <joinAttribute name="CompanyNo"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_COURT_BF">
+    <descriptions>
+      <comment text="八分法院 "/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="CourtName"/>
+      <viewAttribute id="CompanyName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_20221017BaoLiuFaYuan"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="C_Court_id"/>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="C_Court_name"/>
+      <viewAttribute id="C_Court_area"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyNo"/>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="CourtName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_COURT_COM">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_id" source="C_Court_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_area" source="C_Court_area"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+    </input>
+    <input node="P_COURT_BF">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtName" source="CourtName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="CourtName"/>
+    </input>
+    <joinAttribute name="C_Court_name"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
   <attributes>
     <attribute id="C_Court_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="法院内码"/>
-      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_id"/>
+      <descriptions defaultDescription="法院ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Court_id"/>
     </attribute>
     <attribute id="C_Court_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="法院Code"/>
-      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_code"/>
+      <descriptions defaultDescription="法院编码"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Court_code"/>
     </attribute>
     <attribute id="C_Court_name" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="法院名称"/>
-      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_name"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Court_name"/>
     </attribute>
-    <attribute id="C_Court_number" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="法院代码"/>
-      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_number"/>
+    <attribute id="C_Court_area" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="区域(法院所属)"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Court_area"/>
     </attribute>
-    <attribute id="C_Court_isdelete" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="是否删除0-否，1-是"/>
-      <keyMapping columnObjectName="T_C_Court" columnName="C_Court_isdelete"/>
+    <attribute id="C_Region_name" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所(法院所属)"/>
+      <keyMapping columnObjectName="Join_1" columnName="C_Region_name"/>
+    </attribute>
+    <attribute id="CompanyName" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分公司(法院所属)"/>
+      <keyMapping columnObjectName="Join_1" columnName="CompanyName"/>
+    </attribute>
+    <attribute id="CourtName" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="八分法院"/>
+      <keyMapping columnObjectName="Join_1" columnName="CourtName"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
   <calculatedMeasures/>
-  <restrictedMeasures/>
-
-  <filter>&quot;C_Court_isdelete&quot; in ('0',null)</filter>
-</logicalModel>
+  <restrictedMeasures/></logicalModel>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="100" y="105"/>
+      <upperLeftCorner x="422" y="112"/>
     
       <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_C_COURT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-12" y="676"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_C_REGION" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="215" y="676"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_COURT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="516"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_C_COURT" modelObjectNameSpace="J_COURT" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="170"/>
+    </shape>
+    <shape modelObjectName="P_C_REGION" modelObjectNameSpace="J_COURT" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="180"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_C_COMPANYORG" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="384" y="516"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_COURT_COM" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="239" y="356"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_COURT" modelObjectNameSpace="J_COURT_COM" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="P_C_COMPANYORG" modelObjectNameSpace="J_COURT_COM" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_COURT_BF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="582" y="356"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="422" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape modelObjectName="J_COURT_COM" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="168"/>
+    </shape>
+    <shape modelObjectName="P_COURT_BF" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="162"/>
     </shape>
   </shapes>
 </layout>
