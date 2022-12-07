@@ -714,7 +714,7 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="DIM_INDUSTRY" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1562" y="526"/>
+      <upperLeftCorner x="1626" y="526"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="DIM_ORG" modelObjectNameSpace="CalculationView">
