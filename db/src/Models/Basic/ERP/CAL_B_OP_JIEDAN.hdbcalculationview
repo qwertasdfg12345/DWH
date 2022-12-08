@@ -985,7 +985,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="JieDanJinE" order="11" aggregationType="sum" measureType="simple">
+    <measure id="JieDanJinE" order="11" aggregationType="sum" measureType="simple" unconverted="false">
       <descriptions defaultDescription="JieDanJinE"/>
       <measureMapping columnObjectName="JieDanJinE" columnName="JieDanJinE"/>
     </measure>
