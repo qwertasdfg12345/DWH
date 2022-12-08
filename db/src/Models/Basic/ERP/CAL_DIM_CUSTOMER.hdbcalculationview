@@ -44,6 +44,13 @@
       <descriptions defaultDescription="删除标识"/>
       <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_isDelete"/>
     </attribute>
+  
+    <attribute id="C_Customer_Property" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户属性"/>
+  
+      <keyMapping columnObjectName="T_C_Customer" columnName="C_Customer_Property"/>
+  
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
