@@ -114,12 +114,12 @@
       <viewAttribute id="B_Case_regionCode"/>
       <viewAttribute id="B_Case_HangYe"/>
       <viewAttribute id="CC_DATE"/>
-      <viewAttribute id="HeSuanBa"/>
       <viewAttribute id="B_Case_code"/>
       <viewAttribute id="XiaoShouJinE"/>
     
       <viewAttribute id="B_Case_nature"/>
       <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="HeSuanBa"/>
       <viewAttribute id="CC_GDDATE"/>
       <viewAttribute id="P_Business_flow_form_factEndTime"/>
       <viewAttribute id="JINE_TYP"/></viewAttributes>
