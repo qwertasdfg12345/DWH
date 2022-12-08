@@ -179,10 +179,10 @@
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_Customer_number"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="C_Region_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_1">
@@ -224,11 +224,11 @@
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="C_HangYe_name"/>
-      <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_Customer_number"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="C_HangYe_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_2">
@@ -245,10 +245,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
     </input>
     <input node="Industry">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_Parameters_name"/>
@@ -271,12 +271,12 @@
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="C_CaseNature_name"/>
-      <viewAttribute id="C_HangYe_name"/>
-      <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_Customer_number"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="C_HangYe_name"/>
+      <viewAttribute id="C_CaseNature_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_3">
@@ -293,11 +293,11 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
     </input>
     <input node="CaseNature">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_Parameters_name"/>
@@ -320,13 +320,13 @@
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="C_CaseType_name"/>
-      <viewAttribute id="C_CaseNature_name"/>
-      <viewAttribute id="C_HangYe_name"/>
-      <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_Customer_number"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="C_HangYe_name"/>
+      <viewAttribute id="C_CaseNature_name"/>
+      <viewAttribute id="C_CaseType_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_4">
@@ -343,12 +343,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
     </input>
     <input node="CaseType">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_Parameters_name"/>
@@ -371,15 +371,15 @@
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="YEAR"/>
-      <viewAttribute id="MONTH"/>
-      <viewAttribute id="C_CaseType_name"/>
-      <viewAttribute id="C_CaseNature_name"/>
-      <viewAttribute id="C_HangYe_name"/>
-      <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_Customer_number"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="C_HangYe_name"/>
+      <viewAttribute id="C_CaseNature_name"/>
+      <viewAttribute id="C_CaseType_name"/>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="MONTH"/>
       <viewAttribute id="WEEK"/>
       <viewAttribute id="QUARTER"/>
     </viewAttributes>
@@ -398,13 +398,13 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_CaseType_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_CaseType_name"/>
     </input>
     <input node="Time">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
@@ -430,8 +430,17 @@
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+      <viewAttribute id="C_Customer_number"/>
+      <viewAttribute id="C_Customer_name"/>
+      <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="C_HangYe_name"/>
+      <viewAttribute id="C_CaseNature_name"/>
+      <viewAttribute id="C_CaseType_name"/>
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
+      <viewAttribute id="WEEK"/>
+      <viewAttribute id="QUARTER"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="C_Organization_name_upward1"/>
       <viewAttribute id="C_Organization_name_upward2"/>
@@ -439,15 +448,6 @@
       <viewAttribute id="C_Organization_name_upward4"/>
       <viewAttribute id="C_Organization_name_upward5"/>
       <viewAttribute id="C_Organization_name_upward6"/>
-      <viewAttribute id="C_CaseType_name"/>
-      <viewAttribute id="C_CaseNature_name"/>
-      <viewAttribute id="C_HangYe_name"/>
-      <viewAttribute id="C_Region_name"/>
-      <viewAttribute id="C_Customer_number"/>
-      <viewAttribute id="C_Customer_name"/>
-      <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
-      <viewAttribute id="WEEK"/>
-      <viewAttribute id="QUARTER"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_6">
@@ -464,15 +464,15 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_CaseType_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_CaseType_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="WEEK" source="WEEK"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="QUARTER" source="QUARTER"/>
     </input>
@@ -515,7 +515,7 @@
       <descriptions defaultDescription="客户代码"/>
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_7" columnName="B_Case_customerCode"/>
     </attribute>
-    <attribute id="B_Case_type" order="7">
+    <attribute id="B_Case_type" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件类型码"/>
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_7" columnName="B_Case_type"/>
     </attribute>
@@ -523,11 +523,11 @@
       <descriptions defaultDescription="分所代码"/>
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_7" columnName="B_Case_regionCode"/>
     </attribute>
-    <attribute id="B_Case_nature" order="9">
+    <attribute id="B_Case_nature" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件性质代码"/>
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_7" columnName="B_Case_nature"/>
     </attribute>
-    <attribute id="B_Case_HangYe" order="10">
+    <attribute id="B_Case_HangYe" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件行业"/>
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_7" columnName="B_Case_HangYe"/>
     </attribute>
@@ -591,7 +591,7 @@
       <descriptions defaultDescription="客户名称"/>
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_7" columnName="C_Customer_name"/>
     </attribute>
-    <attribute id="C_Customer_Property" order="28">
+    <attribute id="C_Customer_Property" order="28" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="客户属性"/>
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_7" columnName="C_Customer_Property"/>
     </attribute>
