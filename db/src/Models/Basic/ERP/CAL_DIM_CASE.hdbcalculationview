@@ -4,11 +4,11 @@
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
-    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
-  </DataSource>
   <DataSource id="kz.DI.ERP::T_B_CaseSY">
     <resourceUri>kz.DI.ERP::T_B_CaseSY</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP::T_B_Case">
     <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
@@ -22,6 +22,25 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
+  <calculationView xsi:type="Calculation:RankView" id="Rank_PBFF">
+    <descriptions>
+      <comment text="知产接案时间：
+取最早的日期"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFF"/>
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
+      <order byViewAttributeName="P_Business_flow_form_factStartTime" direction="ASC"/>
+      <rankThreshold>
+        <value>1</value>
+      </rankThreshold>
+    </rankingFilter>
+  </calculationView>
   <calculationView xsi:type="Calculation:RankView" id="Rank_CASESY">
     <descriptions>
       <comment text="存在版本号问题"/>
@@ -40,39 +59,6 @@
       </rankThreshold>
     </rankingFilter>
   </calculationView>
-  <calculationView xsi:type="Calculation:RankView" id="Rank_PBFF">
-    <descriptions>
-      <comment text="取最早的日期"/>
-    </descriptions>
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_factStartTime"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="P_PBFF"/>
-    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
-      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
-      <order byViewAttributeName="P_Business_flow_form_factStartTime" direction="ASC"/>
-      <rankThreshold>
-        <value>1</value>
-      </rankThreshold>
-    </rankingFilter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
-    <descriptions>
-      <comment text="知产：线索时间。取线索阶段下侵权行为调查表单的开始时间"/>
-    </descriptions>
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_factStartTime"/>
-      <viewAttribute id="P_Business_flow_form_isdelete"/>
-    
-      <viewAttribute id="F_Form_code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
-    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and &quot;P_Business_flow_form_factStartTime&quot; !='' and &quot;F_Form_code&quot;='FDEC3EFB-AA72-4D35-AB7C-AC5554AA1E1B'</filter>
-  </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_B_CASESY" filterExpressionLanguage="SQL">
     <descriptions>
       <comment text="建材 取开拓预期收益时间做为接案时间"/>
@@ -85,6 +71,22 @@
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_B_CaseSY"/>
     <filter>&quot;B_Case_SYType_code&quot;='99584B30-599B-4A97-9F8A-B6FC70B3E589'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="知产：线索时间。
+取线索阶段下侵权行为调查表单的开始时间"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/>
+    
+      <viewAttribute id="F_Form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and &quot;P_Business_flow_form_factStartTime&quot; !='' and &quot;F_Form_code&quot;='FDEC3EFB-AA72-4D35-AB7C-AC5554AA1E1B'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_B_CASE" filterExpressionLanguage="SQL">
     <descriptions>
@@ -107,6 +109,9 @@
     <filter>&quot;B_Case_isDelete&quot;=0 </filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_PBF" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="取状态已通过的"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="P_Fk_code"/>
       <viewAttribute id="P_Flow_code"/>
@@ -135,7 +140,7 @@
 	 ELSE 0
  END</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="CC_TYP_JD" datatype="INTEGER" length="" expressionLanguage="SQL">
+      <calculatedViewAttribute id="CC_TYP_JD" datatype="INTEGER" length="NaN" expressionLanguage="SQL">
         <formula>CASE &quot;P_Flow_name&quot; 
 	 WHEN '线索' then 1 
 	 WHEN '案源' then 1 
@@ -145,7 +150,6 @@
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_P_Flow"/>
-  
     <filter>&quot;P_Flow_isDelete&quot;=0 </filter>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_PBF" cardinality="CN_N" joinType="inner">
@@ -169,10 +173,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_JD" source="CC_TYP_JD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Flow_code$P_Flow_code" source="P_Flow_code"/>
     </input>
-  
     <joinAttribute name="JOIN$P_Flow_code$P_Flow_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_CASE">
+    <descriptions>
+      <comment text="为案件打排除标识"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="P_Fk_code"/>
       <viewAttribute id="CC_TYP_QCLC" aggregationType="sum"/>
@@ -223,9 +229,9 @@
       <viewAttribute id="B_Case_HangYe"/>
       <viewAttribute id="KeHuTeam"/>
       <viewAttribute id="B_Case_createTime"/>
-      <viewAttribute id="B_CaseSY_cDate"/>
       <viewAttribute id="CC_TYP_QCLC"/>
       <viewAttribute id="CC_TYP_JD"/>
+      <viewAttribute id="B_CaseSY_cDate"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CASE_1">
@@ -256,10 +262,10 @@
       <viewAttribute id="B_Case_HangYe"/>
       <viewAttribute id="KeHuTeam"/>
       <viewAttribute id="B_Case_createTime"/>
-      <viewAttribute id="B_CaseSY_cDate"/>
-      <viewAttribute id="P_Business_flow_form_factStartTime"/>
       <viewAttribute id="CC_TYP_QCLC"/>
       <viewAttribute id="CC_TYP_JD"/>
+      <viewAttribute id="B_CaseSY_cDate"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_JIEANDATE" datatype="TIMESTAMP" expressionLanguage="SQL">
@@ -280,9 +286,9 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="KeHuTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_createTime" source="B_Case_createTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_JD" source="CC_TYP_JD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
     </input>
     <input node="Rank_PBFF">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factStartTime" source="P_Business_flow_form_factStartTime"/>
@@ -328,7 +334,9 @@
   
     <attribute id="CC_TYP_QCLC" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件排除标识"/>
+  
       <keyMapping columnObjectName="J_CASE_3" columnName="CC_TYP_QCLC"/>
+  
     </attribute>
     <attribute id="CC_TYP_JD" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件排除标识"/>
@@ -342,43 +350,43 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="415.9696029956257" y="112"/>
+      <upperLeftCorner x="415" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="Rank_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="91.99999999999989" y="407"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="91.99999999999989" y="551.9999976158142"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
     <shape expanded="true" modelObjectName="Rank_CASESY" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="512.0000000000002" y="406.9999988079071"/>
+      <upperLeftCorner x="228" y="407"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
   
     <shape expanded="true" modelObjectName="P_B_CASESY" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="439.57637635412163" y="551.9999976158142"/>
+      <upperLeftCorner x="538" y="520"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Rank_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="37" y="407"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="520"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_B_CASE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302.00000000000006" y="406.9999988079071"/>
+      <upperLeftCorner x="415" y="407"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="859.5763763541217" y="551.9999976158142"/>
+      <upperLeftCorner x="1039" y="677"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_FLOW" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="649.5763763541216" y="551.9999976158142"/>
+      <upperLeftCorner x="831" y="677"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_PBF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="737.3090010814668" y="410.3333321412405"/>
-      <rectangleSize height="30" width="160"/>
+      <upperLeftCorner x="611" y="520"/>
+      <rectangleSize height="30" width="170"/>
     </shape>
     <shape modelObjectName="P_PBF" modelObjectNameSpace="J_PBF" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
@@ -388,32 +396,32 @@
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="156"/>
     </shape>
+    <shape expanded="true" modelObjectName="Aggregation_CASE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="611" y="405"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
   
     <shape expanded="true" modelObjectName="J_CASE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="415.9696029956257" y="217"/>
+      <upperLeftCorner x="415" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="Rank_PBFF" modelObjectNameSpace="J_CASE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CASE">
       <upperLeftCorner x="320" y="117"/>
-      <rectangleSize width="268.99853515625"/>
-    </shape>
-    <shape modelObjectName="P_B_CASE" modelObjectNameSpace="J_CASE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CASE">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="185"/>
+      <rectangleSize width="268"/>
     </shape>
   
     <shape modelObjectName="Rank_CASESY" modelObjectNameSpace="J_CASE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CASE">
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="195"/>
     </shape>
+    <shape modelObjectName="P_B_CASE" modelObjectNameSpace="J_CASE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CASE">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="185"/>
+    </shape>
     <shape modelObjectName="Aggregation_CASE" modelObjectNameSpace="J_CASE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CASE">
       <upperLeftCorner x="320" y="210"/>
-      <rectangleSize width="174.677734375"/>
-    </shape>
-    <shape expanded="true" modelObjectName="Aggregation_CASE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="737" y="331"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  </shapes>
+      <rectangleSize width="174"/>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>

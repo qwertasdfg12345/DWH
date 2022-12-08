@@ -18,7 +18,7 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="FACT_COMM_01">
+  <calculationView xsi:type="Calculation:ProjectionView" id="FACT_COMM_001">
     <viewAttributes>
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="CC_BaZu"/>
@@ -48,7 +48,7 @@
   <calculationView xsi:type="Calculation:JoinView" id="Join_1">
     <viewAttributes/>
     <calculatedViewAttributes/>
-    <input node="FACT_COMM_01"/>
+    <input node="FACT_COMM_001"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
     <viewAttributes/>
@@ -84,7 +84,7 @@
       <upperLeftCorner x="40" y="85"/>
     </shape>
   
-    <shape expanded="true" modelObjectName="FACT_COMM_01" modelObjectNameSpace="CalculationView">
+    <shape expanded="true" modelObjectName="FACT_COMM_001" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="100" y="496"/>
       <rectangleSize height="30" width="160"/>
     </shape>
@@ -96,9 +96,9 @@
       <upperLeftCorner x="100" y="387"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="FACT_COMM_01" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="FACT_COMM_001" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="172.20068359375"/>
+      <rectangleSize width="172"/>
     </shape>
     <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-94" y="496"/>
