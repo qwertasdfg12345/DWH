@@ -49,6 +49,12 @@
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE"/>
       <viewAttribute id="XiaoShouJinE"/>
+    
+      <viewAttribute id="CourtCode"/>
+      <viewAttribute id="B_CustomerProject_Code"/>
+      <viewAttribute id="CC_SHICHANG"/>
+      <viewAttribute id="StandardNum"/>
+      <viewAttribute id="CC_LEIXING"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.Models.Common.ERP::CAL_C_OP_COMMON_001"/>
@@ -148,6 +154,10 @@
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="B_CustomerProject_Code"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="CourtCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="JieDan_XiaoShou">
@@ -164,6 +174,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
     </input>
     <input node="Case">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
@@ -190,6 +204,10 @@
       <viewAttribute id="C_Customer_number"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="CourtCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_1">
@@ -207,6 +225,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
     </input>
     <input node="Customer">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
@@ -236,6 +258,10 @@
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
       <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="CourtCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_2">
@@ -256,6 +282,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
     </input>
     <input node="Region">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
@@ -284,6 +314,10 @@
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_HangYe_name"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="CourtCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_3">
@@ -305,6 +339,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
     </input>
     <input node="Industry">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_Parameters_name"/>
@@ -334,6 +372,10 @@
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_HangYe_name"/>
       <viewAttribute id="C_CaseNature_name"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="CourtCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_4">
@@ -356,6 +398,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
     </input>
     <input node="CaseNature">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_Parameters_name"/>
@@ -386,6 +432,10 @@
       <viewAttribute id="C_HangYe_name"/>
       <viewAttribute id="C_CaseNature_name"/>
       <viewAttribute id="C_CaseType_name"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="CourtCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_5">
@@ -409,6 +459,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
     </input>
     <input node="CaseType">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_Parameters_name"/>
@@ -443,6 +497,10 @@
       <viewAttribute id="MONTH"/>
       <viewAttribute id="WEEK"/>
       <viewAttribute id="QUARTER"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="CourtCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_6">
@@ -467,6 +525,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_CaseType_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
     </input>
     <input node="Time">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
@@ -511,6 +573,10 @@
       <viewAttribute id="C_Organization_name_upward4"/>
       <viewAttribute id="C_Organization_name_upward5"/>
       <viewAttribute id="C_Organization_name_upward6"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="CourtCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_7">
@@ -539,6 +605,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="WEEK" source="WEEK"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="QUARTER" source="QUARTER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
     </input>
     <input node="Organization">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
@@ -674,6 +744,15 @@
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_8" columnName="B_CustomerProject_Code"/>
   
     </attribute>
+  
+    <attribute id="CC_LEIXING" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="达标率类型"/>
+      <keyMapping columnObjectName="addDim_JieDan_XiaoShou_8" columnName="CC_LEIXING"/>
+    </attribute>
+    <attribute id="CourtCode" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="法院编码"/>
+      <keyMapping columnObjectName="addDim_JieDan_XiaoShou_8" columnName="CourtCode"/>
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
@@ -684,6 +763,15 @@
     <measure id="XiaoShouJinE" order="13" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="销售金额"/>
       <measureMapping columnObjectName="addDim_JieDan_XiaoShou_8" columnName="XiaoShouJinE"/>
+    </measure>
+  
+    <measure id="StandardNum" order="33" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="标准时长"/>
+      <measureMapping columnObjectName="addDim_JieDan_XiaoShou_8" columnName="StandardNum"/>
+    </measure>
+    <measure id="CC_SHICHANG" order="34" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="实际时长"/>
+      <measureMapping columnObjectName="addDim_JieDan_XiaoShou_8" columnName="CC_SHICHANG"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
