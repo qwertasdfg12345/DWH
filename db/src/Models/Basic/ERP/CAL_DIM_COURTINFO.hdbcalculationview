@@ -257,16 +257,23 @@
 </calculationViews>
 <logicalModel id="Rank_COURT">
   <attributes>
-    <attribute id="ShouLiFaYuan" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ShouLiFaYuan"/>
+    <attribute id="ShouLiFaYuan" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="受理法院编码"/>
       <keyMapping columnObjectName="Rank_COURT" columnName="ShouLiFaYuan"/>
     </attribute>
-    <attribute id="P_Business_flow_form_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="P_Business_flow_form_code"/>
+    <attribute id="P_Business_flow_form_code" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="表单"/>
       <keyMapping columnObjectName="Rank_COURT" columnName="P_Business_flow_form_code"/>
     </attribute>
   </attributes>
-  <calculatedAttributes/>
+  <calculatedAttributes>
+    <calculatedAttribute id="C_Court_code" order="1" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="当时当前法院编码"/>
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="36">
+        <formula>UPPER(&quot;ShouLiFaYuan&quot;)</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+  </calculatedAttributes>
   <baseMeasures/>
   <calculatedMeasures/>
   <restrictedMeasures/>
@@ -317,7 +324,7 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="U_COURT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1126" y="681"/>
+      <upperLeftCorner x="1142" y="681"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_LAXX_ZC" modelObjectNameSpace="CalculationView">
