@@ -46,9 +46,6 @@
   <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
     <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_B_Case">
-    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
-  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -654,130 +651,38 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_JiaoYiJinE" source="CC_JiaoYiJinE"/>
     </input>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_Case" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_HangYe"/>
-      <viewAttribute id="B_Case_type"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="B_Case_regionCode"/>
-      <viewAttribute id="B_Case_code"/>
-      <viewAttribute id="B_Case_isDelete"/>
-    
-      <viewAttribute id="B_CustomerProject_Code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_B_Case"/>
-    <filter>&quot;B_Case_isDelete&quot;=0</filter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_AllNBJYD" cardinality="CN_N" joinType="inner">
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime"/>
-      <viewAttribute id="CC_BaZuLeiBie"/>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_HangYe"/>
-      <viewAttribute id="B_Case_type"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="B_Case_regionCode"/>
-    
-      <viewAttribute id="HeSuanBa"/>
-      <viewAttribute id="CC_JiaoYiDanLeiXing"/>
-    
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="CC_JiaoYiJinE"/>
-      <viewAttribute id="B_CustomerProject_Code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="U_HSBNBJYD">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZuLeiBie" source="CC_BaZuLeiBie"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="HeSuanBa"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JiaoYiDanLeiXing" source="CC_JiaoYiDanLeiXing"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JiaoYiJinE" source="CC_JiaoYiJinE"/>
-    </input>
-    <input node="P_Case">
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="B_Case_code"/>
-    </input>
-    <joinAttribute name="P_Business_flow_form_projectCode"/>
-  </calculationView>
 </calculationViews>
-<logicalModel id="J_AllNBJYD">
+<logicalModel id="U_HSBNBJYD">
   <attributes>
-    <attribute id="B_Case_regionCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="分所编码"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_regionCode"/>
-    </attribute>
-  
-    <attribute id="HeSuanBa" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="核算巴编码"/>
-  
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="HeSuanBa"/>
-  
-    </attribute>
-    <attribute id="B_Case_customerCode" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="客户编码"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_customerCode"/>
-    </attribute>
-    <attribute id="B_CustomerProject_Code" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="项目编码"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_CustomerProject_Code"/>
-    </attribute>
-  
-  
-    <attribute id="P_Business_flow_form_projectCode" order="5" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="P_Business_flow_form_projectCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件Code"/>
-  
-  
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="P_Business_flow_form_projectCode"/>
-  
-  
+      <keyMapping columnObjectName="U_HSBNBJYD" columnName="P_Business_flow_form_projectCode"/>
     </attribute>
-    <attribute id="P_Business_flow_form_factEndTime" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="表单结束时间"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="P_Business_flow_form_factEndTime"/>
+    <attribute id="P_Business_flow_form_factEndTime" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="结束时间"/>
+      <keyMapping columnObjectName="U_HSBNBJYD" columnName="P_Business_flow_form_factEndTime"/>
     </attribute>
-    <attribute id="B_Case_number" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="案件号"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_number"/>
-    </attribute>
-    <attribute id="B_Case_HangYe" order="8" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="行业编码"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_HangYe"/>
-    </attribute>
-  
-    <attribute id="P_Business_Flow_Form_code" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="表单Code"/>
-  
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="P_Business_Flow_Form_code"/>
-  
-    </attribute>
-    <attribute id="CC_BaZuLeiBie" order="10" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_BaZuLeiBie" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="巴组类别"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="CC_BaZuLeiBie"/>
+      <keyMapping columnObjectName="U_HSBNBJYD" columnName="CC_BaZuLeiBie"/>
     </attribute>
-    <attribute id="B_Case_type" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="类型编码"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="B_Case_type"/>
+    <attribute id="HeSuanBa" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="核算巴Code"/>
+      <keyMapping columnObjectName="U_HSBNBJYD" columnName="HeSuanBa"/>
     </attribute>
-    <attribute id="CC_JiaoYiDanLeiXing" order="12" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="交易单类型"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="CC_JiaoYiDanLeiXing"/>
+    <attribute id="CC_JiaoYiDanLeiXing" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="类型"/>
+      <keyMapping columnObjectName="U_HSBNBJYD" columnName="CC_JiaoYiDanLeiXing"/>
     </attribute>
-    <attribute id="CC_JiaoYiJinE" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="交易金额"/>
-      <keyMapping columnObjectName="J_AllNBJYD" columnName="CC_JiaoYiJinE"/>
-    </attribute></attributes>
+    <attribute id="P_Business_Flow_Form_code" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="表单Code"/>
+      <keyMapping columnObjectName="U_HSBNBJYD" columnName="P_Business_Flow_Form_code"/>
+    </attribute>
+    <attribute id="CC_JiaoYiJinE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="金额"/>
+      <keyMapping columnObjectName="U_HSBNBJYD" columnName="CC_JiaoYiJinE"/>
+    </attribute>
+  </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
   <calculatedMeasures/>
@@ -786,64 +691,64 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="713" y="112"/>
+      <upperLeftCorner x="1598" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_NBJYD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="255" y="1071"/>
+      <upperLeftCorner x="1759" y="931"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_KTNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="932" y="1416"/>
+      <upperLeftCorner x="931" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_XGKTNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1352" y="1416"/>
+      <upperLeftCorner x="1141" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_TZKTNJD_YKTZ" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="512" y="1416"/>
+      <upperLeftCorner x="2191" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="false" modelObjectName="P_XGNJD_YKHZ" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="91" y="1416"/>
+      <upperLeftCorner x="91" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_TZKTNJD_XKTZ" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="722" y="1416"/>
+      <upperLeftCorner x="1981" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_XGNJD_XKHZ" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="1416"/>
+      <upperLeftCorner x="301" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_LAPTNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1982" y="1416"/>
+      <upperLeftCorner x="722" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_SSNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1562" y="1416"/>
+      <upperLeftCorner x="512" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_BQNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1142" y="1416"/>
+      <upperLeftCorner x="1351" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_KZNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1772" y="1416"/>
+      <upperLeftCorner x="1771" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_ZXNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2192" y="1416"/>
+      <upperLeftCorner x="1561" y="1276"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="J_XNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="509" y="891"/>
+      <upperLeftCorner x="1628" y="771"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_Parameters" modelObjectNameSpace="J_XNJD" modelObjectType="JoinNodeInput">
@@ -855,16 +760,16 @@
       <rectangleSize width="235"/>
     </shape>
     <shape expanded="true" modelObjectName="P_Parameters" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="535" y="1071"/>
+      <upperLeftCorner x="1549" y="931"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="U_UsedJYD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1158" y="1071"/>
+      <upperLeftCorner x="1319" y="931"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_XGNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="921" y="891"/>
+      <upperLeftCorner x="494" y="771"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="U_UsedJYD" modelObjectNameSpace="J_XGNJD" modelObjectType="JoinNodeInput">
@@ -876,19 +781,19 @@
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="U_XGNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="894" y="1141"/>
+      <upperLeftCorner x="467" y="1001"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="U_NBJYD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="895" y="716"/>
+      <upperLeftCorner x="1625" y="556"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBPP" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="685" y="716"/>
+      <upperLeftCorner x="1378" y="556"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZCBNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="685" y="536"/>
+      <upperLeftCorner x="1378" y="376"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
@@ -901,7 +806,7 @@
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="J_SRBNJD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="901" y="536"/>
+      <upperLeftCorner x="1625" y="376"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_PBPP" modelObjectNameSpace="J_SRBNJD" modelObjectType="JoinNodeInput">
@@ -913,25 +818,8 @@
       <rectangleSize width="235"/>
     </shape>
     <shape expanded="true" modelObjectName="U_HSBNBJYD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="836" y="376"/>
+      <upperLeftCorner x="1598" y="217"/>
       <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_Case" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="626" y="376"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_AllNBJYD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="713" y="217"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="U_HSBNBJYD" modelObjectNameSpace="J_AllNBJYD" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="265"/>
-    </shape>
-    <shape modelObjectName="P_Case" modelObjectNameSpace="J_AllNBJYD" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="202"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
