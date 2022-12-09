@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Consumption.ERP::CAL_R_CONSUM_003" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="CAL_R_CONSUM_003.hdbcalculationview"/>
+<descriptions defaultDescription="CAL_R_CONSUM_003.hdbcalculationview">
+  <comment text="MP达成分析"/>
+</descriptions>
 <localVariables/>
 <variableMappings/>
 <dataSources>
@@ -128,19 +130,21 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="40" y="85"/>
+      <upperLeftCorner x="221.11302679000914" y="112"/>
+    
+      <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="CAL_R_CONSUM_001" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-132" y="348"/>
+      <upperLeftCorner x="92" y="356.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="CAL_B_OP_YUSUAN" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="229" y="358"/>
+      <upperLeftCorner x="302.00000000000006" y="356.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="MP_DaCheng" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="206"/>
+      <upperLeftCorner x="221.11302679000914" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
