@@ -15,10 +15,19 @@
   <DataSource id="kz.Models.Basic.ERP::CAL_DIM_CASE">
     <resourceUri>kz.Models.Basic.ERP::CAL_DIM_CASE</resourceUri>
   </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_COURT">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_COURT</resourceUri>
+  </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_COURTINFO">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_COURTINFO</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="FACT_COMM_001">
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_FACT_COMM">
+    <descriptions>
+      <comment text="接单销售数据"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="CC_BaZu"/>
@@ -28,6 +37,7 @@
       <viewAttribute id="B_Case_type"/>
       <viewAttribute id="B_Case_nature"/>
       <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE"/>
       <viewAttribute id="XiaoShouJinE"/>
     </viewAttributes>
@@ -45,15 +55,188 @@
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_B_Case"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="Join_1">
-    <viewAttributes/>
-    <calculatedViewAttributes/>
-    <input node="FACT_COMM_001"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
-    <viewAttributes/>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_DIM_CASE">
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+    
+      <viewAttribute id="B_Case_name"/>
+      <viewAttribute id="B_Case_nature"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="KeHuTeam"/>
+      <viewAttribute id="CC_JIEANDATE"/>
+      <viewAttribute id="CC_TYP_QCLC"/>
+      <viewAttribute id="CC_TYP_JD"/>
+    
+      <viewAttribute id="isXingZheng"/>
+    </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_DIM_CASE"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_DIM_COURT" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="八分法院"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="C_Court_name"/>
+      <viewAttribute id="CourtName"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_COURT"/>
+    <filter>&quot;CourtName&quot; is not null</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_DIM_COURTINFO">
+    <descriptions>
+      <comment text="当时当前法院"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    
+      <viewAttribute id="C_Court_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_COURTINFO"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_COURT_BF" cardinality="CN_N" joinType="inner">
+    <descriptions>
+      <comment text="当时当前的八分法院"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="CourtName"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_DIM_COURTINFO">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
+    </input>
+    <input node="P_DIM_COURT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtName" source="CourtName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
+    </input>
+    <joinAttribute name="C_Court_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="CourtName"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_FACT_COMM">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
+    </input>
+    <input node="J_COURT_BF">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtName" source="CourtName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
+    </input>
+    <joinAttribute name="P_Business_Flow_Form_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CourtName"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_name"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="KeHuTeam"/>
+      <viewAttribute id="CC_JIEANDATE" aggregationType="min"/>
+      <viewAttribute id="CC_TYP_QCLC" aggregationType="sum"/>
+      <viewAttribute id="CC_TYP_JD" aggregationType="sum"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+    
+      <viewAttribute id="isXingZheng" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_JIEDAN_JC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>CASE &quot;B_Case_HangYe&quot;||&quot;B_Case_nature&quot; 
+	 WHEN 153148 then 0
+	 ELSE &quot;JieDanJinE&quot;
+ END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_XIAOSHOU_JC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>&quot;XiaoShouJinE&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JIEDAN_MS" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>CASE &quot;B_Case_HangYe&quot;||&quot;B_Case_type&quot;
+	 WHEN 36493651 then &quot;JieDanJinE&quot;
+	 ELSE 0
+ END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_XIAOSHOU_MS" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>CASE &quot;B_Case_HangYe&quot;||&quot;B_Case_type&quot;
+	 WHEN 36493651 then &quot;XiaoShouJinE&quot;
+	 ELSE 0
+ END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JIEDAN_ZC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>CASE &quot;CC_TYP_JD&quot;||&quot;isXingZheng&quot;
+	 WHEN 11 then 0
+	 WHEN 10 then 0
+	 WHEN 01 then 0
+	 ELSE &quot;JieDanJinE&quot;
+ END</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="CC_XIAOSHOU_ZC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>CASE &quot;isXingZheng&quot;
+	 WHEN 1 then 0
+	 ELSE &quot;XiaoShouJinE&quot;
+ END</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Join_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtName" source="CourtName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
+    </input>
+    <input node="P_DIM_CASE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_name" source="B_Case_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="KeHuTeam"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JIEANDATE" source="CC_JIEANDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_JD" source="CC_TYP_JD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+    </input>
+    <joinAttribute name="B_Case_code"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="Projection_2">
@@ -84,25 +267,62 @@
       <upperLeftCorner x="40" y="85"/>
     </shape>
   
-    <shape expanded="true" modelObjectName="FACT_COMM_001" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="496"/>
+    <shape expanded="true" modelObjectName="P_FACT_COMM" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="526"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="100" y="195"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="387"/>
+    <shape expanded="true" modelObjectName="P_DIM_CASE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="298" y="392"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="FACT_COMM_001" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+  
+    <shape expanded="true" modelObjectName="P_DIM_COURT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-217" y="660"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_DIM_COURTINFO" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-32" y="660"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_COURT_BF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-127" y="526"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_DIM_COURTINFO" modelObjectNameSpace="J_COURT_BF" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="172"/>
+      <rectangleSize width="227"/>
     </shape>
-    <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-94" y="496"/>
+    <shape modelObjectName="P_DIM_COURT" modelObjectNameSpace="J_COURT_BF" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="168"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="392"/>
       <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_FACT_COMM" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="235"/>
+    </shape>
+    <shape modelObjectName="J_COURT_BF" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="227"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="268"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_3" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="235"/>
+    </shape>
+    <shape modelObjectName="P_DIM_CASE" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="169"/>
     </shape>
   </shapes>
 </layout>
