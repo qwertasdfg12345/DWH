@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Consumption.ERP::CAL_R_CONSUM_003" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_R_CONSUM_003.hdbcalculationview">
+  <comment text="MP达成分析"/>
+</descriptions>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.Models.Consumption.ERP::CAL_R_CONSUM_001">
+    <resourceUri>kz.Models.Consumption.ERP::CAL_R_CONSUM_001</resourceUri>
+  </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_YUSUAN">
+    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_YUSUAN</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CAL_R_CONSUM_001">
+    <viewAttributes>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="MONTH"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="C_Company_name"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="JieDanJinE"/>
+      <viewAttribute id="XiaoShouJinE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Consumption.ERP::CAL_R_CONSUM_001">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Organization_name_upward3"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CAL_B_OP_YUSUAN">
+    <viewAttributes>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="Year"/>
+      <viewAttribute id="Month"/>
+      <viewAttribute id="JieDanYuSuan"/>
+      <viewAttribute id="BusinessUnit"/>
+      <viewAttribute id="XiaoshouYuSuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_B_OP_YUSUAN"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="MP_DaCheng">
+    <viewAttributes>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="MONTH"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="C_Company_name"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CAL_R_CONSUM_001" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuSuan" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoshouYuSuan" null="true" value=""/>
+    </input>
+    <input node="CAL_B_OP_YUSUAN" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="Year"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="MP_DaCheng">
+  <attributes>
+    <attribute id="YEAR" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="年"/>
+      <keyMapping columnObjectName="MP_DaCheng" columnName="YEAR"/>
+    </attribute>
+    <attribute id="MONTH" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="月"/>
+      <keyMapping columnObjectName="MP_DaCheng" columnName="MONTH"/>
+    </attribute>
+    <attribute id="CC_BusinessUnit" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="事业线"/>
+      <keyMapping columnObjectName="MP_DaCheng" columnName="CC_BusinessUnit"/>
+    </attribute>
+    <attribute id="C_Company_name" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分公司"/>
+      <keyMapping columnObjectName="MP_DaCheng" columnName="C_Company_name"/>
+    </attribute>
+    <attribute id="C_Region_name" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所名称"/>
+      <keyMapping columnObjectName="MP_DaCheng" columnName="C_Region_name"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="JieDanJinE" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="实际接单金额"/>
+      <measureMapping columnObjectName="MP_DaCheng" columnName="JieDanJinE"/>
+    </measure>
+    <measure id="XiaoShouJinE" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="实际销售金额"/>
+      <measureMapping columnObjectName="MP_DaCheng" columnName="XiaoShouJinE"/>
+    </measure>
+    <measure id="JieDanYuSuan" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="预算接单金额"/>
+      <measureMapping columnObjectName="MP_DaCheng" columnName="JieDanYuSuan"/>
+    </measure>
+    <measure id="XiaoshouYuSuan" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="预算销售金额"/>
+      <measureMapping columnObjectName="MP_DaCheng" columnName="XiaoshouYuSuan"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="221.11302679000914" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CAL_R_CONSUM_001" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="CAL_B_OP_YUSUAN" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302.00000000000006" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="MP_DaCheng" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="221.11302679000914" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
