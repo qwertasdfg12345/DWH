@@ -24,8 +24,7 @@
 <calculationViews>
   <calculationView xsi:type="Calculation:RankView" id="Rank_PBFF">
     <descriptions>
-      <comment text="知产接案时间：
-取最早的日期"/>
+      <comment text="知产接案时间： 取最早的日期"/>
     </descriptions>
     <viewAttributes>
       <viewAttribute id="P_Business_flow_form_projectCode"/>
@@ -74,8 +73,7 @@
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
     <descriptions>
-      <comment text="知产：线索时间。
-取线索阶段下侵权行为调查表单的开始时间"/>
+      <comment text="知产：线索时间。 取线索阶段下侵权行为调查表单的开始时间"/>
     </descriptions>
     <viewAttributes>
       <viewAttribute id="P_Business_flow_form_projectCode"/>
@@ -103,8 +101,18 @@
       <viewAttribute id="B_Case_createTime"/>
     
       <viewAttribute id="B_Case_HangYe"/>
+    
+      <viewAttribute id="isXingShi"/>
+      <viewAttribute id="isMingShi"/>
+      <viewAttribute id="isXingZheng"/>
+    
+      <viewAttribute id="B_Case_state"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_CASETYPE" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>&quot;isXingShi&quot;+&quot;isMingShi&quot;+&quot;isXingZheng&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_B_Case"/>
     <filter>&quot;B_Case_isDelete&quot;=0 </filter>
   </calculationView>
@@ -140,7 +148,7 @@
 	 ELSE 0
  END</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="CC_TYP_JD" datatype="INTEGER" length="NaN" expressionLanguage="SQL">
+      <calculatedViewAttribute id="CC_TYP_JD" datatype="INTEGER" expressionLanguage="SQL">
         <formula>CASE &quot;P_Flow_name&quot; 
 	 WHEN '线索' then 1 
 	 WHEN '案源' then 1 
@@ -177,7 +185,7 @@
   </calculationView>
   <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_CASE">
     <descriptions>
-      <comment text="为案件打排除标识"/>
+      <comment text="为案件打排除标识，标识为0则为保留，&gt;0则为剔除"/>
     </descriptions>
     <viewAttributes>
       <viewAttribute id="P_Fk_code"/>
@@ -200,6 +208,10 @@
       <viewAttribute id="B_Case_createTime"/>
       <viewAttribute id="CC_TYP_QCLC"/>
       <viewAttribute id="CC_TYP_JD"/>
+      <viewAttribute id="isXingShi"/>
+      <viewAttribute id="isMingShi"/>
+      <viewAttribute id="isXingZheng"/>
+      <viewAttribute id="B_Case_state"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_B_CASE">
@@ -211,6 +223,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="KeHuTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_createTime" source="B_Case_createTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isXingShi" source="isXingShi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isMingShi" source="isMingShi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
     </input>
     <input node="Aggregation_CASE">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
@@ -231,7 +247,11 @@
       <viewAttribute id="B_Case_createTime"/>
       <viewAttribute id="CC_TYP_QCLC"/>
       <viewAttribute id="CC_TYP_JD"/>
+      <viewAttribute id="isXingShi"/>
+      <viewAttribute id="isMingShi"/>
+      <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_CaseSY_cDate"/>
+      <viewAttribute id="B_Case_state"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CASE_1">
@@ -245,6 +265,10 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_createTime" source="B_Case_createTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_JD" source="CC_TYP_JD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isXingShi" source="isXingShi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isMingShi" source="isMingShi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
     </input>
     <input node="Rank_CASESY">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
@@ -264,8 +288,12 @@
       <viewAttribute id="B_Case_createTime"/>
       <viewAttribute id="CC_TYP_QCLC"/>
       <viewAttribute id="CC_TYP_JD"/>
+      <viewAttribute id="isXingShi"/>
+      <viewAttribute id="isMingShi"/>
+      <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_CaseSY_cDate"/>
       <viewAttribute id="P_Business_flow_form_factStartTime"/>
+      <viewAttribute id="B_Case_state"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_JIEANDATE" datatype="TIMESTAMP" expressionLanguage="SQL">
@@ -288,7 +316,11 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_createTime" source="B_Case_createTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_JD" source="CC_TYP_JD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isXingShi" source="isXingShi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isMingShi" source="isMingShi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
     </input>
     <input node="Rank_PBFF">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factStartTime" source="P_Business_flow_form_factStartTime"/>
@@ -342,6 +374,26 @@
       <descriptions defaultDescription="案件排除标识"/>
       <keyMapping columnObjectName="J_CASE_3" columnName="CC_TYP_JD"/>
     </attribute>
+  
+    <attribute id="isXingShi" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="是否刑事案件"/>
+  
+      <keyMapping columnObjectName="J_CASE_3" columnName="isXingShi"/>
+  
+    </attribute>
+    <attribute id="isMingShi" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="是否民事案件"/>
+      <keyMapping columnObjectName="J_CASE_3" columnName="isMingShi"/>
+    </attribute>
+    <attribute id="isXingZheng" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="是否行政案件"/>
+      <keyMapping columnObjectName="J_CASE_3" columnName="isXingZheng"/>
+    </attribute>
+  
+    <attribute id="B_Case_state" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件状态"/>
+      <keyMapping columnObjectName="J_CASE_3" columnName="B_Case_state"/>
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
@@ -361,7 +413,7 @@
   
   
     <shape expanded="true" modelObjectName="P_B_CASESY" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="538" y="520"/>
+      <upperLeftCorner x="228" y="506"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Rank_PBFF" modelObjectNameSpace="CalculationView">
@@ -369,7 +421,7 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="91" y="520"/>
+      <upperLeftCorner x="38" y="506"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_B_CASE" modelObjectNameSpace="CalculationView">
@@ -377,15 +429,15 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1039" y="677"/>
+      <upperLeftCorner x="718" y="653"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_FLOW" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="831" y="677"/>
+      <upperLeftCorner x="523" y="653"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_PBF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="611" y="520"/>
+      <upperLeftCorner x="611" y="506"/>
       <rectangleSize height="30" width="170"/>
     </shape>
     <shape modelObjectName="P_PBF" modelObjectNameSpace="J_PBF" modelObjectType="JoinNodeInput">
