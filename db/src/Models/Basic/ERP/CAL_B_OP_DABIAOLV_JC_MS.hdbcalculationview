@@ -2154,54 +2154,57 @@ then 4476 end </formula>
 <logicalModel id="J_JC_MS_SCALL">
   <attributes>
     <attribute id="B_Case_number" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_number"/>
+      <descriptions defaultDescription="案件编号"/>
       <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="B_Case_number"/>
     </attribute>
     <attribute id="B_Case_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_code"/>
+      <descriptions defaultDescription="案件Code"/>
       <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="B_Case_code"/>
+    </attribute>
+    <attribute id="B_Case_type" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件类型"/>
+      <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="B_Case_type"/>
     </attribute>
     <attribute id="B_Case_courtFirst" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="法院Code"/>
       <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="B_Case_courtFirst"/>
     </attribute>
     <attribute id="B_Case_regionCode" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_regionCode"/>
+      <descriptions defaultDescription="案件分所Code"/>
       <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="B_Case_regionCode"/>
     </attribute>
     <attribute id="KeHuTeam" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="KeHuTeam"/>
+      <descriptions defaultDescription="巴组"/>
       <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="KeHuTeam"/>
     </attribute>
     <attribute id="B_CustomerProject_Code" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_CustomerProject_Code"/>
+      <descriptions defaultDescription="项目Code"/>
       <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="B_CustomerProject_Code"/>
     </attribute>
     <attribute id="B_Case_customerCode" order="8" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_customerCode"/>
+      <descriptions defaultDescription="客户Code"/>
       <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="B_Case_customerCode"/>
+    </attribute>
+  
+    <attribute id="CC_LEIXING" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="阶段类型"/>
+  
+      <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="CC_LEIXING"/>
+  
+    </attribute>
+    <attribute id="P_Business_flow_factEndTime" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="时间维度"/>
+      <keyMapping columnObjectName="J_JC_MS_SCALL" columnName="P_Business_flow_factEndTime"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="B_Case_type" order="3" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="B_Case_type"/>
-      <measureMapping columnObjectName="J_JC_MS_SCALL" columnName="B_Case_type"/>
-    </measure>
-    <measure id="CC_LEIXING" order="9" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="CC_LEIXING"/>
-      <measureMapping columnObjectName="J_JC_MS_SCALL" columnName="CC_LEIXING"/>
-    </measure>
     <measure id="CC_SHICHANG" order="10" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="CC_SHICHANG"/>
+      <descriptions defaultDescription="实际时长"/>
       <measureMapping columnObjectName="J_JC_MS_SCALL" columnName="CC_SHICHANG"/>
     </measure>
-    <measure id="P_Business_flow_factEndTime" order="11" aggregationType="min" measureType="simple">
-      <descriptions defaultDescription="P_Business_flow_factEndTime"/>
-      <measureMapping columnObjectName="J_JC_MS_SCALL" columnName="P_Business_flow_factEndTime"/>
-    </measure>
     <measure id="StandardNum" order="12" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="StandardNum"/>
+      <descriptions defaultDescription="标准时长"/>
       <measureMapping columnObjectName="J_JC_MS_SCALL" columnName="StandardNum"/>
     </measure>
   </baseMeasures>
@@ -2677,7 +2680,7 @@ then 4476 end </formula>
     <shape modelObjectName="J_LASC_JC_5" modelObjectNameSpace="J_JCLASC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="250"/>
-    </shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape>
+    </shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape>
     <shape modelObjectName="P_CASE" modelObjectNameSpace="J_JCLASC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="213"/>
