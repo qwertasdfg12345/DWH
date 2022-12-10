@@ -934,7 +934,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     <joinAttribute name="JOIN$B_Case_code$P_Business_flow_form_projectCode"/>
   </calculationView>
 </calculationViews>
-<logicalModel id="JieDanJinE" filterExpressionLanguage="SQL">
+<logicalModel id="JieDanJinE">
   <attributes>
     <attribute id="P_Business_Flow_Form_code" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="P_Business_Flow_Form_code"/>
