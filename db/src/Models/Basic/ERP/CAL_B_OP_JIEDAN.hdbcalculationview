@@ -533,7 +533,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_YuJiShouYi" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;YuJiShouYi&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;YuJiShouYi&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_ZSCQ_bananjihuashu"/>
@@ -547,7 +547,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_YuJiShouYi" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;YuJiShouYi&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;YuJiShouYi&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_A_CaseForm_DianZiDangGaiZhangQianShenHe">
@@ -555,7 +555,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     </input>
     <filter>&quot;YuJiShouYi&quot; &lt;&gt; ''</filter>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="ZSCQ_wenshuzhizuo" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:ProjectionView" id="ZSCQ_wenshuzhizuo">
     <viewAttributes>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="HangZhengSuSongYuJiShouYi"/>
@@ -564,12 +564,10 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="YuJiShouYi" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;HangZhengSuSongYuJiShouYi&quot;) + to_decimal(&quot;XingShiDaJiYuJiShouYi&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;HangZhengSuSongYuJiShouYi&quot;,'0')) + to_decimal(ifnull(&quot;XingShiDaJiYuJiShouYi&quot;,'0')) </formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="kz.DI.ERP::T_ZSCQ_wenshuzhizuo"/>
-    <filter>&quot;HangZhengSuSongYuJiShouYi&quot; &lt;&gt; '' and &quot;XingShiDaJiYuJiShouYi&quot; &lt;&gt; ''</filter>
-  </calculationView>
+    <input node="kz.DI.ERP::T_ZSCQ_wenshuzhizuo"/></calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="B_CaseSY" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="B_CaseSY_type"/>
