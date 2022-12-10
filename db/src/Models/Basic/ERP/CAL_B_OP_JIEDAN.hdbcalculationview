@@ -992,10 +992,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
   </baseMeasures>
   <calculatedMeasures/>
   <restrictedMeasures/>
-  <localDimensions/>
-
-  <filter>&quot;CC_Date&quot; &gt;= '2022-01-01' and &quot;CC_Date&quot; &lt;= '2022-10-31'</filter>
-</logicalModel>
+  <localDimensions/></logicalModel>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
