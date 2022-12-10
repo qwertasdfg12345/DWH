@@ -107,6 +107,8 @@
       <viewAttribute id="isXingZheng"/>
     
       <viewAttribute id="B_Case_state"/>
+    
+      <viewAttribute id="B_Case_factEndTime"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_CASETYPE" datatype="INTEGER" expressionLanguage="SQL">
@@ -212,6 +214,7 @@
       <viewAttribute id="isMingShi"/>
       <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_Case_state"/>
+      <viewAttribute id="B_Case_factEndTime"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_B_CASE">
@@ -227,6 +230,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="isMingShi" source="isMingShi"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
     </input>
     <input node="Aggregation_CASE">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
@@ -252,6 +256,7 @@
       <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_Case_state"/>
       <viewAttribute id="B_CaseSY_cDate"/>
+      <viewAttribute id="B_Case_factEndTime"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CASE_1">
@@ -269,6 +274,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="isMingShi" source="isMingShi"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
     </input>
     <input node="Rank_CASESY">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
@@ -294,6 +300,7 @@
       <viewAttribute id="B_Case_state"/>
       <viewAttribute id="B_CaseSY_cDate"/>
       <viewAttribute id="P_Business_flow_form_factStartTime"/>
+      <viewAttribute id="B_Case_factEndTime"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_JIEANDATE" datatype="TIMESTAMP" expressionLanguage="SQL">
@@ -321,6 +328,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
     </input>
     <input node="Rank_PBFF">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factStartTime" source="P_Business_flow_form_factStartTime"/>
@@ -396,6 +404,11 @@
       <keyMapping columnObjectName="J_CASE_3" columnName="B_Case_state"/>
   
     </attribute>
+  
+    <attribute id="B_Case_factEndTime" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件实际结束日期"/>
+      <keyMapping columnObjectName="J_CASE_3" columnName="B_Case_factEndTime"/>
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
@@ -440,7 +453,7 @@
     </shape>
     <shape expanded="true" modelObjectName="J_PBF" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="611" y="506"/>
-      <rectangleSize height="30" width="170"/>
+      <rectangleSize height="30" width="169"/>
     </shape>
     <shape modelObjectName="P_PBF" modelObjectNameSpace="J_PBF" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
@@ -452,7 +465,7 @@
     </shape>
     <shape expanded="true" modelObjectName="Aggregation_CASE" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="611" y="405"/>
-      <rectangleSize height="30" width="160"/>
+      <rectangleSize height="30" width="169"/>
     </shape>
   
   

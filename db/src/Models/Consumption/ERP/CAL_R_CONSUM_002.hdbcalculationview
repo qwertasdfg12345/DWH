@@ -200,14 +200,35 @@
 	 ELSE 0 
  END</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="CC_XIAOSHOU_JC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
-        <formula>&quot;XiaoShouJinE&quot;</formula>
-      </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JIEDAN_MS" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
         <formula>CASE &quot;B_Case_HangYe&quot;||&quot;B_Case_type&quot;
 	 WHEN 36493651 then &quot;JieDanJinE&quot;
 	 ELSE 0
  END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_JIEDAN_ZC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>CASE &quot;B_Case_HangYe&quot; 
+	 WHEN 1978 then (
+	                CASE &quot;isXingZheng&quot;
+	                     WHEN 1 then 0 
+                	ELSE (
+                	       CASE &quot;CC_TYP_JD&quot; 
+                	            WHEN 1 then 0 
+                	            ELSE &quot;JieDanJinE&quot;
+                           END
+                	      )
+                    END
+	                 ) 
+	 ELSE 0 
+ END
+</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_XIAOSHOU_JC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>CASE &quot;B_Case_HangYe&quot;
+	 WHEN 153 then &quot;XiaoShouJinE&quot; 
+	 ELSE 0
+ END
+</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_XIAOSHOU_MS" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
         <formula>CASE &quot;B_Case_HangYe&quot;||&quot;B_Case_type&quot;
@@ -215,22 +236,17 @@
 	 ELSE 0
  END</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="CC_JIEDAN_ZC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
-        <formula>CASE &quot;isXingZheng&quot;
-	 WHEN 1 then 0 
-	 ELSE (
-	       CASE &quot;CC_TYP_JD&quot; 
-	            WHEN 1 then 0 
-	            ELSE &quot;JieDanJinE&quot;
-           END
-	      )
-END</formula>
-      </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_XIAOSHOU_ZC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
-        <formula>CASE &quot;isXingZheng&quot;
-	 WHEN 1 then 0
-	 ELSE &quot;XiaoShouJinE&quot;
- END</formula>
+        <formula>CASE &quot;B_Case_HangYe&quot;
+	 WHEN 1978 then (
+	                CASE &quot;isXingZheng&quot;
+                	     WHEN 1 then 0
+                	ELSE &quot;XiaoShouJinE&quot;
+                    END
+	                ) 
+	 ELSE 0
+ END
+</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_LIUCUN_JC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
         <formula>CASE &quot;B_Case_state&quot; 
@@ -386,7 +402,7 @@ END</formula>
       <rectangleSize width="168"/>
     </shape>
     <shape expanded="true" modelObjectName="J_CONSUM_BF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="374"/>
+      <upperLeftCorner x="100" y="360"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_DIM_CASE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
