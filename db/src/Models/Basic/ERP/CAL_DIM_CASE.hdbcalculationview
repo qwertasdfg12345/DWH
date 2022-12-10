@@ -4,11 +4,11 @@
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="kz.DI.ERP::T_B_CaseSY">
-    <resourceUri>kz.DI.ERP::T_B_CaseSY</resourceUri>
-  </DataSource>
   <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
     <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_B_CaseSY">
+    <resourceUri>kz.DI.ERP::T_B_CaseSY</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP::T_B_Case">
     <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
@@ -22,24 +22,6 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:RankView" id="Rank_PBFF">
-    <descriptions>
-      <comment text="知产接案时间： 取最早的日期"/>
-    </descriptions>
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_factStartTime"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="P_PBFF"/>
-    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
-      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
-      <order byViewAttributeName="P_Business_flow_form_factStartTime" direction="ASC"/>
-      <rankThreshold>
-        <value>1</value>
-      </rankThreshold>
-    </rankingFilter>
-  </calculationView>
   <calculationView xsi:type="Calculation:RankView" id="Rank_CASESY">
     <descriptions>
       <comment text="存在版本号问题"/>
@@ -58,18 +40,23 @@
       </rankThreshold>
     </rankingFilter>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_B_CASESY" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:RankView" id="Rank_PBFF">
     <descriptions>
-      <comment text="建材 取开拓预期收益时间做为接案时间"/>
+      <comment text="知产接案时间： 取最早的日期"/>
     </descriptions>
     <viewAttributes>
-      <viewAttribute id="B_CaseSY_caseCode"/>
-      <viewAttribute id="B_CaseSY_cDate"/>
-      <viewAttribute id="B_Case_SYType_code"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_B_CaseSY"/>
-    <filter>&quot;B_Case_SYType_code&quot;='99584B30-599B-4A97-9F8A-B6FC70B3E589'</filter>
+    <input node="P_PBFF"/>
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
+      <order byViewAttributeName="P_Business_flow_form_factStartTime" direction="ASC"/>
+      <rankThreshold>
+        <value>1</value>
+      </rankThreshold>
+    </rankingFilter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
     <descriptions>
@@ -85,6 +72,19 @@
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_P_Business_flow_form"/>
     <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and &quot;P_Business_flow_form_factStartTime&quot; !='' and &quot;F_Form_code&quot;='FDEC3EFB-AA72-4D35-AB7C-AC5554AA1E1B'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_B_CASESY" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="建材 取开拓预期收益时间做为接案时间"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="B_CaseSY_caseCode"/>
+      <viewAttribute id="B_CaseSY_cDate"/>
+      <viewAttribute id="B_Case_SYType_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_B_CaseSY"/>
+    <filter>&quot;B_Case_SYType_code&quot;='99584B30-599B-4A97-9F8A-B6FC70B3E589'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_B_CASE" filterExpressionLanguage="SQL">
     <descriptions>
@@ -250,8 +250,8 @@
       <viewAttribute id="isXingShi"/>
       <viewAttribute id="isMingShi"/>
       <viewAttribute id="isXingZheng"/>
-      <viewAttribute id="B_CaseSY_cDate"/>
       <viewAttribute id="B_Case_state"/>
+      <viewAttribute id="B_CaseSY_cDate"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CASE_1">
@@ -291,9 +291,9 @@
       <viewAttribute id="isXingShi"/>
       <viewAttribute id="isMingShi"/>
       <viewAttribute id="isXingZheng"/>
+      <viewAttribute id="B_Case_state"/>
       <viewAttribute id="B_CaseSY_cDate"/>
       <viewAttribute id="P_Business_flow_form_factStartTime"/>
-      <viewAttribute id="B_Case_state"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_JIEANDATE" datatype="TIMESTAMP" expressionLanguage="SQL">
@@ -319,8 +319,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingShi" source="isXingShi"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="isMingShi" source="isMingShi"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
     </input>
     <input node="Rank_PBFF">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factStartTime" source="P_Business_flow_form_factStartTime"/>
@@ -392,7 +392,9 @@
   
     <attribute id="B_Case_state" order="14" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件状态"/>
+  
       <keyMapping columnObjectName="J_CASE_3" columnName="B_Case_state"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -406,6 +408,14 @@
     
       <rectangleSize width="160"/>
     </shape>
+    <shape expanded="true" modelObjectName="Rank_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="37" y="407"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="38" y="506"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
     <shape expanded="true" modelObjectName="Rank_CASESY" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="228" y="407"/>
       <rectangleSize height="30" width="160"/>
@@ -414,14 +424,6 @@
   
     <shape expanded="true" modelObjectName="P_B_CASESY" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="228" y="506"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="Rank_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="37" y="407"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="38" y="506"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_B_CASE" modelObjectNameSpace="CalculationView">
