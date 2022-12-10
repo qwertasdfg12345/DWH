@@ -200,7 +200,7 @@
     <input node="kz.Models.Basic.ERP::CAL_B_OP_DABIAOLV_ALL"/>
   </calculationView>
 </calculationViews>
-<logicalModel id="U_COMM_01" filterExpressionLanguage="SQL">
+<logicalModel id="U_COMM_01">
   <attributes>
     <attribute id="CC_Date" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="日期"/>
@@ -255,7 +255,9 @@
   
     <attribute id="CourtCode" order="14" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="法院编码"/>
+  
       <keyMapping columnObjectName="U_COMM_01" columnName="CourtCode"/>
+  
     </attribute>
     <attribute id="B_CustomerProject_Code" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="项目编码"/>
