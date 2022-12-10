@@ -622,8 +622,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
     <viewAttributes>
       <viewAttribute id="CC_ZHSC" aggregationType="sum"/>
     
-      <viewAttribute id="P_Business_flow_code"/>
-      <viewAttribute id="ZanHuanZongShiChangTian"/></viewAttributes>
+      <viewAttribute id="P_Business_flow_code"/></viewAttributes>
     <calculatedViewAttributes/>
     <restrictedViewAttributes/>
     <input node="J_ZHQS_ZC"/>
@@ -1095,7 +1094,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_form_factEndTime"/>
     </input>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_ZCSCALL">
+  <calculationView xsi:type="Calculation:JoinView" id="J_ZCSCALL" cardinality="CN_N" joinType="leftOuter">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_code"/>
@@ -1126,7 +1125,11 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
     </input>
     <input node="R_BZSC">
       <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_courtFirst" source="C_Court_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="ParametersId"/>
     </input>
+    <joinAttribute name="B_Case_courtFirst"/>
+    <joinAttribute name="CC_LEIXING"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="J_ZCSCALL">
