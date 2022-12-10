@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_B_OP_LiXi" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_B_OP_LiXi.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_DashboardRatesComputeDetail">
+    <resourceUri>kz.DI.ERP::T_DashboardRatesComputeDetail</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_DashboardDataSource">
+    <resourceUri>kz.DI.ERP::T_DashboardDataSource</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_B_Case">
+    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LX">
+    <viewAttributes>
+      <viewAttribute id="RatesSourceNumber"/>
+      <viewAttribute id="RateJinE"/>
+      <viewAttribute id="OrgCode"/>
+      <viewAttribute id="RatesSourceHangYe"/>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="ComputeDate"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_HangYe" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>CASE WHEN &quot;RatesSourceHangYe&quot;=1 THEN 153 
+WHEN &quot;RatesSourceHangYe&quot;=2 THEN 1978
+WHEN &quot;RatesSourceHangYe&quot;=3 THEN 3649 END </formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_DashboardRatesComputeDetail"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_LXBC" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="HangYe"/>
+      <viewAttribute id="Amount"/>
+      <viewAttribute id="SubjectNumber"/>
+      <viewAttribute id="OrgCode"/>
+      <viewAttribute id="ArchivedDate"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_DashboardDataSource"/>
+    <filter>&quot;SubjectNumber&quot; in ('1036','ms106412','zc414')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="U_LX">
+    <viewAttributes>
+      <viewAttribute id="RatesSourceNumber"/>
+      <viewAttribute id="RateJinE" aggregationType="sum"/>
+      <viewAttribute id="OrgCode"/>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="ComputeDate" aggregationType="min"/>
+      <viewAttribute id="CC_HangYe" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_LX" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="RatesSourceNumber" source="RatesSourceNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RateJinE" source="RateJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="OrgCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CaseCode" source="CaseCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ComputeDate" source="ComputeDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_HangYe" source="CC_HangYe"/>
+    </input>
+    <input node="P_LXBC" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="RatesSourceNumber" source="SubjectNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RateJinE" source="Amount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="OrgCode"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CaseCode" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ComputeDate" source="ArchivedDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_HangYe" source="HangYe"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_CASE" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_isDelete"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="B_CustomerProject_Code"/>
+      <viewAttribute id="B_Case_regionCode"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_B_Case"/>
+    <filter>&quot;B_Case_isDelete&quot;=0</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_LX" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="RatesSourceNumber"/>
+      <viewAttribute id="RateJinE" aggregationType="sum"/>
+      <viewAttribute id="OrgCode"/>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="ComputeDate" aggregationType="min"/>
+      <viewAttribute id="CC_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_CustomerProject_Code"/>
+      <viewAttribute id="B_Case_regionCode"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="U_LX">
+      <mapping xsi:type="Calculation:AttributeMapping" target="RatesSourceNumber" source="RatesSourceNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RateJinE" source="RateJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="OrgCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CaseCode" source="CaseCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ComputeDate" source="ComputeDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_HangYe" source="CC_HangYe"/>
+    </input>
+    <input node="P_CASE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CaseCode" source="B_Case_code"/>
+    </input>
+    <joinAttribute name="CaseCode"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="J_LX">
+  <attributes>
+    <attribute id="RatesSourceNumber" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RatesSourceNumber"/>
+      <keyMapping columnObjectName="J_LX" columnName="RatesSourceNumber"/>
+    </attribute>
+  
+    <attribute id="OrgCode" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OrgCode"/>
+  
+      <keyMapping columnObjectName="J_LX" columnName="OrgCode"/>
+  
+    </attribute>
+    <attribute id="CaseCode" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CaseCode"/>
+      <keyMapping columnObjectName="J_LX" columnName="CaseCode"/>
+    </attribute>
+    <attribute id="B_Case_number" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_number"/>
+      <keyMapping columnObjectName="J_LX" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="B_CustomerProject_Code" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_CustomerProject_Code"/>
+      <keyMapping columnObjectName="J_LX" columnName="B_CustomerProject_Code"/>
+    </attribute>
+    <attribute id="B_Case_regionCode" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_regionCode"/>
+      <keyMapping columnObjectName="J_LX" columnName="B_Case_regionCode"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="RateJinE" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="RateJinE"/>
+      <measureMapping columnObjectName="J_LX" columnName="RateJinE"/>
+    </measure>
+  
+    <measure id="ComputeDate" order="5" aggregationType="min" measureType="simple">
+      <descriptions defaultDescription="ComputeDate"/>
+      <measureMapping columnObjectName="J_LX" columnName="ComputeDate"/>
+    </measure>
+    <measure id="CC_HangYe" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CC_HangYe"/>
+      <measureMapping columnObjectName="J_LX" columnName="CC_HangYe"/>
+    </measure>
+    <measure id="B_Case_type" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="B_Case_type"/>
+      <measureMapping columnObjectName="J_LX" columnName="B_Case_type"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="328" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_LX" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="501"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_LXBC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="501"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="U_LX" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="118" y="360"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_CASE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="437" y="359"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_LX" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="328" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="U_LX" modelObjectNameSpace="J_LX" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="188"/>
+    </shape>
+    <shape modelObjectName="P_CASE" modelObjectNameSpace="J_LX" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="213"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
