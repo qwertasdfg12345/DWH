@@ -130,21 +130,21 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="221.11302679000914" y="112"/>
+      <upperLeftCorner x="221" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="CAL_R_CONSUM_001" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="356.9999988079071"/>
+      <upperLeftCorner x="92" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="CAL_B_OP_YUSUAN" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302.00000000000006" y="356.9999988079071"/>
+      <upperLeftCorner x="302" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="MP_DaCheng" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="221.11302679000914" y="217"/>
+      <upperLeftCorner x="221" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
