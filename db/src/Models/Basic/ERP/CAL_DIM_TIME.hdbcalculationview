@@ -38,6 +38,8 @@
       <viewAttribute id="DAY_INT"/>
       <viewAttribute id="TZNTSTMPS"/>
       <viewAttribute id="TZNTSTMPL"/>
+    
+      <viewAttribute id="MONTH_LAST_DAY"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP.Tables::M_TIME_DIMENSION"/>
@@ -100,51 +102,55 @@
       <descriptions defaultDescription="天"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="DAY"/>
     </attribute>
-    <attribute id="CALQUARTER" order="12" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="MONTH_LAST_DAY" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="当月最后一天"/>
+      <keyMapping columnObjectName="TIME_DIM" columnName="MONTH_LAST_DAY"/>
+    </attribute>
+    <attribute id="CALQUARTER" order="13" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="CALQUARTER"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="CALQUARTER"/>
     </attribute>
-    <attribute id="CALMONTH" order="13" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="CALMONTH" order="14" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="CALMONTH"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="CALMONTH"/>
     </attribute>
-    <attribute id="CALWEEK" order="14" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="CALWEEK" order="15" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="CALWEEK"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="CALWEEK"/>
     </attribute>
-    <attribute id="YEAR_INT" order="15" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="YEAR_INT" order="16" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="YEAR_INT"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="YEAR_INT"/>
     </attribute>
-    <attribute id="QUARTER_INT" order="16" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="QUARTER_INT" order="17" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="QUARTER_INT"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="QUARTER_INT"/>
     </attribute>
-    <attribute id="MONTH_INT" order="17" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="MONTH_INT" order="18" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="MONTH_INT"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="MONTH_INT"/>
     </attribute>
-    <attribute id="WEEK_INT" order="18" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="WEEK_INT" order="19" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="WEEK_INT"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="WEEK_INT"/>
     </attribute>
-    <attribute id="WEEK_YEAR_INT" order="19" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="WEEK_YEAR_INT" order="20" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="WEEK_YEAR_INT"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="WEEK_YEAR_INT"/>
     </attribute>
-    <attribute id="DAY_OF_WEEK_INT" order="20" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="DAY_OF_WEEK_INT" order="21" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="DAY_OF_WEEK_INT"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="DAY_OF_WEEK_INT"/>
     </attribute>
-    <attribute id="DAY_INT" order="21" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="DAY_INT" order="22" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="DAY_INT"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="DAY_INT"/>
     </attribute>
-    <attribute id="TZNTSTMPS" order="22" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="TZNTSTMPS" order="23" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="TZNTSTMPS"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="TZNTSTMPS"/>
     </attribute>
-    <attribute id="TZNTSTMPL" order="23" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+    <attribute id="TZNTSTMPL" order="24" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
       <descriptions defaultDescription="TZNTSTMPL"/>
       <keyMapping columnObjectName="TIME_DIM" columnName="TZNTSTMPL"/>
     </attribute>
