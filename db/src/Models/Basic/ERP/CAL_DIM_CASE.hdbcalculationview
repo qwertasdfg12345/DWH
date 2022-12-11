@@ -255,8 +255,8 @@
       <viewAttribute id="isMingShi"/>
       <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_Case_state"/>
-      <viewAttribute id="B_CaseSY_cDate"/>
       <viewAttribute id="B_Case_factEndTime"/>
+      <viewAttribute id="B_CaseSY_cDate"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CASE_1">
@@ -298,9 +298,9 @@
       <viewAttribute id="isMingShi"/>
       <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_Case_state"/>
+      <viewAttribute id="B_Case_factEndTime"/>
       <viewAttribute id="B_CaseSY_cDate"/>
       <viewAttribute id="P_Business_flow_form_factStartTime"/>
-      <viewAttribute id="B_Case_factEndTime"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_JIEANDATE" datatype="TIMESTAMP" expressionLanguage="SQL">
@@ -327,8 +327,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="isMingShi" source="isMingShi"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
     </input>
     <input node="Rank_PBFF">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factStartTime" source="P_Business_flow_form_factStartTime"/>
@@ -407,7 +407,9 @@
   
     <attribute id="B_Case_factEndTime" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件实际结束日期"/>
+  
       <keyMapping columnObjectName="J_CASE_3" columnName="B_Case_factEndTime"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>
