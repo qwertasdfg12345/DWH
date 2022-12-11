@@ -37,6 +37,12 @@
   <DataSource id="kz.DI.ERP::T_A_CaseForm_LiAnXinXi">
     <resourceUri>kz.DI.ERP::T_A_CaseForm_LiAnXinXi</resourceUri>
   </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_CaseForm_MinShengBanAnJiHuaShu">
+    <resourceUri>kz.DI.ERP::T_A_CaseForm_MinShengBanAnJiHuaShu</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -178,6 +184,16 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
     </input>
+  
+    <input node="P_BAJHS_JC" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="GuanHeFaYuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+    </input>
+  
+    <input node="P_BAJHS_MS" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="GuanHeFaYuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+    </input>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_LAXX_ZC">
     <viewAttributes>
@@ -254,6 +270,22 @@
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_A_CaseForm_LiAnXinXi"/>
   </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_BAJHS_JC">
+    <viewAttributes>
+      <viewAttribute id="GuanHeFaYuan"/>
+    
+      <viewAttribute id="P_Business_Flow_Form_code"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_BAJHS_MS">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="GuanHeFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_MinShengBanAnJiHuaShu"/>
+  </calculationView>
 </calculationViews>
 <logicalModel id="Rank_COURT">
   <attributes>
@@ -281,17 +313,17 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="1061" y="112"/>
+      <upperLeftCorner x="1709.525092742746" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Rank_COURT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1014" y="236"/>
+      <upperLeftCorner x="1709.525092742746" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="J_AFC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1014" y="361"/>
+      <upperLeftCorner x="1630.1151334673864" y="361.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_COURT" modelObjectNameSpace="J_AFC" modelObjectType="JoinNodeInput">
@@ -303,7 +335,7 @@
       <rectangleSize width="116"/>
     </shape>
     <shape expanded="true" modelObjectName="J_COURT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="819" y="521"/>
+      <upperLeftCorner x="1656.7818001340531" y="521.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_PBFF" modelObjectNameSpace="J_COURT" modelObjectType="JoinNodeInput">
@@ -316,53 +348,63 @@
     </shape>
   
     <shape expanded="true" modelObjectName="P_PBFF2" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1040" y="521"/>
+      <upperLeftCorner x="1446.781800134053" y="521.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="739" y="681"/>
+      <upperLeftCorner x="1683.4484668007196" y="681.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="U_COURT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1142" y="681"/>
+      <upperLeftCorner x="1142" y="681.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_LAXX_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1142" y="1006"/>
+      <upperLeftCorner x="1142" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_BAJHS_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1562" y="1006"/>
+      <upperLeftCorner x="1982" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_LADJ_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1352" y="1006"/>
+      <upperLeftCorner x="1772.0000000000002" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_ZXLAXX_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="1006"/>
+      <upperLeftCorner x="92.00000000000006" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_ESLA_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1772" y="1006"/>
+      <upperLeftCorner x="2192" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_ESLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="1006"/>
+      <upperLeftCorner x="302.00000000000006" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_LADJZXLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="722" y="1006"/>
+      <upperLeftCorner x="722" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_ZXLAXX" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="512" y="1006"/>
+      <upperLeftCorner x="512" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_LAXX" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="932" y="1006"/>
+      <upperLeftCorner x="932" y="1036.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_BAJHS_JC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1352" y="1036.9999952316284"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_BAJHS_MS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1562.0000000000002" y="1036.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
