@@ -31,6 +31,9 @@
   <DataSource id="kz.DI.ERP::T_B_Case">
     <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
   </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_COURTINFO">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_COURTINFO</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -137,6 +140,11 @@
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_B_Case"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_COURTINFO"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_JieDan_XiaoShou_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDim_JieDan_XiaoShou" multiJoinCentralTable="JieDan_XiaoShou" multiJoinOrder="Outside In">
     <viewAttributes>
@@ -866,6 +874,11 @@
     <shape modelObjectName="Case" modelObjectNameSpace="addDim_JieDan_XiaoShou" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_JieDan_XiaoShou">
       <upperLeftCorner x="-613" y="213"/>
       <rectangleSize width="213"/>
-    </shape></shapes>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1202" y="245"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
 </layout>
 </Calculation:scenario>
