@@ -756,27 +756,27 @@
       <descriptions defaultDescription="分公司(法院所属)"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="CompanyName"/>
     </attribute>
-    <attribute id="KeHuTeam" order="17" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="客户组"/>
-      <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="KeHuTeam"/>
-    </attribute>
-    <attribute id="B_Case_TypeCode" order="18" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_TypeCode" order="17" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件类型编码"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_type"/>
     </attribute>
-    <attribute id="B_Case_TypeName" order="19" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_TypeName" order="18" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件类型"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_TypeName"/>
     </attribute>
-    <attribute id="B_Case_NatureCode" order="20" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_NatureCode" order="19" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件性质编码"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_nature"/>
     </attribute>
-    <attribute id="B_Case_NatureName" order="21" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_NatureName" order="20" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件性质"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_NatureName"/>
     </attribute>
-    <attribute id="C_KeHuTeamName" order="22" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_KeHuTeamCode" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户组"/>
+      <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="KeHuTeam"/>
+    </attribute>
+    <attribute id="B_Case_KeHuTeamName" order="22" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件归属巴组"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="C_KeHuTeamName"/>
     </attribute>
@@ -792,24 +792,27 @@
       <descriptions defaultDescription="行政诉讼标识"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="isXingZheng"/>
     </attribute>
+  
+    <attribute id="CC_TYP_QCLC" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="留存剔除标识"/>
+  
+      <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="CC_TYP_QCLC"/>
+  
+    </attribute>
+    <attribute id="CC_TYP_JD" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="接单剔除标识"/>
+      <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="CC_TYP_JD"/>
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="CC_JIEANDATE" order="26" aggregationType="min" measureType="simple">
+    <measure id="CC_JIEANDATE" order="28" aggregationType="min" measureType="simple">
       <descriptions defaultDescription="接案日期"/>
       <measureMapping columnObjectName="J_CONSUM_BF_6" columnName="CC_JIEANDATE"/>
     </measure>
-    <measure id="B_Case_factEndTime" order="27" aggregationType="max" measureType="simple">
+    <measure id="B_Case_factEndTime" order="29" aggregationType="max" measureType="simple">
       <descriptions defaultDescription="结案日期"/>
       <measureMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_factEndTime"/>
-    </measure>
-    <measure id="CC_TYP_QCLC" order="28" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="留存剔除标识"/>
-      <measureMapping columnObjectName="J_CONSUM_BF_6" columnName="CC_TYP_QCLC"/>
-    </measure>
-    <measure id="CC_TYP_JD" order="29" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="接单剔除标识"/>
-      <measureMapping columnObjectName="J_CONSUM_BF_6" columnName="CC_TYP_JD"/>
     </measure>
     <measure id="CC_JIEDAN" order="30" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="接单"/>
