@@ -58,9 +58,6 @@
   <DataSource id="kz.DI.ERP::T_B_Case">
     <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_C_Parameters">
-    <resourceUri>kz.DI.ERP::T_C_Parameters</resourceUri>
-  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -1162,17 +1159,7 @@ IFNULL(&quot;KaiTingShiJian&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_JieDuan" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="C_Parameters_id"/>
-      <viewAttribute id="C_Parameters_name"/>
-      <viewAttribute id="C_Parameters_isDelete"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_C_Parameters"/>
-    <filter>&quot;C_Parameters_isDelete&quot;=0</filter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_ZCSCALL_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_ZCSCALL" multiJoinCentralTable="U_ZCSCALL" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="J_ZCSCALL" cardinality="CN_N" joinType="leftOuter">
     <viewAttributes>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_code"/>
@@ -1182,12 +1169,13 @@ IFNULL(&quot;KaiTingShiJian&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="ZhiChanTeam"/>
       <viewAttribute id="B_CustomerProject_Code"/>
       <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+    
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="C_Parameters_name"/>
-      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="U_ZCSCALL">
@@ -1199,52 +1187,12 @@ IFNULL(&quot;KaiTingShiJian&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanTeam" source="ZhiChanTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
+    
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
-    </input>
-    <input node="P_JieDuan">
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Parameters_name" source="C_Parameters_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="C_Parameters_id"/>
-    </input>
-    <joinAttribute name="CC_LEIXING"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_ZCSCALL_2" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_ZCSCALL" multiJoinCentralTable="U_ZCSCALL" multiJoinOrder="Outside In">
-    <viewAttributes>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_code"/>
-      <viewAttribute id="B_Case_type" aggregationType="sum"/>
-      <viewAttribute id="B_Case_courtFirst"/>
-      <viewAttribute id="B_Case_regionCode"/>
-      <viewAttribute id="ZhiChanTeam"/>
-      <viewAttribute id="B_CustomerProject_Code"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
-      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="C_Parameters_name"/>
-      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
-      <viewAttribute id="StandardNum" aggregationType="sum"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="J_ZCSCALL_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_courtFirst" source="B_Case_courtFirst"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanTeam" source="ZhiChanTeam"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Parameters_name" source="C_Parameters_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
     </input>
     <input node="R_BZSC">
       <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
@@ -1255,77 +1203,70 @@ IFNULL(&quot;KaiTingShiJian&quot;, '00:00') || ':00')</formula>
     <joinAttribute name="CC_LEIXING"/>
   </calculationView>
 </calculationViews>
-<logicalModel id="J_ZCSCALL_2">
+<logicalModel id="J_ZCSCALL">
   <attributes>
     <attribute id="B_Case_number" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件编号"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="B_Case_number"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_Case_number"/>
     </attribute>
     <attribute id="B_Case_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件Code"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="B_Case_code"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_Case_code"/>
     </attribute>
     <attribute id="B_Case_type" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件类型"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="B_Case_type"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_Case_type"/>
     </attribute>
     <attribute id="CourtCode" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="法院Code"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="B_Case_courtFirst"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_Case_courtFirst"/>
     </attribute>
     <attribute id="B_Case_regionCode" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件分所Code"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="B_Case_regionCode"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_Case_regionCode"/>
     </attribute>
     <attribute id="ZhiChanTeam" order="6" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="巴组"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="ZhiChanTeam"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="ZhiChanTeam"/>
     </attribute>
     <attribute id="B_CustomerProject_Code" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="项目Code"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="B_CustomerProject_Code"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_CustomerProject_Code"/>
     </attribute>
     <attribute id="B_Case_customerCode" order="8" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="客户Code"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="B_Case_customerCode"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_Case_customerCode"/>
     </attribute>
-    <attribute id="P_Business_flow_factEndTime" order="10" displayAttribute="false" attributeHierarchyActive="false">
+  
+    <attribute id="CC_LEIXING" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="阶段类型"/>
+  
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="CC_LEIXING"/>
+  
+    </attribute>
+    <attribute id="P_Business_flow_factEndTime" order="11" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="时间维度"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="P_Business_flow_factEndTime"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="P_Business_flow_factEndTime"/>
     </attribute>
   
-    <attribute id="B_Case_HangYe" order="12" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="行业"/>
-  
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="B_Case_HangYe"/>
-  
+    <attribute id="B_Case_HangYe" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_HangYe"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_Case_HangYe"/>
     </attribute>
-    <attribute id="CC_BusinessUnit" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="事业线"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="CC_BusinessUnit"/>
-    </attribute>
-  
-    <attribute id="ShiChangJieDuan" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="时长的阶段"/>
-  
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="C_Parameters_name"/>
-  
-    </attribute>
-  
-    <attribute id="CC_LEIXING" order="15" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="时长阶段id"/>
-      <keyMapping columnObjectName="J_ZCSCALL_2" columnName="CC_LEIXING"/>
+    <attribute id="CC_BusinessUnit" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_BusinessUnit"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="CC_BusinessUnit"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="CC_SHICHANG" order="9" aggregationType="sum" measureType="simple">
+    <measure id="CC_SHICHANG" order="10" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="实际时长"/>
-      <measureMapping columnObjectName="J_ZCSCALL_2" columnName="CC_SHICHANG"/>
+      <measureMapping columnObjectName="J_ZCSCALL" columnName="CC_SHICHANG"/>
     </measure>
-    <measure id="StandardNum" order="11" aggregationType="sum" measureType="simple">
+    <measure id="StandardNum" order="12" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="标准时长"/>
-      <measureMapping columnObjectName="J_ZCSCALL_2" columnName="StandardNum"/>
+      <measureMapping columnObjectName="J_ZCSCALL" columnName="StandardNum"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -1675,26 +1616,17 @@ IFNULL(&quot;KaiTingShiJian&quot;, '00:00') || ':00')</formula>
       <upperLeftCorner x="1203" y="396"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_JieDuan" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1812" y="404"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  
   
     <shape expanded="true" modelObjectName="J_ZCSCALL" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="1509" y="237"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="R_BZSC" modelObjectNameSpace="J_ZCSCALL" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_ZCSCALL">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="250"/>
-    </shape>
-    <shape modelObjectName="U_ZCSCALL" modelObjectNameSpace="J_ZCSCALL" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_ZCSCALL">
+    <shape modelObjectName="U_ZCSCALL" modelObjectNameSpace="J_ZCSCALL" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="159"/>
     </shape>
-    <shape modelObjectName="P_JieDuan" modelObjectNameSpace="J_ZCSCALL" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_ZCSCALL">
-      <upperLeftCorner x="620" y="30"/>
+    <shape modelObjectName="R_BZSC" modelObjectNameSpace="J_ZCSCALL" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="250"/>
     </shape></shapes>
 </layout>

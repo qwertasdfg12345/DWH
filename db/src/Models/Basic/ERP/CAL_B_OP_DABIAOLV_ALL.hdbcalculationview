@@ -23,15 +23,13 @@
       <viewAttribute id="KeHuTeam"/>
       <viewAttribute id="B_CustomerProject_Code"/>
       <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="CC_LEIXING"/>
       <viewAttribute id="CC_SHICHANG"/>
       <viewAttribute id="P_Business_flow_factEndTime"/>
       <viewAttribute id="StandardNum"/>
     
       <viewAttribute id="B_Case_HangYe"/>
       <viewAttribute id="CC_BusinessUnit"/>
-    
-      <viewAttribute id="ShiChangJieDuan"/>
-      <viewAttribute id="CC_LEIXING"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
@@ -50,15 +48,13 @@
       <viewAttribute id="ZhiChanTeam"/>
       <viewAttribute id="B_CustomerProject_Code"/>
       <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="CC_LEIXING"/>
       <viewAttribute id="CC_SHICHANG"/>
       <viewAttribute id="P_Business_flow_factEndTime"/>
       <viewAttribute id="StandardNum"/>
     
       <viewAttribute id="B_Case_HangYe"/>
       <viewAttribute id="CC_BusinessUnit"/>
-    
-      <viewAttribute id="ShiChangJieDuan"/>
-      <viewAttribute id="CC_LEIXING"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
@@ -77,15 +73,13 @@
       <viewAttribute id="KeHuTeam"/>
       <viewAttribute id="B_CustomerProject_Code"/>
       <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="StandardNum" aggregationType="sum"/>
       <viewAttribute id="CC_Date"/>
     
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="CC_BusinessUnit"/>
-    
-      <viewAttribute id="ShiChangJieDuan"/>
-      <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_DBL_JCMS" emptyUnionBehavior="NO_ROW">
@@ -97,15 +91,13 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="KeHuTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="ShiChangJieDuan" source="ShiChangJieDuan"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
     </input>
     <input node="P_DBL_ZC" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
@@ -116,15 +108,13 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="ZhiChanTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="ShiChangJieDuan" source="ShiChangJieDuan"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
     </input>
   </calculationView>
 </calculationViews>
@@ -162,41 +152,33 @@
       <descriptions defaultDescription="客户Code"/>
       <keyMapping columnObjectName="U_DBL" columnName="B_Case_customerCode"/>
     </attribute>
-    <attribute id="CC_Date" order="11" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_LEIXING" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="阶段类型"/>
+      <keyMapping columnObjectName="U_DBL" columnName="CC_LEIXING"/>
+    </attribute>
+    <attribute id="CC_Date" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CC_Date"/>
       <keyMapping columnObjectName="U_DBL" columnName="CC_Date"/>
     </attribute>
   
-    <attribute id="B_Case_HangYe" order="12" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="行业"/>
-  
+    <attribute id="B_Case_HangYe" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_HangYe"/>
       <keyMapping columnObjectName="U_DBL" columnName="B_Case_HangYe"/>
-  
     </attribute>
-    <attribute id="CC_BusinessUnit" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="事业线"/>
+    <attribute id="CC_BusinessUnit" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_BusinessUnit"/>
       <keyMapping columnObjectName="U_DBL" columnName="CC_BusinessUnit"/>
-    </attribute>
-  
-    <attribute id="ShiChangJieDuan" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="时长的阶段"/>
-      <keyMapping columnObjectName="U_DBL" columnName="ShiChangJieDuan"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="CC_SHICHANG" order="9" aggregationType="sum" measureType="simple">
+    <measure id="CC_SHICHANG" order="10" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="实际时长"/>
       <measureMapping columnObjectName="U_DBL" columnName="CC_SHICHANG"/>
     </measure>
-    <measure id="StandardNum" order="10" aggregationType="sum" measureType="simple">
+    <measure id="StandardNum" order="11" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="标准时长"/>
       <measureMapping columnObjectName="U_DBL" columnName="StandardNum"/>
-    </measure>
-  
-    <measure id="CC_LEIXING" order="15" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="时长阶段id"/>
-      <measureMapping columnObjectName="U_DBL" columnName="CC_LEIXING"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
