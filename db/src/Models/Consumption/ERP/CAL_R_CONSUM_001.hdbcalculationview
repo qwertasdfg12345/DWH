@@ -28,11 +28,8 @@
   <DataSource id="kz.Models.Basic.ERP::CAL_DIM_REGION">
     <resourceUri>kz.Models.Basic.ERP::CAL_DIM_REGION</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_B_Case">
-    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
-  </DataSource>
-  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_COURTINFO">
-    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_COURTINFO</resourceUri>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_COURT">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_COURT</resourceUri>
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
@@ -133,18 +130,14 @@
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_DIM_REGION"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Case">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Court">
     <viewAttributes>
-      <viewAttribute id="B_Case_code"/>
-      <viewAttribute id="B_CustomerProject_Code"/>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="C_Court_name"/>
+      <viewAttribute id="C_Court_area"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_B_Case"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
-    <viewAttributes/>
-    <calculatedViewAttributes/>
-    <input node="kz.Models.Basic.ERP::CAL_DIM_COURTINFO"/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_COURT"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_JieDan_XiaoShou_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDim_JieDan_XiaoShou" multiJoinCentralTable="JieDan_XiaoShou" multiJoinOrder="Outside In">
     <viewAttributes>
@@ -166,6 +159,7 @@
       <viewAttribute id="StandardNum" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="CourtCode"/>
+      <viewAttribute id="C_Court_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="JieDan_XiaoShou">
@@ -186,12 +180,13 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
-    </input>
-    <input node="Case">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
     </input>
-    <joinAttribute name="B_Case_code"/>
+    <input node="Court">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="C_Court_code"/>
+    </input>
+    <joinAttribute name="CourtCode"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_JieDan_XiaoShou_2" cardinality="CN_N" joinType="inner" multiJoinNode="addDim_JieDan_XiaoShou" multiJoinCentralTable="JieDan_XiaoShou" multiJoinOrder="Outside In">
     <viewAttributes>
@@ -216,6 +211,7 @@
       <viewAttribute id="C_Customer_number"/>
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="C_Court_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_1">
@@ -237,6 +233,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
     </input>
     <input node="Customer">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
@@ -270,6 +267,7 @@
       <viewAttribute id="C_Customer_name"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
       <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="C_Court_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_2">
@@ -294,6 +292,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_number" source="C_Customer_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
     </input>
     <input node="Region">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
@@ -326,6 +325,7 @@
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_HangYe_name"/>
+      <viewAttribute id="C_Court_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_3">
@@ -351,6 +351,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
     </input>
     <input node="Industry">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_Parameters_name"/>
@@ -384,6 +385,7 @@
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_HangYe_name"/>
       <viewAttribute id="C_CaseNature_name"/>
+      <viewAttribute id="C_Court_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_4">
@@ -410,6 +412,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
     </input>
     <input node="CaseNature">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_Parameters_name"/>
@@ -444,6 +447,7 @@
       <viewAttribute id="C_HangYe_name"/>
       <viewAttribute id="C_CaseNature_name"/>
       <viewAttribute id="C_CaseType_name"/>
+      <viewAttribute id="C_Court_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_5">
@@ -471,6 +475,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
     </input>
     <input node="CaseType">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_Parameters_name"/>
@@ -509,6 +514,7 @@
       <viewAttribute id="MONTH"/>
       <viewAttribute id="WEEK"/>
       <viewAttribute id="QUARTER"/>
+      <viewAttribute id="C_Court_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_6">
@@ -537,6 +543,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_HangYe_name" source="C_HangYe_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseNature_name" source="C_CaseNature_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_CaseType_name" source="C_CaseType_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
     </input>
     <input node="Time">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
@@ -585,6 +592,7 @@
       <viewAttribute id="C_Organization_name_upward4"/>
       <viewAttribute id="C_Organization_name_upward5"/>
       <viewAttribute id="C_Organization_name_upward6"/>
+      <viewAttribute id="C_Court_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="addDim_JieDan_XiaoShou_7">
@@ -617,6 +625,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="WEEK" source="WEEK"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="QUARTER" source="QUARTER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
     </input>
     <input node="Organization">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
@@ -763,6 +772,11 @@
       <descriptions defaultDescription="法院编码"/>
       <keyMapping columnObjectName="addDim_JieDan_XiaoShou_8" columnName="CourtCode"/>
     </attribute>
+  
+    <attribute id="C_Court_name" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="法院名称"/>
+      <keyMapping columnObjectName="addDim_JieDan_XiaoShou_8" columnName="C_Court_name"/>
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
@@ -829,10 +843,11 @@
       <upperLeftCorner x="722" y="541"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="Case" modelObjectNameSpace="CalculationView">
+    <shape expanded="true" modelObjectName="Court" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="932" y="541"/>
       <rectangleSize height="30" width="160"/>
     </shape>
+  
   
   
     <shape expanded="true" modelObjectName="addDim_JieDan_XiaoShou" modelObjectNameSpace="CalculationView">
@@ -871,13 +886,9 @@
       <upperLeftCorner x="-378" y="14"/>
       <rectangleSize width="235"/>
     </shape>
-    <shape modelObjectName="Case" modelObjectNameSpace="addDim_JieDan_XiaoShou" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_JieDan_XiaoShou">
-      <upperLeftCorner x="-613" y="213"/>
-      <rectangleSize width="213"/>
-    </shape>
-    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1202" y="245"/>
-      <rectangleSize height="30" width="160"/>
+    <shape modelObjectName="Court" modelObjectNameSpace="addDim_JieDan_XiaoShou" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_JieDan_XiaoShou">
+      <upperLeftCorner x="-573" y="101"/>
+      <rectangleSize width="160.59375"/>
     </shape>
   </shapes>
 </layout>
