@@ -833,6 +833,11 @@
       <upperLeftCorner x="932" y="541"/>
       <rectangleSize height="30" width="160"/>
     </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1202" y="245"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
   
   
     <shape expanded="true" modelObjectName="addDim_JieDan_XiaoShou" modelObjectNameSpace="CalculationView">
@@ -874,11 +879,6 @@
     <shape modelObjectName="Case" modelObjectNameSpace="addDim_JieDan_XiaoShou" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_JieDan_XiaoShou">
       <upperLeftCorner x="-613" y="213"/>
       <rectangleSize width="213"/>
-    </shape>
-    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1202" y="245"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>

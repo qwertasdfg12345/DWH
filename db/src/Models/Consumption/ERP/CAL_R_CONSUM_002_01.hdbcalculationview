@@ -142,7 +142,7 @@
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_DIM_INDUSTRY"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_1" cardinality="CN_N" joinType="inner" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="CC_BaZu"/>
@@ -227,7 +227,7 @@
     </input>
     <joinAttribute name="B_Case_HangYe"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_2" cardinality="CN_N" joinType="inner" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_2" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="CC_BaZu"/>
@@ -314,7 +314,7 @@
     </input>
     <joinAttribute name="B_Case_type"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_3" cardinality="CN_N" joinType="inner" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_3" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="CC_BaZu"/>
@@ -403,7 +403,7 @@
     </input>
     <joinAttribute name="B_Case_nature"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_4" cardinality="CN_N" joinType="inner" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_4" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="CC_BaZu"/>
@@ -494,7 +494,7 @@
     </input>
     <joinAttribute name="KeHuTeam"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_5" cardinality="CN_N" joinType="inner" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_5" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_CONSUM_002" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="CC_Date"/>
       <viewAttribute id="CC_BaZu"/>
@@ -878,31 +878,31 @@
     </shape>
     <shape modelObjectName="DIM_TIME" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="296" y="-55"/>
-      <rectangleSize width="142"/>
+      <rectangleSize width="142.64892578125"/>
     </shape>
     <shape modelObjectName="DIM_ORG" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="296" y="79"/>
-      <rectangleSize width="196"/>
+      <upperLeftCorner x="296" y="126"/>
+      <rectangleSize width="196.064453125"/>
     </shape>
     <shape modelObjectName="DIM_KeHuTeam" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="296" y="172"/>
-      <rectangleSize width="196"/>
+      <upperLeftCorner x="296" y="259"/>
+      <rectangleSize width="196.064453125"/>
     </shape>
     <shape modelObjectName="DIM_NATURE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="296" y="269"/>
-      <rectangleSize width="190"/>
+      <upperLeftCorner x="296" y="402"/>
+      <rectangleSize width="190.54833984375"/>
     </shape>
     <shape modelObjectName="DIM_TYPE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="296" y="364"/>
-      <rectangleSize width="190"/>
+      <upperLeftCorner x="296" y="544"/>
+      <rectangleSize width="190.54833984375"/>
     </shape>
     <shape modelObjectName="P_CONSUM_002" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="235"/>
+      <upperLeftCorner x="-23" y="32"/>
+      <rectangleSize width="235.18212890625"/>
     </shape>
     <shape modelObjectName="DIM_INDUSTRY" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="296" y="459"/>
-      <rectangleSize width="190"/>
+      <upperLeftCorner x="296" y="677"/>
+      <rectangleSize width="190.54833984375"/>
     </shape>
   </shapes>
 </layout>
