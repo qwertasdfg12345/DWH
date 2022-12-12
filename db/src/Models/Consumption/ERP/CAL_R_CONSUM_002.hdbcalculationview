@@ -61,6 +61,8 @@
       <viewAttribute id="CC_JIEDAN" aggregationType="sum"/>
       <viewAttribute id="CC_XIAOSHOU" aggregationType="sum"/>
       <viewAttribute id="CC_LIUCUN" aggregationType="sum"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CONSUM_BF_2">
@@ -99,6 +101,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_JIEDAN" source="CC_JIEDAN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_XIAOSHOU" source="CC_XIAOSHOU"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LIUCUN" source="CC_LIUCUN"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
     </input>
     <function name="SUM">
       <functionArgument>&quot;CC_LIUCUN&quot;</functionArgument>
@@ -152,6 +156,8 @@
       <viewAttribute id="B_Case_state"/>
     
       <viewAttribute id="B_Case_factEndTime"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_DIM_CASE"/>
@@ -268,6 +274,7 @@
       <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
       <viewAttribute id="CC_TYP_QCLC" aggregationType="sum"/>
       <viewAttribute id="CC_TYP_JD" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_YM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
@@ -432,6 +439,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_JD" source="CC_TYP_JD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
     </input>
     <joinAttribute name="B_Case_code"/>
@@ -467,126 +475,136 @@
       <descriptions defaultDescription="八分法院名称"/>
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CourtName"/>
     </attribute>
-    <attribute id="B_Case_number" order="8" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="案件编号"/>
-      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_number"/>
+  
+    <attribute id="B_Case_customerCode" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件客户编码"/>
+  
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_customerCode"/>
+  
     </attribute>
-    <attribute id="C_Region_name" order="9" displayAttribute="false" attributeHierarchyActive="false">
+  
+    <attribute id="B_Case_number" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件编号"/>
+  
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_number"/>
+  
+    </attribute>
+    <attribute id="C_Region_name" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="区域名称"/>
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="C_Region_name"/>
     </attribute>
-    <attribute id="CompanyName" order="10" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CompanyName" order="11" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="公司名称"/>
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CompanyName"/>
     </attribute>
-    <attribute id="KeHuTeam" order="11" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="KeHuTeam" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件归属巴组"/>
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="KeHuTeam"/>
     </attribute>
-    <attribute id="CC_JATYP" order="12" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_nature" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件性质"/>
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_nature"/>
+    </attribute>
+    <attribute id="B_Case_type" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件类型"/>
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_type"/>
+    </attribute>
+    <attribute id="B_Case_HangYe" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="行业"/>
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_HangYe"/>
+    </attribute>
+    <attribute id="isXingZheng" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="行政类型"/>
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="isXingZheng"/>
+    </attribute>
+    <attribute id="B_Case_state" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件状态"/>
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_state"/>
+    </attribute>
+  
+    <attribute id="CC_JATYP" order="18" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="当月结案标识"/>
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JATYP"/>
     </attribute>
-  </attributes>
+    <attribute id="CC_TYP_QCLC" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件剔除标识(4留存)"/>
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_TYP_QCLC"/>
+    </attribute>
+    <attribute id="CC_TYP_JD" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件剔除标识(4接单)"/>
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_TYP_JD"/>
+    </attribute></attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="JieDanJinE" order="13" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="接单金额"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="JieDanJinE"/>
-    </measure>
-    <measure id="XiaoShouJinE" order="14" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="销售金额"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="XiaoShouJinE"/>
-    </measure>
-    <measure id="B_Case_nature" order="15" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="案件性质"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_nature"/>
-    </measure>
-    <measure id="B_Case_type" order="16" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="案件类型"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_type"/>
-    </measure>
-    <measure id="B_Case_HangYe" order="17" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="行业"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_HangYe"/>
-    </measure>
-    <measure id="CC_JIEANDATE" order="18" aggregationType="min" measureType="simple">
+    <measure id="CC_JIEANDATE" order="21" aggregationType="min" measureType="simple">
       <descriptions defaultDescription="接案日期"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JIEANDATE"/>
     </measure>
-    <measure id="isXingZheng" order="19" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="行政类型"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="isXingZheng"/>
-    </measure>
-    <measure id="B_Case_state" order="20" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="案件状态"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_state"/>
-    </measure>
-    <measure id="B_Case_factEndTime" order="21" aggregationType="max" measureType="simple">
+    <measure id="B_Case_factEndTime" order="22" aggregationType="max" measureType="simple">
       <descriptions defaultDescription="结案日期"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_factEndTime"/>
     </measure>
-    <measure id="CC_TYP_QCLC" order="22" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="案件剔除标识(4留存)"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_TYP_QCLC"/>
-    </measure>
-    <measure id="CC_TYP_JD" order="23" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="案件剔除标识(4接单)"/>
-      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_TYP_JD"/>
-    </measure>
-    <measure id="CC_JIEDAN_JC" order="24" aggregationType="sum" measureType="simple">
+    <measure id="CC_JIEDAN_JC" order="23" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="建材接单"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JIEDAN_JC"/>
     </measure>
-    <measure id="CC_JIEDAN_MS" order="25" aggregationType="sum" measureType="simple">
+    <measure id="CC_JIEDAN_MS" order="24" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="民生接单"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JIEDAN_MS"/>
     </measure>
-    <measure id="CC_JIEDAN_ZC" order="26" aggregationType="sum" measureType="simple">
+    <measure id="CC_JIEDAN_ZC" order="25" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="知产接单"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JIEDAN_ZC"/>
     </measure>
-    <measure id="CC_XIAOSHOU_JC" order="27" aggregationType="sum" measureType="simple">
+    <measure id="CC_XIAOSHOU_JC" order="26" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="建材销售"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_XIAOSHOU_JC"/>
     </measure>
-    <measure id="CC_XIAOSHOU_MS" order="28" aggregationType="sum" measureType="simple">
+    <measure id="CC_XIAOSHOU_MS" order="27" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="民生销售"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_XIAOSHOU_MS"/>
     </measure>
-    <measure id="CC_XIAOSHOU_ZC" order="29" aggregationType="sum" measureType="simple">
+    <measure id="CC_XIAOSHOU_ZC" order="28" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="知产销售"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_XIAOSHOU_ZC"/>
     </measure>
-    <measure id="CC_LIUCUN_JC" order="30" aggregationType="sum" measureType="simple">
+    <measure id="CC_LIUCUN_JC" order="29" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="建材留存"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_LIUCUN_JC"/>
     </measure>
-    <measure id="CC_LIUCUN_MS" order="31" aggregationType="sum" measureType="simple">
+    <measure id="CC_LIUCUN_MS" order="30" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="民生留存"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_LIUCUN_MS"/>
     </measure>
-    <measure id="CC_LIUCUN_ZC" order="32" aggregationType="sum" measureType="simple">
+    <measure id="CC_LIUCUN_ZC" order="31" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="知产留存"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_LIUCUN_ZC"/>
     </measure>
-    <measure id="CC_JIEDAN" order="33" aggregationType="sum" measureType="simple">
+    <measure id="CC_JIEDAN" order="32" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="接单金额"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JIEDAN"/>
     </measure>
-    <measure id="CC_XIAOSHOU" order="34" aggregationType="sum" measureType="simple">
+    <measure id="CC_XIAOSHOU" order="33" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="销售金额"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_XIAOSHOU"/>
     </measure>
-    <measure id="CC_LIUCUN" order="35" aggregationType="sum" measureType="simple">
+    <measure id="CC_LIUCUN" order="34" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="留存金额"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_LIUCUN"/>
     </measure>
-    <measure id="CC_LIUCUN_STD" order="36" aggregationType="sum" measureType="simple">
+    <measure id="CC_LIUCUN_STD" order="35" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="留存累计金额"/>
       <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_LIUCUN_STD"/>
     </measure>
-  </baseMeasures>
+  
+    <measure id="JieDanJinE" order="36" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="原始接单金额"/>
+      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="JieDanJinE"/>
+    </measure>
+    <measure id="XiaoShouJinE" order="37" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="原始销售金额"/>
+      <measureMapping columnObjectName="WF_LIUCUN_STD" columnName="XiaoShouJinE"/>
+    </measure></baseMeasures>
   <calculatedMeasures/>
   <restrictedMeasures/>
   <localDimensions/></logicalModel>
@@ -643,7 +661,7 @@
     </shape>
   
     <shape modelObjectName="P_FACT_COMM" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="80" y="138"/>
+      <upperLeftCorner x="59" y="29"/>
       <rectangleSize width="235"/>
     </shape>
     <shape modelObjectName="J_COURT_BF" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
