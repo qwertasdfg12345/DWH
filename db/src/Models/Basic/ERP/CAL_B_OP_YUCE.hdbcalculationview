@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_B_OP_YUCE" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_B_OP_YUCE.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_ZhiChanJieDanYuCe">
+    <resourceUri>kz.DI.ERP::T_ZhiChanJieDanYuCe</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_ZhiChanXiaoShouYuCe">
+    <resourceUri>kz.DI.ERP::T_ZhiChanXiaoShouYuCe</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="ZhiChanJieDanYuCe">
+    <viewAttributes>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="ForecastMoney"/>
+      <viewAttribute id="BMonth"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZhiChanJieDanYuCe"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="ZhiChanXiaoShouYuCe">
+    <viewAttributes>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="ForecastMoney"/>
+      <viewAttribute id="BMonth"/>
+      <viewAttribute id="BYear"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZhiChanXiaoShouYuCe"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="ZhiChanYuCe">
+    <viewAttributes>
+      <viewAttribute id="C_Region_Name"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="JieDanForecast" aggregationType="sum"/>
+      <viewAttribute id="BMonth" aggregationType="sum"/>
+      <viewAttribute id="BYear" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouForecast" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Year" datatype="NVARCHAR" length="4" expressionLanguage="SQL">
+        <formula>to_char(&quot;BYear&quot;)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Month" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>CASE
+When &quot;BMonth&quot; &lt; 10
+THEN concat('0',to_char(&quot;BMonth&quot;))
+ELSE to_char(&quot;BMonth&quot;)
+END</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="ZhiChanJieDanYuCe">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanForecast" source="ForecastMoney"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BMonth" source="BMonth"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouForecast" source="ForecastMoney"/>
+    </input>
+    <input node="ZhiChanXiaoShouYuCe">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_Code"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanForecast" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BMonth" source="BMonth"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BYear" source="BYear"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouForecast" source="ForecastMoney"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="ZhiChanYuCe">
+  <attributes>
+    <attribute id="C_Region_Name" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所名称"/>
+      <keyMapping columnObjectName="ZhiChanYuCe" columnName="C_Region_Name"/>
+    </attribute>
+    <attribute id="C_Region_Code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所编码"/>
+      <keyMapping columnObjectName="ZhiChanYuCe" columnName="C_Region_Code"/>
+    </attribute>
+    <attribute id="Year" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year"/>
+      <keyMapping columnObjectName="ZhiChanYuCe" columnName="Year"/>
+    </attribute>
+    <attribute id="Month" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Month"/>
+      <keyMapping columnObjectName="ZhiChanYuCe" columnName="Month"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="JieDanForecast" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="接单预测"/>
+      <measureMapping columnObjectName="ZhiChanYuCe" columnName="JieDanForecast"/>
+    </measure>
+    <measure id="XiaoShouForecast" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="销售预测"/>
+      <measureMapping columnObjectName="ZhiChanYuCe" columnName="XiaoShouForecast"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="221.11302679000914" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="false" modelObjectName="ZhiChanJieDanYuCe" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92.00000000000001" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="ZhiChanXiaoShouYuCe" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302.00000000000006" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="ZhiChanYuCe" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="221.11302679000914" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
