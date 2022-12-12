@@ -7,11 +7,14 @@
   <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_JIEDAN">
     <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_JIEDAN</resourceUri>
   </DataSource>
-  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_XIAOSHOU">
-    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_XIAOSHOU</resourceUri>
-  </DataSource>
   <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_DABIAOLV_ALL">
     <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_DABIAOLV_ALL</resourceUri>
+  </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_COURTINFO">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_COURTINFO</resourceUri>
+  </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_XIAOSHOU">
+    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_XIAOSHOU</resourceUri>
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
@@ -49,31 +52,188 @@
       <comment text="合并层含 接单、销售"/>
     </descriptions>
     <viewAttributes>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="B_Case_type" aggregationType="sum"/>
-      <viewAttribute id="B_Case_regionCode"/>
-      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
-      <viewAttribute id="CC_Date"/>
-      <viewAttribute id="CC_BaZU"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-    
-      <viewAttribute id="B_Case_code"/>
-    
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
-    
-      <viewAttribute id="P_Business_Flow_Form_code"/>
     
       <viewAttribute id="CourtCode"/>
       <viewAttribute id="B_CustomerProject_Code"/>
       <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="StandardNum" aggregationType="sum"/>
+    
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="CC_KeHuZu"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+      <viewAttribute id="KeHuTeam"/>
+      <viewAttribute id="CC_Date"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="P_JieDanJinE" emptyUnionBehavior="NO_ROW">
+  
+    <input node="P_DaBiaoLv" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
+    
+  
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_BusinessUnit" null="true" value=""/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+  
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_HangYe" null="true" value=""/>
+  
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+  
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="P_Business_Flow_Form_code" null="true" value=""/>
+  
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_KeHuZu" null="true" value=""/>
+  
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="KeHuTeam"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
+  
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_nature" null="true" value=""/>
+  
+    </input>
+  
+    <input node="J_JieDanXiaoShou" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="C_Court_code"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_CustomerProject_Code" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_LEIXING" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_SHICHANG" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="StandardNum" null="true" value=""/>
+    
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
+  
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="KeHuTeam" null="true" value=""/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+  
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_DaBiaoLv">
+    <descriptions>
+      <comment text="达标率"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="CourtCode"/>
+      <viewAttribute id="B_CustomerProject_Code"/>
+      <viewAttribute id="CC_LEIXING"/>
+      <viewAttribute id="CC_SHICHANG"/>
+      <viewAttribute id="StandardNum"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_code"/>
+    
+      <viewAttribute id="KeHuTeam"/>
+      <viewAttribute id="CC_Date"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_B_OP_DABIAOLV_ALL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_JieDanXiaoShou" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="C_Court_code"/>
+    
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="CC_KeHuZu"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+      <viewAttribute id="CC_Date"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="U_JieDanXiaoShou">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+    </input>
+    <input node="CourtInfo">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
+    </input>
+    <joinAttribute name="P_Business_Flow_Form_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="U_JieDanXiaoShou">
+    <descriptions>
+      <comment text="合并层含 接单、销售"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="CC_KeHuZu"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+      <viewAttribute id="CC_Date"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input emptyUnionBehavior="NO_ROW" node="P_JieDanJinE">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
@@ -81,24 +241,14 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZU" source="CC_KeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
-    
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_KeHuZu"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_nature" null="true" value=""/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-    
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CourtCode" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_CustomerProject_Code" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_LEIXING" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_SHICHANG" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="StandardNum" null="true" value=""/>
     </input>
-  
-    <input node="P_XiaoShouJinE" emptyUnionBehavior="NO_ROW">
+    <input emptyUnionBehavior="NO_ROW" node="P_XiaoShouJinE">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
@@ -106,49 +256,22 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_DATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZU" source="CC_HeSuanBa"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_KeHuZu" source="CC_HeSuanBa"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
-    
-  
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-  
-    
-  
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CourtCode" null="true" value=""/>
-  
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_CustomerProject_Code" null="true" value=""/>
-  
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_LEIXING" null="true" value=""/>
-  
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_SHICHANG" null="true" value=""/>
-  
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="StandardNum" null="true" value=""/>
-  
     </input>
-  
-    <input node="P_DaBiaoLv" emptyUnionBehavior="NO_ROW">
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_BusinessUnit" null="true" value=""/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_HangYe" null="true" value=""/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZU" source="KeHuTeam"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_nature" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="P_Business_Flow_Form_code" null="true" value=""/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CourtCode" source="CourtCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
-    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CourtInfo">
+    <viewAttributes>
+      <viewAttribute id="C_Court_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="ShouLiFaYuan"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_COURTINFO"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_XiaoShouJinE">
     <descriptions>
@@ -178,146 +301,147 @@
     </calculatedViewAttributes>
     <input node="kz.Models.Basic.ERP::CAL_B_OP_XIAOSHOU"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_DaBiaoLv">
-    <descriptions>
-      <comment text="达标率"/>
-    </descriptions>
-    <viewAttributes>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="B_Case_type"/>
-      <viewAttribute id="B_Case_regionCode"/>
-      <viewAttribute id="CC_Date"/>
-    
-      <viewAttribute id="KeHuTeam"/>
-      <viewAttribute id="B_Case_code"/>
-      <viewAttribute id="CourtCode"/>
-      <viewAttribute id="B_CustomerProject_Code"/>
-      <viewAttribute id="CC_LEIXING"/>
-      <viewAttribute id="CC_SHICHANG"/>
-      <viewAttribute id="StandardNum"/></viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.Models.Basic.ERP::CAL_B_OP_DABIAOLV_ALL"/>
-  </calculationView>
 </calculationViews>
 <logicalModel id="U_COMM_01">
   <attributes>
-    <attribute id="CC_Date" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="日期"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="CC_Date"/>
-    </attribute>
-    <attribute id="CC_KeHuZu" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="巴组编码"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="CC_BaZU"/>
-    </attribute>
-    <attribute id="CC_BusinessUnit" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="事业线编码"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="CC_BusinessUnit"/>
-    </attribute>
   
-    <attribute id="B_Case_code" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="案件编码"/>
-  
-      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_code"/>
-  
-    </attribute>
-  
-    <attribute id="B_Case_number" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="案件号"/>
-  
-      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_number"/>
-  
-    </attribute>
-    <attribute id="B_Case_customerCode" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="客户编码"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_customerCode"/>
-    </attribute>
-    <attribute id="B_Case_type" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="客户类型"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_type"/>
-    </attribute>
-    <attribute id="B_Case_regionCode" order="8" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="分所编码"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_regionCode"/>
-    </attribute>
-    <attribute id="B_Case_nature" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="案件性质"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_nature"/>
-    </attribute>
-    <attribute id="B_Case_HangYe" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="行业编码"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_HangYe"/>
-    </attribute>
-    <attribute id="P_Business_Flow_Form_code" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="表单编码"/>
-      <keyMapping columnObjectName="U_COMM_01" columnName="P_Business_Flow_Form_code"/>
-    </attribute>
-  
-    <attribute id="CourtCode" order="14" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CourtCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="法院编码"/>
   
       <keyMapping columnObjectName="U_COMM_01" columnName="CourtCode"/>
   
     </attribute>
-    <attribute id="B_CustomerProject_Code" order="15" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_CustomerProject_Code" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="项目编码"/>
       <keyMapping columnObjectName="U_COMM_01" columnName="B_CustomerProject_Code"/>
     </attribute>
-    <attribute id="CC_LEIXING" order="16" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_LEIXING" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="达标率类型"/>
       <keyMapping columnObjectName="U_COMM_01" columnName="CC_LEIXING"/>
+    </attribute>
+  
+    <attribute id="CC_BusinessUnit" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="事业线"/>
+  
+      <keyMapping columnObjectName="U_COMM_01" columnName="CC_BusinessUnit"/>
+  
+    </attribute>
+    <attribute id="B_Case_number" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件编号"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="B_Case_customerCode" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户编码"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_customerCode"/>
+    </attribute>
+    <attribute id="B_Case_type" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件类型"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_type"/>
+    </attribute>
+    <attribute id="B_Case_regionCode" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_regionCode"/>
+    </attribute>
+    <attribute id="B_Case_HangYe" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="行业"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_HangYe"/>
+    </attribute>
+    <attribute id="B_Case_code" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件号"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_code"/>
+    </attribute>
+    <attribute id="P_Business_Flow_Form_code" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="表单号"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="P_Business_Flow_Form_code"/>
+    </attribute>
+    <attribute id="CC_KeHuZu" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户巴组"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="CC_KeHuZu"/>
+    </attribute>
+    <attribute id="KeHuTeam" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户Team"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="KeHuTeam"/>
+    </attribute>
+    <attribute id="CC_Date" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="日期"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="CC_Date"/>
+    </attribute>
+  
+    <attribute id="B_Case_nature" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件性质"/>
+      <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_nature"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
+  
+    <measure id="CC_SHICHANG" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="实际时长"/>
+      <measureMapping columnObjectName="U_COMM_01" columnName="CC_SHICHANG"/>
+    </measure>
+    <measure id="StandardNum" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="标准时长"/>
+      <measureMapping columnObjectName="U_COMM_01" columnName="StandardNum"/>
+    </measure>
+  
     <measure id="JieDanJinE" order="12" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="接单金额"/>
       <measureMapping columnObjectName="U_COMM_01" columnName="JieDanJinE"/>
     </measure>
-  
-    <measure id="XiaoShouJinE" order="13" aggregationType="sum" measureType="simple">
+    <measure id="XiaoShouJinE" order="16" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="销售金额"/>
       <measureMapping columnObjectName="U_COMM_01" columnName="XiaoShouJinE"/>
-    </measure>
-  
-    <measure id="CC_SHICHANG" order="17" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="实际时长"/>
-      <measureMapping columnObjectName="U_COMM_01" columnName="CC_SHICHANG"/>
-    </measure>
-    <measure id="StandardNum" order="18" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="标准时长"/>
-      <measureMapping columnObjectName="U_COMM_01" columnName="StandardNum"/>
-    </measure>
-  </baseMeasures>
+    </measure></baseMeasures>
   <calculatedMeasures/>
   <restrictedMeasures/>
   <localDimensions/></logicalModel>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="221" y="112"/>
+      <upperLeftCorner x="422" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="129" y="396"/>
+      <upperLeftCorner x="92" y="681"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="U_COMM_01" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="221" y="237"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  
-    <shape expanded="true" modelObjectName="P_XiaoShouJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="396"/>
+      <upperLeftCorner x="422" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_DaBiaoLv" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="480" y="396"/>
+      <upperLeftCorner x="489" y="376"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-  </shapes>
+    <shape expanded="true" modelObjectName="J_JieDanXiaoShou" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="145" y="380"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="U_JieDanXiaoShou" modelObjectNameSpace="J_JieDanXiaoShou" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="235"/>
+    </shape>
+    <shape modelObjectName="CourtInfo" modelObjectNameSpace="J_JieDanXiaoShou" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="227"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="U_JieDanXiaoShou" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="118" y="521"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="CourtInfo" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="384" y="521"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+  
+    <shape expanded="true" modelObjectName="P_XiaoShouJinE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="681"/>
+      <rectangleSize height="30" width="160"/>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
