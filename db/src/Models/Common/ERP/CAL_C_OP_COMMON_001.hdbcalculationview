@@ -286,10 +286,10 @@
       <viewAttribute id="B_Case_HangYe"/>
       <viewAttribute id="CC_DATE"/>
       <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="XiaoShouJinE"/>
     
       <viewAttribute id="B_Case_nature"/>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="HeSuanBa"/>
       <viewAttribute id="CC_GDDATE"/>
       <viewAttribute id="P_Business_flow_form_factEndTime"/>
@@ -369,7 +369,9 @@
   
     <attribute id="B_Case_nature" order="19" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件性质"/>
+  
       <keyMapping columnObjectName="U_COMM_01" columnName="B_Case_nature"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>

@@ -658,8 +658,8 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_DIM_CASE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="396" y="29"/>
-      <rectangleSize width="169"/>
+      <upperLeftCorner x="392" y="-63"/>
+      <rectangleSize width="202.78369140625"/>
     </shape>
   
     <shape modelObjectName="P_FACT_COMM" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
@@ -667,8 +667,8 @@
       <rectangleSize width="235"/>
     </shape>
     <shape modelObjectName="J_COURT_BF" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="396" y="329"/>
-      <rectangleSize width="227"/>
+      <upperLeftCorner x="392" y="258"/>
+      <rectangleSize width="227.85595703125"/>
     </shape></shapes>
 </layout>
 </Calculation:scenario>
