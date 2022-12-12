@@ -61,6 +61,8 @@
       <viewAttribute id="CC_JIEDAN" aggregationType="sum"/>
       <viewAttribute id="CC_XIAOSHOU" aggregationType="sum"/>
       <viewAttribute id="CC_LIUCUN" aggregationType="sum"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CONSUM_BF_2">
@@ -99,6 +101,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_JIEDAN" source="CC_JIEDAN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_XIAOSHOU" source="CC_XIAOSHOU"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LIUCUN" source="CC_LIUCUN"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
     </input>
     <function name="SUM">
       <functionArgument>&quot;CC_LIUCUN&quot;</functionArgument>
@@ -152,6 +156,8 @@
       <viewAttribute id="B_Case_state"/>
     
       <viewAttribute id="B_Case_factEndTime"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_DIM_CASE"/>
@@ -268,6 +274,7 @@
       <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
       <viewAttribute id="CC_TYP_QCLC" aggregationType="sum"/>
       <viewAttribute id="CC_TYP_JD" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_YM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
@@ -432,6 +439,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_JD" source="CC_TYP_JD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
     </input>
     <joinAttribute name="B_Case_code"/>
@@ -486,6 +494,11 @@
     <attribute id="CC_JATYP" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="当月结案标识"/>
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JATYP"/>
+    </attribute>
+  
+    <attribute id="B_Case_customerCode" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件客户编码"/>
+      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="B_Case_customerCode"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -643,7 +656,7 @@
     </shape>
   
     <shape modelObjectName="P_FACT_COMM" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="80" y="138"/>
+      <upperLeftCorner x="59" y="29"/>
       <rectangleSize width="235"/>
     </shape>
     <shape modelObjectName="J_COURT_BF" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">

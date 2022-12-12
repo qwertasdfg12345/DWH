@@ -109,6 +109,8 @@
       <viewAttribute id="B_Case_state"/>
     
       <viewAttribute id="B_Case_factEndTime"/>
+    
+      <viewAttribute id="B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_CASETYPE" datatype="INTEGER" expressionLanguage="SQL">
@@ -215,6 +217,7 @@
       <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_Case_state"/>
       <viewAttribute id="B_Case_factEndTime"/>
+      <viewAttribute id="B_Case_customerCode"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_B_CASE">
@@ -231,6 +234,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
     </input>
     <input node="Aggregation_CASE">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TYP_QCLC" source="CC_TYP_QCLC"/>
@@ -256,6 +260,7 @@
       <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_Case_state"/>
       <viewAttribute id="B_Case_factEndTime"/>
+      <viewAttribute id="B_Case_customerCode"/>
       <viewAttribute id="B_CaseSY_cDate"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -275,6 +280,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
     </input>
     <input node="Rank_CASESY">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
@@ -299,6 +305,7 @@
       <viewAttribute id="isXingZheng"/>
       <viewAttribute id="B_Case_state"/>
       <viewAttribute id="B_Case_factEndTime"/>
+      <viewAttribute id="B_Case_customerCode"/>
       <viewAttribute id="B_CaseSY_cDate"/>
       <viewAttribute id="P_Business_flow_form_factStartTime"/>
     </viewAttributes>
@@ -328,6 +335,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CaseSY_cDate" source="B_CaseSY_cDate"/>
     </input>
     <input node="Rank_PBFF">
@@ -409,6 +417,13 @@
       <descriptions defaultDescription="案件实际结束日期"/>
   
       <keyMapping columnObjectName="J_CASE_3" columnName="B_Case_factEndTime"/>
+  
+    </attribute>
+  
+    <attribute id="B_Case_customerCode" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件客户编码"/>
+  
+      <keyMapping columnObjectName="J_CASE_3" columnName="B_Case_customerCode"/>
   
     </attribute>
   </attributes>
