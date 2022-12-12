@@ -756,27 +756,27 @@
       <descriptions defaultDescription="分公司(法院所属)"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="CompanyName"/>
     </attribute>
-    <attribute id="KeHuTeam" order="17" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="客户组"/>
-      <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="KeHuTeam"/>
-    </attribute>
-    <attribute id="B_Case_TypeCode" order="18" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_TypeCode" order="17" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件类型编码"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_type"/>
     </attribute>
-    <attribute id="B_Case_TypeName" order="19" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_TypeName" order="18" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件类型"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_TypeName"/>
     </attribute>
-    <attribute id="B_Case_NatureCode" order="20" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_NatureCode" order="19" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件性质编码"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_nature"/>
     </attribute>
-    <attribute id="B_Case_NatureName" order="21" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_NatureName" order="20" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件性质"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="B_Case_NatureName"/>
     </attribute>
-    <attribute id="C_KeHuTeamName" order="22" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_KeHuTeamCode" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="客户组"/>
+      <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="KeHuTeam"/>
+    </attribute>
+    <attribute id="B_Case_KeHuTeamName" order="22" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件归属巴组"/>
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="C_KeHuTeamName"/>
     </attribute>
@@ -795,7 +795,9 @@
   
     <attribute id="CC_TYP_QCLC" order="26" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="留存剔除标识"/>
+  
       <keyMapping columnObjectName="J_CONSUM_BF_6" columnName="CC_TYP_QCLC"/>
+  
     </attribute>
     <attribute id="CC_TYP_JD" order="27" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="接单剔除标识"/>
