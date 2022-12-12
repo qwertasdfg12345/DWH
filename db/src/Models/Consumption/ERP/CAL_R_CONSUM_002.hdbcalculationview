@@ -524,7 +524,9 @@
   
     <attribute id="CC_JATYP" order="18" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="当月结案标识"/>
+  
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JATYP"/>
+  
     </attribute>
     <attribute id="CC_TYP_QCLC" order="19" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件剔除标识(4留存)"/>
