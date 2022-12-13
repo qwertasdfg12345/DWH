@@ -596,7 +596,6 @@
     <shape modelObjectName="WF_XiaoShouYuSuanYTD" modelObjectNameSpace="J_DaCheng" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_DaCheng">
       <upperLeftCorner x="252" y="535"/>
       <rectangleSize width="212"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
