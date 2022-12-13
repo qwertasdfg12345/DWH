@@ -524,7 +524,9 @@
   
     <attribute id="CC_JATYP" order="18" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="当月结案标识"/>
+  
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_JATYP"/>
+  
     </attribute>
     <attribute id="CC_TYP_QCLC" order="19" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="案件剔除标识(4留存)"/>
@@ -657,7 +659,7 @@
     </shape>
     <shape modelObjectName="P_DIM_CASE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="392" y="-63"/>
-      <rectangleSize width="202.78369140625"/>
+      <rectangleSize width="202"/>
     </shape>
   
     <shape modelObjectName="P_FACT_COMM" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
@@ -666,7 +668,7 @@
     </shape>
     <shape modelObjectName="J_COURT_BF" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="392" y="258"/>
-      <rectangleSize width="227.85595703125"/>
+      <rectangleSize width="227"/>
     </shape></shapes>
 </layout>
 </Calculation:scenario>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Consumption.ERP::CAL_R_CONSUM_003" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CAL_R_CONSUM_003.hdbcalculationview">
-  <comment text="MP达成分析"/>
+  <comment text="MP达成分析及PBC"/>
 </descriptions>
 <localVariables/>
 <variableMappings/>
@@ -11,6 +11,9 @@
   </DataSource>
   <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_YUSUAN">
     <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_YUSUAN</resourceUri>
+  </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_YUCE">
+    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_YUCE</resourceUri>
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
@@ -44,7 +47,7 @@
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_B_OP_YUSUAN"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:UnionView" id="MP_DaCheng">
+  <calculationView xsi:type="Calculation:UnionView" id="MP_DaCheng_PBC">
     <viewAttributes>
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
@@ -55,6 +58,12 @@
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
       <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+    
+      <viewAttribute id="C_Region_Dq"/>
+      <viewAttribute id="JieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouUpperLimitValue" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="CAL_R_CONSUM_001" emptyUnionBehavior="NO_ROW">
@@ -67,6 +76,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuSuan" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoshouYuSuan" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Dq" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue" null="true" value=""/>
     </input>
     <input node="CAL_B_OP_YUSUAN" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="Year"/>
@@ -78,49 +93,114 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Dq" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue" null="true" value=""/>
+    </input>
+  
+    <input node="CAL_B_OP_YUCE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="CC_Year"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="CC_Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanForecastMoney"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoShouForecastMoney"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Dq" source="C_Region_Dq"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanLowerLimitValue" source="JieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanUpperLimitValue" source="JieDanUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouLowerLimitValue" source="XiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouUpperLimitValue" source="XiaoShouUpperLimitValue"/>
     </input>
   </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CAL_B_OP_YUCE">
+    <viewAttributes>
+      <viewAttribute id="XiaoShouForecastMoney"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="JieDanLowerLimitValue"/>
+      <viewAttribute id="JieDanUpperLimitValue"/>
+      <viewAttribute id="JieDanForecastMoney"/>
+      <viewAttribute id="XiaoShouLowerLimitValue"/>
+      <viewAttribute id="XiaoShouUpperLimitValue"/>
+      <viewAttribute id="CC_Year"/>
+      <viewAttribute id="CC_Month"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyNo"/>
+      <viewAttribute id="C_Region_Dq"/>
+      <viewAttribute id="CompanyName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_B_OP_YUCE"/>
+  </calculationView>
 </calculationViews>
-<logicalModel id="MP_DaCheng">
+<logicalModel id="MP_DaCheng_PBC">
   <attributes>
     <attribute id="YEAR" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="年"/>
-      <keyMapping columnObjectName="MP_DaCheng" columnName="YEAR"/>
+      <keyMapping columnObjectName="MP_DaCheng_PBC" columnName="YEAR"/>
     </attribute>
     <attribute id="MONTH" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="月"/>
-      <keyMapping columnObjectName="MP_DaCheng" columnName="MONTH"/>
+      <keyMapping columnObjectName="MP_DaCheng_PBC" columnName="MONTH"/>
     </attribute>
     <attribute id="CC_BusinessUnit" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="事业线"/>
-      <keyMapping columnObjectName="MP_DaCheng" columnName="CC_BusinessUnit"/>
+      <keyMapping columnObjectName="MP_DaCheng_PBC" columnName="CC_BusinessUnit"/>
     </attribute>
     <attribute id="C_Company_name" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="分公司"/>
-      <keyMapping columnObjectName="MP_DaCheng" columnName="C_Company_name"/>
+      <keyMapping columnObjectName="MP_DaCheng_PBC" columnName="C_Company_name"/>
     </attribute>
     <attribute id="C_Region_name" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="分所名称"/>
-      <keyMapping columnObjectName="MP_DaCheng" columnName="C_Region_name"/>
+      <keyMapping columnObjectName="MP_DaCheng_PBC" columnName="C_Region_name"/>
+    </attribute>
+  
+    <attribute id="C_Region_Dq" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="大区名称"/>
+      <keyMapping columnObjectName="MP_DaCheng_PBC" columnName="C_Region_Dq"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
     <measure id="JieDanJinE" order="6" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="实际接单金额"/>
-      <measureMapping columnObjectName="MP_DaCheng" columnName="JieDanJinE"/>
+      <measureMapping columnObjectName="MP_DaCheng_PBC" columnName="JieDanJinE"/>
     </measure>
     <measure id="XiaoShouJinE" order="7" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="实际销售金额"/>
-      <measureMapping columnObjectName="MP_DaCheng" columnName="XiaoShouJinE"/>
+      <measureMapping columnObjectName="MP_DaCheng_PBC" columnName="XiaoShouJinE"/>
     </measure>
     <measure id="JieDanYuSuan" order="8" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="预算接单金额"/>
-      <measureMapping columnObjectName="MP_DaCheng" columnName="JieDanYuSuan"/>
+      <measureMapping columnObjectName="MP_DaCheng_PBC" columnName="JieDanYuSuan"/>
     </measure>
     <measure id="XiaoshouYuSuan" order="9" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="预算销售金额"/>
-      <measureMapping columnObjectName="MP_DaCheng" columnName="XiaoshouYuSuan"/>
+      <measureMapping columnObjectName="MP_DaCheng_PBC" columnName="XiaoshouYuSuan"/>
+    </measure>
+  
+    <measure id="JieDanLowerLimitValue" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="建材接单预测下限"/>
+      <measureMapping columnObjectName="MP_DaCheng_PBC" columnName="JieDanLowerLimitValue"/>
+    </measure>
+    <measure id="JieDanUpperLimitValue" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="建材接单预测上限"/>
+      <measureMapping columnObjectName="MP_DaCheng_PBC" columnName="JieDanUpperLimitValue"/>
+    </measure>
+    <measure id="XiaoShouLowerLimitValue" order="13" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="建材销售预测下限"/>
+      <measureMapping columnObjectName="MP_DaCheng_PBC" columnName="XiaoShouLowerLimitValue"/>
+    </measure>
+    <measure id="XiaoShouUpperLimitValue" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="建材销售预测上限"/>
+      <measureMapping columnObjectName="MP_DaCheng_PBC" columnName="XiaoShouUpperLimitValue"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -130,21 +210,26 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="221" y="112"/>
+      <upperLeftCorner x="361.75405278666415" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="CAL_R_CONSUM_001" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="356"/>
+      <upperLeftCorner x="91.99999999999997" y="391.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="CAL_B_OP_YUSUAN" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="356"/>
+      <upperLeftCorner x="512" y="391.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="MP_DaCheng" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="221" y="217"/>
+    <shape expanded="true" modelObjectName="MP_DaCheng_PBC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="237"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CAL_B_OP_YUCE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="391.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
