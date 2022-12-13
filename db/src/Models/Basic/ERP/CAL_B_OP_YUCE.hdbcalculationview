@@ -282,6 +282,11 @@ END</formula>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_U_YuCe_2" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDim_U_YuCe" multiJoinCentralTable="U_YuCe" multiJoinOrder="Outside In">
     <viewAttributes>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyNo"/>
+      <viewAttribute id="C_Region_Dq"/>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="C_Region_code"/>
       <viewAttribute id="XiaoShouForecastMoney" aggregationType="sum"/>
       <viewAttribute id="C_Region_Code"/>
       <viewAttribute id="CC_BusinessUnit"/>
@@ -292,10 +297,6 @@ END</formula>
       <viewAttribute id="XiaoShouUpperLimitValue" aggregationType="sum"/>
       <viewAttribute id="CC_Year"/>
       <viewAttribute id="CC_Month"/>
-      <viewAttribute id="C_Region_name"/>
-      <viewAttribute id="CompanyNo"/>
-      <viewAttribute id="C_Region_Dq"/>
-      <viewAttribute id="CompanyName"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="U_YuCe">
@@ -315,6 +316,7 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Dq" source="C_Region_Dq"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_code" source="C_Region_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_code"/>
     </input>
     <joinAttribute name="C_Region_Code"/>
@@ -389,66 +391,66 @@ END</formula>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="704.0591835035743" y="112"/>
+      <upperLeftCorner x="704" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="U_YuCe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="624.8949931591751" y="391.9999976158142"/>
+      <upperLeftCorner x="624" y="391"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="MSXiaoShouYuCe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="511.99999999999994" y="631.9999964237213"/>
+      <upperLeftCorner x="511" y="631"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="MSJieDanYuCe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="932" y="631.9999964237213"/>
+      <upperLeftCorner x="932" y="631"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="JianCaiJieDanYuCe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="722" y="631.9999964237213"/>
+      <upperLeftCorner x="722" y="631"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="JianCaiXiaoShouYuCe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="91.99999999999989" y="631.9999964237213"/>
+      <upperLeftCorner x="91" y="631"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="ZhiChanXiaoShouYuCe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1142" y="631.9999964237213"/>
+      <upperLeftCorner x="1142" y="631"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ZhiChanJieDanYuCe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="301.9999999999999" y="631.9999964237213"/>
+      <upperLeftCorner x="301" y="631"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="Dim_Region" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="863.1549905910135" y="391.9999976158142"/>
+      <upperLeftCorner x="863" y="391"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="CompanyOrg" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="414" y="391"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
+  
     <shape expanded="true" modelObjectName="addDim_U_YuCe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="624.8949931591751" y="236.9999988079071"/>
+      <upperLeftCorner x="624" y="236"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="U_YuCe" modelObjectNameSpace="addDim_U_YuCe" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_U_YuCe">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="214.2080078125"/>
+      <rectangleSize width="214"/>
     </shape>
     <shape modelObjectName="Dim_Region" modelObjectNameSpace="addDim_U_YuCe" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_U_YuCe">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="168.5537109375"/>
+      <rectangleSize width="168"/>
     </shape>
     <shape modelObjectName="CompanyOrg" modelObjectNameSpace="addDim_U_YuCe" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_U_YuCe">
       <upperLeftCorner x="620" y="30"/>
-      <rectangleSize width="173.4306640625"/>
-    </shape>
-    <shape expanded="true" modelObjectName="CompanyOrg" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="414.89499315917504" y="391.9999976158142"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  </shapes>
+      <rectangleSize width="173"/>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
