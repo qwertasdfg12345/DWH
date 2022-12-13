@@ -12,60 +12,33 @@
   <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_YUSUAN">
     <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_YUSUAN</resourceUri>
   </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_YUCE">
+    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_YUCE</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_XiaoShouYuSuanYTD">
+  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_JieDanYuSuanYTD">
     <viewAttributes>
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="AGG_DaCheng">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
     </input>
     <function name="SUM">
-      <functionArgument>&quot;XiaoshouYuSuan&quot;</functionArgument>
+      <functionArgument>&quot;JieDanYuSuan&quot;</functionArgument>
     </function>
-    <windowFunctionResultColumn>XiaoShouYuSuan_YTD</windowFunctionResultColumn>
-    <orderAttributes>
-      <orderAttribute direction="ASC">MONTH</orderAttribute>
-    </orderAttributes>
-    <partitionAttributes>
-      <partitionAttribute>YEAR</partitionAttribute>
-      <partitionAttribute>CC_BusinessUnit</partitionAttribute>
-      <partitionAttribute>C_Company_name</partitionAttribute>
-    </partitionAttributes>
-  </calculationView>
-  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_JieDanYTD">
-    <viewAttributes>
-      <viewAttribute id="YEAR"/>
-      <viewAttribute id="MONTH"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="AGG_DaCheng">
-      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
-    </input>
-    <function name="SUM">
-      <functionArgument>&quot;JieDanJinE&quot;</functionArgument>
-    </function>
-    <windowFunctionResultColumn>JieDanJinE_YTD</windowFunctionResultColumn>
+    <windowFunctionResultColumn>JieDanYuSuan_YTD</windowFunctionResultColumn>
     <orderAttributes>
       <orderAttribute direction="ASC">MONTH</orderAttribute>
     </orderAttributes>
@@ -105,27 +78,57 @@
       <partitionAttribute>C_Company_name</partitionAttribute>
     </partitionAttributes>
   </calculationView>
-  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_JieDanYuSuanYTD">
+  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_JieDanYTD">
     <viewAttributes>
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="AGG_DaCheng">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
     </input>
     <function name="SUM">
-      <functionArgument>&quot;JieDanYuSuan&quot;</functionArgument>
+      <functionArgument>&quot;JieDanJinE&quot;</functionArgument>
     </function>
-    <windowFunctionResultColumn>JieDanYuSuan_YTD</windowFunctionResultColumn>
+    <windowFunctionResultColumn>JieDanJinE_YTD</windowFunctionResultColumn>
+    <orderAttributes>
+      <orderAttribute direction="ASC">MONTH</orderAttribute>
+    </orderAttributes>
+    <partitionAttributes>
+      <partitionAttribute>YEAR</partitionAttribute>
+      <partitionAttribute>CC_BusinessUnit</partitionAttribute>
+      <partitionAttribute>C_Company_name</partitionAttribute>
+    </partitionAttributes>
+  </calculationView>
+  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_XiaoShouYuSuanYTD">
+    <viewAttributes>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="MONTH"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="C_Company_name"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="AGG_DaCheng">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
+    </input>
+    <function name="SUM">
+      <functionArgument>&quot;XiaoshouYuSuan&quot;</functionArgument>
+    </function>
+    <windowFunctionResultColumn>XiaoShouYuSuan_YTD</windowFunctionResultColumn>
     <orderAttributes>
       <orderAttribute direction="ASC">MONTH</orderAttribute>
     </orderAttributes>
@@ -140,12 +143,12 @@
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
       <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
       <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/></viewAttributes>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/></viewAttributes>
     <calculatedViewAttributes/>
     <restrictedViewAttributes/>
     <input node="MP_DaCheng"/>
@@ -155,13 +158,21 @@
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
       <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
     
       <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
-      <viewAttribute id="C_Region_name"/></viewAttributes>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="XiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouLowerLimitValue_1" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouUpperLimitValue_1" aggregationType="sum"/>
+      <viewAttribute id="C_Region_Dq"/>
+    </viewAttributes>
     <calculatedViewAttributes/>
     <input node="CAL_R_CONSUM_001" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
@@ -173,6 +184,14 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuSuan" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoshouYuSuan" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Dq" null="true" value=""/>
     </input>
     <input node="CAL_B_OP_YUSUAN" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="Year"/>
@@ -184,6 +203,32 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Dq" null="true" value=""/>
+    </input>
+    <input node="CAL_B_OP_YUCE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="CC_Year"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="CC_Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoShouForecastMoney"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="CompanyName"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanForecastMoney"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouLowerLimitValue" source="XiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouUpperLimitValue" source="XiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanLowerLimitValue" source="JieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanUpperLimitValue" source="JieDanUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouLowerLimitValue_1" source="XiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouUpperLimitValue_1" source="XiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Dq" source="C_Region_Dq"/>
     </input>
     <filter>&quot;YEAR&quot; &lt;&gt; '' and &quot;YEAR&quot; is not null</filter>
   </calculationView>
@@ -215,6 +260,26 @@
       <viewAttribute id="C_Region_Code"/></viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_B_OP_YUSUAN"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CAL_B_OP_YUCE">
+    <viewAttributes>
+      <viewAttribute id="XiaoShouForecastMoney"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="JieDanLowerLimitValue"/>
+      <viewAttribute id="JieDanUpperLimitValue"/>
+      <viewAttribute id="JieDanForecastMoney"/>
+      <viewAttribute id="XiaoShouLowerLimitValue"/>
+      <viewAttribute id="XiaoShouUpperLimitValue"/>
+      <viewAttribute id="CC_Year"/>
+      <viewAttribute id="CC_Month"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyNo"/>
+      <viewAttribute id="C_Region_Dq"/>
+      <viewAttribute id="CompanyName"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_B_OP_YUCE"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_DaCheng_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_DaCheng" multiJoinCentralTable="AGG_DaCheng" multiJoinOrder="Outside In">
     <viewAttributes>
@@ -536,8 +601,8 @@
     
       <rectangleSize width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="WF_JieDanYuSuanYTD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="814" y="375"/>
+    <shape expanded="true" modelObjectName="WF_XiaoShouYuSuanYTD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="995" y="375"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
@@ -547,17 +612,17 @@
       <upperLeftCorner x="242" y="484"/>
       <rectangleSize height="30" width="160"/>
     </shape>
+    <shape expanded="true" modelObjectName="WF_JieDanYTD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="449" y="375"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
   
     <shape expanded="true" modelObjectName="WF_XiaoShouYTD" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="631" y="375"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="WF_JieDanYTD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="449" y="375"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="WF_XiaoShouYuSuanYTD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="995" y="375"/>
+    <shape expanded="true" modelObjectName="WF_JieDanYuSuanYTD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="814" y="375"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="MP_DaCheng" modelObjectNameSpace="CalculationView">
@@ -596,6 +661,11 @@
     <shape modelObjectName="WF_XiaoShouYuSuanYTD" modelObjectNameSpace="J_DaCheng" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_DaCheng">
       <upperLeftCorner x="252" y="535"/>
       <rectangleSize width="212"/>
-    </shape></shapes>
+    </shape>
+    <shape expanded="true" modelObjectName="CAL_B_OP_YUCE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="539" y="747"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
 </layout>
 </Calculation:scenario>
