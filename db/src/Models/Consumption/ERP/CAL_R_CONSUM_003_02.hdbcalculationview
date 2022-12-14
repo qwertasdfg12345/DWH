@@ -169,14 +169,14 @@
       <viewAttribute id="XiaoshouYuSuan"/>
       <viewAttribute id="XiaoShouJinE_YTD"/>
       <viewAttribute id="XiaoShouYuSuan_YTD"/>
+      <viewAttribute id="XiaoShouYuCe"/>
+    
       <viewAttribute id="XiaoShouJinE_YTD_LY"/>
       <viewAttribute id="XiaoShouJinE_LM"/>
       <viewAttribute id="XiaoShouJinE_LY"/>
     
       <viewAttribute id="JianCaiXiaoShouLowerLimitValue"/>
-      <viewAttribute id="JianCaiXiaoShouUpperLimitValue"/>
-      <viewAttribute id="XiaoShouYuCe"/>
-    </viewAttributes>
+      <viewAttribute id="JianCaiXiaoShouUpperLimitValue"/></viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_KPINUM" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
         <formula>'K02'</formula>
@@ -194,18 +194,18 @@
       <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
       <viewAttribute id="JieDanJinE_YTD" aggregationType="sum"/>
       <viewAttribute id="JieDanYuSuan_YTD" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_YTD" aggregationType="sum"/>
       <viewAttribute id="XiaoShouYuSuan_YTD" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_LM" aggregationType="sum"/>
-      <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
       <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
-      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
-      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
-      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
+      <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute hidden="true" id="JOIN$CC_YM$CC_LYM"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -251,21 +251,21 @@
       <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
       <viewAttribute id="JieDanJinE_YTD" aggregationType="sum"/>
       <viewAttribute id="JieDanYuSuan_YTD" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_YTD" aggregationType="sum"/>
       <viewAttribute id="XiaoShouYuSuan_YTD" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_YTD_LY" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_LM" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_LY" aggregationType="sum"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="CC_LY"/>
       <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
       <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
-      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
-      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
-      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="CC_LY"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_XiaoShou_1">
@@ -277,18 +277,18 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE_YTD" source="JieDanJinE_YTD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan_YTD" source="JieDanYuSuan_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanLowerLimitValue" source="JianCaiJieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanUpperLimitValue" source="JianCaiJieDanUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuCe" source="JieDanYuCe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_YTD" source="XiaoShouJinE_YTD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuSuan_YTD" source="XiaoShouYuSuan_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuCe" source="XiaoShouYuCe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_LM" source="XiaoShouJinE_LM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouLowerLimitValue" source="JianCaiXiaoShouLowerLimitValue"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouUpperLimitValue" source="JianCaiXiaoShouUpperLimitValue"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanLowerLimitValue" source="JianCaiJieDanLowerLimitValue"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanUpperLimitValue" source="JianCaiJieDanUpperLimitValue"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuCe" source="XiaoShouYuCe"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuCe" source="JieDanYuCe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
     <input node="P_XiaoShou_LY">
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_LY" source="XiaoShouJinE"/>
@@ -365,45 +365,45 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="390" y="112"/>
+      <upperLeftCorner x="390.27823685390933" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_XiaoShou" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="179" y="657"/>
+      <upperLeftCorner x="91.99999999999997" y="656.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_XiaoShou_LY" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="512" y="656"/>
+      <upperLeftCorner x="512" y="656.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_XiaoShou_LM" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="656"/>
+      <upperLeftCorner x="302" y="656.9999964237213"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="U_PBC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="390" y="237"/>
+      <upperLeftCorner x="390.27823685390933" y="237"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_K01" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="285" y="376"/>
+      <upperLeftCorner x="236.5383617318688" y="376.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_K02" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="446" y="376"/>
+      <upperLeftCorner x="446.5383617318688" y="376.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
   
   
     <shape expanded="true" modelObjectName="J_XiaoShou" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="390" y="503"/>
+      <upperLeftCorner x="302" y="501.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_XiaoShou_LY" modelObjectNameSpace="J_XiaoShou" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_XiaoShou">
       <upperLeftCorner x="282" y="36"/>
-      <rectangleSize width="201.54296875"/>
+      <rectangleSize width="201"/>
     </shape>
     <shape modelObjectName="P_XiaoShou" modelObjectNameSpace="J_XiaoShou" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_XiaoShou">
       <upperLeftCorner x="-105" y="211"/>

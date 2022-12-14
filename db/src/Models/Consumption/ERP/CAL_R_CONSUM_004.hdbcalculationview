@@ -694,33 +694,6 @@
       <upperLeftCorner x="649" y="571"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-  
-  
-    <shape expanded="true" modelObjectName="J_CONSUM_BF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="579" y="361"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  
-    <shape modelObjectName="P_FACT_COMM" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="59" y="29"/>
-      <rectangleSize width="235"/>
-    </shape>
-    <shape modelObjectName="P_DIM_CASE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="392" y="-63"/>
-      <rectangleSize width="202"/>
-    </shape>
-    <shape modelObjectName="P_DIM_CUSTOMER" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="646" y="33"/>
-      <rectangleSize width="191.1552734375"/>
-    </shape>
-    <shape modelObjectName="P_DIM_ORGANIZATION" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="361" y="258"/>
-      <rectangleSize width="244.37744140625"/>
-    </shape>
-    <shape modelObjectName="P_DIM_REGION" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
-      <upperLeftCorner x="257" y="345"/>
-      <rectangleSize width="168.5537109375"/>
-    </shape>
     <shape expanded="true" modelObjectName="P_DIM_ORGANIZATION" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="329" y="579"/>
       <rectangleSize height="30" width="160"/>
@@ -729,6 +702,33 @@
       <upperLeftCorner x="1077" y="556"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-  </shapes>
+  
+  
+  
+    <shape expanded="true" modelObjectName="J_CONSUM_BF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="579" y="361"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_DIM_ORGANIZATION" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
+      <upperLeftCorner x="361" y="258"/>
+      <rectangleSize width="244"/>
+    </shape>
+  
+    <shape modelObjectName="P_FACT_COMM" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
+      <upperLeftCorner x="59" y="29"/>
+      <rectangleSize width="235"/>
+    </shape>
+    <shape modelObjectName="P_DIM_REGION" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
+      <upperLeftCorner x="257" y="345"/>
+      <rectangleSize width="168"/>
+    </shape>
+    <shape modelObjectName="P_DIM_CASE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
+      <upperLeftCorner x="392" y="-63"/>
+      <rectangleSize width="202"/>
+    </shape>
+    <shape modelObjectName="P_DIM_CUSTOMER" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
+      <upperLeftCorner x="646" y="33"/>
+      <rectangleSize width="191"/>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
