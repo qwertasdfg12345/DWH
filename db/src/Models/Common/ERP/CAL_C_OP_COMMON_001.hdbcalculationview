@@ -178,7 +178,7 @@
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_B_OP_DABIAOLV_ALL"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_JieDanXiaoShou" cardinality="CN_N" joinType="inner">
+  <calculationView xsi:type="Calculation:JoinView" id="J_JieDanXiaoShou" cardinality="CN_N" joinType="leftOuter">
     <viewAttributes>
       <viewAttribute id="C_Court_code"/>
     
@@ -418,7 +418,7 @@
       <rectangleSize height="30" width="160"/>
     </shape>
   
-    <shape expanded="true" modelObjectName="P_DaBiaoLv" modelObjectNameSpace="CalculationView">
+    <shape expanded="false" modelObjectName="P_DaBiaoLv" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="489" y="376"/>
       <rectangleSize height="30" width="160"/>
     </shape>
