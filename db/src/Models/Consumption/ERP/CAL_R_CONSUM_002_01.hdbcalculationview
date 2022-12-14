@@ -878,31 +878,31 @@
     </shape>
     <shape modelObjectName="DIM_TIME" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="296" y="-55"/>
-      <rectangleSize width="142.64892578125"/>
+      <rectangleSize width="142"/>
     </shape>
     <shape modelObjectName="DIM_ORG" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="296" y="126"/>
-      <rectangleSize width="196.064453125"/>
+      <rectangleSize width="196"/>
     </shape>
     <shape modelObjectName="DIM_KeHuTeam" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="296" y="259"/>
-      <rectangleSize width="196.064453125"/>
+      <rectangleSize width="196"/>
     </shape>
     <shape modelObjectName="DIM_NATURE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="296" y="402"/>
-      <rectangleSize width="190.54833984375"/>
+      <rectangleSize width="190"/>
     </shape>
     <shape modelObjectName="DIM_TYPE" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="296" y="544"/>
-      <rectangleSize width="190.54833984375"/>
+      <rectangleSize width="190"/>
     </shape>
     <shape modelObjectName="P_CONSUM_002" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="-23" y="32"/>
-      <rectangleSize width="235.18212890625"/>
+      <rectangleSize width="235"/>
     </shape>
     <shape modelObjectName="DIM_INDUSTRY" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
       <upperLeftCorner x="296" y="677"/>
-      <rectangleSize width="190.54833984375"/>
+      <rectangleSize width="190"/>
     </shape>
   </shapes>
 </layout>
