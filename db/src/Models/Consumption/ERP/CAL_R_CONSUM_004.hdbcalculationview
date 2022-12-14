@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Consumption.ERP::CAL_R_CONSUM_002" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Consumption.ERP::CAL_R_CONSUM_004" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CAL_R_CONSUM_002.hdbcalculationview">
   <comment text="法院八分量表消费层模型"/>
 </descriptions>
@@ -66,9 +66,6 @@
     
       <viewAttribute id="B_Case_customerCode"/>
     
-      <viewAttribute id="IsGroupEight" aggregationType="sum"/>
-      <viewAttribute id="CourtName"/>
-    
       <viewAttribute id="C_Customer_name"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -109,9 +106,6 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LIUCUN" source="CC_LIUCUN"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="IsGroupEight" source="IsGroupEight"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CourtName" source="CourtName"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
     </input>
@@ -186,9 +180,7 @@
       <viewAttribute id="IsGroupEight"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.Models.Basic.ERP::CAL_DIM_COURT"/>
-    <filter>&quot;CourtName&quot; is not null</filter>
-  </calculationView>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_COURT"/></calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_DIM_COURTINFO">
     <descriptions>
       <comment text="当时当前法院"/>
@@ -296,9 +288,6 @@
       <viewAttribute id="CompanyName"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="IsGroupEight" aggregationType="sum"/>
-      <viewAttribute id="CourtName"/>
-      <viewAttribute id="CourtShuXing"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_FACT_COMM">
@@ -313,9 +302,6 @@
     <input node="J_COURT_BF">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CourtShuXing" source="CourtShuXing"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="IsGroupEight" source="IsGroupEight"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CourtName" source="CourtName"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
     </input>
     <joinAttribute name="P_Business_Flow_Form_code"/>
@@ -346,10 +332,7 @@
       <viewAttribute id="CC_TYP_QCLC" aggregationType="sum"/>
       <viewAttribute id="CC_TYP_JD" aggregationType="sum"/>
       <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="IsGroupEight" aggregationType="sum"/>
-      <viewAttribute id="CourtName"/>
       <viewAttribute id="C_Customer_name"/>
-      <viewAttribute id="CourtShuXing"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_YM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
@@ -500,9 +483,6 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="IsGroupEight" source="IsGroupEight"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CourtName" source="CourtName"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CourtShuXing" source="CourtShuXing"/>
     </input>
     <input node="J_CONSUM_BF_1">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
@@ -610,16 +590,8 @@
       <descriptions defaultDescription="案件剔除标识(4接单)"/>
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CC_TYP_JD"/>
     </attribute>
-    <attribute id="IsGroupEight" order="37" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="是否八分"/>
-      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="IsGroupEight"/>
-    </attribute>
-    <attribute id="CourtName" order="38" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CourtName"/>
-      <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="CourtName"/>
-    </attribute>
   
-    <attribute id="C_Customer_name" order="39" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="C_Customer_name" order="37" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="客户名称"/>
   
       <keyMapping columnObjectName="WF_LIUCUN_STD" columnName="C_Customer_name"/>
