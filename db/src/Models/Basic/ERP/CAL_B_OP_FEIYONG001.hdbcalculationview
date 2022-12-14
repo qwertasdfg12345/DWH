@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_B_OP_FEIYONG001" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_C_OP_ANJIANFEIYONG.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_Meike_Number">
+    <resourceUri>kz.DI.ERP::T_Meike_Number</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_Meike_Number_Detail">
+    <resourceUri>kz.DI.ERP::T_Meike_Number_Detail</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_Meike_Number_DetailChild">
+    <resourceUri>kz.DI.ERP::T_Meike_Number_DetailChild</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_C_Organization">
+    <resourceUri>kz.DI.ERP::T_C_Organization</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_DashboardDataSource">
+    <resourceUri>kz.DI.ERP::T_DashboardDataSource</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Meike_Number" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="FormCode"/>
+      <viewAttribute id="FormSubTypeName"/>
+      <viewAttribute id="StatusText"/>
+      <viewAttribute id="ProcInstEndTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_Meike_Number"/>
+    <filter>&quot;StatusText&quot;='已完成'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Meike_Number_Detail">
+    <viewAttributes>
+      <viewAttribute id="FormCode"/>
+      <viewAttribute id="ID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_Meike_Number_Detail"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Meike_Number_DetailChild" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="DID"/>
+      <viewAttribute id="AllocatedAmount"/>
+      <viewAttribute id="ExpenseTypeName"/>
+      <viewAttribute id="CoverDepartmentBizCode"/>
+    
+      <viewAttribute id="CorpType"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_Meike_Number_DetailChild"/>
+    <filter>&quot;CorpType&quot;!='NO_RECEIPT'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_M_NUMBER" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="FormCode"/>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="FormSubTypeName"/>
+      <viewAttribute id="ProcInstEndTime" aggregationType="min"/>
+      <viewAttribute hidden="true" id="JOIN$FormCode$FormCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Meike_Number">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FormSubTypeName" source="FormSubTypeName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProcInstEndTime" source="ProcInstEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$FormCode$FormCode" source="FormCode"/>
+    </input>
+    <input node="Meike_Number_Detail">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FormCode" source="FormCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$FormCode$FormCode" source="FormCode"/>
+    </input>
+    <joinAttribute name="JOIN$FormCode$FormCode"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_MK" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="FormCode"/>
+      <viewAttribute id="AllocatedAmount" aggregationType="sum"/>
+      <viewAttribute id="ExpenseTypeName"/>
+      <viewAttribute id="FormSubTypeName"/>
+      <viewAttribute id="CoverDepartmentBizCode"/>
+      <viewAttribute id="ProcInstEndTime" aggregationType="min"/>
+      <viewAttribute hidden="true" id="JOIN$ID$DID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_M_NUMBER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FormCode" source="FormCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FormSubTypeName" source="FormSubTypeName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProcInstEndTime" source="ProcInstEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID$DID" source="ID"/>
+    </input>
+    <input node="Meike_Number_DetailChild">
+      <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="AllocatedAmount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ExpenseTypeName" source="ExpenseTypeName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CoverDepartmentBizCode" source="CoverDepartmentBizCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID$DID" source="DID"/>
+    </input>
+    <joinAttribute name="JOIN$ID$DID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ORG">
+    <viewAttributes>
+      <viewAttribute id="C_Organization_PerNumber"/>
+      <viewAttribute id="C_Organization_SerialNumber"/>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="C_Organization_name"/>
+      <viewAttribute id="C_OrganizationIPGFullName"/>
+    
+      <viewAttribute id="C_Organization_type"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_HangYe" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>case when &quot;C_Organization_type&quot;=4573 then 153
+when &quot;C_Organization_type&quot;=4577 then 3649
+when &quot;C_Organization_type&quot;=4575 then 1978
+else 0
+end </formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_C_Organization"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_MKFY" cardinality="CN_N" joinType="inner">
+    <descriptions>
+      <comment text="每刻费用"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="C_Organization_PerNumber"/>
+      <viewAttribute id="C_Organization_SerialNumber"/>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="C_Organization_name"/>
+      <viewAttribute id="C_OrganizationIPGFullName"/>
+      <viewAttribute id="FormCode"/>
+      <viewAttribute id="AllocatedAmount" aggregationType="sum"/>
+      <viewAttribute id="ExpenseTypeName"/>
+      <viewAttribute id="FormSubTypeName"/>
+      <viewAttribute id="CoverDepartmentBizCode"/>
+      <viewAttribute id="ProcInstEndTime" aggregationType="min"/>
+    
+      <viewAttribute id="CC_HangYe" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_FeiYongLeiXing" datatype="NVARCHAR" length="20" expressionLanguage="SQL">
+        <formula>case when &quot;ExpenseTypeName&quot;='客户关系'  and  &quot;FormSubTypeName&quot; in ('可控费用付款单','可控费用报销单') 
+then '客户费用'
+when (&quot;ExpenseTypeName&quot; ='办公租赁' or &quot;ExpenseTypeName&quot; ='装修费')
+and (&quot;FormSubTypeName&quot; ='不可控费用报销单' or &quot;FormSubTypeName&quot; ='不可控费用付款单')
+then '房租物业'
+when &quot;ExpenseTypeName&quot; IN ('住宿','飞机','火车','长途汽车','退票/改签','打车','地铁/公交','里程补贴','加油费','过路费','停车费',
+	'差旅费其他','劳务费','办公费','会务费','市内交通费','员工租赁','招待费','行政类其他','礼品待摊','财务类其他','市场推广费')
+	and &quot;FormSubTypeName&quot; IN ('可控费用报销单','不可控费用报销单','可控费用付款单','不可控费用付款单')
+then '其他费用'  when &quot;FormSubTypeName&quot;='知产客户报销' 
+then '客户费用' end</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="P_ORG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_PerNumber" source="C_Organization_PerNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_SerialNumber" source="C_Organization_SerialNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_OrganizationIPGFullName" source="C_OrganizationIPGFullName"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_HangYe" source="CC_HangYe"/>
+    </input>
+    <input node="J_MK">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FormCode" source="FormCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="AllocatedAmount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ExpenseTypeName" source="ExpenseTypeName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FormSubTypeName" source="FormSubTypeName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CoverDepartmentBizCode" source="CoverDepartmentBizCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProcInstEndTime" source="ProcInstEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_PerNumber" source="CoverDepartmentBizCode"/>
+    </input>
+    <joinAttribute name="C_Organization_PerNumber"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_BC">
+    <descriptions>
+      <comment text="数据补充"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="OrgCode"/>
+      <viewAttribute id="Amount"/>
+      <viewAttribute id="ArchivedDate"/>
+      <viewAttribute id="HangYe"/>
+      <viewAttribute id="SubjectNumber"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_FeiYongLeiXing" datatype="NVARCHAR" length="20" expressionLanguage="SQL">
+        <formula>case when &quot;SubjectNumber&quot;='1040' or &quot;SubjectNumber&quot;='ms106414'
+then '客户费用' 
+when &quot;SubjectNumber&quot;='1041' then '房租物业'
+when &quot;SubjectNumber&quot;='ms106415' then '房租物业' end</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_DashboardDataSource"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="U_MKFY">
+    <viewAttributes>
+      <viewAttribute id="OrgCode"/>
+      <viewAttribute id="Amount" aggregationType="sum"/>
+      <viewAttribute id="ArchivedDate" aggregationType="min"/>
+      <viewAttribute id="C_Organization_SerialNumber"/>
+      <viewAttribute id="C_Organization_name"/>
+      <viewAttribute id="C_OrganizationIPGFullName"/>
+      <viewAttribute id="FormSubTypeName"/>
+      <viewAttribute id="ExpenseTypeName"/>
+      <viewAttribute id="SubjectNumber"/>
+      <viewAttribute id="HangYe" aggregationType="sum"/>
+    
+      <viewAttribute id="CC_FeiYongLeiXing"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_MKFY" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Amount" source="AllocatedAmount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ArchivedDate" source="ProcInstEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_SerialNumber" source="C_Organization_SerialNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_OrganizationIPGFullName" source="C_OrganizationIPGFullName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FormSubTypeName" source="FormSubTypeName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ExpenseTypeName" source="ExpenseTypeName"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SubjectNumber" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYe" source="CC_HangYe"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_FeiYongLeiXing" source="CC_FeiYongLeiXing"/>
+    </input>
+    <input node="P_BC" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="OrgCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Amount" source="Amount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ArchivedDate" source="ArchivedDate"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Organization_SerialNumber" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Organization_name" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_OrganizationIPGFullName" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="FormSubTypeName" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="ExpenseTypeName" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SubjectNumber" source="SubjectNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HangYe" source="HangYe"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_FeiYongLeiXing" source="CC_FeiYongLeiXing"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="U_MKFY">
+  <attributes>
+    <attribute id="OrgCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OrgCode"/>
+      <keyMapping columnObjectName="U_MKFY" columnName="OrgCode"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="Amount" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Amount"/>
+      <measureMapping columnObjectName="U_MKFY" columnName="Amount"/>
+    </measure>
+    <measure id="ArchivedDate" order="3" aggregationType="min" measureType="simple">
+      <descriptions defaultDescription="ArchivedDate"/>
+      <measureMapping columnObjectName="U_MKFY" columnName="ArchivedDate"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="534" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Meike_Number" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="836"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Meike_Number_Detail" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="836"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Meike_Number_DetailChild" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="380" y="676"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_M_NUMBER" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="118" y="676"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Meike_Number" modelObjectNameSpace="J_M_NUMBER" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="149"/>
+    </shape>
+    <shape modelObjectName="Meike_Number_Detail" modelObjectNameSpace="J_M_NUMBER" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="188"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_MK" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="145" y="516"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_M_NUMBER" modelObjectNameSpace="J_MK" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Meike_Number_DetailChild" modelObjectNameSpace="J_MK" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ORG" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="477" y="516"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_MKFY" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="172" y="356"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ORG" modelObjectNameSpace="J_MKFY" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="J_MK" modelObjectNameSpace="J_MKFY" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_BC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="592" y="356"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="U_MKFY" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="534" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
