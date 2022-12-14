@@ -208,7 +208,9 @@
   
     <attribute id="CourtName" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CourtName"/>
+  
       <keyMapping columnObjectName="Join_1" columnName="CourtName"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>

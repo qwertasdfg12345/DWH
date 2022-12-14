@@ -1,0 +1,4 @@
+VIRTUAL TABLE "kz.DI.ERP::V_Bills_KZ" AT "<NULL>"
+      ."dbo"
+      ."Bills"
+      ."<OBJECT>" 
