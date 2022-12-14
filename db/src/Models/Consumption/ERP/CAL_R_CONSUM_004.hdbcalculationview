@@ -238,7 +238,6 @@
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="U_CONSUM_BF">
     <viewAttributes>
-      <viewAttribute id="CC_YM"/>
       <viewAttribute id="CC_BaZu"/>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="B_Case_code"/>
@@ -248,22 +247,25 @@
       <viewAttribute id="B_Case_type" aggregationType="sum"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="KeHuTeam"/>
+      <viewAttribute id="CC_JIEANDATE" aggregationType="min"/>
+      <viewAttribute id="isXingZheng" aggregationType="sum"/>
       <viewAttribute id="B_Case_state" aggregationType="sum"/>
       <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
+      <viewAttribute id="CC_LIUCUN" aggregationType="sum"/>
       <viewAttribute id="B_Case_customerCode"/>
       <viewAttribute id="C_Customer_name"/>
-      <viewAttribute id="CC_LIUCUN_STD" aggregationType="sum"/>
       <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="B_Case_regionCode"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="C_Organization_name_upward2"/>
       <viewAttribute id="C_Organization_name_upward3"/>
-      <viewAttribute id="CC_LIUCUN" aggregationType="sum"/>
+      <viewAttribute id="CC_YM"/>
+      <viewAttribute id="CC_Date"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+      <viewAttribute id="CC_LiuCun_STD_DEC" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="WF_LIUCUN_STD">
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YM" source="CC_NM"/>
+    <input node="Aggregation_1">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZu" source="CC_BaZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
@@ -273,21 +275,24 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="KeHuTeam"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_JIEANDATE" source="CC_JIEANDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="isXingZheng" source="isXingZheng"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LIUCUN" source="CC_LIUCUN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LIUCUN_STD" source="CC_LIUCUN_STD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LIUCUN" source="CC_LIUCUN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YM" source="CC_NM"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_Date" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LiuCun_STD_DEC" source="CC_LiuCun_STD_DEC"/>
     </input>
     <input node="P_CONSUM_BF">
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YM" source="CC_YM"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BaZu" source="CC_BaZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
@@ -297,19 +302,57 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KeHuTeam" source="KeHuTeam"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_JIEANDATE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="isXingZheng" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_LIUCUN" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_name" source="C_Customer_name"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_LIUCUN_STD" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Customer_Property" source="C_Customer_Property"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_LIUCUN" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YM" source="CC_YM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_LiuCun_STD_DEC" null="true" value=""/>
     </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="CC_BaZu"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature"/>
+      <viewAttribute id="B_Case_type"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="KeHuTeam"/>
+      <viewAttribute id="CC_JIEANDATE"/>
+      <viewAttribute id="isXingZheng"/>
+      <viewAttribute id="B_Case_state"/>
+      <viewAttribute id="B_Case_factEndTime"/>
+      <viewAttribute id="CC_LIUCUN" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="C_Customer_name"/>
+      <viewAttribute id="CC_NM"/>
+      <viewAttribute id="C_Customer_Property"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="C_Organization_name"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
+      <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="CC_LIUCUN_STD" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_LiuCun_STD_DEC" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
+        <formula>to_decimal(&quot;CC_LIUCUN_STD&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="WF_LIUCUN_STD"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_CONSUM_BF_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_CONSUM_BF" multiJoinCentralTable="P_FACT_COMM" multiJoinOrder="Outside In">
     <descriptions>
@@ -366,8 +409,8 @@
       <viewAttribute id="B_Case_code"/>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_FACT_COMM">
@@ -396,11 +439,11 @@
       <viewAttribute id="B_Case_code"/>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="B_Case_regionCode"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="C_Organization_name_upward2"/>
       <viewAttribute id="C_Organization_name_upward3"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CONSUM_BF_2">
@@ -410,8 +453,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
     </input>
     <input node="P_DIM_ORGANIZATION">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
@@ -432,7 +475,6 @@
       <viewAttribute id="B_Case_code"/>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
       <viewAttribute id="B_Case_type" aggregationType="sum"/>
@@ -446,11 +488,12 @@
       <viewAttribute id="CC_TYP_JD" aggregationType="sum"/>
       <viewAttribute id="B_Case_customerCode"/>
       <viewAttribute id="C_Customer_name"/>
+      <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
       <viewAttribute id="B_Case_regionCode"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="C_Organization_name_upward2"/>
       <viewAttribute id="C_Organization_name_upward3"/>
-      <viewAttribute id="C_Customer_Property" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_YM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
@@ -601,11 +644,11 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
     </input>
     <input node="J_CONSUM_BF_1">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
@@ -629,64 +672,68 @@
 </calculationViews>
 <logicalModel id="U_CONSUM_BF" filterExpressionLanguage="SQL">
   <attributes>
-    <attribute id="CC_YM" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_YM"/>
-      <keyMapping columnObjectName="U_CONSUM_BF" columnName="CC_YM"/>
-    </attribute>
-    <attribute id="CC_BaZu" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_BaZu" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CC_BaZu"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="CC_BaZu"/>
     </attribute>
-    <attribute id="CC_BusinessUnit" order="3" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_BusinessUnit" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CC_BusinessUnit"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="CC_BusinessUnit"/>
     </attribute>
-    <attribute id="B_Case_code" order="4" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_code" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_code"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="B_Case_code"/>
     </attribute>
-    <attribute id="P_Business_Flow_Form_code" order="5" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="P_Business_Flow_Form_code" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="P_Business_Flow_Form_code"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="P_Business_Flow_Form_code"/>
     </attribute>
-    <attribute id="B_Case_number" order="6" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_number" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_number"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="B_Case_number"/>
     </attribute>
-    <attribute id="B_Case_nature" order="7" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_nature" order="6">
       <descriptions defaultDescription="B_Case_nature"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="B_Case_nature"/>
     </attribute>
-    <attribute id="B_Case_type" order="8" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_type" order="7">
       <descriptions defaultDescription="B_Case_type"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="B_Case_type"/>
     </attribute>
-    <attribute id="B_Case_HangYe" order="9" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_HangYe" order="8">
       <descriptions defaultDescription="B_Case_HangYe"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="B_Case_HangYe"/>
     </attribute>
-    <attribute id="KeHuTeam" order="10" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="KeHuTeam" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="KeHuTeam"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="KeHuTeam"/>
     </attribute>
-    <attribute id="B_Case_state" order="11" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_JIEANDATE" order="10">
+      <descriptions defaultDescription="CC_JIEANDATE"/>
+      <keyMapping columnObjectName="U_CONSUM_BF" columnName="CC_JIEANDATE"/>
+    </attribute>
+    <attribute id="isXingZheng" order="11">
+      <descriptions defaultDescription="isXingZheng"/>
+      <keyMapping columnObjectName="U_CONSUM_BF" columnName="isXingZheng"/>
+    </attribute>
+    <attribute id="B_Case_state" order="12">
       <descriptions defaultDescription="B_Case_state"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="B_Case_state"/>
     </attribute>
-    <attribute id="B_Case_factEndTime" order="12" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_factEndTime" order="13">
       <descriptions defaultDescription="B_Case_factEndTime"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="B_Case_factEndTime"/>
     </attribute>
-    <attribute id="B_Case_customerCode" order="13" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_customerCode" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_customerCode"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="B_Case_customerCode"/>
     </attribute>
-    <attribute id="C_Customer_name" order="14" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="C_Customer_name" order="16" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="C_Customer_name"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="C_Customer_name"/>
     </attribute>
-    <attribute id="C_Customer_Property" order="16" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="客户属性"/>
+    <attribute id="C_Customer_Property" order="17">
+      <descriptions defaultDescription="C_Customer_Property"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="C_Customer_Property"/>
     </attribute>
     <attribute id="B_Case_regionCode" order="18" displayAttribute="false" attributeHierarchyActive="false">
@@ -705,20 +752,28 @@
       <descriptions defaultDescription="C_Organization_name_upward3"/>
       <keyMapping columnObjectName="U_CONSUM_BF" columnName="C_Organization_name_upward3"/>
     </attribute>
+    <attribute id="CC_YM" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_YM"/>
+      <keyMapping columnObjectName="U_CONSUM_BF" columnName="CC_YM"/>
+    </attribute>
+    <attribute id="CC_Date" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_Date"/>
+      <keyMapping columnObjectName="U_CONSUM_BF" columnName="CC_Date"/>
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="CC_LIUCUN_STD" order="15" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="CC_LIUCUN_STD"/>
-      <measureMapping columnObjectName="U_CONSUM_BF" columnName="CC_LIUCUN_STD"/>
+    <measure id="CC_LIUCUN" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CC_LIUCUN"/>
+      <measureMapping columnObjectName="U_CONSUM_BF" columnName="CC_LIUCUN"/>
     </measure>
-    <measure id="XiaoShouJinE" order="17" aggregationType="sum" measureType="simple">
+    <measure id="XiaoShouJinE" order="24" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="XiaoShouJinE"/>
       <measureMapping columnObjectName="U_CONSUM_BF" columnName="XiaoShouJinE"/>
     </measure>
-    <measure id="CC_LIUCUN" order="22" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="CC_LIUCUN"/>
-      <measureMapping columnObjectName="U_CONSUM_BF" columnName="CC_LIUCUN"/>
+    <measure id="CC_LiuCun_STD_DEC" order="25" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CC_LiuCun_STD_DEC"/>
+      <measureMapping columnObjectName="U_CONSUM_BF" columnName="CC_LiuCun_STD_DEC"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -729,41 +784,50 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="701.18883507629" y="112"/>
+      <upperLeftCorner x="710.1926237071494" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="WF_LIUCUN_STD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="701.1084529858095" y="396.9999976158142"/>
+      <upperLeftCorner x="712.9097920777464" y="501.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
   
     <shape expanded="true" modelObjectName="P_FACT_COMM" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="722" y="766.9999952316284"/>
+      <upperLeftCorner x="722" y="871.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_DIM_CASE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="766.9999952316284"/>
+      <upperLeftCorner x="92" y="871.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_DIM_CUSTOMER" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="932.0000000000001" y="766.9999952316284"/>
+      <upperLeftCorner x="932" y="871.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_DIM_ORGANIZATION" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="766.9999952316284"/>
+      <upperLeftCorner x="301.99999999999994" y="871.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_DIM_REGION" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="512.0000000000001" y="766.9999952316284"/>
+      <upperLeftCorner x="512" y="871.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
+    <shape expanded="true" modelObjectName="P_CONSUM_BF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="488.0355927584741" y="511.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="U_CONSUM_BF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="686.2431254110797" y="256.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
   
   
   
     <shape expanded="true" modelObjectName="J_CONSUM_BF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="517.7751196524762" y="541.9999964237213"/>
+      <upperLeftCorner x="514.7022594251407" y="646.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_DIM_ORGANIZATION" modelObjectNameSpace="J_CONSUM_BF" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_CONSUM_BF">
@@ -787,12 +851,8 @@
       <upperLeftCorner x="646" y="33"/>
       <rectangleSize width="191"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_CONSUM_BF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="491.10845298580944" y="406.9999976158142"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="U_CONSUM_BF" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="674.4417863191428" y="256.9999988079071"/>
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="712.9097920777464" y="396.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
