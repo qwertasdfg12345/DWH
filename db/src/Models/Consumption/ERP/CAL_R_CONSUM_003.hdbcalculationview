@@ -18,57 +18,27 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_JieDanYuSuanYTD">
+  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_XiaoShouYuSuanYTD">
     <viewAttributes>
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="AGG_DaCheng">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
     </input>
     <function name="SUM">
-      <functionArgument>&quot;JieDanYuSuan&quot;</functionArgument>
+      <functionArgument>&quot;XiaoshouYuSuan&quot;</functionArgument>
     </function>
-    <windowFunctionResultColumn>JieDanYuSuan_YTD</windowFunctionResultColumn>
-    <orderAttributes>
-      <orderAttribute direction="ASC">MONTH</orderAttribute>
-    </orderAttributes>
-    <partitionAttributes>
-      <partitionAttribute>YEAR</partitionAttribute>
-      <partitionAttribute>CC_BusinessUnit</partitionAttribute>
-      <partitionAttribute>C_Company_name</partitionAttribute>
-    </partitionAttributes>
-  </calculationView>
-  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_XiaoShouYTD">
-    <viewAttributes>
-      <viewAttribute id="YEAR"/>
-      <viewAttribute id="MONTH"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="AGG_DaCheng">
-      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
-    </input>
-    <function name="SUM">
-      <functionArgument>&quot;XiaoShouJinE&quot;</functionArgument>
-    </function>
-    <windowFunctionResultColumn>XiaoShouJinE_YTD</windowFunctionResultColumn>
+    <windowFunctionResultColumn>XiaoShouYuSuan_YTD</windowFunctionResultColumn>
     <orderAttributes>
       <orderAttribute direction="ASC">MONTH</orderAttribute>
     </orderAttributes>
@@ -108,27 +78,57 @@
       <partitionAttribute>C_Company_name</partitionAttribute>
     </partitionAttributes>
   </calculationView>
-  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_XiaoShouYuSuanYTD">
+  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_XiaoShouYTD">
     <viewAttributes>
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="AGG_DaCheng">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
     </input>
     <function name="SUM">
-      <functionArgument>&quot;XiaoshouYuSuan&quot;</functionArgument>
+      <functionArgument>&quot;XiaoShouJinE&quot;</functionArgument>
     </function>
-    <windowFunctionResultColumn>XiaoShouYuSuan_YTD</windowFunctionResultColumn>
+    <windowFunctionResultColumn>XiaoShouJinE_YTD</windowFunctionResultColumn>
+    <orderAttributes>
+      <orderAttribute direction="ASC">MONTH</orderAttribute>
+    </orderAttributes>
+    <partitionAttributes>
+      <partitionAttribute>YEAR</partitionAttribute>
+      <partitionAttribute>CC_BusinessUnit</partitionAttribute>
+      <partitionAttribute>C_Company_name</partitionAttribute>
+    </partitionAttributes>
+  </calculationView>
+  <calculationView xsi:type="Calculation:WindowFunctionView" id="WF_JieDanYuSuanYTD">
+    <viewAttributes>
+      <viewAttribute id="YEAR"/>
+      <viewAttribute id="MONTH"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="C_Company_name"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="AGG_DaCheng">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
+    </input>
+    <function name="SUM">
+      <functionArgument>&quot;JieDanYuSuan&quot;</functionArgument>
+    </function>
+    <windowFunctionResultColumn>JieDanYuSuan_YTD</windowFunctionResultColumn>
     <orderAttributes>
       <orderAttribute direction="ASC">MONTH</orderAttribute>
     </orderAttributes>
@@ -143,12 +143,12 @@
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
       <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
       <viewAttribute id="C_Company_name"/>
+      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
     
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
       <viewAttribute id="StandardNum" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="XiaoShouLowerLimitValue" aggregationType="sum"/>
@@ -168,12 +168,12 @@
       <viewAttribute id="YEAR"/>
       <viewAttribute id="MONTH"/>
       <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
     
       <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
-      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
     
       <viewAttribute id="StandardNum" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
@@ -686,7 +686,6 @@
       <descriptions defaultDescription="接单预实差"/>
       <formula>CASE &quot;JieDanYuSuan&quot;
 	 WHEN 0 then 0
-	 WHEN null then 0
 	 ELSE IFNULL(&quot;JieDanJinE&quot;, 0)-IFNULL(&quot;JieDanYuSuan&quot;, 0)
  END
 </formula>
@@ -771,8 +770,8 @@
     
       <rectangleSize width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="WF_XiaoShouYuSuanYTD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="995" y="375"/>
+    <shape expanded="true" modelObjectName="WF_JieDanYuSuanYTD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="814" y="375"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
@@ -782,17 +781,17 @@
       <upperLeftCorner x="242" y="484"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="WF_JieDanYTD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="449" y="375"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
   
     <shape expanded="true" modelObjectName="WF_XiaoShouYTD" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="631" y="375"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="WF_JieDanYuSuanYTD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="814" y="375"/>
+    <shape expanded="true" modelObjectName="WF_JieDanYTD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="449" y="375"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="WF_XiaoShouYuSuanYTD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="995" y="375"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="MP_DaCheng" modelObjectNameSpace="CalculationView">
