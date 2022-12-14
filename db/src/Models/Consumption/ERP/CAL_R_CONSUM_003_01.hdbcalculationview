@@ -24,10 +24,15 @@
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="CC_BusinessUnitName"/>
       <viewAttribute id="C_Company_name"/>
-      <viewAttribute id="XiaoShouJinE"/>
       <viewAttribute id="JieDanJinE"/>
+      <viewAttribute id="JieDanYuSuan"/>
       <viewAttribute id="JieDanJinE_YTD"/>
+      <viewAttribute id="JieDanYuSuan_YTD"/>
+      <viewAttribute id="XiaoShouJinE"/>
+      <viewAttribute id="XiaoshouYuSuan"/>
       <viewAttribute id="XiaoShouJinE_YTD"/>
+    
+      <viewAttribute id="XiaoShouYuSuan_YTD"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_YM" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
@@ -88,6 +93,12 @@
       <viewAttribute id="XiaoShouJinE_LM" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_YTD" aggregationType="sum"/>
       <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="JieDanJinE_YTD" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan_YTD" aggregationType="sum"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuSuan_YTD" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$CC_YM$CC_LYM"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -99,6 +110,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_YTD" source="XiaoShouJinE_YTD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE_YTD" source="JieDanJinE_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan_YTD" source="JieDanYuSuan_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuSuan_YTD" source="XiaoShouYuSuan_YTD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YM$CC_LYM" source="CC_YM"/>
     </input>
     <input node="P_XiaoShou_LM">
@@ -121,9 +138,15 @@
       <viewAttribute id="XiaoShouJinE_LM" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_YTD" aggregationType="sum"/>
       <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="JieDanJinE_YTD" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuSuan_YTD" aggregationType="sum"/>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
       <viewAttribute id="CC_LY"/>
       <viewAttribute id="XiaoShouJinE_LY" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_YTD_LY" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuSuan_YTD" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_XiaoShou_1">
@@ -135,6 +158,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_LM" source="XiaoShouJinE_LM"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_YTD" source="XiaoShouJinE_YTD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE_YTD" source="JieDanJinE_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan_YTD" source="JieDanYuSuan_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuSuan_YTD" source="XiaoShouYuSuan_YTD"/>
     </input>
     <input node="P_XiaoShou_LY">
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_LY" source="XiaoShouJinE"/>
@@ -180,17 +209,42 @@
       <descriptions defaultDescription="销售实绩(上期)"/>
       <measureMapping columnObjectName="J_XiaoShou_2" columnName="XiaoShouJinE_LM"/>
     </measure>
-    <measure id="XiaoShouJinE_YTD" order="7" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="销售实绩(本年累计)"/>
-      <measureMapping columnObjectName="J_XiaoShou_2" columnName="XiaoShouJinE_YTD"/>
-    </measure>
-    <measure id="XiaoShouJinE_LY" order="8" aggregationType="sum" measureType="simple">
+    <measure id="XiaoShouJinE_LY" order="7" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="销售实绩(去年同期)"/>
       <measureMapping columnObjectName="J_XiaoShou_2" columnName="XiaoShouJinE_LY"/>
+    </measure>
+    <measure id="XiaoShouJinE_YTD" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="销售实绩(本年累计)"/>
+      <measureMapping columnObjectName="J_XiaoShou_2" columnName="XiaoShouJinE_YTD"/>
     </measure>
     <measure id="XiaoShouJinE_YTD_LY" order="9" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="销售实绩(去年同期累计)"/>
       <measureMapping columnObjectName="J_XiaoShou_2" columnName="XiaoShouJinE_YTD_LY"/>
+    </measure>
+  
+    <measure id="XiaoshouYuSuan" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="销售预算(本期)"/>
+      <measureMapping columnObjectName="J_XiaoShou_2" columnName="XiaoshouYuSuan"/>
+    </measure>
+    <measure id="XiaoShouYuSuan_YTD" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="销售预算(本年累计)"/>
+      <measureMapping columnObjectName="J_XiaoShou_2" columnName="XiaoShouYuSuan_YTD"/>
+    </measure>
+    <measure id="JieDanJinE" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="接单实绩(本期)"/>
+      <measureMapping columnObjectName="J_XiaoShou_2" columnName="JieDanJinE"/>
+    </measure>
+    <measure id="JieDanJinE_YTD" order="13" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="接单实际(本年累计)"/>
+      <measureMapping columnObjectName="J_XiaoShou_2" columnName="JieDanJinE_YTD"/>
+    </measure>
+    <measure id="JieDanYuSuan" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="接单预算(本期)"/>
+      <measureMapping columnObjectName="J_XiaoShou_2" columnName="JieDanYuSuan"/>
+    </measure>
+    <measure id="JieDanYuSuan_YTD" order="15" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="接单预算(本年累计)"/>
+      <measureMapping columnObjectName="J_XiaoShou_2" columnName="JieDanYuSuan_YTD"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>

@@ -536,7 +536,8 @@
 	 ELSE IFNULL(&quot;JieDanJinE&quot;, 0)/IFNULL(&quot;JieDanYuSuan&quot;, 0)
  END
 </formula>
-    </measure>
+    
+      </measure>
     <measure id="CC_JieDanMPR_YTD" order="16" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计接单预实比"/>
       <formula>CASE &quot;JieDanYuSuan_YTD&quot;
@@ -545,7 +546,8 @@
 	 ELSE IFNULL(&quot;JieDanJinE_YTD&quot;, 0)/IFNULL(&quot;JieDanYuSuan_YTD&quot;, 0)
  END
 </formula>
-    </measure>
+    
+      </measure>
     <measure id="CC_JieDanMPD" order="17" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="接单预实差"/>
       <formula>CASE &quot;JieDanYuSuan&quot;
@@ -554,7 +556,8 @@
 	 ELSE IFNULL(&quot;JieDanJinE&quot;, 0)-IFNULL(&quot;JieDanYuSuan&quot;, 0)
  END
 </formula>
-    </measure>
+    
+      </measure>
     <measure id="CC_JieDanMPD_YTD" order="18" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计接单预实差"/>
       <formula>CASE &quot;JieDanYuSuan_YTD&quot;
@@ -563,7 +566,8 @@
 	 ELSE IFNULL(&quot;JieDanJinE_YTD&quot;, 0)-IFNULL(&quot;JieDanYuSuan_YTD&quot;, 0)
  END
 </formula>
-    </measure>
+    
+      </measure>
     <measure id="CC_XiaoShouMPR" order="19" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="销售预实比"/>
       <formula>CASE &quot;XiaoshouYuSuan&quot;
@@ -572,7 +576,8 @@
 	 ELSE IFNULL(&quot;XiaoShouJinE&quot;, 0)/IFNULL(&quot;XiaoshouYuSuan&quot;, 0)
  END
 </formula>
-    </measure>
+    
+      </measure>
     <measure id="CC_XiaoShouMPR_YTD" order="20" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计销售预实比"/>
       <formula>CASE &quot;XiaoShouJinE_YTD&quot;
@@ -581,7 +586,8 @@
 	 ELSE IFNULL(&quot;XiaoShouJinE_YTD&quot;, 0)/IFNULL(&quot;XiaoShouJinE_YTD&quot;, 0)
  END
 </formula>
-    </measure>
+    
+      </measure>
     <measure id="CC_XiaoShouMPD" order="21" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="销售预实差"/>
       <formula>CASE &quot;XiaoshouYuSuan&quot;
@@ -590,7 +596,8 @@
 	 ELSE IFNULL(&quot;XiaoShouJinE&quot;, 0)-IFNULL(&quot;XiaoshouYuSuan&quot;, 0)
  END
 </formula>
-    </measure>
+    
+      </measure>
     <measure id="CC_XiaoShouMPD_YTD" order="22" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计销售预实差"/>
       <formula>CASE &quot;XiaoShouYuSuan_YTD&quot;
@@ -599,7 +606,8 @@
 	 ELSE IFNULL(&quot;XiaoShouJinE_YTD&quot;, 0)-IFNULL(&quot;XiaoShouYuSuan_YTD&quot;, 0)
  END
 </formula>
-    </measure>
+    
+      </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>
@@ -649,7 +657,7 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="CAL_B_OP_YUCE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="539" y="747"/>
+      <upperLeftCorner x="519" y="730"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
