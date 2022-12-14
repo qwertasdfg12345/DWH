@@ -259,7 +259,7 @@ END</formula>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_C_CompanyOrg"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDim_U_YuCe_1" cardinality="CN_N" joinType="inner" multiJoinNode="addDim_U_YuCe" multiJoinCentralTable="U_YuCe" multiJoinOrder="Outside In">
+  <calculationView xsi:type="Calculation:JoinView" id="addDim_U_YuCe_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDim_U_YuCe" multiJoinCentralTable="U_YuCe" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="CompanyNo"/>

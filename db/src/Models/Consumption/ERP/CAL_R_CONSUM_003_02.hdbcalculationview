@@ -365,40 +365,40 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="390.27823685390933" y="112"/>
+      <upperLeftCorner x="390" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_XiaoShou" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="91.99999999999997" y="656.9999964237213"/>
+      <upperLeftCorner x="91" y="656"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_XiaoShou_LY" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="512" y="656.9999964237213"/>
+      <upperLeftCorner x="512" y="656"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_XiaoShou_LM" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="656.9999964237213"/>
+      <upperLeftCorner x="302" y="656"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="U_PBC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="390.27823685390933" y="237"/>
+      <upperLeftCorner x="390" y="237"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_K01" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="236.5383617318688" y="376.9999988079071"/>
+      <upperLeftCorner x="236" y="376"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_K02" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="446.5383617318688" y="376.9999988079071"/>
+      <upperLeftCorner x="446" y="376"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
   
   
     <shape expanded="true" modelObjectName="J_XiaoShou" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="501.9999976158142"/>
+      <upperLeftCorner x="302" y="501"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_XiaoShou_LY" modelObjectNameSpace="J_XiaoShou" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_XiaoShou">
