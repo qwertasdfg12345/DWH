@@ -696,11 +696,7 @@
       </measure>
     <measure id="CC_JieDanMPD_YTD" order="18" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计接单预实差"/>
-      <formula>CASE &quot;JieDanYuSuan_YTD&quot;
-	 WHEN 0 then 0
-	 WHEN null then 0
-	 ELSE IFNULL(&quot;JieDanJinE_YTD&quot;, 0)-IFNULL(&quot;JieDanYuSuan_YTD&quot;, 0)
- END
+      <formula>IFNULL(&quot;JieDanJinE_YTD&quot;, 0)-IFNULL(&quot;JieDanYuSuan_YTD&quot;, 0)
 </formula>
     
       
