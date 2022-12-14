@@ -12,6 +12,9 @@
   <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_YUSUAN">
     <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_YUSUAN</resourceUri>
   </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_B_OP_YUCE">
+    <resourceUri>kz.Models.Basic.ERP::CAL_B_OP_YUCE</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -161,7 +164,17 @@
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
-      <viewAttribute id="C_Region_name"/></viewAttributes>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="XiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouLowerLimitValue_1" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouUpperLimitValue_1" aggregationType="sum"/>
+      <viewAttribute id="C_Region_Dq"/>
+    
+      <viewAttribute id="CourtShuXing"/>
+    </viewAttributes>
     <calculatedViewAttributes/>
     <input node="CAL_R_CONSUM_001" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
@@ -173,6 +186,16 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE" source="XiaoShouJinE"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuSuan" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoshouYuSuan" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Dq" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtShuXing" source="CourtShuXing"/>
     </input>
     <input node="CAL_B_OP_YUSUAN" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="Year"/>
@@ -184,6 +207,36 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Dq" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CourtShuXing" null="true" value=""/>
+    </input>
+    <input node="CAL_B_OP_YUCE" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="CC_Year"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="CC_Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoShouForecastMoney"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="CompanyName"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanForecastMoney"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouLowerLimitValue" source="XiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouUpperLimitValue" source="XiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanLowerLimitValue" source="JieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanUpperLimitValue" source="JieDanUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouLowerLimitValue_1" source="XiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouUpperLimitValue_1" source="XiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Dq" source="C_Region_Dq"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CourtShuXing" null="true" value=""/>
     </input>
     <filter>&quot;YEAR&quot; &lt;&gt; '' and &quot;YEAR&quot; is not null</filter>
   </calculationView>
@@ -196,6 +249,8 @@
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="JieDanJinE"/>
       <viewAttribute id="XiaoShouJinE"/>
+    
+      <viewAttribute id="CourtShuXing"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.Models.Consumption.ERP::CAL_R_CONSUM_001">
@@ -215,6 +270,26 @@
       <viewAttribute id="C_Region_Code"/></viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.Models.Basic.ERP::CAL_B_OP_YUSUAN"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CAL_B_OP_YUCE">
+    <viewAttributes>
+      <viewAttribute id="CC_Year"/>
+      <viewAttribute id="CC_Month"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="XiaoShouForecastMoney"/>
+      <viewAttribute id="CompanyName"/>
+    
+      <viewAttribute id="JieDanForecastMoney"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="XiaoShouLowerLimitValue"/>
+      <viewAttribute id="XiaoShouUpperLimitValue"/>
+      <viewAttribute id="JieDanLowerLimitValue"/>
+      <viewAttribute id="JieDanUpperLimitValue"/>
+      <viewAttribute id="C_Region_Dq"/>
+      <viewAttribute id="C_Region_Code"/>
+      <viewAttribute id="CompanyNo"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_B_OP_YUCE"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_DaCheng_1" cardinality="CN_N" joinType="leftOuter" multiJoinNode="J_DaCheng" multiJoinCentralTable="AGG_DaCheng" multiJoinOrder="Outside In">
     <viewAttributes>
@@ -573,6 +648,11 @@
       <upperLeftCorner x="333" y="730"/>
       <rectangleSize height="30" width="160"/>
     </shape>
+    <shape expanded="true" modelObjectName="CAL_B_OP_YUCE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="539" y="747"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
     <shape expanded="true" modelObjectName="J_DaCheng" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="243" y="211"/>
       <rectangleSize height="30" width="160"/>

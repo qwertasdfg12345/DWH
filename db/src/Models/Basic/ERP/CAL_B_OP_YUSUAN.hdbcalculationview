@@ -2303,6 +2303,9 @@ END</formula>
     <input node="kz.DI.ERP::T_C_Organization"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_B03_YuSuan_1" cardinality="CN_N" joinType="inner" multiJoinNode="addDim_B03_YuSuan" multiJoinCentralTable="B03_YuSuan" multiJoinOrder="Outside In">
+    <descriptions>
+      <comment text="因各事业线的预算颗粒度(维度)不一致，因此在Basic层连接维度表"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="C_Region_code"/>
       <viewAttribute id="C_Region_name"/>
@@ -2320,6 +2323,9 @@ END</formula>
     <joinAttribute name="C_Region_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_B03_YuSuan_2" cardinality="CN_N" joinType="inner" multiJoinNode="addDim_B03_YuSuan" multiJoinCentralTable="B03_YuSuan" multiJoinOrder="Outside In">
+    <descriptions>
+      <comment text="因各事业线的预算颗粒度(维度)不一致，因此在Basic层连接维度表"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="C_Region_code"/>
       <viewAttribute id="C_Region_name"/>
@@ -2343,6 +2349,9 @@ END</formula>
     <joinAttribute name="C_Organization_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_B03_YuSuan_3" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDim_B03_YuSuan" multiJoinCentralTable="B03_YuSuan" multiJoinOrder="Outside In">
+    <descriptions>
+      <comment text="因各事业线的预算颗粒度(维度)不一致，因此在Basic层连接维度表"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="XiaoShouYuSuan" aggregationType="sum"/>
       <viewAttribute id="BusinessUnit"/>

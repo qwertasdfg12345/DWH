@@ -480,6 +480,8 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <viewAttribute id="CC_Date"/>
     
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+    
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="MinSheng-JieDanJinE_2" emptyUnionBehavior="NO_ROW">
@@ -494,6 +496,8 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
     </input>
     <input node="addDimToJieDanJinE_2" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
@@ -508,6 +512,8 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
     </input>
   
     <input node="addDim_ZSCQ_JieDanJinE_2" emptyUnionBehavior="NO_ROW">
@@ -522,6 +528,10 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+    
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+  
     </input>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="ZSCQ_BanAnJiHuaShu" filterExpressionLanguage="SQL">
@@ -781,6 +791,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
@@ -801,6 +812,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="B_Case_code"/>
     </input>
     <joinAttribute name="P_Business_flow_form_projectCode"/>
@@ -844,6 +856,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="ChangDate" aggregationType="min"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
@@ -865,6 +878,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="B_Case_code"/>
     </input>
     <joinAttribute name="P_Business_flow_form_projectCode"/>
@@ -979,6 +993,11 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     <attribute id="CC_Date" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CC_Date"/>
       <keyMapping columnObjectName="JieDanJinE" columnName="CC_Date"/>
+    </attribute>
+  
+    <attribute id="B_Case_nature" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_nature"/>
+      <keyMapping columnObjectName="JieDanJinE" columnName="B_Case_nature"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>

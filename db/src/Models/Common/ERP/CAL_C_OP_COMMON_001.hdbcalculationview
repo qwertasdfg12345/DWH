@@ -163,16 +163,16 @@
       <viewAttribute id="B_CustomerProject_Code"/>
       <viewAttribute id="CC_SHICHANG"/>
       <viewAttribute id="StandardNum"/>
+      <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_customerCode"/>
       <viewAttribute id="B_Case_type"/>
       <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_HangYe"/>
       <viewAttribute id="B_Case_code"/>
     
       <viewAttribute id="KeHuTeam"/>
       <viewAttribute id="CC_Date"/>
-      <viewAttribute id="B_Case_HangYe"/>
-      <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="ShiChangJieDuan"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -373,7 +373,9 @@
   
     <attribute id="ShiChangJieDuan" order="18" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="时长的阶段"/>
+  
       <keyMapping columnObjectName="U_COMM_01" columnName="ShiChangJieDuan"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>
