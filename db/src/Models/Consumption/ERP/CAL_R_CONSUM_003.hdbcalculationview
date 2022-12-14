@@ -731,11 +731,8 @@
       </measure>
     <measure id="CC_XiaoShouMPD" order="21" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="销售预实差"/>
-      <formula>CASE &quot;XiaoshouYuSuan&quot;
-	 WHEN 0 then 0
-	 WHEN null then 0
-	 ELSE IFNULL(&quot;XiaoShouJinE&quot;, 0)-IFNULL(&quot;XiaoshouYuSuan&quot;, 0)
- END
+      <formula>IFNULL(&quot;XiaoShouJinE&quot;, 0)-IFNULL(&quot;XiaoshouYuSuan&quot;, 0)
+
 </formula>
     
       
@@ -744,12 +741,7 @@
       </measure>
     <measure id="CC_XiaoShouMPD_YTD" order="22" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计销售预实差"/>
-      <formula>CASE &quot;XiaoShouYuSuan_YTD&quot;
-	 WHEN 0 then 0
-	 WHEN null then 0
-	 ELSE IFNULL(&quot;XiaoShouJinE_YTD&quot;, 0)-IFNULL(&quot;XiaoShouYuSuan_YTD&quot;, 0)
- END
-</formula>
+      <formula>IFNULL(&quot;XiaoShouJinE_YTD&quot;, 0)-IFNULL(&quot;XiaoShouYuSuan_YTD&quot;, 0)</formula>
     
       
       
