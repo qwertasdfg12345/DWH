@@ -722,10 +722,10 @@
       </measure>
     <measure id="CC_XiaoShouMPR_YTD" order="20" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计销售预实比"/>
-      <formula>CASE &quot;XiaoShouJinE_YTD&quot;
+      <formula>CASE &quot;XiaoShouYuSuan_YTD&quot;
 	 WHEN 0 then 0
 	 WHEN null then 0
-	 ELSE IFNULL(&quot;XiaoShouJinE_YTD&quot;, 0)/IFNULL(&quot;XiaoShouJinE_YTD&quot;, 0)
+	 ELSE IFNULL(&quot;XiaoShouJinE_YTD&quot;, 0)/IFNULL(&quot;XiaoShouYuSuan_YTD&quot;, 0)
  END
 </formula>
     
