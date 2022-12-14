@@ -27,6 +27,8 @@
       <viewAttribute id="C_Court_number"/>
       <viewAttribute id="C_Court_area"/>
       <viewAttribute id="C_Court_isdelete"/>
+    
+      <viewAttribute id="CourtShuXing"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_C_Court"/>
@@ -55,6 +57,8 @@
       <viewAttribute id="C_Court_area"/>
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="CompanyNo"/>
+    
+      <viewAttribute id="CourtShuXing"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_C_COURT">
@@ -62,6 +66,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_code" source="C_Court_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="C_Court_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_area" source="C_Court_area"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtShuXing" source="CourtShuXing"/>
     </input>
     <input node="P_C_REGION">
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
@@ -90,6 +96,8 @@
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="CompanyNo"/>
       <viewAttribute id="CompanyName"/>
+    
+      <viewAttribute id="CourtShuXing"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_COURT">
@@ -100,6 +108,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtShuXing" source="CourtShuXing"/>
     </input>
     <input node="P_C_COMPANYORG">
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
@@ -114,6 +124,8 @@
     <viewAttributes>
       <viewAttribute id="CourtName"/>
       <viewAttribute id="CompanyName"/>
+    
+      <viewAttribute id="IsGroupEight"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_20221017BaoLiuFaYuan"/>
@@ -128,6 +140,10 @@
       <viewAttribute id="CompanyNo"/>
       <viewAttribute id="CompanyName"/>
       <viewAttribute id="CourtName"/>
+    
+      <viewAttribute id="CourtShuXing"/>
+    
+      <viewAttribute id="IsGroupEight"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_COURT_COM">
@@ -138,9 +154,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyNo" source="CompanyNo"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CourtShuXing" source="CourtShuXing"/>
     </input>
     <input node="P_COURT_BF">
       <mapping xsi:type="Calculation:AttributeMapping" target="CourtName" source="CourtName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IsGroupEight" source="IsGroupEight"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Court_name" source="CourtName"/>
     </input>
     <joinAttribute name="C_Court_name"/>
@@ -172,8 +191,23 @@
       <descriptions defaultDescription="分公司(法院所属)"/>
       <keyMapping columnObjectName="Join_1" columnName="CompanyName"/>
     </attribute>
-    <attribute id="CourtName" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="八分法院"/>
+  
+    <attribute id="CourtShuXing" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="法院属性"/>
+  
+      <keyMapping columnObjectName="Join_1" columnName="CourtShuXing"/>
+  
+    </attribute>
+  
+    <attribute id="IsGroupEight" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="是否八分"/>
+  
+      <keyMapping columnObjectName="Join_1" columnName="IsGroupEight"/>
+  
+    </attribute>
+  
+    <attribute id="CourtName" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CourtName"/>
       <keyMapping columnObjectName="Join_1" columnName="CourtName"/>
     </attribute>
   </attributes>

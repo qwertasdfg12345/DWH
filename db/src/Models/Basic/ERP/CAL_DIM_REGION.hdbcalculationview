@@ -17,16 +17,25 @@
       <keyMapping columnObjectName="T_C_Region" columnName="C_Region_Id"/>
     </attribute>
     <attribute id="C_Region_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="区域编码"/>
+      <descriptions defaultDescription="分所编码"/>
       <keyMapping columnObjectName="T_C_Region" columnName="C_Region_code"/>
     </attribute>
     <attribute id="C_Region_name" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="区域名称"/>
+      <descriptions defaultDescription="分所名称"/>
       <keyMapping columnObjectName="T_C_Region" columnName="C_Region_name"/>
     </attribute>
     <attribute id="C_Region_isDelete" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Region_isDelete"/>
+      <descriptions defaultDescription="是否删除"/>
       <keyMapping columnObjectName="T_C_Region" columnName="C_Region_isDelete"/>
+    </attribute>
+  
+    <attribute id="CompanyNo" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分公司代码"/>
+      <keyMapping columnObjectName="T_C_Region" columnName="CompanyNo"/>
+    </attribute>
+    <attribute id="C_Region_Dq" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="大区名称"/>
+      <keyMapping columnObjectName="T_C_Region" columnName="C_Region_Dq"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>

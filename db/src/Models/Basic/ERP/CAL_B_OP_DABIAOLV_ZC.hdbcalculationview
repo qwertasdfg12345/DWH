@@ -7,8 +7,11 @@
   <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
     <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_ZSCQ_ershenpaiting">
-    <resourceUri>kz.DI.ERP::T_ZSCQ_ershenpaiting</resourceUri>
+  <DataSource id="kz.DI.ERP::T_C_CourtStandard">
+    <resourceUri>kz.DI.ERP::T_C_CourtStandard</resourceUri>
+  </DataSource>
+  <DataSource id="P_PBFFSDQR_ZC$$$$kz.DI.ERP::T_P_Business_flow_form$$">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP::T_ZSCQ_panjueshubaopi">
     <resourceUri>kz.DI.ERP::T_ZSCQ_panjueshubaopi</resourceUri>
@@ -16,22 +19,22 @@
   <DataSource id="kz.DI.ERP::T_ZSCQ_paiting">
     <resourceUri>kz.DI.ERP::T_ZSCQ_paiting</resourceUri>
   </DataSource>
-  <DataSource id="P_PJSBP_ZC$$$$kz.DI.ERP::T_ZSCQ_panjueshubaopi$$">
+  <DataSource id="P_ESPJSBP_ZC$$$$kz.DI.ERP::T_ZSCQ_panjueshubaopi$$">
     <resourceUri>kz.DI.ERP::T_ZSCQ_panjueshubaopi</resourceUri>
   </DataSource>
-  <DataSource id="P_PBFFSDQR_ZC$$$$kz.DI.ERP::T_P_Business_flow_form$$">
-    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  <DataSource id="kz.DI.ERP::T_ZSCQ_ershenpaiting">
+    <resourceUri>kz.DI.ERP::T_ZSCQ_ershenpaiting</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP::T_P_Business_flow">
     <resourceUri>kz.DI.ERP::T_P_Business_flow</resourceUri>
   </DataSource>
-  <DataSource id="P_PBFFTS_ALL$$$$kz.DI.ERP::T_P_Business_flow_form$$">
+  <DataSource id="P_PBFFES_ALL$$$$kz.DI.ERP::T_P_Business_flow_form$$">
     <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
-  <DataSource id="P_PBFES_ALL$$$$kz.DI.ERP::T_P_Business_flow$$">
+  <DataSource id="P_PBFTS_ALL$$$$kz.DI.ERP::T_P_Business_flow$$">
     <resourceUri>kz.DI.ERP::T_P_Business_flow</resourceUri>
   </DataSource>
-  <DataSource id="P_PBFFES_ALL$$$$kz.DI.ERP::T_P_Business_flow_form$$">
+  <DataSource id="P_PBFFTS_ALL$$$$kz.DI.ERP::T_P_Business_flow_form$$">
     <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
   <DataSource id="P_PBFLA_ZC$$$$kz.DI.ERP::T_P_Business_flow$$">
@@ -55,41 +58,75 @@
   <DataSource id="kz.DI.ERP::T_B_Case">
     <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_C_CourtStandard">
-    <resourceUri>kz.DI.ERP::T_C_CourtStandard</resourceUri>
-  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:RankView" id="R_ESPT_ZC">
+  <calculationView xsi:type="Calculation:RankView" id="R_BZSC">
     <viewAttributes>
-      <viewAttribute id="P_Fk_code"/>
-      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
-      <viewAttribute id="KaiTingShiJian"/>
-      <viewAttribute id="KaiTingRiJi"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="CC_KTSJ" aggregationType="min"/>
+      <viewAttribute id="StandardNum" aggregationType="sum"/>
+      <viewAttribute id="C_Court_Code"/>
+      <viewAttribute id="ParametersId" aggregationType="sum"/>
+      <viewAttribute id="Isdelete" aggregationType="sum"/>
+      <viewAttribute id="ApprovalState" aggregationType="sum"/>
+      <viewAttribute id="CreateTime" aggregationType="min"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="J_ESPT_ZC"/>
+    <input node="J_BZSC"/>
     <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
-      <partitionViewAttributeName id="P_Fk_code"/>
-      <partitionViewAttributeName id="P_Business_flow_version"/>
+      <partitionViewAttributeName id="C_Court_Code"/>
+      <partitionViewAttributeName id="ParametersId"/>
+      <order byViewAttributeName="CreateTime" direction="DESC"/>
+      <rankThreshold>
+        <value>1</value>
+      </rankThreshold>
+    </rankingFilter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:RankView" id="R_PAITING_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="F_Form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFFPT_ZC"/>
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
       <order byViewAttributeName="P_Business_flow_form_factEndTime" direction="DESC"/>
       <rankThreshold>
         <value>1</value>
       </rankThreshold>
     </rankingFilter>
   </calculationView>
-  <calculationView xsi:type="Calculation:RankView" id="R_ESPJSBP_ZC">
+  <calculationView xsi:type="Calculation:RankView" id="R_SDQR_ZC">
     <viewAttributes>
-      <viewAttribute id="P_Fk_code"/>
-      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
-    
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="PAITING_factEndTime" aggregationType="min"/>
+      <viewAttribute id="SDQR_factStartTime" aggregationType="min"/>
+      <viewAttribute id="SDQR_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="J_ESPJSBP_ZC"/>
+    <input node="J_SDQR_ZC"/>
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
+      <order byViewAttributeName="SDQR_factStartTime" direction="ASC"/>
+      <rankThreshold>
+        <value>1</value>
+      </rankThreshold>
+    </rankingFilter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:RankView" id="R_PJSBP_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_code"/>
+      <viewAttribute id="P_Fk_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_PJSBP_ZC"/>
     <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
       <partitionViewAttributeName id="P_Fk_code"/>
       <partitionViewAttributeName id="P_Business_flow_version"/>
@@ -120,16 +157,15 @@
       </rankThreshold>
     </rankingFilter>
   </calculationView>
-  <calculationView xsi:type="Calculation:RankView" id="R_PJSBP_ZC">
+  <calculationView xsi:type="Calculation:RankView" id="R_ESPJSBP_ZC">
     <viewAttributes>
-      <viewAttribute id="P_Business_flow_code"/>
       <viewAttribute id="P_Fk_code"/>
-      <viewAttribute id="P_Business_flow_form_code"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
+    
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="J_PJSBP_ZC"/>
+    <input node="J_ESPJSBP_ZC"/>
     <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
       <partitionViewAttributeName id="P_Fk_code"/>
       <partitionViewAttributeName id="P_Business_flow_version"/>
@@ -139,107 +175,72 @@
       </rankThreshold>
     </rankingFilter>
   </calculationView>
-  <calculationView xsi:type="Calculation:RankView" id="R_SDQR_ZC">
+  <calculationView xsi:type="Calculation:RankView" id="R_ESPT_ZC">
     <viewAttributes>
-      <viewAttribute id="PAITING_factEndTime" aggregationType="min"/>
-      <viewAttribute id="SDQR_factStartTime" aggregationType="min"/>
-      <viewAttribute id="SDQR_factEndTime" aggregationType="min"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="J_SDQR_ZC"/>
-    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
-      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
-      <order byViewAttributeName="SDQR_factStartTime" direction="ASC"/>
-      <rankThreshold>
-        <value>1</value>
-      </rankThreshold>
-    </rankingFilter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:RankView" id="R_PAITING_ZC">
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_code"/>
-      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Fk_code"/>
+      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
+      <viewAttribute id="KaiTingShiJian"/>
+      <viewAttribute id="KaiTingRiJi"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="F_Form_code"/>
+      <viewAttribute id="CC_KTSJ" aggregationType="min"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="P_PBFFPT_ZC"/>
+    <input node="J_ESPT_ZC"/>
     <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
-      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
+      <partitionViewAttributeName id="P_Fk_code"/>
+      <partitionViewAttributeName id="P_Business_flow_version"/>
       <order byViewAttributeName="P_Business_flow_form_factEndTime" direction="DESC"/>
       <rankThreshold>
         <value>1</value>
       </rankThreshold>
     </rankingFilter>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFFPT_ZC" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:JoinView" id="J_ESPT_ZC" cardinality="CN_N" joinType="inner">
     <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_code"/>
-      <viewAttribute id="P_Business_flow_form_code"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime"/>
-      <viewAttribute id="F_Form_code"/>
-      <viewAttribute id="P_Business_flow_form_isdelete"/>
-      <viewAttribute id="P_Business_flow_form_state"/>
-      <viewAttribute id="P_Business_flow_form_status"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
-    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and 
-&quot;P_Business_flow_form_state&quot;=201 and 
-&quot;P_Business_flow_form_status&quot;=262 and 
-&quot;F_Form_code&quot;='6A1688EF-AFDF-4EB4-8803-0F988DA7B6E2'</filter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_SDQR_ZC" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="PAITING_factEndTime" aggregationType="min"/>
-      <viewAttribute id="SDQR_factStartTime" aggregationType="min"/>
-      <viewAttribute id="SDQR_factEndTime" aggregationType="min"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="R_PAITING_ZC">
-      <mapping xsi:type="Calculation:AttributeMapping" target="PAITING_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
-    </input>
-    <input node="P_PBFFSDQR_ZC">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SDQR_factStartTime" source="P_Business_flow_form_factStartTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SDQR_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
-    </input>
-    <filter>&quot;SDQR_factStartTime&quot;&gt;=&quot;PAITING_factEndTime&quot;</filter>
-    <joinAttribute name="P_Business_flow_code"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_PJSBP_ZC" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_code"/>
       <viewAttribute id="P_Fk_code"/>
-      <viewAttribute id="P_Business_flow_form_code"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
-    
+      <viewAttribute id="KaiTingShiJian"/>
+      <viewAttribute id="KaiTingRiJi"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="CC_KTSJ" aggregationType="min"/>
+      <viewAttribute hidden="true" id="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_ESPT_ZC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KaiTingShiJian" source="KaiTingShiJian"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KaiTingRiJi" source="KaiTingRiJi"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_KTSJ" source="CC_KTSJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code" source="P_Business_Flow_Form_code"/>
+    </input>
+    <input node="J_ES_ALL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_version" source="P_Business_flow_version"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+    </input>
+    <joinAttribute name="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_ESPJSBP_ZC" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Fk_code"/>
+      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="P_Flow_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="J_FF_ALL">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
+    <input node="P_ESPJSBP_ZC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+    </input>
+    <input node="J_ES_ALL">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_version" source="P_Business_flow_version"/>
-    
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Flow_code" source="P_Flow_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
     </input>
-    <input node="P_PJSBP_ZC">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_Flow_Form_code"/>
-    </input>
-    <filter>&quot;P_Flow_code&quot;='00C8EFEF-9A96-4C28-A54D-D12026CFAA53'</filter>
-    <joinAttribute name="P_Business_flow_form_code"/>
+    <filter>&quot;P_Flow_code&quot;='45C4198D-6650-47E6-8E16-D21E79F940F5'</filter>
+    <joinAttribute name="P_Business_Flow_Form_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_PT_ZC" cardinality="CN_N" joinType="inner">
     <viewAttributes>
@@ -268,98 +269,105 @@
     </input>
     <joinAttribute name="P_Business_flow_form_code"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_ESPJSBP_ZC" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:JoinView" id="J_PJSBP_ZC" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
     <viewAttributes>
+      <viewAttribute id="P_Business_flow_code"/>
       <viewAttribute id="P_Fk_code"/>
-      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="P_Flow_code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="P_ESPJSBP_ZC">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-    </input>
-    <input node="J_ES_ALL">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_version" source="P_Business_flow_version"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Flow_code" source="P_Flow_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
-    </input>
-    <filter>&quot;P_Flow_code&quot;='45C4198D-6650-47E6-8E16-D21E79F940F5'</filter>
-    <joinAttribute name="P_Business_Flow_Form_code"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_ESPT_ZC" cardinality="CN_N" joinType="inner">
-    <viewAttributes>
-      <viewAttribute id="P_Fk_code"/>
-      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
-      <viewAttribute id="KaiTingShiJian"/>
-      <viewAttribute id="KaiTingRiJi"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="CC_KTSJ" aggregationType="min"/>
-      <viewAttribute hidden="true" id="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="P_ESPT_ZC">
-      <mapping xsi:type="Calculation:AttributeMapping" target="KaiTingShiJian" source="KaiTingShiJian"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="KaiTingRiJi" source="KaiTingRiJi"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_KTSJ" source="CC_KTSJ"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code" source="P_Business_Flow_Form_code"/>
-    </input>
-    <input node="J_ES_ALL">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_version" source="P_Business_flow_version"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code" source="P_Business_flow_form_code"/>
-    </input>
-    <joinAttribute name="JOIN$P_Business_Flow_Form_code$P_Business_flow_form_code"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESPT_ZC">
-    <viewAttributes>
-      <viewAttribute id="KaiTingShiJian"/>
-      <viewAttribute id="KaiTingRiJi"/>
-    
-      <viewAttribute id="P_Business_Flow_Form_code"/></viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_KTSJ" datatype="TIMESTAMP" expressionLanguage="SQL">
-        <formula>TO_TIMESTAMP(TO_NVARCHAR(&quot;KaiTingRiJi&quot;,'yyyy-mm-dd')|| ' '|| 
-IFNULL(&quot;KaiTingShiJian&quot;, '00:00') || ':00')</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
-    <input node="kz.DI.ERP::T_ZSCQ_ershenpaiting"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_ES_ALL" cardinality="CN_N" joinType="inner">
-    <viewAttributes>
-      <viewAttribute id="P_Fk_code"/>
-      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
     
       <viewAttribute id="P_Flow_code"/>
-    
-      <viewAttribute id="P_Business_flow_code"/></viewAttributes>
+    </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="P_PBFES_ALL">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_version" source="P_Business_flow_version"/>
+    <input node="J_FF_ALL">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Flow_code" source="P_Flow_code"/>
-    </input>
-    <input node="P_PBFFES_ALL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_version" source="P_Business_flow_version"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Flow_code" source="P_Flow_code"/>
     </input>
-    <joinAttribute name="P_Business_flow_code"/>
+    <input node="P_PJSBP_ZC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_Flow_Form_code"/>
+    </input>
+    <filter>&quot;P_Flow_code&quot;='00C8EFEF-9A96-4C28-A54D-D12026CFAA53'</filter>
+    <joinAttribute name="P_Business_flow_form_code"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESPJSBP_ZC">
+  <calculationView xsi:type="Calculation:JoinView" id="J_SDQR_ZC" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
     <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="PAITING_factEndTime" aggregationType="min"/>
+      <viewAttribute id="SDQR_factStartTime" aggregationType="min"/>
+      <viewAttribute id="SDQR_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_ZSCQ_panjueshubaopi"/>
+    <input node="R_PAITING_ZC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PAITING_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
+    </input>
+    <input node="P_PBFFSDQR_ZC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SDQR_factStartTime" source="P_Business_flow_form_factStartTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SDQR_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
+    </input>
+    <filter>&quot;SDQR_factStartTime&quot;&gt;=&quot;PAITING_factEndTime&quot;</filter>
+    <joinAttribute name="P_Business_flow_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFFPT_ZC" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute id="F_Form_code"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/>
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and 
+&quot;P_Business_flow_form_state&quot;=201 and 
+&quot;P_Business_flow_form_status&quot;=262 and 
+&quot;F_Form_code&quot;='6A1688EF-AFDF-4EB4-8803-0F988DA7B6E2'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="J_BZSC" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="StandardNum"/>
+      <viewAttribute id="C_Court_Code"/>
+      <viewAttribute id="ParametersId"/>
+      <viewAttribute id="Isdelete"/>
+    
+      <viewAttribute id="ApprovalState"/>
+      <viewAttribute id="CreateTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_C_CourtStandard"/>
+    <filter>&quot;Isdelete&quot;=0 and 
+&quot;ApprovalState&quot;=1</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFFSDQR_ZC" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
+    
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute id="P_Business_flow_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="F_Form_code"/>
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFFSDQR_ZC$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
+    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and 
+&quot;P_Business_flow_form_state&quot;=201 and
+&quot;P_Business_flow_form_status&quot;=262 and
+&quot;F_Form_code&quot;='90F4BCE3-3D88-4D48-9F71-D41257D2CC35'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_FF_ALL" cardinality="CN_N" joinType="inner">
     <viewAttributes>
@@ -386,6 +394,13 @@ IFNULL(&quot;KaiTingShiJian&quot;, '00:00') || ':00')</formula>
     </input>
     <joinAttribute name="P_Business_flow_code"/>
   </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PJSBP_ZC">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_ZSCQ_panjueshubaopi"/>
+  </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_PT_ZC">
     <viewAttributes>
       <viewAttribute id="P_Business_Flow_Form_code"/>
@@ -400,62 +415,51 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_ZSCQ_paiting"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_PJSBP_ZC">
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESPJSBP_ZC">
     <viewAttributes>
       <viewAttribute id="P_Business_Flow_Form_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="P_PJSBP_ZC$$$$kz.DI.ERP::T_ZSCQ_panjueshubaopi$$"/>
+    <input node="P_ESPJSBP_ZC$$$$kz.DI.ERP::T_ZSCQ_panjueshubaopi$$"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFFSDQR_ZC" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:JoinView" id="J_ES_ALL" cardinality="CN_N" joinType="inner">
     <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_factStartTime"/>
-    
-      <viewAttribute id="P_Business_flow_form_factEndTime"/>
-      <viewAttribute id="P_Business_flow_code"/>
-      <viewAttribute id="P_Business_flow_form_code"/>
-      <viewAttribute id="F_Form_code"/>
-      <viewAttribute id="P_Business_flow_form_state"/>
-      <viewAttribute id="P_Business_flow_form_status"/>
-      <viewAttribute id="P_Business_flow_form_isdelete"/></viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="P_PBFFSDQR_ZC$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
-    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and 
-&quot;P_Business_flow_form_state&quot;=201 and
-&quot;P_Business_flow_form_status&quot;=262 and
-&quot;F_Form_code&quot;='90F4BCE3-3D88-4D48-9F71-D41257D2CC35'</filter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFTS_ALL" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_code"/>
       <viewAttribute id="P_Fk_code"/>
-    
-      <viewAttribute id="P_Business_flow_version"/>
+      <viewAttribute id="P_Business_flow_version" aggregationType="sum"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
     
       <viewAttribute id="P_Flow_code"/>
-      <viewAttribute id="P_Business_state"/>
-      <viewAttribute id="P_Business_isdelete"/></viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_P_Business_flow"/>
-    <filter>&quot;P_Business_isdelete&quot;=0</filter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFFTS_ALL" filterExpressionLanguage="SQL">
-    <viewAttributes>
       <viewAttribute id="P_Business_flow_form_code"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime"/>
-      <viewAttribute id="P_Business_flow_code"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_isdelete"/>
-      <viewAttribute id="P_Business_flow_form_state"/>
-      <viewAttribute id="P_Business_flow_form_status"/>
-      <viewAttribute id="P_Business_flow_form_factStartTime"/>
-    </viewAttributes>
+    
+      <viewAttribute id="P_Business_flow_code"/></viewAttributes>
     <calculatedViewAttributes/>
-    <input node="P_PBFFTS_ALL$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
-    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and 
-&quot;P_Business_flow_form_state&quot;=201 and 
-&quot;P_Business_flow_form_status&quot;=262</filter>
+    <input node="P_PBFES_ALL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_version" source="P_Business_flow_version"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Flow_code" source="P_Flow_code"/>
+    </input>
+    <input node="P_PBFFES_ALL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_code" source="P_Business_flow_code"/>
+    </input>
+    <joinAttribute name="P_Business_flow_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ESPT_ZC">
+    <viewAttributes>
+      <viewAttribute id="KaiTingShiJian"/>
+      <viewAttribute id="KaiTingRiJi"/>
+    
+      <viewAttribute id="P_Business_Flow_Form_code"/></viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_KTSJ" datatype="TIMESTAMP" expressionLanguage="SQL">
+        <formula>TO_TIMESTAMP(TO_NVARCHAR(&quot;KaiTingRiJi&quot;,'yyyy-mm-dd')|| ' '|| 
+IFNULL(&quot;KaiTingShiJian&quot;, '00:00') || ':00')</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_ZSCQ_ershenpaiting"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFES_ALL" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -467,7 +471,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="P_Business_isdelete"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="P_PBFES_ALL$$$$kz.DI.ERP::T_P_Business_flow$$"/>
+    <input node="kz.DI.ERP::T_P_Business_flow"/>
     <filter>&quot;P_Business_isdelete&quot;=0</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFFES_ALL" filterExpressionLanguage="SQL">
@@ -483,6 +487,37 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_PBFFES_ALL$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
+    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and 
+&quot;P_Business_flow_form_state&quot;=201 and 
+&quot;P_Business_flow_form_status&quot;=262</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFTS_ALL" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_code"/>
+      <viewAttribute id="P_Fk_code"/>
+    
+      <viewAttribute id="P_Business_flow_version"/>
+    
+      <viewAttribute id="P_Flow_code"/>
+      <viewAttribute id="P_Business_state"/>
+      <viewAttribute id="P_Business_isdelete"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFTS_ALL$$$$kz.DI.ERP::T_P_Business_flow$$"/>
+    <filter>&quot;P_Business_isdelete&quot;=0</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFFTS_ALL" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute id="P_Business_flow_code"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/>
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_factStartTime"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFFTS_ALL$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
     <filter>&quot;P_Business_flow_form_isdelete&quot;=0 and 
 &quot;P_Business_flow_form_state&quot;=201 and 
 &quot;P_Business_flow_form_status&quot;=262</filter>
@@ -577,11 +612,20 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Fk_code" source="P_Fk_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_code$P_Business_flow_code" source="P_Business_flow_code"/>
     </input>
-    <input node="J_ZHQS_ZC">
+    <input node="A_ZHQS_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_ZHSC" source="CC_ZHSC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_code$P_Business_flow_code" source="P_Business_flow_code"/>
     </input>
     <joinAttribute name="JOIN$P_Business_flow_code$P_Business_flow_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="A_ZHQS_ZC">
+    <viewAttributes>
+      <viewAttribute id="CC_ZHSC" aggregationType="sum"/>
+    
+      <viewAttribute id="P_Business_flow_code"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="J_ZHQS_ZC"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFPT_ZC" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -739,6 +783,8 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="ZhiChanTeam"/>
       <viewAttribute id="B_CustomerProject_Code"/>
       <viewAttribute id="B_Case_customerCode"/>
+    
+      <viewAttribute id="B_Case_HangYe"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_B_Case"/>
@@ -757,9 +803,14 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
       <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$P_Fk_code$B_Case_code"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
+        <formula>'B03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="J_LASC_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
@@ -775,6 +826,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanTeam" source="ZhiChanTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Fk_code$B_Case_code" source="B_Case_code"/>
     </input>
     <joinAttribute name="JOIN$P_Fk_code$B_Case_code"/>
@@ -792,9 +844,14 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="SDQR_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$P_Business_flow_form_projectCode$B_Case_code"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
+        <formula>'B03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="J_PTSC_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
@@ -811,6 +868,8 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanTeam" source="ZhiChanTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
   
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$B_Case_code" source="B_Case_code"/>
   
@@ -830,9 +889,14 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$P_Fk_code$B_Case_code"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
+        <formula>'B03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="J_TSSC_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
@@ -849,6 +913,8 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanTeam" source="ZhiChanTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
   
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Fk_code$B_Case_code" source="B_Case_code"/>
   
@@ -868,8 +934,14 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
       <viewAttribute id="B_Case_nowCourt"/>
+    
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
+        <formula>'B03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="P_CASE">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
@@ -879,6 +951,8 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nowCourt" source="B_Case_nowCourt"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
     </input>
     <input node="P_PBFZXLA_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
@@ -901,8 +975,14 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
+    
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
+        <formula>'B03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="P_CASE">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
@@ -912,6 +992,8 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanTeam" source="ZhiChanTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
     </input>
     <input node="P_PBFKZSC_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
@@ -934,9 +1016,14 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$P_Fk_code$B_Case_code"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
+        <formula>'B03'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="J_ESSC_ZC">
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
@@ -952,6 +1039,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanTeam" source="ZhiChanTeam"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_CustomerProject_Code" source="B_CustomerProject_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Fk_code$B_Case_code" source="B_Case_code"/>
     </input>
     <joinAttribute name="JOIN$P_Fk_code$B_Case_code"/>
@@ -969,6 +1057,9 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="CC_LEIXING" aggregationType="sum"/>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
+    
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="CC_BusinessUnit"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_ZCLASC" emptyUnionBehavior="NO_ROW">
@@ -983,6 +1074,9 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
     <input node="J_ZCPTSC" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
@@ -996,6 +1090,9 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="SDQR_factEndTime"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
     <input node="J_ZCTSSC" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
@@ -1009,6 +1106,9 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_form_factEndTime"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
     <input node="J_ZCZXLASC" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
@@ -1022,6 +1122,9 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
     <input node="J_ZCKZSC" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
@@ -1035,6 +1138,9 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
     <input node="J_ZCESSC" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
@@ -1048,6 +1154,9 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_form_factEndTime"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_ZCSCALL" cardinality="CN_N" joinType="leftOuter">
@@ -1064,6 +1173,9 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <viewAttribute id="CC_SHICHANG" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_factEndTime" aggregationType="min"/>
       <viewAttribute id="StandardNum" aggregationType="sum"/>
+    
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="CC_BusinessUnit"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="U_ZCSCALL">
@@ -1078,25 +1190,17 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="CC_LEIXING"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_SHICHANG" source="CC_SHICHANG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_factEndTime" source="P_Business_flow_factEndTime"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
     </input>
-    <input node="J_BZSC">
+    <input node="R_BZSC">
       <mapping xsi:type="Calculation:AttributeMapping" target="StandardNum" source="StandardNum"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_courtFirst" source="C_Court_Code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_LEIXING" source="ParametersId"/>
     </input>
     <joinAttribute name="B_Case_courtFirst"/>
     <joinAttribute name="CC_LEIXING"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="J_BZSC" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="StandardNum"/>
-      <viewAttribute id="C_Court_Code"/>
-      <viewAttribute id="ParametersId"/>
-      <viewAttribute id="Isdelete"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_C_CourtStandard"/>
-    <filter>&quot;Isdelete&quot;=0</filter>
   </calculationView>
 </calculationViews>
 <logicalModel id="J_ZCSCALL">
@@ -1144,6 +1248,15 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <descriptions defaultDescription="时间维度"/>
       <keyMapping columnObjectName="J_ZCSCALL" columnName="P_Business_flow_factEndTime"/>
     </attribute>
+  
+    <attribute id="B_Case_HangYe" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_HangYe"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="B_Case_HangYe"/>
+    </attribute>
+    <attribute id="CC_BusinessUnit" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_BusinessUnit"/>
+      <keyMapping columnObjectName="J_ZCSCALL" columnName="CC_BusinessUnit"/>
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
@@ -1163,59 +1276,51 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="1176" y="112"/>
+      <upperLeftCorner x="1609" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="R_PAITING_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="360" y="1354"/>
+    <shape expanded="true" modelObjectName="R_ESPT_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1172" y="1026"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_PBFFPT_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="360" y="1496"/>
-      <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="R_SDQR_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="628" y="1034"/>
+    <shape expanded="true" modelObjectName="J_ESPT_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1192" y="1161"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="J_SDQR_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="544" y="1176"/>
-      <rectangleSize height="30" width="160"/>
+    <shape modelObjectName="P_ESPT_ZC" modelObjectNameSpace="J_ESPT_ZC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="132"/>
+    </shape>
+    <shape modelObjectName="J_ES_ALL" modelObjectNameSpace="J_ESPT_ZC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="265"/>
     </shape>
   
-    <shape modelObjectName="R_PAITING_ZC" modelObjectNameSpace="J_SDQR_ZC" modelObjectType="JoinNodeInput">
+    <shape expanded="true" modelObjectName="R_ESPJSBP_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1382" y="1026"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_ESPJSBP_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1559" y="1161"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ESPJSBP_ZC" modelObjectNameSpace="J_ESPJSBP_ZC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="250"/>
     </shape>
-    <shape modelObjectName="P_PBFFSDQR_ZC" modelObjectNameSpace="J_SDQR_ZC" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="268"/>
-    </shape>
-    <shape expanded="true" modelObjectName="R_PJSBP_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1543" y="1034"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_PJSBP_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1464" y="1176"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="J_FF_ALL" modelObjectNameSpace="J_PJSBP_ZC" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="250"/>
-    </shape>
-    <shape modelObjectName="P_PJSBP_ZC" modelObjectNameSpace="J_PJSBP_ZC" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="J_ES_ALL" modelObjectNameSpace="J_ESPJSBP_ZC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="250"/>
     </shape>
   
     <shape expanded="true" modelObjectName="R_PT_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1755" y="1034"/>
+      <upperLeftCorner x="516" y="1026"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="J_PT_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1749" y="1176"/>
+      <upperLeftCorner x="509" y="1161"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_FF_ALL" modelObjectNameSpace="J_PT_ZC" modelObjectType="JoinNodeInput">
@@ -1227,61 +1332,62 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="250"/>
     </shape>
+    <shape expanded="true" modelObjectName="R_PJSBP_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="1026"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_PJSBP_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="272" y="1161"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_FF_ALL" modelObjectNameSpace="J_PJSBP_ZC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="P_PJSBP_ZC" modelObjectNameSpace="J_PJSBP_ZC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="R_SDQR_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="752" y="1026"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_SDQR_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="772" y="1161"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
   
-    <shape expanded="true" modelObjectName="R_ESPJSBP_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1331" y="1034"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_ESPJSBP_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1201" y="1176"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="P_ESPJSBP_ZC" modelObjectNameSpace="J_ESPJSBP_ZC" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="R_PAITING_ZC" modelObjectNameSpace="J_SDQR_ZC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="250"/>
     </shape>
-    <shape modelObjectName="J_ES_ALL" modelObjectNameSpace="J_ESPJSBP_ZC" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="250"/>
-    </shape>
-    <shape expanded="true" modelObjectName="R_ESPT_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1119" y="1034"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_ESPT_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="964" y="1176"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="P_ESPT_ZC" modelObjectNameSpace="J_ESPT_ZC" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="132"/>
-    </shape>
-    <shape modelObjectName="J_ES_ALL" modelObjectNameSpace="J_ESPT_ZC" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="265"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_ESPT_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="808" y="1336"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_ES_ALL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1018" y="1336"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="P_PBFES_ALL" modelObjectNameSpace="J_ES_ALL" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="211"/>
-    </shape>
-    <shape modelObjectName="P_PBFFES_ALL" modelObjectNameSpace="J_ES_ALL" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="P_PBFFSDQR_ZC" modelObjectNameSpace="J_SDQR_ZC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="268"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_ESPJSBP_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1228" y="1336"/>
+    <shape expanded="true" modelObjectName="R_PAITING_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="955" y="1339"/>
       <rectangleSize height="30" width="160"/>
     </shape>
+    <shape expanded="true" modelObjectName="P_PBFFPT_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="955" y="1481"/>
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="R_BZSC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1536" y="434"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_BZSC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1879" y="636"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_PBFFSDQR_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="745" y="1321"/>
+      <rectangleSize width="160"/>
+    </shape>
     <shape expanded="true" modelObjectName="J_FF_ALL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1648" y="1336"/>
+      <upperLeftCorner x="325" y="1321"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_PBFTS_ALL" modelObjectNameSpace="J_FF_ALL" modelObjectType="JoinNodeInput">
@@ -1292,50 +1398,66 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="268"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_PT_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1858" y="1336"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
     <shape expanded="true" modelObjectName="P_PJSBP_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1438" y="1336"/>
+      <upperLeftCorner x="91" y="1321"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_PBFFSDQR_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="570" y="1336"/>
-      <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_PBFTS_ALL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1527" y="1496"/>
+    <shape expanded="true" modelObjectName="P_PT_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="535" y="1321"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_PBFFTS_ALL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1737" y="1496"/>
+    <shape expanded="true" modelObjectName="P_ESPJSBP_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1585" y="1321"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_ES_ALL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1375" y="1321"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_PBFES_ALL" modelObjectNameSpace="J_ES_ALL" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="211"/>
+    </shape>
+    <shape modelObjectName="P_PBFFES_ALL" modelObjectNameSpace="J_ES_ALL" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="268"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ESPT_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1165" y="1321"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFES_ALL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1107" y="1496"/>
+      <upperLeftCorner x="1487" y="1481"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFFES_ALL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="897" y="1496"/>
+      <upperLeftCorner x="1277" y="1481"/>
     
       <rectangleSize width="160"/>
     </shape>
+    <shape expanded="true" modelObjectName="P_PBFTS_ALL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="229" y="1481"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_PBFFTS_ALL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="439" y="1481"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
   
     <shape expanded="true" modelObjectName="P_PBFLA_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="418" y="1016"/>
+      <upperLeftCorner x="1592" y="1016"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFFZHQS_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="301" y="1176"/>
+      <upperLeftCorner x="2005" y="1321"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_ZHQS_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="91" y="1176"/>
+      <upperLeftCorner x="1795" y="1321"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZHQS_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="118" y="1016"/>
+      <upperLeftCorner x="1822" y="1161"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_ZHQS_ZC" modelObjectNameSpace="J_ZHQS_ZC" modelObjectType="JoinNodeInput">
@@ -1347,23 +1469,28 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="235"/>
     </shape>
     <shape expanded="true" modelObjectName="J_LASC_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="376" y="836"/>
+      <upperLeftCorner x="1534" y="836"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_PBFLA_ZC" modelObjectNameSpace="J_LASC_ZC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="240"/>
     </shape>
-    <shape modelObjectName="J_ZHQS_ZC" modelObjectNameSpace="J_LASC_ZC" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="250"/>
+    <shape modelObjectName="A_ZHQS_ZC" modelObjectNameSpace="J_LASC_ZC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="225"/>
     </shape>
+    <shape expanded="true" modelObjectName="A_ZHQS_ZC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1802" y="1026"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
     <shape expanded="true" modelObjectName="P_PBFPT_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="839" y="1016"/>
+      <upperLeftCorner x="962" y="1016"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_PTSC_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="804" y="836"/>
+      <upperLeftCorner x="904" y="836"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="R_SDQR_ZC" modelObjectNameSpace="J_PTSC_ZC" modelObjectType="JoinNodeInput">
@@ -1375,7 +1502,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="240"/>
     </shape>
     <shape expanded="true" modelObjectName="J_TSSC_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1648" y="836"/>
+      <upperLeftCorner x="328" y="836"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="R_PJSBP_ZC" modelObjectNameSpace="J_TSSC_ZC" modelObjectType="JoinNodeInput">
@@ -1387,15 +1514,15 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="265"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFZXLA_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1224" y="836"/>
+      <upperLeftCorner x="1744" y="836"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFKZSC_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="594" y="836"/>
+      <upperLeftCorner x="694" y="836"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ESSC_ZC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1434" y="836"/>
+      <upperLeftCorner x="1324" y="836"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
@@ -1408,11 +1535,11 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="P_CASE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1014" y="836"/>
+      <upperLeftCorner x="1114" y="836"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZCLASC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="403" y="636"/>
+      <upperLeftCorner x="1424" y="636"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_LASC_ZC" modelObjectNameSpace="J_ZCLASC" modelObjectType="JoinNodeInput">
@@ -1424,7 +1551,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="213"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZCPTSC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="971" y="636"/>
+      <upperLeftCorner x="1004" y="636"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_PTSC_ZC" modelObjectNameSpace="J_ZCPTSC" modelObjectType="JoinNodeInput">
@@ -1437,7 +1564,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="213"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZCTSSC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1601" y="636"/>
+      <upperLeftCorner x="355" y="636"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
@@ -1450,7 +1577,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZCZXLASC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1181" y="636"/>
+      <upperLeftCorner x="1634" y="636"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_CASE" modelObjectNameSpace="J_ZCZXLASC" modelObjectType="JoinNodeInput">
@@ -1462,7 +1589,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZCKZSC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="761" y="636"/>
+      <upperLeftCorner x="794" y="636"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_CASE" modelObjectNameSpace="J_ZCKZSC" modelObjectType="JoinNodeInput">
@@ -1474,7 +1601,7 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="240"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ZCESSC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1391" y="636"/>
+      <upperLeftCorner x="1214" y="636"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_ESSC_ZC" modelObjectNameSpace="J_ZCESSC" modelObjectType="JoinNodeInput">
@@ -1486,26 +1613,21 @@ IFNULL(&quot;KaiTingShiJian1&quot;, '00:00') || ':00')</formula>
       <rectangleSize width="213"/>
     </shape>
     <shape expanded="true" modelObjectName="U_ZCSCALL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1356" y="376"/>
+      <upperLeftCorner x="1203" y="396"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="J_ZCSCALL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1176" y="217"/>
+      <upperLeftCorner x="1509" y="237"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="U_ZCSCALL" modelObjectNameSpace="J_ZCSCALL" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="159"/>
     </shape>
-    <shape modelObjectName="J_BZSC" modelObjectNameSpace="J_ZCSCALL" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="R_BZSC" modelObjectNameSpace="J_ZCSCALL" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="250"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_BZSC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="997" y="376"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>

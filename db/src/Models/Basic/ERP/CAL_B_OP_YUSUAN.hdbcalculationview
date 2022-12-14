@@ -232,7 +232,7 @@ END</formula>
         <formula>'01'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_ZhiChanZuJieDanJiHua">
@@ -795,7 +795,7 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJiHua" source="M6"/>
     </input>
   </calculationView>
-  <calculationView xsi:type="Calculation:UnionView" id="B03_XiaoShouJiHua" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:UnionView" id="B03_XiaoShouJiHua">
     <viewAttributes>
       <viewAttribute id="KeHuSuoShuFenGongSi"/>
       <viewAttribute id="Customer_name"/>
@@ -824,7 +824,7 @@ END</formula>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_XiaoShouJihua" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;XiaoShouYuSuan&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;XiaoShouYuSuan&quot;,'0'))</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
         <formula>'B03'</formula>
@@ -1141,9 +1141,7 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(KeHuSuoZai)" source="ZhiChanZu(KeHuSuoZai)"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ZhiChanZu(AnJianSuoShu)" source="ZhiChanZu(AnJianSuoShu)"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
-    </input>
-    <filter>&quot;XiaoShouYuSuan&quot; is not null and &quot;XiaoShouYuSuan&quot; &lt;&gt; '0'</filter>
-  </calculationView>
+    </input></calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="B03_XiaoShouJiHua07">
     <viewAttributes>
       <viewAttribute id="KeHuSuoShuFenGongSi"/>
@@ -1367,7 +1365,8 @@ END</formula>
       <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
       <viewAttribute id="BusinessUnit"/>
     
-      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/></viewAttributes>
+      <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_name"/></viewAttributes>
     <calculatedViewAttributes/>
     <input node="B02_JieDanJiHua" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
@@ -1378,7 +1377,8 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="YusuanJieDanJinE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BusinessUnit" source="BusinessUnit"/>
     
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoshouYuSuan" null="true" value=""/></input>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoshouYuSuan" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Organization_name" null="true" value=""/></input>
     <input node="B02_XiaoShouJiHua" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_Name"/>
@@ -1388,7 +1388,8 @@ END</formula>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuSuan" null="true"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BusinessUnit" source="BusinessUnit"/>
     
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="YuSuanXiaoshouJinE"/></input>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="YuSuanXiaoshouJinE"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Organization_name" null="true" value=""/></input>
     <input node="addDim_B03_YuSuan_3" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoShouYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BusinessUnit" source="BusinessUnit"/>
@@ -1398,7 +1399,8 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Code" source="C_Region_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="C_Organization_name_upward3"/>
-    </input>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/></input>
     <input node="B01_YuSuan_2" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Name" source="C_Region_name"/>
@@ -1407,7 +1409,8 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BusinessUnit" source="BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoShouYuSuan"/></input>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoShouYuSuan"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Organization_name" null="true" value=""/></input>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="B03_JieDanJinE" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -1800,7 +1803,7 @@ END</formula>
         <formula>'02'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="B03_JieDanJiHua02$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
@@ -1878,7 +1881,7 @@ END</formula>
         <formula>'04'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="B03_JieDanJiHua04$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
@@ -1917,7 +1920,7 @@ END</formula>
         <formula>'06'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="B03_JieDanJiHua06$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
@@ -1956,7 +1959,7 @@ END</formula>
         <formula>'05'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="B03_JieDanJiHua05$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
@@ -2073,7 +2076,7 @@ END</formula>
         <formula>'09'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="B03_JieDanJiHua09$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
@@ -2112,7 +2115,7 @@ END</formula>
         <formula>'10'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="B03_JieDanJiHua10$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
@@ -2151,7 +2154,7 @@ END</formula>
         <formula>'11'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="B03_JieDanJiHua11$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
@@ -2190,7 +2193,7 @@ END</formula>
         <formula>'12'</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_JieDanYuSuan" datatype="DECIMAL" length="18" expressionLanguage="SQL">
-        <formula>to_decimal(&quot;JieDanJiHua&quot;)</formula>
+        <formula>to_decimal(ifnull(&quot;JieDanJiHua&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="B03_JieDanJiHua12$$$$kz.DI.ERP::T_ZhiChanZuJieDanJiHua$$">
@@ -2300,37 +2303,43 @@ END</formula>
     <input node="kz.DI.ERP::T_C_Organization"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_B03_YuSuan_1" cardinality="CN_N" joinType="inner" multiJoinNode="addDim_B03_YuSuan" multiJoinCentralTable="B03_YuSuan" multiJoinOrder="Outside In">
+    <descriptions>
+      <comment text="因各事业线的预算颗粒度(维度)不一致，因此在Basic层连接维度表"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="C_Region_code"/>
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_Organization_code"/>
-      <viewAttribute hidden="true" id="JOIN$C_Organization_Area$C_Region_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="Organization">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_code" source="C_Organization_Area"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$C_Organization_Area$C_Region_code" source="C_Organization_Area"/>
     </input>
     <input node="T_C_Region">
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_code" source="C_Region_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$C_Organization_Area$C_Region_code" source="C_Region_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_code" source="C_Region_code"/>
     </input>
-    <joinAttribute name="JOIN$C_Organization_Area$C_Region_code"/>
+    <joinAttribute name="C_Region_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_B03_YuSuan_2" cardinality="CN_N" joinType="inner" multiJoinNode="addDim_B03_YuSuan" multiJoinCentralTable="B03_YuSuan" multiJoinOrder="Outside In">
+    <descriptions>
+      <comment text="因各事业线的预算颗粒度(维度)不一致，因此在Basic层连接维度表"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="C_Region_code"/>
       <viewAttribute id="C_Region_name"/>
       <viewAttribute id="C_Organization_name_upward3"/>
       <viewAttribute id="C_Organization_name"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
       <viewAttribute id="C_Organization_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="CAL_DIM_ORG">
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
     </input>
     <input node="addDim_B03_YuSuan_1">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_code" source="C_Region_code"/>
@@ -2340,6 +2349,9 @@ END</formula>
     <joinAttribute name="C_Organization_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="addDim_B03_YuSuan_3" cardinality="CN_N" joinType="leftOuter" multiJoinNode="addDim_B03_YuSuan" multiJoinCentralTable="B03_YuSuan" multiJoinOrder="Outside In">
+    <descriptions>
+      <comment text="因各事业线的预算颗粒度(维度)不一致，因此在Basic层连接维度表"/>
+    </descriptions>
     <viewAttributes>
       <viewAttribute id="XiaoShouYuSuan" aggregationType="sum"/>
       <viewAttribute id="BusinessUnit"/>
@@ -2351,7 +2363,7 @@ END</formula>
       <viewAttribute id="C_Organization_name_upward3"/>
       <viewAttribute id="C_Organization_name"/>
       <viewAttribute id="C_Organization_code"/>
-      <viewAttribute hidden="true" id="JOIN$ZhiChanZu(AnJianSuoShu)$C_Organization_code"/>
+      <viewAttribute id="C_Organization_name_upward2"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="B03_YuSuan">
@@ -2360,17 +2372,17 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="Year" source="Year"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ZhiChanZu(AnJianSuoShu)$C_Organization_code" source="ZhiChanZu(AnJianSuoShu)"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="ZhiChanZu(AnJianSuoShu)"/>
     </input>
     <input node="addDim_B03_YuSuan_2">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_code" source="C_Region_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward3" source="C_Organization_name_upward3"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name_upward2" source="C_Organization_name_upward2"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ZhiChanZu(AnJianSuoShu)$C_Organization_code" source="C_Organization_code"/>
     </input>
-    <joinAttribute name="JOIN$ZhiChanZu(AnJianSuoShu)$C_Organization_code"/>
+    <joinAttribute name="C_Organization_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="B01_YuSuan_1" cardinality="CN_N" joinType="inner" multiJoinNode="B01_YuSuan" multiJoinCentralTable="B01_Yusuan" multiJoinOrder="Outside In">
     <viewAttributes>
@@ -2444,6 +2456,13 @@ END</formula>
     <attribute id="BusinessUnit" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="BusinessUnit"/>
       <keyMapping columnObjectName="YuSuanJinE" columnName="BusinessUnit"/>
+    </attribute>
+  
+    <attribute id="C_Organization_name" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="C_Organization_name"/>
+  
+      <keyMapping columnObjectName="YuSuanJinE" columnName="C_Organization_name"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -2689,8 +2708,8 @@ END</formula>
       <rectangleSize width="220"/>
     </shape>
     <shape modelObjectName="Organization" modelObjectNameSpace="addDim_B03_YuSuan" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_B03_YuSuan">
-      <upperLeftCorner x="332" y="30"/>
-      <rectangleSize width="250"/>
+      <upperLeftCorner x="311" y="189"/>
+      <rectangleSize width="196"/>
     </shape>
     <shape modelObjectName="T_C_Region" modelObjectNameSpace="addDim_B03_YuSuan" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_B03_YuSuan">
       <upperLeftCorner x="632" y="30"/>
