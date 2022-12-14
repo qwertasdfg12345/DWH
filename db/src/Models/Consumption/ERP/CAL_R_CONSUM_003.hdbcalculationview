@@ -148,7 +148,18 @@
     
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+<<<<<<< HEAD
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
+    </viewAttributes>
+=======
       <viewAttribute id="JieDanYuSuan" aggregationType="sum"/></viewAttributes>
+>>>>>>> f35812b006619b9259675af9f9dc7ce9639e3f9c
     <calculatedViewAttributes/>
     <restrictedViewAttributes/>
     <input node="MP_DaCheng"/>
@@ -165,15 +176,16 @@
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
       <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
       <viewAttribute id="C_Region_name"/>
-      <viewAttribute id="XiaoShouLowerLimitValue" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouUpperLimitValue" aggregationType="sum"/>
-      <viewAttribute id="JieDanLowerLimitValue" aggregationType="sum"/>
-      <viewAttribute id="JieDanUpperLimitValue" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouLowerLimitValue_1" aggregationType="sum"/>
-      <viewAttribute id="XiaoShouUpperLimitValue_1" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
       <viewAttribute id="C_Region_Dq"/>
     
       <viewAttribute id="CourtShuXing"/>
+    
+      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="CAL_R_CONSUM_001" emptyUnionBehavior="NO_ROW">
@@ -187,15 +199,16 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuSuan" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoshouYuSuan" null="true" value=""/>
     
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanLowerLimitValue" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanUpperLimitValue" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue_1" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JianCaiXiaoShouLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JianCaiXiaoShouUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JianCaiJieDanLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JianCaiJieDanUpperLimitValue" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Dq" null="true" value=""/>
     
       <mapping xsi:type="Calculation:AttributeMapping" target="CourtShuXing" source="CourtShuXing"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouYuCe" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuCe" null="true" value=""/>
     </input>
     <input node="CAL_B_OP_YUSUAN" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="Year"/>
@@ -208,35 +221,37 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
     
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanLowerLimitValue" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanUpperLimitValue" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouLowerLimitValue_1" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouUpperLimitValue_1" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JianCaiXiaoShouLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JianCaiXiaoShouUpperLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JianCaiJieDanLowerLimitValue" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JianCaiJieDanUpperLimitValue" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="C_Region_Dq" null="true" value=""/>
     
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CourtShuXing" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouYuCe" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuCe" null="true" value=""/>
     </input>
     <input node="CAL_B_OP_YUCE" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="CC_Year"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="CC_Month"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoShouForecastMoney"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoshouYuSuan" null="true"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="CompanyName"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanJinE" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="XiaoShouJinE" null="true" value=""/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanForecastMoney"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="JieDanYuSuan" null="true"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouLowerLimitValue" source="XiaoShouLowerLimitValue"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouUpperLimitValue" source="XiaoShouUpperLimitValue"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanLowerLimitValue" source="JieDanLowerLimitValue"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanUpperLimitValue" source="JieDanUpperLimitValue"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouLowerLimitValue_1" source="XiaoShouLowerLimitValue"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouUpperLimitValue_1" source="XiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouLowerLimitValue" source="XiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouUpperLimitValue" source="XiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanLowerLimitValue" source="JieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanUpperLimitValue" source="JieDanUpperLimitValue"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Dq" source="C_Region_Dq"/>
     
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CourtShuXing" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuCe" source="XiaoShouForecastMoney"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuCe" source="JieDanForecastMoney"/>
     </input>
     <filter>&quot;YEAR&quot; &lt;&gt; '' and &quot;YEAR&quot; is not null</filter>
   </calculationView>
@@ -302,6 +317,12 @@
       <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
       <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
       <viewAttribute id="XiaoShouYuSuan_YTD" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="AGG_DaCheng">
@@ -313,6 +334,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Company_name" source="C_Company_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouLowerLimitValue" source="JianCaiXiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouUpperLimitValue" source="JianCaiXiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanLowerLimitValue" source="JianCaiJieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanUpperLimitValue" source="JianCaiJieDanUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuCe" source="XiaoShouYuCe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuCe" source="JieDanYuCe"/>
     </input>
     <input node="WF_XiaoShouYuSuanYTD">
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuSuan_YTD" source="XiaoShouYuSuan_YTD"/>
@@ -338,6 +365,12 @@
       <viewAttribute id="XiaoshouYuSuan" aggregationType="sum"/>
       <viewAttribute id="XiaoShouYuSuan_YTD" aggregationType="sum"/>
       <viewAttribute id="JieDanYuSuan_YTD" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_DaCheng_1">
@@ -350,6 +383,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan" source="JieDanYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuSuan_YTD" source="XiaoShouYuSuan_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouLowerLimitValue" source="JianCaiXiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouUpperLimitValue" source="JianCaiXiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanLowerLimitValue" source="JianCaiJieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanUpperLimitValue" source="JianCaiJieDanUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuCe" source="XiaoShouYuCe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuCe" source="JieDanYuCe"/>
     </input>
     <input node="WF_JieDanYuSuanYTD">
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan_YTD" source="JieDanYuSuan_YTD"/>
@@ -376,6 +415,12 @@
       <viewAttribute id="XiaoShouYuSuan_YTD" aggregationType="sum"/>
       <viewAttribute id="JieDanYuSuan_YTD" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_YTD" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_DaCheng_2">
@@ -389,6 +434,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoshouYuSuan" source="XiaoshouYuSuan"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuSuan_YTD" source="XiaoShouYuSuan_YTD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan_YTD" source="JieDanYuSuan_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouLowerLimitValue" source="JianCaiXiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouUpperLimitValue" source="JianCaiXiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanLowerLimitValue" source="JianCaiJieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanUpperLimitValue" source="JianCaiJieDanUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuCe" source="XiaoShouYuCe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuCe" source="JieDanYuCe"/>
     </input>
     <input node="WF_XiaoShouYTD">
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_YTD" source="XiaoShouJinE_YTD"/>
@@ -416,6 +467,12 @@
       <viewAttribute id="JieDanYuSuan_YTD" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE_YTD" aggregationType="sum"/>
       <viewAttribute id="JieDanJinE_YTD" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanLowerLimitValue" aggregationType="sum"/>
+      <viewAttribute id="JianCaiJieDanUpperLimitValue" aggregationType="sum"/>
+      <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
+      <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_DaCheng_3">
@@ -430,6 +487,12 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuSuan_YTD" source="XiaoShouYuSuan_YTD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuSuan_YTD" source="JieDanYuSuan_YTD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouJinE_YTD" source="XiaoShouJinE_YTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouLowerLimitValue" source="JianCaiXiaoShouLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiXiaoShouUpperLimitValue" source="JianCaiXiaoShouUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanLowerLimitValue" source="JianCaiJieDanLowerLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JianCaiJieDanUpperLimitValue" source="JianCaiJieDanUpperLimitValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XiaoShouYuCe" source="XiaoShouYuCe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanYuCe" source="JieDanYuCe"/>
     </input>
     <input node="WF_JieDanYTD">
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE_YTD" source="JieDanJinE_YTD"/>
@@ -480,7 +543,7 @@
 	 ELSE &quot;MONTH&quot;||'月'
  END</formula>
       </keyCalculation>
-    </calculatedAttribute>
+      </calculatedAttribute>
     <calculatedAttribute id="CC_BusinessUnitName" order="5" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="事业线名称"/>
       <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="13">
@@ -491,7 +554,7 @@
 	 ELSE '其他'
  END</formula>
       </keyCalculation>
-    </calculatedAttribute></calculatedAttributes>
+      </calculatedAttribute></calculatedAttributes>
   <baseMeasures>
     <measure id="JieDanJinE" order="7" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="接单金额"/>
@@ -526,6 +589,31 @@
       <descriptions defaultDescription="累计销售预算"/>
       <measureMapping columnObjectName="J_DaCheng_4" columnName="XiaoShouYuSuan_YTD"/>
     </measure>
+  
+    <measure id="JianCaiXiaoShouLowerLimitValue" order="23" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="建材销售预测下限"/>
+      <measureMapping columnObjectName="J_DaCheng_4" columnName="JianCaiXiaoShouLowerLimitValue"/>
+    </measure>
+    <measure id="JianCaiXiaoShouUpperLimitValue" order="24" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="建材销售预测上限"/>
+      <measureMapping columnObjectName="J_DaCheng_4" columnName="JianCaiXiaoShouUpperLimitValue"/>
+    </measure>
+    <measure id="JianCaiJieDanLowerLimitValue" order="25" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="建材接单预测下限"/>
+      <measureMapping columnObjectName="J_DaCheng_4" columnName="JianCaiJieDanLowerLimitValue"/>
+    </measure>
+    <measure id="JianCaiJieDanUpperLimitValue" order="26" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="建材接单预测下限"/>
+      <measureMapping columnObjectName="J_DaCheng_4" columnName="JianCaiJieDanUpperLimitValue"/>
+    </measure>
+    <measure id="XiaoShouYuCe" order="27" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="销售预测"/>
+      <measureMapping columnObjectName="J_DaCheng_4" columnName="XiaoShouYuCe"/>
+    </measure>
+    <measure id="JieDanYuCe" order="28" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="接单预测"/>
+      <measureMapping columnObjectName="J_DaCheng_4" columnName="JieDanYuCe"/>
+    </measure>
   </baseMeasures>
   <calculatedMeasures>
     <measure id="CC_JieDanMPR" order="15" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
@@ -537,6 +625,7 @@
  END
 </formula>
     
+      
       </measure>
     <measure id="CC_JieDanMPR_YTD" order="16" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计接单预实比"/>
@@ -547,6 +636,7 @@
  END
 </formula>
     
+      
       </measure>
     <measure id="CC_JieDanMPD" order="17" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="接单预实差"/>
@@ -557,6 +647,7 @@
  END
 </formula>
     
+      
       </measure>
     <measure id="CC_JieDanMPD_YTD" order="18" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计接单预实差"/>
@@ -567,6 +658,7 @@
  END
 </formula>
     
+      
       </measure>
     <measure id="CC_XiaoShouMPR" order="19" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="销售预实比"/>
@@ -577,6 +669,7 @@
  END
 </formula>
     
+      
       </measure>
     <measure id="CC_XiaoShouMPR_YTD" order="20" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计销售预实比"/>
@@ -587,6 +680,7 @@
  END
 </formula>
     
+      
       </measure>
     <measure id="CC_XiaoShouMPD" order="21" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="销售预实差"/>
@@ -597,6 +691,7 @@
  END
 </formula>
     
+      
       </measure>
     <measure id="CC_XiaoShouMPD_YTD" order="22" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="22" scale="4" expressionLanguage="SQL">
       <descriptions defaultDescription="累计销售预实差"/>
@@ -607,6 +702,7 @@
  END
 </formula>
     
+      
       </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
