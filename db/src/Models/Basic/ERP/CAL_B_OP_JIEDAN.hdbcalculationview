@@ -161,6 +161,10 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
         <formula>'B01'</formula>
     
       </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="CC_YuanBiaoDan" datatype="NVARCHAR" length="36" expressionLanguage="SQL">
+        <formula>upper(&quot;YuanBiaoChancode&quot;)</formula>
+      </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_A_CaseForm_AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng"/>
   </calculationView>
@@ -253,7 +257,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="XiuGaiHouKeHuZu"/>
       <viewAttribute id="CC_TiaoZhengJinE-XiugaiHou" aggregationType="sum"/>
-      <viewAttribute hidden="true" id="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code"/>
+      <viewAttribute hidden="true" id="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-TiaozhengHou">
@@ -261,15 +265,15 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiuGaiHouKeHuZu" source="XiuGaiHouKeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TiaoZhengJinE-XiugaiHou" source="CC_TiaoZhengJinE-XiugaiHou"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code" source="YuanBiaoChancode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code" source="CC_YuanBiaoDan"/>
     </input>
   
     <input node="BanAnJiHuaShu">
   
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
   
     </input>
-    <joinAttribute name="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code"/>
+    <joinAttribute name="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="getChangeKeyInfo" cardinality="CN_N" joinType="inner">
     <viewAttributes>
@@ -296,13 +300,13 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     </input>
     <joinAttribute name="P_Business_flow_form_code"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="ShouYiKeHuBa-YuanKehuBa" cardinality="CN_N" joinType="inner">
+  <calculationView xsi:type="Calculation:JoinView" id="ShouYiKeHuBa-YuanKehuBa" joinType="inner">
     <viewAttributes>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="YuanKeHuZu"/>
       <viewAttribute id="CC_TiaoZhengJinE-YuanKehuBa" aggregationType="sum"/>
-      <viewAttribute hidden="true" id="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code"/>
+      <viewAttribute hidden="true" id="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-YuanKehuBa">
@@ -310,12 +314,12 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TiaoZhengJinE-YuanKehuBa" source="CC_TiaoZhengJinE-YuanKehuBa"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code" source="YuanBiaoChancode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code" source="CC_YuanBiaoDan"/>
     </input>
     <input node="BanAnJiHuaShu">
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
     </input>
-    <joinAttribute name="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code"/>
+    <joinAttribute name="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-YuanKehuBa">
     <viewAttributes>
@@ -325,7 +329,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <viewAttribute id="YuanBiaoChancode"/>
       <viewAttribute id="AnJianZhunBeiJieDuanShouYiJiYuZhengJu"/></viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_TiaoZhengJinE-YuanKehuBa" datatype="DECIMAL" length="18" expressionLanguage="SQL">
+      <calculatedViewAttribute id="CC_TiaoZhengJinE-YuanKehuBa" datatype="DECIMAL" length="18" expressionLanguage="SQL" scale="2">
         <formula>- to_decimal(&quot;AnJianZhunBeiJieDuanShouYiJiYuZhengJu&quot;)</formula>
       </calculatedViewAttribute>
     
@@ -333,6 +337,10 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     
         <formula>'B01'</formula>
     
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="CC_YuanBiaoDan" datatype="NVARCHAR" length="36" expressionLanguage="SQL">
+        <formula>UPPER(&quot;YuanBiaoChancode&quot;)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-YuanKehuBa$$$$kz.DI.ERP::T_A_CaseForm_AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng$$"/>
@@ -790,8 +798,8 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <viewAttribute id="B_Case_regionCode"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
@@ -854,9 +862,9 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <viewAttribute id="B_Case_regionCode"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="ChangDate" aggregationType="min"/>
-      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
@@ -997,7 +1005,9 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
   
     <attribute id="B_Case_nature" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_nature"/>
+  
       <keyMapping columnObjectName="JieDanJinE" columnName="B_Case_nature"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -1013,46 +1023,46 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="843" y="112"/>
+      <upperLeftCorner x="843.0074704999558" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="BusinessFlowForm" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="529" y="1051"/>
+      <upperLeftCorner x="529.4783387870667" y="1031.9999952316284"/>
       <rectangleSize height="30" width="249"/>
     </shape>
     <shape expanded="true" modelObjectName="Case" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="619" y="586"/>
+      <upperLeftCorner x="619.9210001747434" y="566.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="AnJianZhunBeiJieDuanShouYiBuChong" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="850" y="851"/>
+      <upperLeftCorner x="850.9209989826503" y="831.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="BanAnJiHuaShu" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1328" y="1051"/>
+      <upperLeftCorner x="1328.4783387870668" y="1031.9999952316284"/>
       <rectangleSize height="30" width="332"/>
     </shape>
     <shape expanded="true" modelObjectName="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-TiaozhengHou" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1118" y="1051"/>
+      <upperLeftCorner x="1118.4783387870661" y="1031.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ChangeKeyInfo" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2130" y="1051"/>
+      <upperLeftCorner x="2130.4783387870666" y="1031.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="LiAnXinXi" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1920" y="1051"/>
+      <upperLeftCorner x="1920.4783387870666" y="1031.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Jiancai-JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1053" y="586"/>
+      <upperLeftCorner x="1053.5876656493172" y="566.9999976158142"/>
       <rectangleSize height="30" width="262"/>
     </shape>
     <shape expanded="true" modelObjectName="ShouYiKeHuBa-TiaozhengHou" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1290" y="851"/>
+      <upperLeftCorner x="1290.8374444841547" y="831.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-TiaozhengHou" modelObjectNameSpace="ShouYiKeHuBa-TiaozhengHou" modelObjectType="JoinNodeInput">
@@ -1068,7 +1078,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
   
   
     <shape expanded="true" modelObjectName="getChangeKeyInfo" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1940" y="851"/>
+      <upperLeftCorner x="1940.3328184206098" y="831.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="ChangeKeyInfo" modelObjectNameSpace="getChangeKeyInfo" modelObjectType="JoinNodeInput">
@@ -1080,7 +1090,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <rectangleSize width="319"/>
     </shape>
     <shape expanded="true" modelObjectName="ShouYiKeHuBa-YuanKehuBa" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1520" y="851"/>
+      <upperLeftCorner x="1520.3328184206098" y="831.9999964237213"/>
       <rectangleSize width="160"/>
     </shape>
     <shape modelObjectName="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-YuanKehuBa" modelObjectNameSpace="ShouYiKeHuBa-YuanKehuBa" modelObjectType="JoinNodeInput">
@@ -1094,23 +1104,23 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
     </shape>
   
     <shape expanded="true" modelObjectName="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-YuanKehuBa" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1710" y="1051"/>
+      <upperLeftCorner x="1710.4783387870668" y="1031.9999952316284"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="false" modelObjectName="DaoKuanFenPei" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="512" y="1206"/>
+      <upperLeftCorner x="512.3557680469984" y="1186.9999940395355"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="TiaozhengHouHesuanBa" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="1206"/>
+      <upperLeftCorner x="302.3557680469984" y="1186.9999940395355"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="TiaozhengQianHesuanBa" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="1206"/>
+      <upperLeftCorner x="92.35576804699838" y="1186.9999940395355"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="getCourt" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1730" y="851"/>
+      <upperLeftCorner x="1730.3328184206096" y="831.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="LiAnXinXi" modelObjectNameSpace="getCourt" modelObjectType="JoinNodeInput">
@@ -1122,48 +1132,48 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <rectangleSize width="319"/>
     </shape>
     <shape expanded="true" modelObjectName="Business_Flow" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="828" y="1051"/>
+      <upperLeftCorner x="828.4783387870663" y="1031.9999952316284"/>
       <rectangleSize height="30" width="240"/>
     </shape>
     <shape expanded="true" modelObjectName="JieDanJinE-2" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="1051"/>
+      <upperLeftCorner x="302.3557680469984" y="1031.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="MingSheng-Case" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="1051"/>
+      <upperLeftCorner x="92.00000000000011" y="1031.9999952316284"/>
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="843" y="237"/>
+      <upperLeftCorner x="843.0074704999557" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ZSCQ_BanAnJiHuaShu" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2539" y="1206"/>
+      <upperLeftCorner x="2539.5416532084973" y="1186.9999940395355"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="DianZiDangGaiZhangQianShenHe" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2329" y="1206"/>
+      <upperLeftCorner x="2329.5416532084973" y="1186.9999940395355"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ZSCQ_wenshuzhizuo" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2119" y="1206"/>
+      <upperLeftCorner x="2119.5416532084973" y="1186.9999940395355"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="B_CaseSY" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2550" y="1051"/>
+      <upperLeftCorner x="2550.478338787066" y="1031.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ZSCQ_Case" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1365" y="586"/>
+      <upperLeftCorner x="1365.7052101892307" y="566.9999976158142"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ZSCQ_YuJiShouYi" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2340" y="1051"/>
+      <upperLeftCorner x="2340.4783387870666" y="1031.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ZSCQ_ShouYi" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2369" y="851"/>
+      <upperLeftCorner x="2369.137804337838" y="831.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="ZSCQ_YuJiShouYi" modelObjectNameSpace="ZSCQ_ShouYi" modelObjectType="JoinNodeInput">
@@ -1175,7 +1185,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <rectangleSize width="227"/>
     </shape>
     <shape expanded="true" modelObjectName="ZSCQ_ChangKeyInfo" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2150" y="851"/>
+      <upperLeftCorner x="2150.377804104188" y="831.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="ChangeKeyInfo" modelObjectNameSpace="ZSCQ_ChangKeyInfo" modelObjectType="JoinNodeInput">
@@ -1187,13 +1197,13 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <rectangleSize width="235"/>
     </shape>
     <shape expanded="true" modelObjectName="ZSCQ_JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1915" y="616"/>
+      <upperLeftCorner x="1915.0108838711717" y="596.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
   
     <shape expanded="true" modelObjectName="get_AnJianZhunBeiShouYi" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1060" y="855"/>
+      <upperLeftCorner x="1060.9209989826504" y="835.7499964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="Business_Flow" modelObjectNameSpace="get_AnJianZhunBeiShouYi" modelObjectType="JoinNodeInput" multiJoinViewNodeName="get_AnJianZhunBeiShouYi">
@@ -1210,7 +1220,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <rectangleSize width="265"/>
     </shape>
     <shape expanded="true" modelObjectName="MinSheng-JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="855"/>
+      <upperLeftCorner x="302.3557680469984" y="835.7499964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="MingSheng-Case" modelObjectNameSpace="MinSheng-JieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="MinSheng-JieDanJinE">
@@ -1228,7 +1238,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
   
   
     <shape expanded="true" modelObjectName="addDimToJieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="812" y="391"/>
+      <upperLeftCorner x="812.5074704999557" y="371.9999988079071"/>
       <rectangleSize height="30" width="221"/>
     </shape>
     <shape modelObjectName="Case" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
@@ -1244,7 +1254,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <rectangleSize width="265"/>
     </shape>
     <shape expanded="true" modelObjectName="addDim_ZSCQ_JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1365" y="391"/>
+      <upperLeftCorner x="1365.7052101892307" y="371.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="ZSCQ_Case" modelObjectNameSpace="addDim_ZSCQ_JieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDim_ZSCQ_JieDanJinE">
