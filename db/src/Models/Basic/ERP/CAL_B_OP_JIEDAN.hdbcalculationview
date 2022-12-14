@@ -161,6 +161,10 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
         <formula>'B01'</formula>
     
       </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="CC_YuanBiaoDan" datatype="NVARCHAR" length="36" expressionLanguage="SQL">
+        <formula>upper(&quot;YuanBiaoChancode&quot;)</formula>
+      </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_A_CaseForm_AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng"/>
   </calculationView>
@@ -253,7 +257,7 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <viewAttribute id="CC_BusinessUnit"/>
       <viewAttribute id="XiuGaiHouKeHuZu"/>
       <viewAttribute id="CC_TiaoZhengJinE-XiugaiHou" aggregationType="sum"/>
-      <viewAttribute hidden="true" id="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code"/>
+      <viewAttribute hidden="true" id="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-TiaozhengHou">
@@ -261,15 +265,15 @@ and &quot;P_Business_flow_form_isdelete&quot; = 0</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="XiuGaiHouKeHuZu" source="XiuGaiHouKeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_TiaoZhengJinE-XiugaiHou" source="CC_TiaoZhengJinE-XiugaiHou"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code" source="YuanBiaoChancode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code" source="CC_YuanBiaoDan"/>
     </input>
   
     <input node="BanAnJiHuaShu">
   
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
   
     </input>
-    <joinAttribute name="JOIN$YuanBiaoChancode$P_Business_Flow_Form_code"/>
+    <joinAttribute name="JOIN$CC_YuanBiaoDan$P_Business_Flow_Form_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="getChangeKeyInfo" cardinality="CN_N" joinType="inner">
     <viewAttributes>
