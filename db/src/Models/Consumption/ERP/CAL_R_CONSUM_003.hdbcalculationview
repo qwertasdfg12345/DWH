@@ -148,6 +148,7 @@
     
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="XiaoShouJinE" aggregationType="sum"/>
+<<<<<<< HEAD
       <viewAttribute id="JieDanYuSuan" aggregationType="sum"/>
       <viewAttribute id="JianCaiXiaoShouLowerLimitValue" aggregationType="sum"/>
       <viewAttribute id="JianCaiXiaoShouUpperLimitValue" aggregationType="sum"/>
@@ -156,6 +157,9 @@
       <viewAttribute id="XiaoShouYuCe" aggregationType="sum"/>
       <viewAttribute id="JieDanYuCe" aggregationType="sum"/>
     </viewAttributes>
+=======
+      <viewAttribute id="JieDanYuSuan" aggregationType="sum"/></viewAttributes>
+>>>>>>> f35812b006619b9259675af9f9dc7ce9639e3f9c
     <calculatedViewAttributes/>
     <restrictedViewAttributes/>
     <input node="MP_DaCheng"/>
