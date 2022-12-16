@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_REGION_BAZU" applyPrivilegeType="NONE" dataCategory="DIMENSION" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="DIM_REGION_BAZU.hdbcalculationview">
+  <comment text="分所(巴组所在)"/>
+</descriptions>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_C_Organization">
+    <resourceUri>kz.DI.ERP::T_C_Organization</resourceUri>
+  </DataSource>
+  <DataSource id="kz.Models.Basic.ERP::CAL_DIM_REGION">
+    <resourceUri>kz.Models.Basic.ERP::CAL_DIM_REGION</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ORG">
+    <viewAttributes>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="C_Organization_Area"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_C_Organization"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_REGION">
+    <viewAttributes>
+      <viewAttribute id="C_Region_code"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="CompanyStore"/>
+      <viewAttribute id="C_Region_Dq"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.Models.Basic.ERP::CAL_DIM_REGION"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_REGION" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="C_Region_code"/>
+      <viewAttribute id="C_Region_name"/>
+      <viewAttribute id="CompanyName"/>
+      <viewAttribute id="CompanyStore"/>
+      <viewAttribute id="C_Region_Dq"/>
+      <viewAttribute hidden="true" id="JOIN$C_Organization_Area$C_Region_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_ORG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$C_Organization_Area$C_Region_code" source="C_Organization_Area"/>
+    </input>
+    <input node="P_REGION">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_code" source="C_Region_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_name" source="C_Region_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyName" source="CompanyName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyStore" source="CompanyStore"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Region_Dq" source="C_Region_Dq"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$C_Organization_Area$C_Region_code" source="C_Region_code"/>
+    </input>
+    <joinAttribute name="JOIN$C_Organization_Area$C_Region_code"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="J_REGION">
+  <attributes>
+    <attribute id="C_Organization_code" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="组织机构编码"/>
+      <keyMapping columnObjectName="J_REGION" columnName="C_Organization_code"/>
+    </attribute>
+    <attribute id="C_Region_Dq" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="大区名称"/>
+      <keyMapping columnObjectName="J_REGION" columnName="C_Region_Dq"/>
+    </attribute>
+    <attribute id="C_Region_code" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所编码"/>
+      <keyMapping columnObjectName="J_REGION" columnName="C_Region_code"/>
+    </attribute>
+    <attribute id="C_Region_name" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分所(承担巴所在)"/>
+      <keyMapping columnObjectName="J_REGION" columnName="C_Region_name"/>
+    </attribute>
+    <attribute id="CompanyName" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分公司(承担巴所在)"/>
+      <keyMapping columnObjectName="J_REGION" columnName="CompanyName"/>
+    </attribute>
+    <attribute id="CompanyStore" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="分公司排序码"/>
+      <keyMapping columnObjectName="J_REGION" columnName="CompanyStore"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_ORG" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="21" y="348"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_REGION" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="187" y="348"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_REGION" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="101" y="200"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ORG" modelObjectNameSpace="J_REGION" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="192"/>
+    </shape>
+    <shape modelObjectName="P_REGION" modelObjectNameSpace="J_REGION" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="168"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

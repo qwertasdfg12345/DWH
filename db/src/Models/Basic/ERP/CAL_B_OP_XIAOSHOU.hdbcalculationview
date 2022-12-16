@@ -605,7 +605,7 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="表单编码" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="日期" source="ArchivedDate"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="事业线编码" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="行业编码" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="行业编码" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="客户编码" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="分所" null="true" value=""/>
     </input>
@@ -768,20 +768,25 @@
     </descriptions>
     <viewAttributes>
       <viewAttribute id="AMBCode"/>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="B_Case_nature"/>
+    
       <viewAttribute id="BillsMoney"/>
       <viewAttribute id="ArchivedDate"/>
     
-      <viewAttribute id="BillsName"/>
-      <viewAttribute id="CaseCode"/>
-      <viewAttribute id="B_Case_nature"/>
-    </viewAttributes>
+      <viewAttribute id="BillsName"/></viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_GDDATE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
         <formula>TO_NVARCHAR(&quot;ArchivedDate&quot;,'yyyymmdd')</formula>
       </calculatedViewAttribute>
     
       <calculatedViewAttribute id="JINETYP" datatype="NVARCHAR" length="24" expressionLanguage="SQL">
+    
         <formula>'其他收入'</formula>
+    
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="B_Case_HangYe" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>153</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_Bills_KZ"/>
@@ -1124,7 +1129,7 @@
       <keyCalculation datatype="DATE" expressionLanguage="SQL">
         <formula>TO_DATE(&quot;P_Business_flow_form_factEndTime&quot;)</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures>
     <measure id="XiaoShouJinE" order="15" aggregationType="sum" measureType="simple">
