@@ -13,8 +13,8 @@
   <DataSource id="kz.DI.ERP::T_Meike_Number_DetailChild">
     <resourceUri>kz.DI.ERP::T_Meike_Number_DetailChild</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_C_Organization">
-    <resourceUri>kz.DI.ERP::T_C_Organization</resourceUri>
+  <DataSource id="kz.DI.ERP::T_Dashboard_C_Organization">
+    <resourceUri>kz.DI.ERP::T_Dashboard_C_Organization</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP::T_DashboardDataSource">
     <resourceUri>kz.DI.ERP::T_DashboardDataSource</resourceUri>
@@ -100,27 +100,6 @@
     </input>
     <joinAttribute name="JOIN$ID$DID"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_ORG">
-    <viewAttributes>
-      <viewAttribute id="C_Organization_PerNumber"/>
-      <viewAttribute id="C_Organization_SerialNumber"/>
-      <viewAttribute id="C_Organization_code"/>
-      <viewAttribute id="C_Organization_name"/>
-      <viewAttribute id="C_OrganizationIPGFullName"/>
-    
-      <viewAttribute id="C_Organization_type"/>
-    </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_HangYe" datatype="INTEGER" expressionLanguage="SQL">
-        <formula>case when &quot;C_Organization_type&quot;=4573 then 153
-when &quot;C_Organization_type&quot;=4577 then 3649
-when &quot;C_Organization_type&quot;=4575 then 1978
-else 0
-end </formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
-    <input node="kz.DI.ERP::T_C_Organization"/>
-  </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_MKFY" cardinality="CN_N" joinType="inner">
     <descriptions>
       <comment text="每刻费用"/>
@@ -154,25 +133,43 @@ then '其他费用'  when &quot;FormSubTypeName&quot;='知产客户报销'
 then '客户费用' end</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="P_ORG">
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_PerNumber" source="C_Organization_PerNumber"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_SerialNumber" source="C_Organization_SerialNumber"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_OrganizationIPGFullName" source="C_OrganizationIPGFullName"/>
-    
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_HangYe" source="CC_HangYe"/>
-    </input>
     <input node="J_MK">
       <mapping xsi:type="Calculation:AttributeMapping" target="FormCode" source="FormCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="AllocatedAmount"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ExpenseTypeName" source="ExpenseTypeName"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FormSubTypeName" source="FormSubTypeName"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CoverDepartmentBizCode" source="CoverDepartmentBizCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ProcInstEndTime" source="ProcInstEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_PerNumber" source="CoverDepartmentBizCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProcInstEndTime" source="ProcInstEndTime"/></input>
+    <input node="P_ORG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_PerNumber" source="C_Organization_PerNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_OrganizationIPGFullName" source="C_OrganizationIPGFullName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_SerialNumber" source="C_Organization_SerialNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_HangYe" source="CC_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CoverDepartmentBizCode" source="C_Organization_PerNumber"/>
     </input>
-    <joinAttribute name="C_Organization_PerNumber"/>
+    <joinAttribute name="CoverDepartmentBizCode"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ORG">
+    <viewAttributes>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="C_Organization_name"/>
+      <viewAttribute id="C_Organization_PerNumber"/>
+      <viewAttribute id="C_OrganizationIPGFullName"/>
+      <viewAttribute id="C_Organization_SerialNumber"/>
+    
+      <viewAttribute id="C_Organization_type"/></viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_HangYe" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>case when &quot;C_Organization_type&quot;=4573 then 153
+when &quot;C_Organization_type&quot;=4577 then 3649
+when &quot;C_Organization_type&quot;=4575 then 1978
+else 0
+end </formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="kz.DI.ERP::T_Dashboard_C_Organization"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_BC">
     <descriptions>
@@ -244,21 +241,29 @@ when &quot;SubjectNumber&quot;='ms106415' then '房租物业' end</formula>
 <logicalModel id="U_MKFY">
   <attributes>
     <attribute id="OrgCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="OrgCode"/>
+      <descriptions defaultDescription="巴组code"/>
       <keyMapping columnObjectName="U_MKFY" columnName="OrgCode"/>
+    </attribute>
+  
+    <attribute id="ArchivedDate" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="时间"/>
+      <keyMapping columnObjectName="U_MKFY" columnName="ArchivedDate"/>
+    </attribute>
+    <attribute id="HangYe" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="行业"/>
+      <keyMapping columnObjectName="U_MKFY" columnName="HangYe"/>
+    </attribute>
+    <attribute id="CC_FeiYongLeiXing" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="费用类型"/>
+      <keyMapping columnObjectName="U_MKFY" columnName="CC_FeiYongLeiXing"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
     <measure id="Amount" order="2" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="Amount"/>
+      <descriptions defaultDescription="金额"/>
       <measureMapping columnObjectName="U_MKFY" columnName="Amount"/>
-    </measure>
-    <measure id="ArchivedDate" order="3" aggregationType="min" measureType="simple">
-      <descriptions defaultDescription="ArchivedDate"/>
-      <measureMapping columnObjectName="U_MKFY" columnName="ArchivedDate"/>
-    </measure>
-  </baseMeasures>
+    </measure></baseMeasures>
   <calculatedMeasures/>
   <restrictedMeasures/>
   <localDimensions/>
@@ -306,22 +311,24 @@ when &quot;SubjectNumber&quot;='ms106415' then '房租物业' end</formula>
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="250"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_ORG" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="477" y="516"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
     <shape expanded="true" modelObjectName="J_MKFY" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="172" y="356"/>
       <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="P_ORG" modelObjectNameSpace="J_MKFY" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="250"/>
     </shape>
     <shape modelObjectName="J_MK" modelObjectNameSpace="J_MKFY" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="250"/>
     </shape>
+    <shape modelObjectName="P_ORG" modelObjectNameSpace="J_MKFY" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_ORG" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="700" y="510"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
     <shape expanded="true" modelObjectName="P_BC" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="592" y="356"/>
       <rectangleSize height="30" width="160"/>
@@ -329,7 +336,6 @@ when &quot;SubjectNumber&quot;='ms106415' then '房租物业' end</formula>
     <shape expanded="true" modelObjectName="U_MKFY" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="534" y="217"/>
       <rectangleSize height="30" width="160"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>
