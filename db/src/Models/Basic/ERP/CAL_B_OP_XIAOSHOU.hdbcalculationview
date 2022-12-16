@@ -45,8 +45,8 @@
   <DataSource id="P_PBFF_04$$$$kz.DI.ERP::T_P_Business_flow_form$$">
     <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_Bills">
-    <resourceUri>kz.DI.ERP::T_Bills</resourceUri>
+  <DataSource id="kz.DI.ERP::T_Bills_KZ">
+    <resourceUri>kz.DI.ERP::T_Bills_KZ</resourceUri>
   </DataSource>
   <DataSource id="kz.DI.ERP::T_B_Case">
     <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
@@ -777,7 +777,7 @@
         <formula>TO_NVARCHAR(&quot;ArchivedDate&quot;,'yyyymmdd')</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="kz.DI.ERP::T_Bills"/>
+    <input node="kz.DI.ERP::T_Bills_KZ"/>
     <filter>&quot;BillsName&quot;='其他收入'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_CASE_JC" cardinality="CN_N" joinType="leftOuter">
