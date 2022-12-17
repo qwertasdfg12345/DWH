@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_B_OP_HUAIZHANGSUNSHI" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CAL_B_OP_HUAIZHANGSUNSHI.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="kz.DI.ERP::T_DashboardHuaiZhang">
+    <resourceUri>kz.DI.ERP::T_DashboardHuaiZhang</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_DashboardDataSource">
+    <resourceUri>kz.DI.ERP::T_DashboardDataSource</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_B_Case">
+    <resourceUri>kz.DI.ERP::T_B_Case</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:RankView" id="R_PBFF">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFF"/>
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
+      <order byViewAttributeName="P_Business_flow_form_factEndTime" direction="ASC"/>
+      <rankThreshold>
+        <value>1</value>
+      </rankThreshold>
+    </rankingFilter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_HZ">
+    <viewAttributes>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="OrderCode"/>
+      <viewAttribute id="Amount"/>
+      <viewAttribute id="OrderName"/>
+      <viewAttribute id="OrderNumber"/>
+      <viewAttribute id="ComfimDate"/>
+      <viewAttribute id="OrgCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_DashboardHuaiZhang"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_HZBC" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="SubjectNumber"/>
+      <viewAttribute id="OrgCode"/>
+      <viewAttribute id="ArchivedDate"/>
+      <viewAttribute id="Amount"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_DashboardDataSource"/>
+  
+    <filter>&quot;SubjectNumber&quot;='1037'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute id="F_Form_code"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/>
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+    <filter>&quot;P_Business_flow_form_isdelete&quot;=0 
+AND &quot;P_Business_flow_form_status&quot;=262
+AND &quot;P_Business_flow_form_state&quot;=201
+and &quot;F_Form_code&quot; in ('C796D2EB-90DB-403B-84C5-1D76B2FC2DE1','54F02610-6594-4AD6-A695-039B1111147B')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_CASE" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_HangYe"/>
+      <viewAttribute id="B_Case_isDelete"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_B_Case"/>
+    <filter>&quot;B_Case_isDelete&quot;=0 and &quot;B_Case_HangYe&quot;=153</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="U_HZ">
+    <viewAttributes>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="Amount" aggregationType="sum"/>
+      <viewAttribute id="ComfimDate" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="OrgCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_HZ_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CaseCode" source="CaseCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Amount" source="Amount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ComfimDate" source="ComfimDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="OrgCode"/>
+    </input>
+    <input node="P_HZBC">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CaseCode" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Amount" source="Amount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ComfimDate" source="ArchivedDate"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="P_Business_flow_form_factEndTime" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="OrgCode"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_HZ_1" cardinality="CN_N" joinType="inner" multiJoinNode="J_HZ" multiJoinCentralTable="P_HZ" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="OrderCode"/>
+      <viewAttribute id="Amount" aggregationType="sum"/>
+      <viewAttribute id="OrderName"/>
+      <viewAttribute id="OrderNumber"/>
+      <viewAttribute id="ComfimDate" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="OrgCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_HZ">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CaseCode" source="CaseCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrderCode" source="OrderCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Amount" source="Amount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrderName" source="OrderName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrderNumber" source="OrderNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ComfimDate" source="ComfimDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="OrgCode"/>
+    </input>
+    <input node="R_PBFF">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CaseCode" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <joinAttribute name="CaseCode"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_HZ_2" cardinality="CN_N" joinType="inner" multiJoinNode="J_HZ" multiJoinCentralTable="P_HZ" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="OrderCode"/>
+      <viewAttribute id="Amount" aggregationType="sum"/>
+      <viewAttribute id="OrderName"/>
+      <viewAttribute id="OrderNumber"/>
+      <viewAttribute id="ComfimDate" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="OrgCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_HZ_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CaseCode" source="CaseCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrderCode" source="OrderCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Amount" source="Amount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrderName" source="OrderName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrderNumber" source="OrderNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ComfimDate" source="ComfimDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrgCode" source="OrgCode"/>
+    </input>
+    <input node="P_CASE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CaseCode" source="B_Case_code"/>
+    </input>
+    <joinAttribute name="CaseCode"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="U_HZ">
+  <attributes>
+    <attribute id="CaseCode" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="案件code"/>
+      <keyMapping columnObjectName="U_HZ" columnName="CaseCode"/>
+    </attribute>
+    <attribute id="ComfimDate" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="时间"/>
+      <keyMapping columnObjectName="U_HZ" columnName="ComfimDate"/>
+    </attribute>
+    <attribute id="P_Business_flow_form_factEndTime" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="第一次回款产生时间"/>
+      <keyMapping columnObjectName="U_HZ" columnName="P_Business_flow_form_factEndTime"/>
+    </attribute>
+    <attribute id="OrgCode" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="组织code"/>
+      <keyMapping columnObjectName="U_HZ" columnName="OrgCode"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="Amount" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="金额"/>
+      <measureMapping columnObjectName="U_HZ" columnName="Amount"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="243.7901150374629" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_HZ" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="512" y="531.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_HZBC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="137.92093575782087" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91.99999999999997" y="656.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_CASE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="531.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_HZ" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="347.9209357578209" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_HZ" modelObjectNameSpace="J_HZ" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_HZ">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="100"/>
+    </shape>
+    <shape modelObjectName="P_CASE" modelObjectNameSpace="J_HZ" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_HZ">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="170.9921875"/>
+    </shape>
+    <shape modelObjectName="R_PBFF" modelObjectNameSpace="J_HZ" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_HZ">
+      <upperLeftCorner x="84" y="231"/>
+      <rectangleSize width="265.3408203125"/>
+    </shape>
+    <shape expanded="true" modelObjectName="R_PBFF" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92.00000000000003" y="541.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="U_HZ" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="243.7901150374629" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
