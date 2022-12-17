@@ -9,14 +9,14 @@
   <DataSource id="kz.DI.ERP::T_P_Business_flow_form">
     <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_A_FinanceForm_DaoKuanFenPei">
-    <resourceUri>kz.DI.ERP::T_A_FinanceForm_DaoKuanFenPei</resourceUri>
-  </DataSource>
-  <DataSource id="P_PBFF_01$$$$kz.DI.ERP::T_P_Business_flow_form$$">
-    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
-  </DataSource>
   <DataSource id="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu">
     <resourceUri>kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu</resourceUri>
+  </DataSource>
+  <DataSource id="P_PBFF_03$$$$kz.DI.ERP::T_P_Business_flow_form$$">
+    <resourceUri>kz.DI.ERP::T_P_Business_flow_form</resourceUri>
+  </DataSource>
+  <DataSource id="kz.DI.ERP::T_A_FinanceForm_DaoKuanFenPei">
+    <resourceUri>kz.DI.ERP::T_A_FinanceForm_DaoKuanFenPei</resourceUri>
   </DataSource>
   <DataSource id="P_DKFP$$$$kz.DI.ERP::T_A_FinanceForm_DaoKuanFenPei$$">
     <resourceUri>kz.DI.ERP::T_A_FinanceForm_DaoKuanFenPei</resourceUri>
@@ -72,6 +72,21 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
+  <calculationView xsi:type="Calculation:RankView" id="R_BAJHS">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_BAJHS"/>
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
+      <order byViewAttributeName="P_Business_flow_form_factEndTime" direction="ASC"/>
+      <rankThreshold>
+        <value>1</value>
+      </rankThreshold>
+    </rankingFilter>
+  </calculationView>
   <calculationView xsi:type="Calculation:RankView" id="Rank_DKFP">
     <descriptions>
       <comment text="取民生第一个到款分配日期作为时间维度"/>
@@ -90,38 +105,6 @@
         <value>1</value>
       </rankThreshold>
     </rankingFilter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:RankView" id="R_BAJHS">
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="J_BAJHS"/>
-    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
-      <partitionViewAttributeName id="P_Business_flow_form_projectCode"/>
-      <order byViewAttributeName="P_Business_flow_form_factEndTime" direction="ASC"/>
-      <rankThreshold>
-        <value>1</value>
-      </rankThreshold>
-    </rankingFilter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_BAJHS" cardinality="CN_N" joinType="inner">
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="P_Business_flow_form_code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="P_PBFF_01">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
-    </input>
-    <input node="P_BAJHS">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_Flow_Form_code"/>
-    </input>
-    <joinAttribute name="P_Business_flow_form_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_DKFP" cardinality="CN_N" joinType="inner">
     <descriptions>
@@ -143,6 +126,50 @@
     </input>
     <joinAttribute name="P_Business_flow_form_code"/>
   </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_BAJHS" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_PBFF_01">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+    </input>
+    <input node="P_BAJHS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_Flow_Form_code"/>
+    </input>
+    <joinAttribute name="P_Business_flow_form_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF_01" filterExpressionLanguage="SQL">
+    <descriptions>
+      <comment text="已审批已通过的表单"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute id="P_Business_flow_form_state"/>
+      <viewAttribute id="P_Business_flow_form_leaderPost"/>
+      <viewAttribute id="P_Business_flow_form_status"/>
+      <viewAttribute id="P_Business_flow_form_isdelete"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+    <filter>&quot;P_Business_flow_form_state&quot;=201 and &quot;P_Business_flow_form_status&quot;=262 and &quot;P_Business_flow_form_isdelete&quot;=0</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_BAJHS">
+    <descriptions>
+      <comment text="办案计划书"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu"/>
+  </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF_03" filterExpressionLanguage="SQL">
     <descriptions>
       <comment text="已审批已通过的表单"/>
@@ -159,7 +186,7 @@
       <viewAttribute keepFlag="true" id="OrderNo"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_P_Business_flow_form"/>
+    <input node="P_PBFF_03$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
     <filter>&quot;P_Business_flow_form_state&quot;=201 and &quot;P_Business_flow_form_status&quot;=262 and &quot;P_Business_flow_form_isdelete&quot;=0</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_DKFP_MS">
@@ -171,33 +198,6 @@
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_A_FinanceForm_DaoKuanFenPei"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_PBFF_01" filterExpressionLanguage="SQL">
-    <descriptions>
-      <comment text="已审批已通过的表单"/>
-    </descriptions>
-    <viewAttributes>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime"/>
-      <viewAttribute id="P_Business_flow_form_code"/>
-      <viewAttribute id="P_Business_flow_form_state"/>
-      <viewAttribute id="P_Business_flow_form_leaderPost"/>
-      <viewAttribute id="P_Business_flow_form_status"/>
-      <viewAttribute id="P_Business_flow_form_isdelete"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="P_PBFF_01$$$$kz.DI.ERP::T_P_Business_flow_form$$"/>
-    <filter>&quot;P_Business_flow_form_state&quot;=201 and &quot;P_Business_flow_form_status&quot;=262 and &quot;P_Business_flow_form_isdelete&quot;=0</filter>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_BAJHS">
-    <descriptions>
-      <comment text="办案计划书"/>
-    </descriptions>
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_A_CaseForm_BanAnJiHuaShu"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_DKFP">
     <descriptions>
@@ -595,17 +595,17 @@
   
     <input node="P_BILLS" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="巴组编码" source="AMBCode"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="案件编码" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="案件编码" source="CaseCode"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="案件号" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="案件性质编码" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="案件性质编码" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="销售额" source="BillsMoney"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="归档日期" source="CC_GDDATE"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="案件类型编码" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="金额类型" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="金额类型" source="JINETYP"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="表单编码" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="日期" source="ArchivedDate"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="事业线编码" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="行业编码" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="行业编码" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="客户编码" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="分所" null="true" value=""/>
     </input>
@@ -768,6 +768,9 @@
     </descriptions>
     <viewAttributes>
       <viewAttribute id="AMBCode"/>
+      <viewAttribute id="CaseCode"/>
+      <viewAttribute id="B_Case_nature"/>
+    
       <viewAttribute id="BillsMoney"/>
       <viewAttribute id="ArchivedDate"/>
     
@@ -775,6 +778,15 @@
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_GDDATE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
         <formula>TO_NVARCHAR(&quot;ArchivedDate&quot;,'yyyymmdd')</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="JINETYP" datatype="NVARCHAR" length="24" expressionLanguage="SQL">
+    
+        <formula>'其他收入'</formula>
+    
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="B_Case_HangYe" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>153</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_Bills_KZ"/>
@@ -1136,22 +1148,6 @@
     
       <rectangleSize width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="R_BAJHS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-126" y="671"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_BAJHS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-126" y="754"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="P_PBFF_01" modelObjectNameSpace="J_BAJHS" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="130"/>
-    </shape>
-    <shape modelObjectName="P_BAJHS" modelObjectNameSpace="J_BAJHS" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="319"/>
-    </shape>
     <shape expanded="true" modelObjectName="Rank_DKFP" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="1373" y="673"/>
       <rectangleSize height="30" width="160"/>
@@ -1168,14 +1164,21 @@
       <upperLeftCorner x="349" y="30"/>
       <rectangleSize width="235"/>
     </shape>
-  
-    <shape expanded="true" modelObjectName="P_PBFF_03" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1468" y="894"/>
-      <rectangleSize width="160"/>
+    <shape expanded="true" modelObjectName="R_BAJHS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-126" y="671"/>
+      <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_DKFP_MS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1270" y="894"/>
-      <rectangleSize width="160"/>
+    <shape expanded="true" modelObjectName="J_BAJHS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-126" y="754"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_PBFF_01" modelObjectNameSpace="J_BAJHS" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="130"/>
+    </shape>
+    <shape modelObjectName="P_BAJHS" modelObjectNameSpace="J_BAJHS" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="319"/>
     </shape>
     <shape expanded="true" modelObjectName="P_PBFF_01" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-220" y="894"/>
@@ -1184,6 +1187,15 @@
     <shape expanded="true" modelObjectName="P_BAJHS" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-41" y="894"/>
       <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_PBFF_03" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1468" y="894"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_DKFP_MS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1270" y="894"/>
+      <rectangleSize width="160"/>
     </shape>
   
   
@@ -1310,7 +1322,7 @@
       <rectangleSize width="265"/>
     </shape>
     <shape expanded="true" modelObjectName="P_BILLS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-1134" y="380"/>
+      <upperLeftCorner x="-1134" y="390"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   

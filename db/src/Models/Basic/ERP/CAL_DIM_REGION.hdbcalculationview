@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="kz.Models.Basic.ERP::CAL_DIM_REGION" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="DIM_REGION.hdbcalculationview"/>
+<descriptions defaultDescription="DIM_REGION.hdbcalculationview">
+  <comment text="分所(案件所在)"/>
+</descriptions>
 <localVariables/>
 <variableMappings/>
 <dataSources>
