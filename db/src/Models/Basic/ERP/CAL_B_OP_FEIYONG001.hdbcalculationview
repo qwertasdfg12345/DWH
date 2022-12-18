@@ -85,7 +85,11 @@
       <viewAttribute id="ProcInstEndTime" aggregationType="min"/>
       <viewAttribute hidden="true" id="JOIN$ID$DID"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>LEFT(TO_NVARCHAR(&quot;ProcInstEndTime&quot;), 7)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <input node="J_M_NUMBER">
       <mapping xsi:type="Calculation:AttributeMapping" target="FormCode" source="FormCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FormSubTypeName" source="FormSubTypeName"/>
@@ -118,6 +122,8 @@
       <viewAttribute id="ProcInstEndTime" aggregationType="min"/>
     
       <viewAttribute id="CC_HangYe" aggregationType="sum"/>
+    
+      <viewAttribute hidden="true" id="JOIN$CC_YYYYMM$CC_YYYYMM"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_FeiYongLeiXing" datatype="NVARCHAR" length="20" expressionLanguage="SQL">
@@ -139,7 +145,9 @@ then '客户费用' end</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="ExpenseTypeName" source="ExpenseTypeName"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FormSubTypeName" source="FormSubTypeName"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CoverDepartmentBizCode" source="CoverDepartmentBizCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ProcInstEndTime" source="ProcInstEndTime"/></input>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProcInstEndTime" source="ProcInstEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
+    </input>
     <input node="P_ORG">
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_name" source="C_Organization_name"/>
@@ -148,8 +156,10 @@ then '客户费用' end</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_SerialNumber" source="C_Organization_SerialNumber"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_HangYe" source="CC_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CoverDepartmentBizCode" source="C_Organization_PerNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
     </input>
     <joinAttribute name="CoverDepartmentBizCode"/>
+    <joinAttribute name="JOIN$CC_YYYYMM$CC_YYYYMM"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_ORG">
     <viewAttributes>
@@ -159,7 +169,9 @@ then '客户费用' end</formula>
       <viewAttribute id="C_OrganizationIPGFullName"/>
       <viewAttribute id="C_Organization_SerialNumber"/>
     
-      <viewAttribute id="C_Organization_type"/></viewAttributes>
+      <viewAttribute id="C_Organization_type"/>
+      <viewAttribute id="ArchivedDate"/>
+    </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_HangYe" datatype="INTEGER" expressionLanguage="SQL">
         <formula>case when &quot;C_Organization_type&quot;=4573 then 153
@@ -167,6 +179,10 @@ when &quot;C_Organization_type&quot;=4577 then 3649
 when &quot;C_Organization_type&quot;=4575 then 1978
 else 0
 end </formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>LEFT(TO_NVARCHAR(&quot;ArchivedDate&quot;), 7)</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_Dashboard_C_Organization"/>
@@ -247,7 +263,9 @@ when &quot;SubjectNumber&quot;='ms106415' then '房租物业' end</formula>
   
     <attribute id="ArchivedDate" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="时间"/>
+  
       <keyMapping columnObjectName="U_MKFY" columnName="ArchivedDate"/>
+  
     </attribute>
     <attribute id="HangYe" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="行业"/>
