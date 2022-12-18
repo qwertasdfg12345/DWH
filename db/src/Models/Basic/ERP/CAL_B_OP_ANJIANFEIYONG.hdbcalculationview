@@ -27,9 +27,6 @@
   <DataSource id="kz.DI.ERP::T_S_BanAnJiHuaShu_ChangKeyInfo">
     <resourceUri>kz.DI.ERP::T_S_BanAnJiHuaShu_ChangKeyInfo</resourceUri>
   </DataSource>
-  <DataSource id="kz.DI.ERP::T_A_CaseForm_LiAnXinXi">
-    <resourceUri>kz.DI.ERP::T_A_CaseForm_LiAnXinXi</resourceUri>
-  </DataSource>
   <DataSource id="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-YuanKehuBa$$$$kz.DI.ERP::T_A_CaseForm_AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng$$">
     <resourceUri>kz.DI.ERP::T_A_CaseForm_AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng</resourceUri>
   </DataSource>
@@ -106,8 +103,8 @@
       <viewAttribute id="P_Business_flow_form_isdelete"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(ADD_YEARS(&quot;P_Business_flow_form_factEndTime&quot;, 2)), 7)</formula>
+      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
+        <formula>'2022-01'</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_P_Business_flow_form"/>
@@ -236,14 +233,6 @@
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="kz.DI.ERP::T_S_BanAnJiHuaShu_ChangKeyInfo"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="LiAnXinXi">
-    <viewAttributes>
-      <viewAttribute id="ShouLiFaYuan"/>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="kz.DI.ERP::T_A_CaseForm_LiAnXinXi"/>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="Jiancai-JieDanJinE">
     <viewAttributes>
@@ -459,28 +448,6 @@
     <input node="TiaozhengQianHesuanBa$$$$kz.DI.ERP::T_A_CaseForm_AnJianShouRuHeSuanBaDiaoZheng$$"/>
     <filter>&quot;ShouRuJinE&quot; &lt;&gt; ''</filter>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="getCourt" cardinality="CN_N" joinType="fullOuter" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="ShouLiFaYuan"/>
-      <viewAttribute id="GuanHeFaYuan"/>
-    </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_Court" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>IFNULL(&quot;ShouLiFaYuan&quot;, &quot;GuanHeFaYuan&quot;)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
-    <input node="LiAnXinXi">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ShouLiFaYuan" source="ShouLiFaYuan"/>
-    </input>
-    <input node="BanAnJiHuaShu">
-      <mapping xsi:type="Calculation:AttributeMapping" target="GuanHeFaYuan" source="GuanHeFaYuan"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-    </input>
-    <filter>&quot;P_Business_Flow_Form_code&quot; &lt;&gt; ''</filter>
-    <joinAttribute name="P_Business_Flow_Form_code"/>
-  </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Business_Flow">
     <viewAttributes>
       <viewAttribute id="P_Business_flow_code"/>
@@ -519,57 +486,57 @@
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="U_AJFY">
     <viewAttributes>
-      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="KeHuZu"/>
       <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="B_Case_customerCode"/>
       <viewAttribute id="B_Case_regionCode"/>
       <viewAttribute id="B_Case_type" aggregationType="sum"/>
-      <viewAttribute id="AllocatedAmount" aggregationType="sum"/>
-      <viewAttribute id="C_Organization_code"/>
-      <viewAttribute id="CC_DATE"/>
-      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="CC_MONEY" aggregationType="sum"/>
+      <viewAttribute id="CC_Date"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="J_MKBX_5">
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+    <input node="J_MSAJFY_4">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_BusinessUnit" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="KeHuZu" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_code" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_number" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_nature" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_HangYe" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_customerCode" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_regionCode" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_type" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_MONEY" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_Date" null="true" value=""/>
+    </input>
+    <input node="J_JCAJFY_5">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="KeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="AllocatedAmount"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_DATE" source="CC_DATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-    </input>
-    <input node="addDimToJieDanJinE_5">
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="P_Business_flow_form_projectCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="CC_MONEY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="KeHuZu"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_DATE" source="CC_Date"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_MONEY" source="CC_MONEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_Date" source="CC_Date"/>
     </input>
-    <input node="MinSheng-JieDanJinE_4">
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="CC_MONEY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="HeSuanBa"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_DATE" source="CC_Date"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+    <input node="J_MKBX_5">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_BusinessUnit" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="KeHuZu" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_code" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_number" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_nature" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_HangYe" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_customerCode" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_regionCode" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="B_Case_type" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_MONEY" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CC_Date" null="true" value=""/>
     </input>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_DORG" filterExpressionLanguage="SQL">
@@ -585,8 +552,8 @@
       <viewAttribute id="C_Organization_type"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(&quot;ArchivedDate&quot;), 7)</formula>
+      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
+        <formula>'2022-01'</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="kz.DI.ERP::T_Dashboard_C_Organization"/>
@@ -680,133 +647,102 @@ and &quot;StatusText&quot;= '已完成'
     </input>
     <joinAttribute name="P_Business_flow_code"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="MinSheng-JieDanJinE_1" cardinality="CN_N" joinType="inner" multiJoinNode="MinSheng-JieDanJinE" multiJoinCentralTable="JieDanJinE-2" multiJoinOrder="Inside Out">
+  <calculationView xsi:type="Calculation:JoinView" id="J_MSAJFY_1" cardinality="CN_N" joinType="inner" multiJoinNode="J_MSAJFY" multiJoinCentralTable="JieDanJinE-2" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute hidden="true" id="JOIN$CC_YYYYMM$CC_YYYYMM"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="BusinessFlowForm">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
+    </input>
+    <input node="P_DORG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
+    </input>
+    <joinAttribute name="JOIN$CC_YYYYMM$CC_YYYYMM"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_MSAJFY_2" cardinality="CN_N" joinType="inner" multiJoinNode="J_MSAJFY" multiJoinCentralTable="JieDanJinE-2" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_state" aggregationType="sum"/>
+      <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute hidden="true" id="JOIN$P_Business_flow_form_projectCode$B_Case_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_MSAJFY_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$B_Case_code" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <input node="Case">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$B_Case_code" source="B_Case_code"/>
+    </input>
+    <joinAttribute name="JOIN$P_Business_flow_form_projectCode$B_Case_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_MSAJFY_3" cardinality="CN_N" joinType="inner" multiJoinNode="J_MSAJFY" multiJoinCentralTable="JieDanJinE-2" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
       <viewAttribute id="HeSuanBa"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_state" aggregationType="sum"/>
+      <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
     </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(ADD_YEARS(&quot;P_Business_flow_form_factEndTime&quot;, 2)), 7)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
+    <calculatedViewAttributes/>
     <input node="JieDanJinE-2">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="HeSuanBa"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
     </input>
-    <input node="BusinessFlowForm">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+    <input node="J_MSAJFY_2">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
-    </input>
-    <joinAttribute name="P_Business_Flow_Form_code"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="MinSheng-JieDanJinE_2" cardinality="CN_N" joinType="inner" multiJoinNode="MinSheng-JieDanJinE" multiJoinCentralTable="JieDanJinE-2" multiJoinOrder="Inside Out">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="HeSuanBa"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
-    </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(ADD_YEARS(&quot;P_Business_flow_form_factEndTime&quot;, 2)), 7)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
-    <input node="MinSheng-JieDanJinE_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="HeSuanBa"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
-    </input>
-    <input node="P_DORG">
-      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="C_Organization_code"/>
-    </input>
-    <joinAttribute name="HeSuanBa"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="MinSheng-JieDanJinE_3" cardinality="CN_N" joinType="inner" multiJoinNode="MinSheng-JieDanJinE" multiJoinCentralTable="JieDanJinE-2" multiJoinOrder="Inside Out">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="HeSuanBa"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
-      <viewAttribute hidden="true" id="JOIN$CC_YYYYMM$CC_YYYYMM"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="MinSheng-JieDanJinE_2">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="HeSuanBa"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
-    </input>
-    <input node="MinSheng-JieDanJinE_2">
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
-    </input>
-    <joinAttribute name="JOIN$CC_YYYYMM$CC_YYYYMM"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="MinSheng-JieDanJinE_4" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL" multiJoinNode="MinSheng-JieDanJinE" multiJoinCentralTable="JieDanJinE-2" multiJoinOrder="Inside Out">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="HeSuanBa"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
-      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="B_Case_regionCode"/>
-      <viewAttribute id="B_Case_type" aggregationType="sum"/>
-      <viewAttribute id="B_Case_state" aggregationType="sum"/>
-      <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
-    </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
-        <formula>TO_DATE(&quot;B_Case_factEndTime&quot;)</formula>
-      </calculatedViewAttribute>
-      <calculatedViewAttribute id="CC_MONEY" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
-        <formula>&quot;JieDanJinE&quot;*IFNULL(&quot;Dashboard_X_ratio&quot;, 0)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
-    <input node="MinSheng-JieDanJinE_3">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="HeSuanBa"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
-    </input>
-    <input node="Case">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
@@ -815,236 +751,264 @@ and &quot;StatusText&quot;= '已完成'
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="C_Organization_code"/>
+    </input>
+    <joinAttribute name="HeSuanBa"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_MSAJFY_4" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL" multiJoinNode="J_MSAJFY" multiJoinCentralTable="JieDanJinE-2" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="P_Business_Flow_Form_code"/>
+      <viewAttribute id="CC_BusinessUnit"/>
+      <viewAttribute id="HeSuanBa"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_state" aggregationType="sum"/>
+      <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_MONEY" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
+        <formula>&quot;JieDanJinE&quot;*IFNULL(&quot;Dashboard_X_ratio&quot;, 0)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
+        <formula>TO_DATE(&quot;B_Case_factEndTime&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="J_MSAJFY_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HeSuanBa" source="HeSuanBa"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+    </input>
+    <input node="J_MSAJFY_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
     </input>
     <filter>TO_DATE(&quot;P_Business_flow_form_factEndTime&quot;) &gt;= '2022-07-01'
 and &quot;C_Organization_type&quot;=4577
 and &quot;B_Case_HangYe&quot; = 3649 
 and &quot;B_Case_state&quot; =201</filter>
-    <joinAttribute name="P_Business_flow_form_projectCode"/>
+    <joinAttribute name="P_Business_Flow_Form_code"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_1" cardinality="CN_N" joinType="inner" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Inside Out">
+  <calculationView xsi:type="Calculation:JoinView" id="J_JCAJFY_1" cardinality="CN_N" joinType="inner" multiJoinNode="J_JCAJFY" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="TOBAJHSfactEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute hidden="true" id="JOIN$P_Business_flow_form_projectCode$P_Business_flow_form_projectCode"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
+        <formula>'2022-01'</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="R_TOBAJHS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOBAJHSfactEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <input node="BusinessFlowForm">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$P_Business_flow_form_projectCode$P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <joinAttribute name="JOIN$P_Business_flow_form_projectCode$P_Business_flow_form_projectCode"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_JCAJFY_2" cardinality="CN_N" joinType="inner" multiJoinNode="J_JCAJFY" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
+      <viewAttribute id="TOBAJHSfactEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+      <viewAttribute hidden="true" id="JOIN$CC_YYYYMM$CC_YYYYMM"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_DORG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
+    </input>
+    <input node="J_JCAJFY_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOBAJHSfactEndTime" source="TOBAJHSfactEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
+    </input>
+    <joinAttribute name="JOIN$CC_YYYYMM$CC_YYYYMM"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_JCAJFY_3" cardinality="CN_N" joinType="inner" multiJoinNode="J_JCAJFY" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_state" aggregationType="sum"/>
+      <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
+      <viewAttribute id="TOBAJHSfactEndTime" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
+      <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Case">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
+    </input>
+    <input node="J_JCAJFY_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOBAJHSfactEndTime" source="TOBAJHSfactEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="P_Business_flow_form_projectCode"/>
+    </input>
+    <joinAttribute name="B_Case_code"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_JCAJFY_4" cardinality="CN_N" joinType="inner" multiJoinNode="J_JCAJFY" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
+      <viewAttribute id="ChangDate" aggregationType="min"/>
       <viewAttribute id="KeHuZu"/>
       <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
+      <viewAttribute id="B_Case_state" aggregationType="sum"/>
+      <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
+      <viewAttribute id="TOBAJHSfactEndTime" aggregationType="min"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="ChangDate" aggregationType="min"/>
+      <viewAttribute id="P_Business_flow_form_code"/>
     </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(ADD_YEARS(&quot;P_Business_flow_form_factEndTime&quot;, 2)), 7)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
+    <calculatedViewAttributes/>
     <input node="Jiancai-JieDanJinE">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ChangDate" source="ChangDate"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="KeHuZu"/>
-    </input>
-    <input node="BusinessFlowForm">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
-    </input>
-    <joinAttribute name="P_Business_Flow_Form_code"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_2" cardinality="CN_N" joinType="inner" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Inside Out">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="KeHuZu"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="ChangDate" aggregationType="min"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
-      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
-    </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(ADD_YEARS(&quot;P_Business_flow_form_factEndTime&quot;, 2)), 7)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
-    <input node="addDimToJieDanJinE_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="KeHuZu"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ChangDate" source="ChangDate"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
     </input>
-    <input node="P_DORG">
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+    <input node="J_JCAJFY_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOBAJHSfactEndTime" source="TOBAJHSfactEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_code" source="P_Business_flow_form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="C_Organization_code"/>
     </input>
     <joinAttribute name="KeHuZu"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_3" cardinality="CN_N" joinType="inner" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Inside Out">
+  <calculationView xsi:type="Calculation:JoinView" id="J_JCAJFY_5" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL" multiJoinNode="J_JCAJFY" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="P_Business_Flow_Form_code"/>
       <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="KeHuZu"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_type" aggregationType="sum"/>
-      <viewAttribute id="B_Case_regionCode"/>
-      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
       <viewAttribute id="ChangDate" aggregationType="min"/>
+      <viewAttribute id="KeHuZu"/>
+      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
+      <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
+      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
+      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
+      <viewAttribute id="B_Case_customerCode"/>
+      <viewAttribute id="B_Case_regionCode"/>
+      <viewAttribute id="B_Case_type" aggregationType="sum"/>
       <viewAttribute id="B_Case_state" aggregationType="sum"/>
       <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
-    </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(ADD_YEARS(&quot;P_Business_flow_form_factEndTime&quot;, 2)), 7)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
-    <input node="addDimToJieDanJinE_2">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="KeHuZu"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ChangDate" source="ChangDate"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
-    </input>
-    <input node="Case">
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="B_Case_code"/>
-    </input>
-    <joinAttribute name="P_Business_flow_form_projectCode"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_4" cardinality="CN_N" joinType="inner" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Inside Out">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="KeHuZu"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_type" aggregationType="sum"/>
-      <viewAttribute id="B_Case_regionCode"/>
-      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
-      <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="ChangDate" aggregationType="min"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="TOBAJHSfactEndTime" aggregationType="min"/>
-      <viewAttribute id="B_Case_state" aggregationType="sum"/>
-      <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
-      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
-    </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(ADD_YEARS(&quot;P_Business_flow_form_factEndTime&quot;, 2)), 7)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
-    <input node="addDimToJieDanJinE_3">
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="KeHuZu"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ChangDate" source="ChangDate"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
-    </input>
-    <input node="R_TOBAJHS">
-      <mapping xsi:type="Calculation:AttributeMapping" target="TOBAJHSfactEndTime" source="P_Business_flow_form_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-    </input>
-    <joinAttribute name="P_Business_flow_form_projectCode"/>
-  </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="addDimToJieDanJinE_5" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL" multiJoinNode="addDimToJieDanJinE" multiJoinCentralTable="Jiancai-JieDanJinE" multiJoinOrder="Inside Out">
-    <viewAttributes>
-      <viewAttribute id="P_Business_Flow_Form_code"/>
-      <viewAttribute id="CC_BusinessUnit"/>
-      <viewAttribute id="P_Business_flow_form_projectCode"/>
-      <viewAttribute id="KeHuZu"/>
-      <viewAttribute id="B_Case_customerCode"/>
-      <viewAttribute id="B_Case_number"/>
-      <viewAttribute id="B_Case_type" aggregationType="sum"/>
-      <viewAttribute id="B_Case_regionCode"/>
-      <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
-      <viewAttribute id="JieDanJinE" aggregationType="sum"/>
-      <viewAttribute id="B_Case_nature" aggregationType="sum"/>
       <viewAttribute id="P_Business_flow_form_factEndTime" aggregationType="min"/>
-      <viewAttribute id="ChangDate" aggregationType="min"/>
-      <viewAttribute id="TOBAJHSfactEndTime" aggregationType="min"/>
-      <viewAttribute id="B_Case_state" aggregationType="sum"/>
-      <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
-      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
-      <viewAttribute hidden="true" id="JOIN$CC_YYYYMM$CC_YYYYMM"/>
     </viewAttributes>
     <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_MONEY" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
+        <formula>&quot;JieDanJinE&quot;*IFNULL(&quot;Dashboard_X_ratio&quot;, 0)</formula>
+      </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
         <formula>case &quot;B_Case_state&quot; when 200 then     
 IFNULL(ADD_YEARS(TO_DATE(&quot;ChangDate&quot;), 2),
 ADD_YEARS(TO_DATE(&quot;P_Business_flow_form_factEndTime&quot;), 2))
 when 201 then &quot;B_Case_factEndTime&quot; end</formula>
       </calculatedViewAttribute>
-      <calculatedViewAttribute id="CC_MONEY" datatype="DECIMAL" length="18" scale="2" expressionLanguage="SQL">
-        <formula>&quot;JieDanJinE&quot;*IFNULL(&quot;Dashboard_X_ratio&quot;, 0)</formula>
-      </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="addDimToJieDanJinE_4">
+    <input node="J_JCAJFY_4">
       <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_Flow_Form_code"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_BusinessUnit" source="CC_BusinessUnit"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_projectCode" source="P_Business_flow_form_projectCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="KeHuZu"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ChangDate" source="ChangDate"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="TOBAJHSfactEndTime" source="TOBAJHSfactEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KeHuZu" source="KeHuZu"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JieDanJinE" source="JieDanJinE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_regionCode" source="B_Case_regionCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOBAJHSfactEndTime" source="TOBAJHSfactEndTime"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_flow_form_factEndTime" source="P_Business_flow_form_factEndTime"/>
     </input>
-    <input node="addDimToJieDanJinE_4">
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
+    <input node="J_JCAJFY_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P_Business_Flow_Form_code" source="P_Business_flow_form_code"/>
     </input>
     <filter>((&quot;B_Case_state&quot;=201 and 
 (TO_DATE(&quot;ChangDate&quot;)&gt;='2022-07-01' 
@@ -1053,19 +1017,20 @@ TO_DATE(&quot;P_Business_flow_form_factEndTime&quot;) &gt;='2022-07-01'))
 or (&quot;B_Case_state&quot;=200
 and MONTHS_BETWEEN(&quot;TOBAJHSfactEndTime&quot;, CURRENT_DATE)&gt;24))
 and &quot;C_Organization_type&quot;=4573</filter>
-    <joinAttribute name="JOIN$CC_YYYYMM$CC_YYYYMM"/>
+    <joinAttribute name="P_Business_Flow_Form_code"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_MKBX_1" cardinality="CN_N" joinType="inner" multiJoinNode="J_MKBX" multiJoinCentralTable="P_MKNUMBER" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="AllocatedAmount" aggregationType="sum"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="DID"/>
       <viewAttribute hidden="true" id="JOIN$CoverDepartmentBizCode$C_Organization_PerNumber"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(&quot;ArchivedDate&quot;), 7)</formula>
+      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
+        <formula>'2022-01'</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="P_MKCHILD">
@@ -1074,8 +1039,9 @@ and &quot;C_Organization_type&quot;=4573</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CoverDepartmentBizCode$C_Organization_PerNumber" source="CoverDepartmentBizCode"/>
     </input>
     <input node="P_DORG">
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CoverDepartmentBizCode$C_Organization_PerNumber" source="C_Organization_PerNumber"/>
     </input>
@@ -1083,8 +1049,8 @@ and &quot;C_Organization_type&quot;=4573</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_MKBX_2" cardinality="CN_N" joinType="inner" multiJoinNode="J_MKBX" multiJoinCentralTable="P_MKNUMBER" multiJoinOrder="Outside In">
     <viewAttributes>
-      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -1103,8 +1069,8 @@ and &quot;C_Organization_type&quot;=4573</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CaseID$B_Case_code" source="CaseID"/>
     </input>
     <input node="Case">
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
@@ -1119,8 +1085,8 @@ and &quot;C_Organization_type&quot;=4573</filter>
   <calculationView xsi:type="Calculation:JoinView" id="J_MKBX_3" cardinality="CN_N" joinType="inner" multiJoinNode="J_MKBX" multiJoinCentralTable="P_MKNUMBER" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="AllocatedAmount" aggregationType="sum"/>
-      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -1128,19 +1094,28 @@ and &quot;C_Organization_type&quot;=4573</filter>
       <viewAttribute id="B_Case_type" aggregationType="sum"/>
       <viewAttribute id="B_Case_state" aggregationType="sum"/>
       <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="FormCode"/>
-      <viewAttribute hidden="true" id="JOIN$ID$DID"/>
+      <viewAttribute hidden="true" id="JOIN$DID$ID"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
-        <formula>LEFT(TO_NVARCHAR(&quot;ArchivedDate&quot;), 7)</formula>
+      <calculatedViewAttribute id="CC_YYYYMM" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
+        <formula>'2022-01'</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
+    <input node="J_MKBX_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="AllocatedAmount"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$DID$ID" source="DID"/>
+    </input>
     <input node="J_MKBX_2">
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
@@ -1149,23 +1124,16 @@ and &quot;C_Organization_type&quot;=4573</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FormCode" source="FormCode"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID$DID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$DID$ID" source="ID"/>
     </input>
-    <input node="J_MKBX_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="AllocatedAmount"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_YYYYMM" source="CC_YYYYMM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID$DID" source="DID"/>
-    </input>
-    <joinAttribute name="JOIN$ID$DID"/>
+    <joinAttribute name="JOIN$DID$ID"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_MKBX_4" cardinality="CN_N" joinType="inner" multiJoinNode="J_MKBX" multiJoinCentralTable="P_MKNUMBER" multiJoinOrder="Outside In">
     <viewAttributes>
       <viewAttribute id="ProcInstEndTime" aggregationType="min"/>
       <viewAttribute id="AllocatedAmount" aggregationType="sum"/>
-      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -1173,8 +1141,9 @@ and &quot;C_Organization_type&quot;=4573</filter>
       <viewAttribute id="B_Case_type" aggregationType="sum"/>
       <viewAttribute id="B_Case_state" aggregationType="sum"/>
       <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="FormCode"/>
       <viewAttribute hidden="true" id="JOIN$CC_YYYYMM$CC_YYYYMM"/>
     </viewAttributes>
@@ -1186,8 +1155,8 @@ and &quot;C_Organization_type&quot;=4573</filter>
     </input>
     <input node="J_MKBX_3">
       <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="AllocatedAmount"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
@@ -1195,8 +1164,9 @@ and &quot;C_Organization_type&quot;=4573</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_YYYYMM$CC_YYYYMM" source="CC_YYYYMM"/>
     </input>
     <joinAttribute name="JOIN$CC_YYYYMM$CC_YYYYMM"/>
@@ -1205,8 +1175,8 @@ and &quot;C_Organization_type&quot;=4573</filter>
     <viewAttributes>
       <viewAttribute id="ProcInstEndTime" aggregationType="min"/>
       <viewAttribute id="AllocatedAmount" aggregationType="sum"/>
-      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_code"/>
+      <viewAttribute id="B_Case_number"/>
       <viewAttribute id="B_Case_nature" aggregationType="sum"/>
       <viewAttribute id="B_Case_HangYe" aggregationType="sum"/>
       <viewAttribute id="B_Case_customerCode"/>
@@ -1214,15 +1184,17 @@ and &quot;C_Organization_type&quot;=4573</filter>
       <viewAttribute id="B_Case_type" aggregationType="sum"/>
       <viewAttribute id="B_Case_state" aggregationType="sum"/>
       <viewAttribute id="B_Case_factEndTime" aggregationType="min"/>
-      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute id="C_Organization_code"/>
+      <viewAttribute id="Dashboard_X_ratio" aggregationType="sum"/>
+      <viewAttribute id="C_Organization_type" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$FormCode$FormCode"/>
     </viewAttributes>
     <calculatedViewAttributes>
-      <calculatedViewAttribute id="CC_DATE" datatype="DATE" expressionLanguage="SQL">
+      <calculatedViewAttribute id="CC_Date" datatype="DATE" expressionLanguage="SQL">
         <formula>case &quot;B_Case_state&quot; when 200 
-then ADD_YEARS(&quot;ProcInstEndTime&quot;, 2)
-when 201 then &quot;B_Case_factEndTime&quot; end</formula>
+then ADD_YEARS(to_date(&quot;ProcInstEndTime&quot;), 2)
+when 201 then to_date(&quot;B_Case_factEndTime&quot; )
+end</formula>
       </calculatedViewAttribute>
       <calculatedViewAttribute id="CC_BusinessUnit" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
         <formula>case &quot;B_Case_HangYe&quot; when  153 then 'B01'
@@ -1232,8 +1204,8 @@ when 3649 then 'B02' end</formula>
     <input node="J_MKBX_4">
       <mapping xsi:type="Calculation:AttributeMapping" target="ProcInstEndTime" source="ProcInstEndTime"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="AllocatedAmount" source="AllocatedAmount"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_code" source="B_Case_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_number" source="B_Case_number"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_nature" source="B_Case_nature"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_HangYe" source="B_Case_HangYe"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_customerCode" source="B_Case_customerCode"/>
@@ -1241,8 +1213,9 @@ when 3649 then 'B02' end</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_type" source="B_Case_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_state" source="B_Case_state"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="B_Case_factEndTime" source="B_Case_factEndTime"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_code" source="C_Organization_code"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dashboard_X_ratio" source="Dashboard_X_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_Organization_type" source="C_Organization_type"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$FormCode$FormCode" source="FormCode"/>
     </input>
     <input node="J_MKBX_4">
@@ -1259,52 +1232,52 @@ when 3649 then 4577 end</filter>
 </calculationViews>
 <logicalModel id="U_AJFY">
   <attributes>
-    <attribute id="B_Case_number" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="B_Case_number"/>
-      <keyMapping columnObjectName="U_AJFY" columnName="B_Case_number"/>
+    <attribute id="CC_BusinessUnit" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_BusinessUnit"/>
+      <keyMapping columnObjectName="U_AJFY" columnName="CC_BusinessUnit"/>
     </attribute>
-    <attribute id="B_Case_code" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="KeHuZu" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KeHuZu"/>
+      <keyMapping columnObjectName="U_AJFY" columnName="KeHuZu"/>
+    </attribute>
+    <attribute id="B_Case_code" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_code"/>
       <keyMapping columnObjectName="U_AJFY" columnName="B_Case_code"/>
     </attribute>
-    <attribute id="B_Case_nature" order="3" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_number" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="B_Case_number"/>
+      <keyMapping columnObjectName="U_AJFY" columnName="B_Case_number"/>
+    </attribute>
+    <attribute id="B_Case_nature" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_nature"/>
       <keyMapping columnObjectName="U_AJFY" columnName="B_Case_nature"/>
     </attribute>
-    <attribute id="B_Case_HangYe" order="4" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_HangYe" order="6" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_HangYe"/>
       <keyMapping columnObjectName="U_AJFY" columnName="B_Case_HangYe"/>
     </attribute>
-    <attribute id="B_Case_customerCode" order="5" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_customerCode" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_customerCode"/>
       <keyMapping columnObjectName="U_AJFY" columnName="B_Case_customerCode"/>
     </attribute>
-    <attribute id="B_Case_regionCode" order="6" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_regionCode" order="8" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_regionCode"/>
       <keyMapping columnObjectName="U_AJFY" columnName="B_Case_regionCode"/>
     </attribute>
-    <attribute id="B_Case_type" order="7" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="B_Case_type" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="B_Case_type"/>
       <keyMapping columnObjectName="U_AJFY" columnName="B_Case_type"/>
     </attribute>
-    <attribute id="C_Organization_code" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="C_Organization_code"/>
-      <keyMapping columnObjectName="U_AJFY" columnName="C_Organization_code"/>
-    </attribute>
-    <attribute id="CC_DATE" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_DATE"/>
-      <keyMapping columnObjectName="U_AJFY" columnName="CC_DATE"/>
-    </attribute>
-    <attribute id="CC_BusinessUnit" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_BusinessUnit"/>
-      <keyMapping columnObjectName="U_AJFY" columnName="CC_BusinessUnit"/>
+    <attribute id="CC_Date" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_Date"/>
+      <keyMapping columnObjectName="U_AJFY" columnName="CC_Date"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="AllocatedAmount" order="8" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="AllocatedAmount"/>
-      <measureMapping columnObjectName="U_AJFY" columnName="AllocatedAmount"/>
+    <measure id="CC_MONEY" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CC_MONEY"/>
+      <measureMapping columnObjectName="U_AJFY" columnName="CC_MONEY"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -1313,7 +1286,7 @@ when 3649 then 4577 end</filter>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="1266.9490255098035" y="112"/>
+      <upperLeftCorner x="1264.6290870175271" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
@@ -1323,7 +1296,7 @@ when 3649 then 4577 end</filter>
     </shape>
   
     <shape expanded="true" modelObjectName="J_TOBAJHS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="841.3747183895018" y="961.9999952316284"/>
+      <upperLeftCorner x="840.5409385574762" y="961.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="BusinessFlowForm" modelObjectNameSpace="J_TOBAJHS" modelObjectType="JoinNodeInput">
@@ -1336,45 +1309,40 @@ when 3649 then 4577 end</filter>
     </shape>
   
     <shape expanded="true" modelObjectName="BusinessFlowForm" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92.00000000000045" y="1161.9999940395355"/>
+      <upperLeftCorner x="91.99999999999977" y="1161.9999940395355"/>
       <rectangleSize height="30" width="249"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_BanAnJiHuaShu" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="868.0413850561686" y="1161.9999940395355"/>
+      <upperLeftCorner x="867.207605224143" y="1161.9999940395355"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Case" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="827.7999982118606" y="736.9999964237213"/>
+      <upperLeftCorner x="827.7999982118608" y="736.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="AnJianZhunBeiJieDuanShouYiBuChong" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1362.034077030533" y="961.9999952316284"/>
+      <upperLeftCorner x="1361.5351282745874" y="961.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="BanAnJiHuaShu" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1578.041385056169" y="1161.9999940395355"/>
+      <upperLeftCorner x="1577.2076052241437" y="1161.9999940395355"/>
       <rectangleSize height="30" width="332"/>
     </shape>
     <shape expanded="true" modelObjectName="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-TiaozhengHou" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1368.0413850561695" y="1161.9999940395355"/>
+      <upperLeftCorner x="1367.2076052241437" y="1161.9999940395355"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ChangeKeyInfo" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1960.041385056169" y="1161.9999940395355"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-  
-    <shape expanded="true" modelObjectName="LiAnXinXi" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2380.041385056169" y="1161.9999940395355"/>
+      <upperLeftCorner x="1959.2076052241434" y="1161.9999940395355"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Jiancai-JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1521.0340770305327" y="736.9999964237213"/>
+      <upperLeftCorner x="1520.5351282745876" y="736.9999964237213"/>
       <rectangleSize height="30" width="262"/>
     </shape>
     <shape expanded="true" modelObjectName="ShouYiKeHuBa-TiaozhengHou" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1572.0340770305324" y="961.9999952316284"/>
+      <upperLeftCorner x="1571.5351282745876" y="961.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-TiaozhengHou" modelObjectNameSpace="ShouYiKeHuBa-TiaozhengHou" modelObjectType="JoinNodeInput">
@@ -1390,7 +1358,7 @@ when 3649 then 4577 end</filter>
   
   
     <shape expanded="true" modelObjectName="getChangeKeyInfo" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1788.983677215895" y="961.9999952316284"/>
+      <upperLeftCorner x="1788.4847284599498" y="961.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="ChangeKeyInfo" modelObjectNameSpace="getChangeKeyInfo" modelObjectType="JoinNodeInput">
@@ -1402,7 +1370,7 @@ when 3649 then 4577 end</filter>
       <rectangleSize width="319"/>
     </shape>
     <shape expanded="true" modelObjectName="ShouYiKeHuBa-YuanKehuBa" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1998.9836772158949" y="961.9999952316284"/>
+      <upperLeftCorner x="1998.4847284599498" y="961.9999952316284"/>
       <rectangleSize width="160"/>
     </shape>
     <shape modelObjectName="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-YuanKehuBa" modelObjectNameSpace="ShouYiKeHuBa-YuanKehuBa" modelObjectType="JoinNodeInput">
@@ -1416,50 +1384,54 @@ when 3649 then 4577 end</filter>
     </shape>
   
     <shape expanded="true" modelObjectName="AnJianZhunBeiJieDuanShouYiKeHuBaDiaoZheng-YuanKehuBa" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2170.041385056169" y="1161.9999940395355"/>
+      <upperLeftCorner x="2169.207605224143" y="1161.9999940395355"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="false" modelObjectName="DaoKuanFenPei" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="176.7999994039535" y="961.9999952316284"/>
+      <upperLeftCorner x="176.7999994039538" y="961.9999952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="TiaozhengHouHesuanBa" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="386.7999994039535" y="961.9999952316284"/>
+      <upperLeftCorner x="386.7999994039538" y="961.9999952316284"/>
       <rectangleSize width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="TiaozhengQianHesuanBa" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="596.7999994039535" y="961.9999952316284"/>
+      <upperLeftCorner x="596.7999994039537" y="961.9999952316284"/>
       <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="getCourt" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2208.983677215895" y="961.9999952316284"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="LiAnXinXi" modelObjectNameSpace="getCourt" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="235"/>
-    </shape>
-    <shape modelObjectName="BanAnJiHuaShu" modelObjectNameSpace="getCourt" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="319"/>
     </shape>
     <shape expanded="true" modelObjectName="Business_Flow" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1078.0413850561692" y="1161.9999940395355"/>
+      <upperLeftCorner x="1077.207605224144" y="1161.9999940395355"/>
       <rectangleSize height="30" width="240"/>
     </shape>
     <shape expanded="true" modelObjectName="JieDanJinE-2" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="386.7999994039535" y="759.4999964237213"/>
+      <upperLeftCorner x="386.7999994039538" y="759.4999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="U_AJFY" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1110.4937997143431" y="236.9999988079071"/>
+      <upperLeftCorner x="1110.106096597027" y="236.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_DORG" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1037.7999982118608" y="736.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MKNUMBER" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1942.9917587683576" y="736.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MKDETAIL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2152.9917587683576" y="736.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MKCHILD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="2362.9917587683576" y="736.9999964237213"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
   
     <shape expanded="true" modelObjectName="get_AnJianZhunBeiShouYi" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1152.0340770305327" y="965.7499952316284"/>
+      <upperLeftCorner x="1151.5351282745874" y="965.7499952316284"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="Business_Flow" modelObjectNameSpace="get_AnJianZhunBeiShouYi" modelObjectType="JoinNodeInput" multiJoinViewNodeName="get_AnJianZhunBeiShouYi">
@@ -1475,92 +1447,74 @@ when 3649 then 4577 end</filter>
       <upperLeftCorner x="418" y="30"/>
       <rectangleSize width="265"/>
     </shape>
-    <shape expanded="true" modelObjectName="MinSheng-JieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="771.7999982118606" y="403.9999976158142"/>
+    <shape expanded="true" modelObjectName="J_MSAJFY" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="771.7999982118608" y="403.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="JieDanJinE-2" modelObjectNameSpace="MinSheng-JieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="MinSheng-JieDanJinE">
-      <upperLeftCorner x="75" y="30"/>
-      <rectangleSize width="235"/>
+    <shape modelObjectName="JieDanJinE-2" modelObjectNameSpace="J_MSAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MSAJFY">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="235.18212890625"/>
     </shape>
-    <shape modelObjectName="BusinessFlowForm" modelObjectNameSpace="MinSheng-JieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="MinSheng-JieDanJinE">
-      <upperLeftCorner x="393" y="30"/>
-      <rectangleSize width="265"/>
+    <shape modelObjectName="BusinessFlowForm" modelObjectNameSpace="J_MSAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MSAJFY">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="265.3408203125"/>
     </shape>
-    <shape modelObjectName="P_DORG" modelObjectNameSpace="MinSheng-JieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="MinSheng-JieDanJinE">
-      <upperLeftCorner x="354" y="309"/>
-      <rectangleSize width="224.7890625"/>
-    </shape>
-    <shape modelObjectName="Case" modelObjectNameSpace="MinSheng-JieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="MinSheng-JieDanJinE">
-      <upperLeftCorner x="755" y="30"/>
+    <shape modelObjectName="Case" modelObjectNameSpace="J_MSAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MSAJFY">
+      <upperLeftCorner x="620" y="30"/>
       <rectangleSize width="202.78369140625"/>
     </shape>
-  
-  
-    <shape expanded="true" modelObjectName="addDimToJieDanJinE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1079.9937997143431" y="391.9999976158142"/>
-      <rectangleSize height="30" width="221"/>
-    </shape>
-    <shape modelObjectName="Case" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="748" y="57"/>
-      <rectangleSize width="202"/>
-    </shape>
-    <shape modelObjectName="R_TOBAJHS" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="643" y="-87"/>
-      <rectangleSize width="265"/>
-    </shape>
-    <shape modelObjectName="Jiancai-JieDanJinE" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="32" y="42"/>
-      <rectangleSize width="235"/>
-    </shape>
-    <shape modelObjectName="BusinessFlowForm" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="366" y="26"/>
-      <rectangleSize width="265"/>
-    </shape>
-    <shape modelObjectName="P_DORG" modelObjectNameSpace="addDimToJieDanJinE" modelObjectType="JoinNodeInput" multiJoinViewNodeName="addDimToJieDanJinE">
-      <upperLeftCorner x="426" y="275"/>
+    <shape modelObjectName="P_DORG" modelObjectNameSpace="J_MSAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MSAJFY">
+      <upperLeftCorner x="20" y="314"/>
       <rectangleSize width="224.7890625"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_DORG" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1037.7999982118606" y="736.9999964237213"/>
+    <shape expanded="true" modelObjectName="J_JCAJFY" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1110.106096597027" y="391.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_MKNUMBER" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1941.8259881378603" y="736.9999964237213"/>
-      <rectangleSize height="30" width="160"/>
+    <shape modelObjectName="Jiancai-JieDanJinE" modelObjectNameSpace="J_JCAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_JCAJFY">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="235.18212890625"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_MKDETAIL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2361.8259881378603" y="736.9999964237213"/>
-      <rectangleSize height="30" width="160"/>
+    <shape modelObjectName="Case" modelObjectNameSpace="J_JCAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_JCAJFY">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="202.78369140625"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_MKCHILD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="2151.8259881378603" y="736.9999964237213"/>
-      <rectangleSize height="30" width="160"/>
+    <shape modelObjectName="P_DORG" modelObjectNameSpace="J_JCAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_JCAJFY">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="224.7890625"/>
+    </shape>
+    <shape modelObjectName="R_TOBAJHS" modelObjectNameSpace="J_JCAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_JCAJFY">
+      <upperLeftCorner x="45" y="494"/>
+      <rectangleSize width="265.3408203125"/>
+    </shape>
+    <shape modelObjectName="BusinessFlowForm" modelObjectNameSpace="J_JCAJFY" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_JCAJFY">
+      <upperLeftCorner x="598" y="301"/>
+      <rectangleSize width="265.3408203125"/>
     </shape>
     <shape expanded="true" modelObjectName="J_MKBX" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1941.8259881378603" y="391.9999976158142"/>
+      <upperLeftCorner x="1942.9917587683576" y="391.9999976158142"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_MKNUMBER" modelObjectNameSpace="J_MKBX" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MKBX">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="184.42529296875"/>
     </shape>
-    <shape modelObjectName="P_MKDETAIL" modelObjectNameSpace="J_MKBX" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MKBX">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="139.779296875"/>
-    </shape>
     <shape modelObjectName="P_MKCHILD" modelObjectNameSpace="J_MKBX" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MKBX">
-      <upperLeftCorner x="620" y="30"/>
+      <upperLeftCorner x="335" y="203"/>
       <rectangleSize width="214.390625"/>
     </shape>
+    <shape modelObjectName="P_MKDETAIL" modelObjectNameSpace="J_MKBX" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MKBX">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="139.779296875"/>
+    </shape>
     <shape modelObjectName="Case" modelObjectNameSpace="J_MKBX" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MKBX">
-      <upperLeftCorner x="920" y="30"/>
+      <upperLeftCorner x="475" y="407"/>
       <rectangleSize width="202.78369140625"/>
     </shape>
     <shape modelObjectName="P_DORG" modelObjectNameSpace="J_MKBX" modelObjectType="JoinNodeInput" multiJoinViewNodeName="J_MKBX">
-      <upperLeftCorner x="1220" y="30"/>
+      <upperLeftCorner x="112" y="407"/>
       <rectangleSize width="224.7890625"/>
     </shape>
   </shapes>
 </layout>
-</Calculation:scenario>     
+</Calculation:scenario>
